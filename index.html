@@ -7,7 +7,11 @@
 <meta name="description" content="NBL Well-Being Index · แดชบอร์ดดัชนีความอยู่ดีมีสุขจังหวัดหนองบัวลำภู ข้อมูลสดจากระบบบัญชีข้อมูลจังหวัด">
 <meta name="theme-color" content="#db2777">
 <meta property="og:title" content="ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู">
-<meta property="og:image" content="assets/hero/hero-home.jpg">
+<meta property="og:image" content="https://nsonongbualamphutc-debug.github.io/NBL-WellBeing-Dashboard/assets/brand/og-image.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://nsonongbualamphutc-debug.github.io/NBL-WellBeing-Dashboard/"><meta property="og:type" content="website">
+<meta property="og:description" content="ติดตามคุณภาพชีวิตคนหนองบัวลำภู 7 มิติ ข้อมูลสดจากระบบบัญชีข้อมูลจังหวัด">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/brand/logo-wellbeing.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -470,6 +474,46 @@ body.present .ticker{display:none}
 .qr{width:190px;height:190px;padding:14px;border-radius:20px;background:#fff;box-shadow:0 0 0 1px var(--line2),0 20px 40px -20px rgba(13,148,136,.6)}.qr svg{width:100%;height:100%}.qr svg path,.qr svg rect[fill="black"]{fill:#0b3b37}
 .ql{display:grid;gap:8px;margin-top:6px}.ql span{display:flex;gap:8px;align-items:center;font-size:14px}.ql svg{width:17px;height:17px;color:#16a34a}
 @media(max-width:1100px){.ccmain{grid-template-columns:1fr}.ccstats{grid-template-columns:repeat(2,minmax(0,1fr))}.rr{grid-template-columns:14px 1fr;}.rr .rm,.rr .ra{grid-column:2}#ccRow1{grid-template-columns:1fr!important}.qrc{grid-template-columns:1fr}}
+
+/* ======================= ROUND 3 ======================= */
+.ldv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s}
+#loader .ld{background:var(--glass);backdrop-filter:blur(18px);padding:30px;border-radius:28px;border:1px solid var(--line2);box-shadow:var(--shadow2)}
+#loader .ld{position:relative}
+.dchip{display:inline-flex;align-items:center;gap:8px;padding:5px 14px 5px 5px}.dchip img{width:30px;height:30px;border-radius:50%;object-fit:cover}.dchip svg{width:16px;height:16px;margin:0 2px 0 6px}
+.simtop{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px;margin-top:20px}
+.simv{display:flex;align-items:center;gap:18px;margin:6px 0 4px;flex-wrap:wrap}.simv small{display:block;font-size:12.5px;color:var(--tx3)}.simv b{font-family:var(--head);font-size:56px;font-weight:800;line-height:1}.simv>span svg{width:28px;height:28px;color:var(--tx3)}
+.simv em{font-style:normal;font-family:var(--head);font-weight:700;font-size:18px;padding:6px 14px;border-radius:12px;background:color-mix(in srgb,var(--tx3) 14%,transparent)}
+em.up,.simds.up,.slf em.up{color:#16a34a}em.dn,.simds.dn,.slf em.dn{color:#e11d48}
+.simv em.up{background:rgba(34,197,94,.14)}.simv em.dn{background:rgba(244,63,94,.12)}
+.simp{display:flex;flex-direction:column}.simp .ins{width:100%;text-align:left;font-family:inherit}.simp .ins>div:last-child svg{width:16px;height:16px;color:var(--tx3)}
+.simgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px}
+.simds{margin-left:auto;font-family:var(--head);font-size:15px;color:var(--tx2)}
+.sl{padding:12px 0;border-bottom:1px dashed var(--line)}.sl:last-child{border:0}
+.slh{display:flex;justify-content:space-between;gap:10px;font-size:14px}.slh b{font-family:var(--head);font-weight:600;white-space:nowrap}
+.sl input{width:100%;margin:10px 0 4px;accent-color:var(--c);height:6px;cursor:pointer}
+.slf{display:flex;justify-content:space-between;font-size:12px;color:var(--tx3)}.slf em{font-style:normal;font-family:var(--head);font-weight:700;font-size:13px}
+#botBtn{position:fixed;right:22px;bottom:22px;z-index:55;display:flex;align-items:center;gap:10px;height:62px;padding:0 20px 0 6px;border-radius:999px;background:linear-gradient(135deg,var(--brand),#7c3aed);color:#fff;font-family:var(--head);font-weight:600;font-size:15px;box-shadow:0 18px 40px -12px rgba(219,39,119,.7);transition:.3s}
+#botBtn:hover{transform:translateY(-3px) scale(1.03)}
+#botBtn img,#botBtn svg{width:50px;height:50px;border-radius:50%;object-fit:cover;background:rgba(255,255,255,.18);padding:2px}#botBtn svg{padding:12px}
+#botBtn::before{content:"";position:absolute;inset:-4px;border-radius:999px;border:2px solid rgba(244,114,182,.6);animation:ring 2.4s infinite}
+@keyframes ring{0%{opacity:.8;transform:scale(1)}100%{opacity:0;transform:scale(1.18)}}
+#bot{position:fixed;right:22px;bottom:96px;z-index:56;width:min(410px,calc(100vw - 28px));height:min(620px,calc(100vh - 130px));display:flex;flex-direction:column;border-radius:26px;overflow:hidden;background:var(--glass);backdrop-filter:blur(24px) saturate(160%);border:1px solid var(--line2);box-shadow:var(--shadow2);transform:translateY(20px) scale(.96);opacity:0;pointer-events:none;transition:.3s cubic-bezier(.2,.8,.2,1)}
+#bot.on{transform:none;opacity:1;pointer-events:auto}
+.bh{display:flex;align-items:center;gap:12px;padding:14px 16px;background:linear-gradient(135deg,var(--brand),#7c3aed);color:#fff}
+.ba{width:46px;height:46px;border-radius:50%;overflow:hidden;background:rgba(255,255,255,.2);display:grid;place-items:center}.ba img{width:100%;height:100%;object-fit:cover}.ba svg{width:24px;height:24px}
+.bh b{font-family:var(--head);font-size:16px;display:block}.bh small{font-size:12px;opacity:.9;display:flex;align-items:center;gap:6px}.bh small i{width:7px;height:7px;border-radius:50%;background:#4ade80}
+.bh .ibtn{margin-left:auto;background:rgba(255,255,255,.18);border-color:transparent;color:#fff}
+.bm{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:88%;padding:11px 14px;border-radius:18px;font-size:14.5px;line-height:1.6}
+.msg.ai{align-self:flex-start;background:var(--panel);border:1px solid var(--line);border-bottom-left-radius:6px}
+.msg.me{align-self:flex-end;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-bottom-right-radius:6px}
+.msg small{color:var(--tx3)}.acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.acts .chip{padding:6px 11px;font-size:12.5px;border-color:var(--brand);color:var(--brand)}
+.typing{display:flex;gap:4px;padding:4px 0}.typing i{width:7px;height:7px;border-radius:50%;background:var(--tx3);animation:blink 1s infinite}.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+.bs{display:flex;gap:6px;overflow-x:auto;padding:8px 14px;border-top:1px solid var(--line);scrollbar-width:none}.bs .chip{flex:none;font-size:12.5px;padding:6px 11px}
+.bf{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--line)}.bf input{flex:1;height:44px;border-radius:13px;border:1px solid var(--line2);background:var(--panel);color:var(--tx);padding:0 14px;font-family:var(--font);font-size:15px;outline:none}.bf input:focus{border-color:var(--brand)}.bf .tbtn{height:44px;padding:0 14px}
+body.present #botBtn,body.present #bot{display:none}
+@media(max-width:1100px){.simtop{grid-template-columns:1fr}}
+@media(max-width:640px){#botBtn span{display:none}#botBtn{padding:0 6px}}
 .scrim{display:none}
 
 /* ============================== RESPONSIVE ============================== */
@@ -499,7 +543,7 @@ body.present .ticker{display:none}
  <g id="lotus"><path d="M100 30C120 60 122 100 100 140 78 100 80 60 100 30Z" fill="url(#lg1)"/><path d="M100 140C70 120 52 92 50 58 78 70 96 100 100 140Z" fill="url(#lg2)" opacity=".92"/><path d="M100 140C130 120 148 92 150 58 122 70 104 100 100 140Z" fill="url(#lg2)" opacity=".92"/><path d="M100 142C64 140 34 122 18 96 50 92 82 110 100 142Z" fill="url(#lg2)" opacity=".7"/><path d="M100 142C136 140 166 122 182 96 150 92 118 110 100 142Z" fill="url(#lg2)" opacity=".7"/><path d="M28 156C70 146 130 146 172 156 130 168 70 168 28 156Z" fill="url(#lg3)" opacity=".85"/></g>
 </defs></svg>
 
-<div id="loader"><div class="ld">
+<div id="loader"><video class="ldv" data-video="brand/intro" autoplay muted playsinline></video><div class="ld">
  <div class="lt"><img data-src="brand/logo-wellbeing" data-fb="lotus" alt=""></div>
  <h2>กำลังเชื่อมต่อระบบบัญชีข้อมูลจังหวัด</h2>
  <p id="ldTxt">nongbualamphu.gdcatalog.go.th</p>
@@ -821,6 +865,7 @@ const FEAT={
 const PAGES=[
  {id:'overview',name:'ภาพรวมจังหวัด',en:'Overview',icon:'layout-dashboard',img:'icons/menu-overview',grp:'หน้าหลัก'},
  {id:'district',name:'โปรไฟล์รายอำเภอ',en:'District Profile',icon:'map-pinned',img:'icons/menu-district',grp:'หน้าหลัก'},
+ {id:'sim',name:'ห้องจำลองนโยบาย',en:'Policy Simulator',icon:'sliders-horizontal',img:'icons/menu-simulator',grp:'หน้าหลัก'},
  ...DIMS.map(d=>({id:d.id,name:d.name,en:d.en,icon:d.icon,img:'icons/dim-'+d.id,grp:'7 มิติความอยู่ดีมีสุข',dim:d})),
  {id:'catalog',name:'คลังข้อมูลจังหวัด',en:'Data Catalog',icon:'database',img:'icons/menu-catalog',grp:'ข้อมูลและระเบียบวิธี'},
  {id:'sources',name:'แหล่งข้อมูลและ API',en:'Sources & API',icon:'plug-zap',img:'icons/menu-sources',grp:'ข้อมูลและระเบียบวิธี'},
@@ -837,7 +882,7 @@ function go(id){if(!PAGES.find(p=>p.id===id))id='overview';CUR=id;const p=PAGES.
  document.querySelectorAll('.page').forEach(x=>x.classList.toggle('on',x.id==='p-'+id));
  document.getElementById('crTitle').textContent=p.name;document.getElementById('crSub').textContent=p.dim?'มิติที่ '+(DIMS.indexOf(p.dim)+1)+' จาก 7 · '+p.en:p.en;
  try{history.replaceState(null,'','#'+id)}catch(e){}
- if(!RENDERED[id]){RENDERED[id]=1;({overview:renderOverview,district:renderDistrict,catalog:renderCatalog,sources:renderSources,method:renderMethod}[id]||(()=>renderDim(id)))()}
+ if(!RENDERED[id]){RENDERED[id]=1;({overview:renderOverview,district:renderDistrict,sim:renderSim,catalog:renderCatalog,sources:renderSources,method:renderMethod}[id]||(()=>renderDim(id)))()}
  setTimeout(()=>CHARTS.forEach(c=>{try{c.resize()}catch(e){}}),40);setTimeout(()=>fx(document.getElementById('p-'+id)),60);window.scrollTo({top:0,behavior:'smooth'});}
 
 function indCard(ind){const c=dc(ind.dimO),L=ind.last,dl=delta(ind);
@@ -1085,11 +1130,11 @@ function drawHistory(el){const H=indexHistory();if(H.length<2){el.innerHTML='<di
 let DSEL=DISTRICTS[0];
 function distRows(dn){return IND.filter(i=>i.d&&i.d.v[dn]!=null).map(i=>{const e=Object.entries(i.d.v);const sorted=[...e].sort((a,b)=>i.better==='down'?a[1]-b[1]:b[1]-a[1]);const rank=sorted.findIndex(x=>x[0]===dn)+1;const avg=sum(e.map(x=>x[1]))/e.length;return{i,v:i.d.v[dn],y:i.d.y,rank,n:e.length,avg}})}
 function renderDistrict(){const el=document.getElementById('p-district');const c='#db2777';
- el.innerHTML=`<section class="dhero" style="--c:${c};min-height:260px"><div class="media"><div class="ph" data-bg="hero/hero-home"></div><video data-video="hero/hero-home" autoplay muted loop playsinline></video></div>
-  <div class="ico"><img data-src="icons/menu-district" data-fb="map-pinned" alt=""></div><div><div class="en">District Profile · 6 อำเภอ</div><h2>โปรไฟล์รายอำเภอ</h2><p>เทียบอำเภอกับค่าเฉลี่ย 6 อำเภอในทุกตัวชี้วัดที่มีข้อมูลรายอำเภอ เพื่อหาจุดแข็งและพื้นที่เป้าหมายเชิงนโยบาย</p></div></section>
- <div class="sec"><div class="chips" id="dchips">${DISTRICTS.map(d=>`<button class="chip ${d===DSEL?'on':''}" data-d="${d}">${ic('map-pin')}อำเภอ${d}</button>`).join('')}</div><div id="dbody"></div></div>`;
+ el.innerHTML=`<section class="dhero" style="--c:${c};min-height:260px"><div class="media"><div class="ph" data-bg="hero/hero-home"></div><div class="ph" id="dHeroPh" style="transition:opacity .6s;opacity:0"></div></div>
+  <div class="ico"><img data-src="icons/menu-district" data-fb="map-pinned" alt=""></div><div class="dtx"><div class="en">District Profile · 6 อำเภอ</div><h2 id="dHeroT">อำเภอ${DSEL}</h2><p>เทียบอำเภอกับค่าเฉลี่ย 6 อำเภอในทุกตัวชี้วัดที่มีข้อมูลรายอำเภอ เพื่อหาจุดแข็งและพื้นที่เป้าหมายเชิงนโยบาย</p></div></section>
+ <div class="sec"><div class="chips" id="dchips">${DISTRICTS.map(d=>`<button class="chip dchip ${d===DSEL?'on':''}" data-d="${d}"><img data-src="districts/${DSLUG[d]}" data-fb="map-pin" alt="">อำเภอ${d}</button>`).join('')}</div><div id="dbody"></div></div>`;
  lucide.createIcons();hydrate(el);el.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{DSEL=b.dataset.d;el.querySelectorAll('[data-d]').forEach(x=>x.classList.toggle('on',x===b));drawDistrict()});drawDistrict()}
-function drawDistrict(){const B=document.getElementById('dbody');const R=distRows(DSEL);const sc=R.filter(r=>r.i.better);const top=[...sc].sort((a,b)=>a.rank-b.rank).slice(0,3),low=[...sc].sort((a,b)=>b.rank-a.rank).slice(0,3);
+function drawDistrict(){const B=document.getElementById('dbody');const hp=document.getElementById('dHeroPh'),ht=document.getElementById('dHeroT');if(ht)ht.textContent='อำเภอ'+DSEL;if(hp)resolveImg('districts/'+DSLUG[DSEL]).then(u=>{hp.style.backgroundImage=u?`url("${u}")`:'';hp.style.backgroundSize='cover';hp.style.backgroundPosition='center';hp.style.opacity=u?1:0});const R=distRows(DSEL);const sc=R.filter(r=>r.i.better);const top=[...sc].sort((a,b)=>a.rank-b.rank).slice(0,3),low=[...sc].sort((a,b)=>b.rank-a.rank).slice(0,3);
  const scoreD=sc.length?Math.round(sum(sc.map(r=>(r.n-r.rank)/(r.n-1)*100))/sc.length):null;
  B.innerHTML=`<div class="g g3" style="margin-top:18px"><div class="card"><h4>${ic('map')}ตำแหน่งในจังหวัด</h4><div class="sub">คลิกแผนที่เพื่อเปลี่ยนอำเภอ</div><div id="dpick" style="height:340px"></div></div>
   <div class="card" style="--c:#16a34a"><h4>${ic('thumbs-up')}จุดแข็งของอำเภอ</h4><div class="sub">อันดับดีที่สุดเมื่อเทียบ 6 อำเภอ</div>${top.map(r=>`<div class="obs"><span class="od good">${ic(r.i.icon)}</span><p><b>${r.i.name}</b><br><small style="color:var(--tx3)">อันดับ ${r.rank}/${r.n} · ${fmt(r.v,r.i.dec)} ${r.i.unit}</small></p></div>`).join('')}</div>
@@ -1146,6 +1191,72 @@ function fx(root){if(!root)return;reveal(root);if(RM)return;root.querySelectorAl
 document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.card');if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}},{passive:true});
 function buildTicker(){const t=document.getElementById('ticker');if(!t)return;const items=IND.filter(i=>i.last&&i.prev&&i.better).map(i=>{const d=delta(i);return`<span class="tk ${d.cls}" data-ind="${i.id}">${ic(i.icon)}<b>${i.name.replace(/\s*\(.*\)/,'')}</b>${fmt(i.last.v,i.dec)} ${i.unit}<em>${ic(d.icon)}${fmt(Math.abs(d.pct),1)}%</em><small>พ.ศ. ${i.last.y}</small></span>`}).join('');
  t.innerHTML=`<div class="tkl"><i></i>LIVE</div><div class="tkw"><div class="tkr">${items}${items}</div></div>`;lucide.createIcons();t.querySelectorAll('[data-ind]').forEach(x=>x.onclick=()=>openInd(x.dataset.ind))}
+
+/* =========================================================
+   ROUND 3 · จำลองนโยบาย · ผู้ช่วยถามข้อมูล · ภาพอำเภอ
+   ========================================================= */
+const DSLUG={'เมืองหนองบัวลำภู':'mueang','นากลาง':'naklang','โนนสัง':'nonsang','ศรีบุญเรือง':'sibunrueang','สุวรรณคูหา':'suwannakhuha','นาวัง':'nawang'};
+
+/* ---------------- POLICY SIMULATOR ---------------- */
+const SIM={};
+const SIMP=[
+ {t:'ลดฝุ่น PM2.5 ลง 30%',ic:'wind',set:{pm:-30}},
+ {t:'ลดอุบัติเหตุทางถนน 20%',ic:'car-front',set:{roadd:-20,roadi:-20}},
+ {t:'เพิ่มรายได้ครัวเรือน 10% และลดหนี้ 10%',ic:'wallet',set:{inc:10,debt:-10}},
+ {t:'ลดเด็กออกกลางคัน 40%',ic:'school',set:{drop:-40}},
+ {t:'ลดอัตราป่วยความดัน 10%',ic:'heart-pulse',set:{ht:-10}},
+ {t:'เพิ่มครัวเรือนมีคอมพิวเตอร์ 50%',ic:'monitor',set:{hhpc:50}},
+];
+function simScore(i,p){const vs=i.s.map(x=>x.v),mn=Math.min(...vs),mx=Math.max(...vs);const v=i.last.v*(1+(p||0)/100);if(mx===mn)return 50;let x=(v-mn)/(mx-mn)*100;if(i.better==='down')x=100-x;return Math.max(0,Math.min(100,x))}
+function simCalc(){const d={};IND.filter(i=>i.sc!=null).forEach(i=>{(d[i.dim]=d[i.dim]||[]).push(simScore(i,SIM[i.id]))});const dims={};DIMS.forEach(D=>{if(d[D.id])dims[D.id]=sum(d[D.id])/d[D.id].length});const v=Object.values(dims);return{o:v.length?sum(v)/v.length:0,dims}}
+function renderSim(){const el=document.getElementById('p-sim');const c=isDark()?'#a78bfa':'#7c3aed';
+ el.innerHTML=`<section class="dhero" style="--c:${c};min-height:300px"><div class="media"><div class="ph" data-bg="dims/sim"></div><video data-video="dims/sim" autoplay muted loop playsinline></video></div>
+  <div class="ico"><img data-src="icons/menu-simulator" data-fb="sliders-horizontal" alt=""></div><div class="dtx"><div class="en">Policy Simulator · What-if</div><h2>ห้องจำลองนโยบาย</h2><p>ลองตั้งเป้าหมายการพัฒนา แล้วดูทันทีว่าดัชนีความอยู่ดีมีสุขของจังหวัดจะเปลี่ยนไปเท่าไร ช่วยจัดลำดับความสำคัญว่าควรลงทุนนโยบายด้านใดก่อน</p></div></section>
+ <div class="simtop"><div class="card simg"><h4>${ic('gauge')}ดัชนีก่อน → หลังจำลอง</h4><div class="simv"><div><small>ปัจจุบัน</small><b>${OVERALL}</b></div><span>${ic('arrow-right')}</span><div><small>หลังจำลอง</small><b id="simNew" style="color:${c}">${OVERALL}</b></div><em id="simD"></em></div><div id="simRadar" style="height:300px"></div></div>
+  <div class="card"><h4>${ic('wand-sparkles')}สถานการณ์ตัวอย่าง</h4><div class="sub">กดเพื่อโหลดชุดเป้าหมาย แล้วปรับต่อได้</div><div class="simp">${SIMP.map((p,k)=>`<button class="ins" data-p="${k}" style="--c:${c}"><div class="ic">${ic(p.ic)}</div><div class="t">${p.t}</div><div>${ic('play')}</div></button>`).join('')}<button class="btn" id="simReset" style="margin-top:10px">${ic('rotate-ccw')}รีเซ็ตทั้งหมด</button></div></div></div>
+ <div class="sec">${secHead('ตั้งเป้าหมายรายตัวชี้วัด','เลื่อนเพื่อเปลี่ยนค่าล่าสุด ±50% · ระบบคำนวณคะแนนใหม่ด้วยสูตรเดียวกับดัชนีจริง',c)}
+  <div class="simgrid">${DIMS.map(d=>`<div class="card" style="--c:${dc(d)}"><h4>${ic(d.icon)}${d.name}<span class="simds" id="sd-${d.id}"></span></h4>${IND.filter(i=>i.dim===d.id&&i.sc!=null).map(i=>`<div class="sl"><div class="slh"><span>${i.name}</span><b id="sv-${i.id}">${fmt(i.last.v,i.dec)} ${i.unit}</b></div><input type="range" min="-50" max="50" step="5" value="0" data-i="${i.id}" style="--c:${dc(d)}"><div class="slf"><small>${i.better==='down'?'ลดลง = ดี':'เพิ่มขึ้น = ดี'}</small><em id="sp-${i.id}">0%</em></div></div>`).join('')}</div>`).join('')}</div>
+  <p class="sub" style="margin-top:14px">${ic('info')} เป็นการจำลองเชิงคณิตศาสตร์จากโครงสร้างดัชนี ไม่ใช่การพยากรณ์ คะแนนถูกจำกัดในช่วง 0–100 ของข้อมูลย้อนหลัง</p></div>`;
+ lucide.createIcons();hydrate(el);
+ el.querySelectorAll('input[type=range]').forEach(r=>r.oninput=()=>{SIM[r.dataset.i]=+r.value;simUpd()});
+ el.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{Object.keys(SIM).forEach(k=>delete SIM[k]);Object.assign(SIM,SIMP[b.dataset.p].set);el.querySelectorAll('input[type=range]').forEach(r=>r.value=SIM[r.dataset.i]||0);simUpd();toast('โหลดสถานการณ์: '+SIMP[b.dataset.p].t)});
+ document.getElementById('simReset').onclick=()=>{Object.keys(SIM).forEach(k=>delete SIM[k]);el.querySelectorAll('input[type=range]').forEach(r=>r.value=0);simUpd()};
+ el._radar=mk(document.getElementById('simRadar'),{tooltip:{...TT,trigger:'item'},legend:{...LEG,bottom:0,top:'auto'},radar:{radius:'62%',center:['50%','48%'],indicator:DIMS.map(d=>({name:d.name.split('และ')[0],max:100,color:dc(d)})),splitNumber:4,axisName:{fontFamily:'Prompt',fontSize:12},splitLine:{lineStyle:{color:AX.splitLine.lineStyle.color}},splitArea:{areaStyle:{color:['transparent']}},axisLine:{lineStyle:{color:AX.axisLine.lineStyle.color}}},series:[{type:'radar',data:[{name:'ปัจจุบัน',value:DIMS.map(d=>d.score??0),lineStyle:{color:'#94a3b8',type:'dashed'},itemStyle:{color:'#94a3b8'},areaStyle:{color:'rgba(148,163,184,.12)'}},{name:'หลังจำลอง',value:DIMS.map(d=>d.score??0),lineStyle:{color:c,width:2.5},itemStyle:{color:c},areaStyle:{color:c+'33'}}]}]});
+ simUpd()}
+function simUpd(){const r=simCalc();const n=Math.round(r.o);const d=n-OVERALL;document.getElementById('simNew').textContent=n;const e=document.getElementById('simD');e.textContent=(d>0?'+':'')+d+' คะแนน';e.className=d>0?'up':d<0?'dn':'';
+ DIMS.forEach(D=>{const x=document.getElementById('sd-'+D.id);if(x&&r.dims[D.id]!=null){const dd=Math.round(r.dims[D.id])-(D.score??0);x.textContent=Math.round(r.dims[D.id])+(dd?` (${dd>0?'+':''}${dd})`:'');x.className='simds '+(dd>0?'up':dd<0?'dn':'')}});
+ IND.filter(i=>i.sc!=null).forEach(i=>{const p=SIM[i.id]||0;const v=document.getElementById('sv-'+i.id),q=document.getElementById('sp-'+i.id);if(v)v.textContent=fmt(i.last.v*(1+p/100),i.dec)+' '+i.unit;if(q){q.textContent=(p>0?'+':'')+p+'%';const good=p===0?null:(i.better==='up')===(p>0);q.className=good===null?'':good?'up':'dn'}});
+ const el=document.getElementById('p-sim');if(el&&el._radar)el._radar.setOption({series:[{data:[{value:DIMS.map(d=>d.score??0)},{value:DIMS.map(d=>Math.round(r.dims[d.id]??0))}]}]})}
+
+/* ---------------- ASSISTANT ---------------- */
+const KW={ht:['ความดัน','เบาหวาน','ncd','โรคไม่ติดต่อ'],nut:['โภชนาการ','เด็กเล็ก','สมส่วน'],lbw:['ทารก','น้ำหนักแรกเกิด','แรกเกิด'],doc:['แพทย์','หมอ'],dep:['ซึมเศร้า','สุขภาพจิต'],onet3:['onet','o-net','โอเน็ต','คะแนนสอบ'],drop:['ออกกลางคัน','หลุดออก'],stud:['นักเรียน'],gpp:['gpp','จีพีพี','ผลิตภัณฑ์จังหวัด'],inc:['รายได้'],debt:['หนี้'],gini:['เหลื่อมล้ำ','gini','จีนี'],unemp:['ว่างงาน','ตกงาน'],wage:['ค่าแรง','ค่าจ้าง'],tour:['ท่องเที่ยว'],pop:['ประชากร'],elder:['สูงอายุ','สูงวัย','ผู้สูงอายุ'],pov:['ยากจน','จน'],dis:['พิการ'],birth:['เกิด'],ita:['ita','โปร่งใส','คุณธรรม'],roadd:['อุบัติเหตุ','ถนน','เสียชีวิต'],roadi:['บาดเจ็บ'],crime:['คดีอาญา','อาชญากรรม'],drug:['ยาเสพติด','ยาบ้า'],pm:['ฝุ่น','pm','อากาศ','หมอกควัน'],forest:['ป่า'],waste:['ขยะ'],house:['บ้าน','ที่อยู่อาศัย'],hhnet:['อินเทอร์เน็ต','เน็ต'],hhmob:['มือถือ','โทรศัพท์'],hhpc:['คอมพิวเตอร์','คอม'],inet:['ออนไลน์']};
+const DKW={health:['สุขภาพ'],edu:['การศึกษา','ศึกษา'],econ:['เศรษฐกิจ'],society:['สังคม'],safety:['ความปลอดภัย','ปลอดภัย'],env:['สิ่งแวดล้อม'],living:['ที่อยู่อาศัย','ดิจิทัล']};
+const SUGG=['ภาพรวมจังหวัดเป็นอย่างไร','ประเด็นไหนน่าห่วงที่สุด','ฝุ่น PM2.5 เป็นอย่างไร','อำเภอนาวังมีจุดอ่อนอะไร','มิติสุขภาพเป็นอย่างไร','ควรทำนโยบายอะไรก่อน','ข้อมูลมาจากไหน'];
+function botAnswer(q){const t=q.toLowerCase().replace(/\s+/g,'');const A=(h,acts=[])=>({h,acts});const link=(t,k,id)=>({t,k,id});
+ const dist=DISTRICTS.find(d=>t.includes(d.replace('หนองบัวลำภู',''))&&!(d==='เมืองหนองบัวลำภู'&&!t.includes('เมือง')));
+ if(dist){const R=distRows(dist).filter(r=>r.i.better);const top=[...R].sort((a,b)=>a.rank-b.rank).slice(0,2),low=[...R].sort((a,b)=>b.rank-a.rank).slice(0,3);
+  return A(`<b>อำเภอ${dist}</b><br>จุดแข็ง: ${top.map(r=>`${r.i.name} (อันดับ ${r.rank}/${r.n})`).join(', ')}<br>ควรพัฒนา: ${low.map(r=>`${r.i.name} (อันดับ ${r.rank}/${r.n}, ${fmt(r.v,r.i.dec)} ${r.i.unit})`).join(', ')}`,[link('เปิดโปรไฟล์อำเภอ'+dist,'dist',dist)])}
+ const ind=IND.find(i=>i.s.length&&(KW[i.id]||[]).some(k=>t.includes(k.toLowerCase())));
+ const dim=DIMS.find(d=>(DKW[d.id]||[]).some(k=>t.includes(k)));
+ if(/นโยบาย|ควรทำ|แนะนำ|แก้ไข|ทำอะไรก่อน/.test(t)){const w=[...DIMS].filter(d=>d.score!=null).sort((a,b)=>a.score-b.score).slice(0,2);
+  return A(`ตามหลักวงจรนโยบาย ควรเริ่มจากมิติที่คะแนนต่ำสุด:<br>${w.map(d=>`• <b>${d.name}</b> (${d.score}/100): ${POL[d.id].weak[0]} — หน่วยงานหลัก ${POL[d.id].ag.split(' · ')[0]}`).join('<br>')}<br><small>เป็นแนวทางเบื้องต้นเพื่อประกอบการพิจารณา</small>`,[...w.map(d=>link('เปิดมิติ'+d.name,'page',d.id)),link('ลองจำลองนโยบาย','page','sim')])}
+ if(ind&&!(dim&&!(KW[ind.id]||[]).some(k=>t.includes(k)&&k.length>3))){const i=ind,dl=delta(i),T_=think(i);
+  return A(`<b>${i.name}</b><br>ค่าล่าสุด ${fmt(i.last.v,i.dec)} ${i.unit} (พ.ศ. ${i.last.y})${dl?` · ${dl.df>0?'เพิ่มขึ้น':'ลดลง'} ${fmt(Math.abs(dl.pct),1)}% จากปีก่อน`:''}${i.sc!=null?`<br>คะแนนพัฒนาการ ${i.sc}/100 (${level(i.sc).t})`:''}${T_.length?'<br>'+T_.slice(0,2).map(x=>'• '+x.t).join('<br>'):''}`,[link('ดูรายละเอียด','ind',i.id)])}
+ if(dim){const s=IND.filter(i=>i.dim===dim.id&&i.sc!=null).sort((a,b)=>a.sc-b.sc);return A(`<b>มิติ${dim.name}</b> ได้ ${dim.score}/100 (${level(dim.score).t})<br>ต่ำสุด: ${s.slice(0,s.length<=2?1:2).map(i=>`${i.name} (${i.sc})`).join(', ')}<br>สูงสุด: ${s.slice(-2).reverse().filter(i=>!s.slice(0,2).includes(i)||s.length<=2&&i===s[s.length-1]).map(i=>`${i.name} (${i.sc})`).join(', ')}`,[link('เปิดมิติ'+dim.name,'page',dim.id)])}
+ if(/แย่|ห่วง|ปัญหา|เฝ้าระวัง|ต่ำ|อ่อน/.test(t)){const s=IND.filter(i=>i.sc!=null).sort((a,b)=>a.sc-b.sc).slice(0,4);return A(`ประเด็นที่ควรเฝ้าระวังที่สุด:<br>${s.map(i=>`• ${i.name} — ${fmt(i.last.v,i.dec)} ${i.unit} (คะแนน ${i.sc})`).join('<br>')}`,s.slice(0,2).map(i=>link(i.name,'ind',i.id)))}
+ if(/ดี|แข็ง|เด่น|สูง/.test(t)){const s=IND.filter(i=>i.sc!=null).sort((a,b)=>b.sc-a.sc).slice(0,4);return A(`จุดแข็งของจังหวัด:<br>${s.map(i=>`• ${i.name} — ${fmt(i.last.v,i.dec)} ${i.unit} (คะแนน ${i.sc})`).join('<br>')}`,s.slice(0,2).map(i=>link(i.name,'ind',i.id)))}
+ if(/มาจาก|แหล่ง|api|เชื่อถือ|ที่มา/.test(t))return A(`ข้อมูลทั้งหมดดึงสดจาก <b>ระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู</b> ผ่าน API จำนวน ${Object.keys(RES).length} ชุดข้อมูล ของหน่วยงานราชการเจ้าของข้อมูล ทุกตัวเลขตรวจสอบย้อนกลับได้`,[link('เปิดศูนย์ควบคุมแหล่งข้อมูล','page','sources')]);
+ if(/ภาพรวม|ดัชนี|คะแนน|สรุป|จังหวัด/.test(t)){const w=[...DIMS].filter(d=>d.score!=null).sort((a,b)=>a.score-b.score);return A(`ดัชนีความอยู่ดีมีสุขรวม <b>${OVERALL}/100</b> (${level(OVERALL).t})<br>มิติสูงสุด: ${w[w.length-1].name} (${w[w.length-1].score}) · ต่ำสุด: ${w[0].name} (${w[0].score})`,[link('เปิดภาพรวม','page','overview')])}
+ return A('ยังไม่เข้าใจคำถามนี้ ลองถามเกี่ยวกับมิติ ตัวชี้วัด อำเภอ หรือนโยบาย เช่น:',SUGG.slice(0,4).map(s=>({t:s,k:'ask',id:s})))}
+function botInit(){if(document.getElementById('bot'))return;document.body.insertAdjacentHTML('beforeend',`<button id="botBtn" aria-label="ผู้ช่วยข้อมูล"><img data-src="brand/assistant" data-fb="sparkles" alt=""><span>ถามข้อมูล</span></button>
+ <div id="bot"><div class="bh"><span class="ba"><img data-src="brand/assistant" data-fb="sparkles" alt=""></span><div><b>ผู้ช่วยข้อมูล นภ.</b><small><i></i>ตอบจากข้อมูลสดบนแดชบอร์ด</small></div><button class="ibtn" id="botX">${ic('x')}</button></div><div class="bm" id="bm"></div>
+ <div class="bs" id="bs">${SUGG.map(s=>`<button class="chip" data-s="${s}">${s}</button>`).join('')}</div><form class="bf" id="bf"><input id="bi" placeholder="พิมพ์คำถาม เช่น ฝุ่นเป็นอย่างไร" autocomplete="off"><button class="tbtn pri" type="submit">${ic('send')}</button></form></div>`);
+ hydrate();lucide.createIcons();const B=document.getElementById('bot');document.getElementById('botBtn').onclick=()=>{B.classList.toggle('on');if(B.classList.contains('on')&&!document.getElementById('bm').children.length)botSay(`สวัสดีครับ ผมช่วยตอบคำถามจากข้อมูลบนแดชบอร์ดได้ เช่น สถานการณ์รายมิติ ตัวชี้วัด อำเภอ และข้อเสนอเชิงนโยบาย`);setTimeout(()=>document.getElementById('bi').focus(),100)};
+ document.getElementById('botX').onclick=()=>B.classList.remove('on');document.getElementById('bf').onsubmit=e=>{e.preventDefault();const v=document.getElementById('bi').value.trim();if(v){botAsk(v);document.getElementById('bi').value=''}};
+ document.querySelectorAll('#bs [data-s]').forEach(b=>b.onclick=()=>botAsk(b.dataset.s))}
+function botSay(h,acts=[]){const m=document.getElementById('bm');const d=document.createElement('div');d.className='msg ai';d.innerHTML=`<div class="typing"><i></i><i></i><i></i></div>`;m.appendChild(d);m.scrollTop=m.scrollHeight;
+ setTimeout(()=>{d.innerHTML=h+(acts.length?`<div class="acts">${acts.map(a=>`<button class="chip" data-k="${a.k}" data-id="${esc(a.id)}">${a.t}</button>`).join('')}</div>`:'');d.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{const k=b.dataset.k,id=b.dataset.id;if(k==='page')go(id);else if(k==='ind'){go(IND.find(i=>i.id===id).dim);setTimeout(()=>openInd(id),300)}else if(k==='dist'){DSEL=id;RENDERED.district=0;go('district')}else botAsk(id)});m.scrollTop=m.scrollHeight},650)}
+function botAsk(q){const m=document.getElementById('bm');m.insertAdjacentHTML('beforeend',`<div class="msg me">${esc(q)}</div>`);const a=botAnswer(q);botSay(a.h,a.acts)}
 
 /* ---------------- MODAL ---------------- */
 function bind(root){root.querySelectorAll('[data-ind]').forEach(c=>c.onclick=()=>openInd(c.dataset.ind));root.querySelectorAll('.dc[data-go]').forEach(c=>c.onclick=()=>go(c.dataset.go))}
@@ -1306,7 +1417,7 @@ function setStatus(f){const d=document.getElementById('stDot'),t=document.getEle
  document.getElementById('ftTime').textContent=LOADED_AT?'อัปเดตข้อมูล '+LOADED_AT.toLocaleString('th-TH',{dateStyle:'long',timeStyle:'short'}):''}
 function rebuild(){CHARTS.splice(0).forEach(c=>{try{c.dispose()}catch(e){}});RENDERED={};chartTheme();renderMenu();buildTicker();
  document.getElementById('pages').innerHTML=PAGES.map(p=>`<section class="page" id="p-${p.id}"></section>`).join('');go(CUR)}
-async function boot(){const fails=await loadAll();OVERALL=compute();setStatus(fails);rebuild();hydrate();loadMeta().then(()=>{const f=document.getElementById('faq');if(f){f.innerHTML=faqHTML();lucide.createIcons()}});
+async function boot(){const fails=await loadAll();OVERALL=compute();setStatus(fails);rebuild();hydrate();botInit();loadMeta().then(()=>{const f=document.getElementById('faq');if(f){f.innerHTML=faqHTML();lucide.createIcons()}});
  document.getElementById('loader').classList.add('out');
  if(SOURCE==='error')document.getElementById('p-overview').innerHTML=`<div class="card empty">ไม่สามารถเชื่อมต่อ API ระบบบัญชีข้อมูลจังหวัดได้ กรุณากด “รีเฟรชข้อมูล”</div>`}
 const themeIcon=()=>{document.getElementById('btnTheme').innerHTML=ic(isDark()?'sun':'moon');lucide.createIcons()};
