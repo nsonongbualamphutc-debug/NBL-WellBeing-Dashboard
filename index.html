@@ -91,8 +91,8 @@ img{display:block;max-width:100%}
 .tbtn:hover{color:var(--brand);border-color:var(--line2)}
 .tbtn svg{width:17px;height:17px}
 .tbtn.spin svg{animation:rot 1s linear infinite}@keyframes rot{to{transform:rotate(360deg)}}
-.logos{display:flex;gap:10px;align-items:center}
-.logos img{height:42px;width:auto;object-fit:contain}
+.logos{display:flex;gap:12px;align-items:center;height:48px;padding:4px 14px;border-radius:14px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
+.logos img{height:38px;width:auto;object-fit:contain}
 .page{display:none;animation:up .5s cubic-bezier(.2,.8,.2,1) both}.page.on{display:block}
 @keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -108,8 +108,8 @@ img{display:block;max-width:100%}
 .hero .tag svg{width:15px;height:15px}
 .hero h2{font-family:var(--head);font-size:clamp(30px,3.6vw,50px);font-weight:700;line-height:1.08;margin:16px 0 12px;text-wrap:balance;text-shadow:0 4px 30px rgba(0,0,0,.35)}
 .hero p{font-size:16.5px;line-height:1.65;max-width:620px;color:rgba(255,255,255,.88)}
-.hero .hlogos{display:flex;gap:12px;align-items:center;margin-bottom:6px}
-.hero .hlogos img{height:58px;width:auto;filter:drop-shadow(0 4px 14px rgba(0,0,0,.4))}
+.hero .hlogos{display:inline-flex;gap:14px;align-items:center;margin-bottom:14px;padding:8px 16px;border-radius:18px;background:rgba(255,255,255,.92);box-shadow:0 10px 30px -12px rgba(0,0,0,.4)}
+.hero .hlogos img{height:50px;width:auto}
 .hero .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 .hero .meta span{display:inline-flex;gap:7px;align-items:center;font-size:13.5px;padding:8px 13px;border-radius:12px;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.18)}
 .hero .meta svg{width:15px;height:15px;color:#fbcfe8}
@@ -290,6 +290,50 @@ code.api{display:block;font-size:12px;padding:10px 12px;border-radius:12px;backg
 .empty{padding:40px;text-align:center;color:var(--tx3)}
 footer.pf{margin-top:40px;padding:22px;border-radius:22px;background:var(--panel);border:1px solid var(--line);display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:13.5px;color:var(--tx2);line-height:1.6}
 footer.pf img{height:52px;width:auto}
+
+/* ---- 5W1H / policy ---- */
+.w5{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media(max-width:900px){.w5{grid-template-columns:1fr}}
+.wq{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px 16px;box-shadow:var(--shadow)}
+.wh{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.wh svg{width:18px;height:18px;color:var(--c)}
+.wh b{font-family:var(--head);font-weight:600;font-size:15px}
+.we{font-family:var(--head);font-size:11.5px;font-weight:700;letter-spacing:.5px;padding:3px 9px;border-radius:8px;background:color-mix(in srgb,var(--c,var(--brand)) 14%,transparent);color:var(--c,var(--brand))}
+.wq p{font-size:14px;color:var(--tx2);line-height:1.65}
+.evg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.evg div{padding:12px 14px;border-radius:14px;background:var(--panel2);border:1px solid var(--line)}
+.evg span{display:block;font-size:12.5px;color:var(--tx3)}.evg b{font-family:var(--head);font-weight:500;font-size:14.5px}
+@media(max-width:900px){.evg{grid-template-columns:1fr}}
+.qrow{display:grid;grid-template-columns:120px repeat(5,minmax(0,1fr));gap:10px;align-items:stretch}
+@media(max-width:1000px){.qrow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.qscore{border-radius:14px;padding:10px;text-align:center;background:linear-gradient(135deg,var(--brand),var(--teal));color:#fff}
+.qscore b{font-family:var(--head);font-size:34px;line-height:1}.qscore small{display:block;font-size:11.5px;opacity:.9;line-height:1.35}
+.qb{border-radius:14px;padding:10px 12px;border:1px solid var(--line);background:var(--panel2)}
+.qb span{display:flex;gap:6px;align-items:center;font-family:var(--head);font-weight:500;font-size:14px}
+.qb span svg{width:17px;height:17px}.qb small{display:block;font-size:12px;color:var(--tx3);margin-top:3px;line-height:1.4}
+.qb.q2 svg{color:#16a34a}.qb.q1 svg{color:#d97706}.qb.q0 svg{color:#e11d48}
+.obs{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;margin-top:10px}
+.obs p{font-size:14.5px;line-height:1.6;color:var(--tx)}
+.od{width:34px;height:34px;border-radius:10px;display:grid;place-items:center}
+.od svg{width:17px;height:17px}.od.good{background:rgba(34,197,94,.13);color:#16a34a}.od.bad{background:rgba(244,63,94,.12);color:#e11d48}.od.neu{background:color-mix(in srgb,var(--tx3) 15%,transparent);color:var(--tx2)}
+.frame{display:grid;gap:8px;margin-top:14px}
+.frame div{padding:10px 12px;border-radius:12px;background:var(--panel2);border:1px solid var(--line)}
+.frame span{display:block;font-size:12px;color:var(--tx3)}.frame b{font-weight:500;font-size:14px;line-height:1.5}
+.cyc{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.st{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start;padding:12px;border-radius:14px;background:var(--panel2);border:1px solid var(--line);position:relative}
+.st i{font-style:normal;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-family:var(--head);font-weight:700;color:#fff;background:linear-gradient(135deg,var(--c,var(--brand)),var(--teal))}
+.st b{font-family:var(--head);font-weight:600}.st small{color:var(--tx3);margin-left:6px;font-size:12px}.st p{font-size:14px;color:var(--tx2);line-height:1.6;margin-top:2px}
+.faq{background:var(--panel);border:1px solid var(--line);border-radius:18px;margin-top:10px;box-shadow:var(--shadow);overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:15px 18px;font-family:var(--head);font-size:16px;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary svg{margin-left:auto;width:18px;height:18px;color:var(--tx3);transition:.25s}
+.faq[open] summary svg{transform:rotate(180deg)}
+.faq p{padding:0 18px 16px 18px;color:var(--tx2);line-height:1.75}
+.stds{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+@media(max-width:1300px){.stds{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.std{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:16px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow)}
+.std span{width:38px;height:38px;flex:none;border-radius:11px;display:grid;place-items:center;background:var(--brandSoft);color:var(--brand)}
+.std span svg{width:19px;height:19px}.std b{font-family:var(--head);font-weight:600;font-size:13.5px;line-height:1.3;display:block}.std small{font-size:12px;color:var(--tx3)}
 .scrim{display:none}
 
 /* ============================== RESPONSIVE ============================== */
@@ -343,12 +387,12 @@ footer.pf img{height:52px;width:auto}
  <div class="topbar">
   <button class="ibtn burger" id="burger" aria-label="เมนู"><i data-lucide="menu"></i></button>
   <div class="crumb"><small id="crSub">ภาพรวมจังหวัด</small><h1 id="crTitle">ดัชนีความอยู่ดีมีสุข</h1></div>
-  <div class="logos"><img data-src="brand/seal-nblp" data-fb="none" alt=""><img data-src="brand/logo-nso" data-fb="none" alt=""></div>
+  <div class="logos"><img data-src="brand/seal-nblp" data-fb="none" alt="ตราจังหวัดหนองบัวลำภู"><img data-src="brand/logo-nso" data-fb="none" alt="สำนักงานสถิติแห่งชาติ"><img data-src="brand/logo-gdcatalog" data-fb="none" alt="ระบบบัญชีข้อมูลภาครัฐ"></div>
   <button class="tbtn" id="btnRefresh"><i data-lucide="refresh-cw"></i><span>รีเฟรชข้อมูล</span></button>
   <button class="tbtn" id="btnFull" title="เต็มจอ"><i data-lucide="maximize"></i></button>
  </div>
  <div id="pages"></div>
- <footer class="pf"><img data-src="brand/seal-nblp" data-fb="none" alt=""><div><b style="font-family:var(--head);color:var(--tx)">สำนักงานสถิติจังหวัดหนองบัวลำภู</b><br>ศาลากลางจังหวัดหนองบัวลำภู ชั้น 2 ถ.หนองบัวลำภู–เลย ต.ลำภู อ.เมือง จ.หนองบัวลำภู 39000 · โทร 0 4231 6736</div><div style="margin-left:auto" id="ftTime"></div></footer>
+ <footer class="pf"><img data-src="brand/seal-nblp" data-fb="none" alt=""><img data-src="brand/logo-nso" data-fb="none" alt=""><img data-src="brand/logo-gdcatalog" data-fb="none" alt=""><div><b style="font-family:var(--head);color:var(--tx)">สำนักงานสถิติจังหวัดหนองบัวลำภู</b><br>ศาลากลางจังหวัดหนองบัวลำภู ชั้น 2 ถ.หนองบัวลำภู–เลย ต.ลำภู อ.เมือง จ.หนองบัวลำภู 39000 · โทร 0 4231 6736</div><div style="margin-left:auto" id="ftTime"></div></footer>
 </div>
 
 <div class="modal" id="modal"><div class="mbox" id="mbox"></div></div>
@@ -670,7 +714,7 @@ function renderOverview(){const el=document.getElementById('p-overview');const l
  <section class="hero">
   <div class="media"><div class="ph" data-bg="hero/hero-home"></div><video data-video="hero/hero-home" autoplay muted loop playsinline></video></div>
   <div class="in">
-   <div class="hlogos"><img data-src="brand/seal-nblp" data-fb="none" alt=""><img data-src="brand/logo-nso" data-fb="none" alt=""></div>
+   <div class="hlogos"><img data-src="brand/seal-nblp" data-fb="none" alt=""><img data-src="brand/logo-nso" data-fb="none" alt=""><img data-src="brand/logo-gdcatalog" data-fb="none" alt=""></div><br>
    <span class="tag">${ic('sparkles')}Nong Bua Lam Phu Well-Being Index</span>
    <h2>ดัชนีความอยู่ดีมีสุข<br>จังหวัดหนองบัวลำภู</h2>
    <p>ติดตามคุณภาพชีวิตของคนหนองบัวลำภูครบ 7 มิติ จาก ${IND.length} ตัวชี้วัด ดึงข้อมูลสดจากระบบบัญชีข้อมูลจังหวัด ${Object.keys(RES).length} ชุดข้อมูลของหน่วยงานในพื้นที่</p>
@@ -693,7 +737,9 @@ function renderOverview(){const el=document.getElementById('p-overview');const l
    <div class="card"><h4>${ic('radar')}โปรไฟล์ 7 มิติ</h4><div class="sub">คะแนนพัฒนาการรายมิติ (0–100)</div><div id="gRadar" class="chart" style="height:360px"></div></div>
    <div class="card" style="--c:#16a34a"><h4>${ic('thumbs-up')}จุดแข็ง</h4><div class="sub">ตัวชี้วัดที่อยู่ในระดับดีที่สุด</div>${scored.slice(0,5).map(insRow).join('')}</div>
    <div class="card" style="--c:#ea580c"><h4>${ic('triangle-alert')}ควรเฝ้าระวัง</h4><div class="sub">ตัวชี้วัดที่ควรเร่งติดตามเชิงนโยบาย</div>${scored.slice(-5).reverse().map(insRow).join('')}</div>
-  </div></div>`;
+  </div></div>
+ <div class="sec">${secHead('คำถามที่ผู้บริหารมักถาม (5W1H)','ใคร อะไร ที่ไหน เมื่อไร อย่างไร ทำไม และควรทำอะไรต่อ — ตอบจากข้อมูลจริงในระบบ')}<div id="faq">${faqHTML()}</div></div>
+ <div class="sec">${secHead('อ้างอิงมาตรฐานสากล','หลักการที่ใช้ออกแบบดัชนี คุณภาพข้อมูล และบทวิเคราะห์เชิงนโยบาย')}${stdStrip()}</div>`;
  lucide.createIcons();hydrate(el);bind(el);
  mk(document.getElementById('gMain'),{series:[{type:'gauge',startAngle:220,endAngle:-40,min:0,max:100,radius:'98%',center:['50%','56%'],progress:{show:true,width:16,roundCap:true,itemStyle:{color:new echarts.graphic.LinearGradient(0,0,1,0,[{offset:0,color:'#fbcfe8'},{offset:1,color:'#ffffff'}])}},axisLine:{roundCap:true,lineStyle:{width:16,color:[[1,'rgba(255,255,255,.18)']]}},axisTick:{show:false},splitLine:{show:false},axisLabel:{show:false},pointer:{show:false},anchor:{show:false},title:{show:false},detail:{offsetCenter:[0,'2%'],fontSize:64,fontFamily:'Kanit',fontWeight:700,color:'#fff',formatter:'{value}'},data:[{value:OVERALL??0}]}]});
  mk(document.getElementById('gRadar'),{tooltip:{...TT,trigger:'item'},radar:{radius:'58%',center:['50%','54%'],indicator:DIMS.map(d=>({name:d.name.replace('เศรษฐกิจและรายได้','เศรษฐกิจ').replace('ประชากรและสังคม','สังคม').replace('ที่อยู่อาศัยและดิจิทัล','ที่อยู่อาศัย/ดิจิทัล'),max:100,color:dc(d)})),splitNumber:4,axisName:{fontFamily:'Kanit',fontSize:12.5},splitLine:{lineStyle:{color:AX.splitLine.lineStyle.color}},splitArea:{areaStyle:{color:['transparent']}},axisLine:{lineStyle:{color:AX.axisLine.lineStyle.color}}},
@@ -707,6 +753,7 @@ function renderDim(id){const d=DIMS.find(x=>x.id===id),c=dc(d),el=document.getEl
   <div><div class="en">${d.en} · มิติที่ ${DIMS.indexOf(d)+1}</div><h2>มิติ${d.name}</h2><p>${d.desc}</p></div>
   <div class="big"><b>${d.score??'–'}</b><small>คะแนนมิติ / 100</small><span style="--lc:${lv.c}">${lv.t}</span></div></section>
  <div class="sec">${secHead('ตัวชี้วัด','คลิกการ์ดเพื่อดูแนวโน้ม ข้อมูลรายอำเภอ และ API ต้นทาง',c)}<div class="g gi">${inds.map(indCard).join('')}</div></div>
+ ${dimPolicy(d)}
  ${F.length?`<div class="sec">${secHead('วิเคราะห์เชิงลึก','รายละเอียดเพิ่มเติมจากชุดข้อมูลต้นทาง',c)}<div class="g g2">${F.map((f,k)=>`<div class="card" style="--c:${c}"><h4>${ic(f.ic)}${f.t}</h4><div class="sub">${f.sub}</div><div class="chart" id="f-${id}-${k}" style="height:${f.h||320}px"></div></div>`).join('')}</div></div>`:''}
  ${dl.length?`<div class="sec">${secHead('แผนที่รายอำเภอ','ขอบเขตอำเภอจริง · สีเขียว = ดีกว่า · สีแดง = ควรพัฒนา',c,`<select class="sel" id="dsel-${id}">${dl.map(i=>`<option value="${i.id}">${i.name}</option>`).join('')}</select>`)}<div class="card" style="--c:${c}"><div class="sub" id="dsub-${id}" style="margin-top:0"></div><div class="maprow"><div id="dmap-${id}" style="height:460px"></div><div class="rank" id="drank-${id}"></div></div></div></div>`:''}`;
  lucide.createIcons();hydrate(el);bind(el);
@@ -730,6 +777,149 @@ function drawMap(el,ind){if(!mapReady){echarts.registerMap('nbl',GEO);mapReady=t
 function rankList(ind){const a=Object.entries(ind.d.v).sort((x,y)=>y[1]-x[1]);const vals=a.map(e=>e[1]),mn=Math.min(...vals),MX=Math.max(...vals);
  return a.map(([d,v],i)=>{let t=MX===mn?.5:(v-mn)/(MX-mn);if(ind.better==='down')t=1-t;const c=ind.better?goodColor(t):'#db2777';return`<div class="r"><i>${i+1}</i><div><div style="display:flex;justify-content:space-between;gap:8px"><span>${d}</span><b>${fmt(v,ind.dec)}</b></div><div class="bar" style="width:${Math.max(4,Math.abs(v)/Math.max(...vals.map(Math.abs))*100)}%;background:${c}"></div></div></div>`}).join('')}
 
+/* =========================================================
+   5W1H · หลักฐาน · บทวิเคราะห์เชิงนโยบาย (Policy Cycle)
+   ========================================================= */
+const META={};
+const NOW_BE=new Date().getFullYear()+543;
+async function loadMetaOne(pkg){if(META[pkg])return META[pkg];try{META[pkg]=await api('package_show',{id:pkg})}catch(e){META[pkg]={_err:1}}return META[pkg]}
+async function loadMeta(){const q=[...new Set(Object.values(RES).map(r=>r[1]))];async function w(){while(q.length)await loadMetaOne(q.shift())}await Promise.all(Array.from({length:5},w));if(RENDERED.sources){RENDERED.sources=0;if(CUR==='sources'){RENDERED.sources=1;renderSources()}}}
+const thd=s=>{if(!s)return'–';const d=new Date(s);return isNaN(d)?s:d.toLocaleDateString('th-TH',{day:'numeric',month:'short',year:'numeric'})};
+
+/* กรอบนโยบายรายมิติ: ยุทธศาสตร์ชาติ 20 ปี · SDGs · หน่วยงานหลัก · เครื่องมือนโยบาย */
+const POL={
+ health:{ns:'ยุทธศาสตร์ชาติด้านที่ 3 การพัฒนาและเสริมสร้างศักยภาพทรัพยากรมนุษย์',sdg:'SDG 3 สุขภาพและความเป็นอยู่ที่ดี',ag:'สำนักงานสาธารณสุขจังหวัด · โรงพยาบาล/รพ.สต. · อปท. · อสม.',weak:['คัดกรองเชิงรุกในกลุ่มเสี่ยงผ่าน อสม. และ รพ.สต. โดยเริ่มจากอำเภอที่ค่าสูงสุด','จัดสรรบุคลากรการแพทย์และบริการเคลื่อนที่ไปอำเภอที่ขาดแคลน','ใช้กองทุนหลักประกันสุขภาพระดับท้องถิ่นของ อปท. สนับสนุนงานส่งเสริมป้องกัน'],keep:['รักษาระดับบริการ และถอดบทเรียนอำเภอที่ทำได้ดีไปขยายผล']},
+ edu:{ns:'ยุทธศาสตร์ชาติด้านที่ 3 การพัฒนาและเสริมสร้างศักยภาพทรัพยากรมนุษย์',sdg:'SDG 4 การศึกษาที่มีคุณภาพ',ag:'สำนักงานศึกษาธิการจังหวัด · สพป./สพม. · อปท. · สถานศึกษา',weak:['ระบบติดตามเด็กเสี่ยงหลุดออกจากระบบเป็นรายบุคคล ร่วมกับครอบครัวและชุมชน','ยกระดับการสอนวิชาหลักในโรงเรียนขนาดเล็ก ผ่านการเรียนรู้ออนไลน์และครูเครือข่าย','ทุนและการศึกษาทางเลือกสำหรับเด็กจากครัวเรือนยากจน'],keep:['ขยายแนวปฏิบัติที่ดีของโรงเรียนที่ผลสัมฤทธิ์สูงไปยังเครือข่าย']},
+ econ:{ns:'ยุทธศาสตร์ชาติด้านที่ 2 การสร้างความสามารถในการแข่งขัน และด้านที่ 4 การสร้างโอกาสและความเสมอภาคทางสังคม',sdg:'SDG 1 · 8 · 10 ขจัดความยากจน งานที่มีคุณค่า ลดความเหลื่อมล้ำ',ag:'สำนักงานพาณิชย์ · เกษตร · แรงงาน · ท่องเที่ยวและกีฬา · คลังจังหวัด',weak:['เพิ่มมูลค่าสินค้าเกษตรและสินค้าอัตลักษณ์ (แปรรูป มาตรฐาน ตลาดออนไลน์)','คลินิกแก้หนี้และความรู้ทางการเงินครัวเรือน ลดหนี้นอกระบบ','ส่งเสริมการจ้างงานในพื้นที่และท่องเที่ยวชุมชนเพื่อกระจายรายได้'],keep:['รักษาโมเมนตัมการเติบโต และกระจายประโยชน์สู่กลุ่มรายได้น้อย']},
+ society:{ns:'ยุทธศาสตร์ชาติด้านที่ 4 การสร้างโอกาสและความเสมอภาคทางสังคม และด้านที่ 6 การปรับสมดุลการบริหารจัดการภาครัฐ',sdg:'SDG 1 · 10 · 16 ความยากจน ความเหลื่อมล้ำ สถาบันที่เข้มแข็ง',ag:'สำนักงานพัฒนาสังคมฯ · พัฒนาชุมชน · ที่ทำการปกครอง · สำนักงานจังหวัด',weak:['ระบบดูแลผู้สูงอายุและผู้มีภาวะพึ่งพิงระยะยาวโดยชุมชน','ช่วยเหลือแบบเจาะจงครัวเรือนเปราะบางด้วยข้อมูล TPMAP/จปฐ.','เสริมธรรมาภิบาลและความโปร่งใสของหน่วยงานรัฐ (ITA)'],keep:['รักษาระบบคุ้มครองทางสังคม และเตรียมรับสังคมสูงวัยล่วงหน้า']},
+ safety:{ns:'ยุทธศาสตร์ชาติด้านที่ 1 ความมั่นคง',sdg:'SDG 3.6 อุบัติเหตุทางถนน · SDG 16 สังคมสงบสุข',ag:'ตำรวจภูธรจังหวัด · ป้องกันและบรรเทาสาธารณภัย · ขนส่งจังหวัด · ศูนย์ปฏิบัติการความปลอดภัยทางถนน',weak:['แก้จุดเสี่ยงอุบัติเหตุรายอำเภอ และบังคับใช้กฎหมายช่วงเทศกาล','ป้องกันและบำบัดยาเสพติดโดยใช้ชุมชนเป็นฐาน','ขยายกล้อง CCTV และเครือข่ายเฝ้าระวังในพื้นที่เสี่ยง'],keep:['รักษามาตรการที่ได้ผล และติดตามจุดเสี่ยงต่อเนื่อง']},
+ env:{ns:'ยุทธศาสตร์ชาติด้านที่ 5 การสร้างการเติบโตบนคุณภาพชีวิตที่เป็นมิตรต่อสิ่งแวดล้อม',sdg:'SDG 11 · 13 · 15 เมืองยั่งยืน ภูมิอากาศ ระบบนิเวศบนบก',ag:'สำนักงานทรัพยากรธรรมชาติฯ · ป้องกันและบรรเทาสาธารณภัย · เกษตรจังหวัด · อปท.',weak:['ลดการเผาในที่โล่งช่วง ม.ค.–เม.ย. ด้วยมาตรการจูงใจเกษตรกร','คัดแยกขยะต้นทางและธนาคารขยะชุมชน','เพิ่มป่าชุมชนและพื้นที่สีเขียว'],keep:['รักษาพื้นที่ป่า และยกระดับการจัดการขยะให้ครอบคลุม']},
+ living:{ns:'ยุทธศาสตร์ชาติด้านที่ 4 การสร้างโอกาสและความเสมอภาคทางสังคม',sdg:'SDG 9 · 11 · 17 โครงสร้างพื้นฐาน เมืองยั่งยืน ความร่วมมือ',ag:'สำนักงานดิจิทัลเพื่อเศรษฐกิจและสังคมจังหวัด · พัฒนาสังคมฯ · พอช. · อปท.',weak:['ขยายอินเทอร์เน็ตชุมชนและพัฒนาทักษะดิจิทัล','สนับสนุนอุปกรณ์ดิจิทัลเพื่อการเรียนรู้ในครัวเรือนรายได้น้อย','บ้านมั่นคงและซ่อมแซมที่อยู่อาศัยกลุ่มเปราะบาง'],keep:['ต่อยอดการเข้าถึงดิจิทัลสู่บริการภาครัฐออนไลน์']},
+};
+/* ทำไมตัวชี้วัดนี้สำคัญ + เป้าหมาย SDG ที่เชื่อมโยง */
+const WHY={
+ ht:['โรคความดันโลหิตสูงเป็นต้นเหตุของโรคหัวใจ หลอดเลือดสมอง และไตวาย ซึ่งเป็นภาระค่ารักษาระยะยาวของครอบครัวและรัฐ','SDG 3.4'],
+ nut:['ภาวะโภชนาการสมส่วนในเด็กปฐมวัยสะท้อนพัฒนาการทั้งร่างกายและสมอง ซึ่งส่งผลต่อการเรียนรู้ในอนาคต','SDG 2.2'],
+ lbw:['ทารกน้ำหนักต่ำกว่าเกณฑ์มีความเสี่ยงต่อพัฒนาการล่าช้าและการเจ็บป่วย สะท้อนคุณภาพการดูแลหญิงตั้งครรภ์','SDG 3.2'],
+ doc:['สะท้อนการเข้าถึงบุคลากรทางการแพทย์ ยิ่งประชากรต่อแพทย์สูง ยิ่งรอคิวนานและเข้าถึงบริการยาก','SDG 3.c'],
+ dep:['สุขภาพจิตเป็นปัญหาที่มองไม่เห็น การเข้าถึงบริการสูงแปลว่าระบบค้นหาและดูแลผู้ป่วยทำงานได้ดี','SDG 3.4'],
+ onet3:['สะท้อนคุณภาพผลสัมฤทธิ์ทางการเรียนระดับชาติ ใช้เทียบกับมาตรฐานประเทศได้','SDG 4.1'],
+ drop:['เด็กที่หลุดออกจากระบบการศึกษามีโอกาสตกอยู่ในวงจรความยากจนและความเสี่ยงทางสังคม','SDG 4.1'],
+ stud:['ใช้วางแผนครู ห้องเรียน และงบประมาณ สะท้อนแนวโน้มการเกิดที่ลดลง','SDG 4'],
+ spr:['บอกขนาดชั้นเรียน ห้องเล็กมากสะท้อนโรงเรียนขนาดเล็กที่ต้องบริหารทรัพยากรร่วมกัน','SDG 4'],
+ gpp:['ขนาดเศรษฐกิจเฉลี่ยต่อคน สะท้อนศักยภาพการผลิตของจังหวัด','SDG 8.1'],
+ inc:['รายได้ที่ครัวเรือนได้รับจริง ใกล้ชิดคุณภาพชีวิตมากกว่า GPP','SDG 1 · 10'],
+ debt:['หนี้สูงกดดันการใช้จ่ายและการออม โดยเฉพาะหนี้นอกระบบที่ดอกเบี้ยสูง','SDG 1'],
+ gini:['วัดความเหลื่อมล้ำของรายได้ ค่าเข้าใกล้ 0 คือกระจายรายได้เท่าเทียม','SDG 10.1'],
+ unemp:['สะท้อนโอกาสการมีงานทำของคนในพื้นที่','SDG 8.5'],
+ wage:['ค่าแรงขั้นต่ำเป็นฐานรายได้ของแรงงาน ใช้เทียบกับค่าครองชีพ','SDG 8.5'],
+ tour:['รายได้ท่องเที่ยวกระจายเงินสู่ชุมชน ร้านค้า และที่พัก','SDG 8.9'],
+ pop:['ฐานในการวางแผนทุกนโยบาย ทั้งบริการสาธารณะและงบประมาณ','บริบท'],
+ elder:['ค่าเกิน 100 แปลว่ามีผู้สูงอายุมากกว่าเด็ก สะท้อนสังคมสูงวัยที่ต้องเตรียมระบบดูแล','บริบท'],
+ pov:['สัดส่วนคนยากจนตามเกณฑ์ จปฐ. ใช้เจาะจงกลุ่มที่ต้องช่วยเหลือ','SDG 1.2'],
+ dis:['ใช้วางแผนสวัสดิการ สิ่งอำนวยความสะดวก และการจ้างงานคนพิการ','SDG 10.2'],
+ birth:['การเกิดลดลงส่งผลต่อโครงสร้างประชากร แรงงาน และจำนวนนักเรียนในอนาคต','บริบท'],
+ ita:['สะท้อนคุณธรรมและความโปร่งใสในการดำเนินงานของหน่วยงานภาครัฐ','SDG 16.5 · 16.6'],
+ roadd:['การเสียชีวิตบนถนนป้องกันได้ และกระทบแรงงานวัยทำงานโดยตรง','SDG 3.6'],
+ roadi:['ผู้บาดเจ็บสะท้อนความรุนแรงของปัญหา และภาระของระบบสาธารณสุข','SDG 3.6'],
+ crime:['สะท้อนความปลอดภัยในชีวิตและทรัพย์สิน (จำนวนรับแจ้งขึ้นกับการแจ้งความด้วย)','SDG 16.1'],
+ drug:['ยาเสพติดเชื่อมโยงกับอาชญากรรม สุขภาพ และครอบครัว (คดีสูงอาจมาจากการปราบปรามเข้มข้นด้วย)','SDG 3.5'],
+ pm:['ฝุ่น PM2.5 กระทบสุขภาพระบบทางเดินหายใจ โดยเฉพาะเด็กและผู้สูงอายุ','SDG 11.6'],
+ forest:['ป่าไม้คือแหล่งต้นน้ำ อากาศดี และความหลากหลายทางชีวภาพ','SDG 15.1'],
+ waste:['ปริมาณขยะต่อวันสะท้อนภาระการจัดการของท้องถิ่นและพฤติกรรมการบริโภค','SDG 11.6 · 12.5'],
+ house:['ที่อยู่อาศัยมั่นคงเป็นพื้นฐานความอยู่ดีมีสุขของครัวเรือน','SDG 11.1'],
+ hhnet:['อินเทอร์เน็ตคือโครงสร้างพื้นฐานของการเรียน การทำงาน และบริการรัฐออนไลน์','SDG 17.8'],
+ hhmob:['โทรศัพท์มือถือเป็นช่องทางหลักในการเข้าถึงข้อมูลและบริการทางการเงิน','SDG 9.c'],
+ hhpc:['คอมพิวเตอร์สะท้อนความพร้อมด้านการเรียนรู้และทักษะดิจิทัลขั้นสูง','SDG 4.4'],
+ inet:['จำนวนคนที่เข้าถึงอินเทอร์เน็ตสะท้อนความเหลื่อมล้ำทางดิจิทัล','SDG 17.8'],
+};
+function howCalc(i){const a=i.agg==='avg'?'ค่าเฉลี่ยของรายการในปีเดียวกัน':i.agg==='first'?'ค่าที่ชุดข้อมูลรายงานสำหรับปีนั้น':i.agg==='max'?'อัตราสูงสุดที่มีผลในปีนั้น':typeof i.agg==='function'?'คำนวณตามสูตรเฉพาะของตัวชี้วัด':'ผลรวมของรายการในปีเดียวกัน';
+ return `ดึงข้อมูลจาก API แล้วรวมเป็นรายปีด้วย${a}${i.note?' ('+i.note+')':''} จากนั้นคิดคะแนนพัฒนาการโดยเทียบปีล่าสุดกับช่วงข้อมูลย้อนหลัง${i.better==='down'?' (ค่าน้อย = ดี)':i.better==='up'?' (ค่ามาก = ดี)':' (ตัวชี้วัดเชิงบริบท ไม่คิดคะแนน)'}`}
+/* ---- วิเคราะห์อัตโนมัติ: เราคิดว่า… ---- */
+function think(i){const o=[];if(!i.last)return o;const s=i.s,L=i.last,F=s[0];
+ if(s.length>=3){const ch=F.v?(L.v-F.v)/Math.abs(F.v)*100:0;const good=i.better?((i.better==='up')===(ch>0)):null;
+  o.push({k:'trend',t:`ตลอด ${s.length} ปี (พ.ศ. ${F.y}–${L.y}) ค่า${ch>=0?'เพิ่มขึ้น':'ลดลง'} ${fmt(Math.abs(ch),1)}%${good===null?'':good?' ซึ่งเป็นทิศทางที่ดี':' ซึ่งเป็นทิศทางที่ต้องติดตาม'}`,g:good})}
+ if(s.length>=3){const avg=sum(s.map(p=>p.v))/s.length;const above=L.v>avg;o.push({k:'avg',t:`ค่าปีล่าสุด${above?'สูงกว่า':'ต่ำกว่า'}ค่าเฉลี่ยย้อนหลัง (${fmt(avg,i.dec)} ${i.unit})`,g:i.better?((i.better==='up')===above):null})}
+ if(i.d){const e=Object.entries(i.d.v).sort((a,b)=>b[1]-a[1]);const hi=e[0],lo=e[e.length-1];const gap=lo[1]?hi[1]/lo[1]:null;const worst=i.better==='down'?hi:lo,best=i.better==='down'?lo:hi;
+  o.push({k:'area',t:i.better?`ความเหลื่อมล้ำเชิงพื้นที่: ${worst[0]} อยู่ในสถานะที่ควรเร่งพัฒนามากที่สุด (${fmt(worst[1],i.dec)}) ขณะที่ ${best[0]} ดีที่สุด (${fmt(best[1],i.dec)})${gap&&gap>1.5?` ต่างกัน ${fmt(gap,1)} เท่า`:''}`:`อำเภอที่มีค่าสูงสุดคือ ${hi[0]} (${fmt(hi[1],i.dec)}) ต่ำสุดคือ ${lo[0]} (${fmt(lo[1],i.dec)})`,g:null})}
+ const lag=NOW_BE-L.y;if(lag>=2)o.push({k:'lag',t:`ข้อมูลล่าสุดคือปี พ.ศ. ${L.y} ห่างจากปัจจุบัน ${lag} ปี ควรขอให้หน่วยงานเจ้าของข้อมูลปรับปรุงก่อนใช้ตัดสินใจ`,g:false});
+ if(s.length<3)o.push({k:'few',t:`มีข้อมูลเพียง ${s.length} ปี ยังสรุปแนวโน้มได้ไม่มั่นคง ควรใช้ร่วมกับข้อมูลอื่น`,g:false});
+ return o}
+function policyFor(i){const P=POL[i.dim];const weak=i.sc!=null&&i.sc<60;const dd=i.d&&i.better?Object.entries(i.d.v).sort((a,b)=>i.better==='down'?b[1]-a[1]:a[1]-b[1])[0][0]:null;
+ return{P,weak,stage:[
+  ['1','กำหนดประเด็นนโยบาย','Agenda Setting',i.sc==null?'ใช้เป็นข้อมูลบริบทประกอบการวางแผน ไม่ใช่เป้าหมายโดยตรง':i.sc<40?`เป็นประเด็นที่ควรยกขึ้นวาระของจังหวัด (คะแนน ${i.sc}/100 · ${level(i.sc).t})`:i.sc<60?`อยู่ในระดับปานกลาง (คะแนน ${i.sc}/100) ควรติดตามใกล้ชิดก่อนกลายเป็นปัญหา`:`อยู่ในระดับ${level(i.sc).t} (คะแนน ${i.sc}/100) ควรรักษาระดับ`],
+  ['2','กำหนดทางเลือกนโยบาย','Policy Formulation',(weak?P.weak:P.keep).join(' · ')],
+  ['3','นำนโยบายไปปฏิบัติ','Implementation',`หน่วยงานหลัก: ${P.ag}${dd?` · พื้นที่เป้าหมายลำดับแรก: อำเภอ${dd.replace('เมืองหนองบัวลำภู','เมืองหนองบัวลำภู')}`:''}`],
+  ['4','ติดตามและประเมินผล','Evaluation',i.better?`ติดตามตัวชี้วัดนี้ทุกรอบข้อมูล เป้าหมายคือให้ค่า${i.better==='up'?'เพิ่มขึ้น':'ลดลง'}ต่อเนื่อง และลดช่องว่างระหว่างอำเภอ`:'ใช้ติดตามการเปลี่ยนแปลงเชิงโครงสร้างประกอบการวางแผนระยะยาว']]}}
+
+function askBlock(i){const [rid,pkg]=RES[i.key];const W=WHY[i.id]||['',''];const c=dc(i.dimO);
+ return`<div class="sec" style="margin-top:20px">${secHead('ถาม–ตอบ 5W1H','ตอบคำถามที่ผู้บริหารมักถามเกี่ยวกับตัวชี้วัดนี้',c)}
+ <div class="w5" id="w5-${i.id}">${w5Cards(i,META[pkg])}</div></div>
+ <div class="sec">${secHead('รู้ได้อย่างไร? · หลักฐานและแหล่งที่มา','ทุกตัวเลขตรวจสอบย้อนกลับได้ถึงชุดข้อมูลต้นทาง',c)}<div class="card ev" id="ev-${i.id}">${evidence(i,META[pkg])}</div></div>
+ <div class="sec">${secHead('เราคิดว่า… · บทวิเคราะห์เชิงนโยบาย','วิเคราะห์จากข้อมูลตามหลักวงจรนโยบายสาธารณะ (Policy Cycle) · เพื่อประกอบการพิจารณา',c)}${thinkHTML(i)}</div>`}
+function w5Cards(i,m){const W=WHY[i.id]||['',''];const org=m&&m.organization?m.organization.title:(m&&m.data_source)||'กำลังโหลด…';const freq=m&&m.update_frequency_unit?`ทุก ${m.update_frequency_interval||1} ${m.update_frequency_unit}`:'–';
+ const Q=[['What','คืออะไร','circle-help',(m&&m.notes)||i.name],['Why','ทำไมสำคัญ','target',`${W[0]}${W[1]&&W[1]!=='บริบท'?` <span class="tag2">${W[1]}</span>`:''}`],['Who','ใครเป็นเจ้าของข้อมูล','building-2',`${org}${m&&m.maintainer&&m.maintainer!=='null'?' · '+m.maintainer:''}`],
+  ['Where','ครอบคลุมพื้นที่ใด',`map-pin`,`จังหวัดหนองบัวลำภู${i.d?' · แยกได้ 6 อำเภอ':''}${m&&m.geo_coverage?' (ระดับ'+m.geo_coverage+')':''}`],['When','ข้อมูลปีไหน ปรับปรุงเมื่อไร','calendar-clock',`พ.ศ. ${i.s.length?i.s[0].y+'–'+i.last.y:'–'} · ความถี่ ${freq} · ปรับปรุงล่าสุด ${thd(m&&(m.last_updated_date||m.metadata_modified))}`],['How','คำนวณอย่างไร','calculator',howCalc(i)]];
+ return Q.map(([e,t,icn,a])=>`<div class="wq" style="--c:${dc(i.dimO)}"><div class="wh"><span class="we">${e}</span>${ic(icn)}<b>${t}</b></div><p>${a}</p></div>`).join('')}
+function evidence(i,m){const [rid,pkg]=RES[i.key];const n=(RAW[i.key]||[]).length;const res=m&&m.resources?m.resources.find(r=>r.id===rid):null;const apiUrl=`${API}datastore_search?resource_id=${rid}&limit=5000`;
+ return`${qualityHTML(i,m)}<div class="evg"><div><span>ชุดข้อมูลต้นทาง</span><b>${esc(m&&m.title||pkg)}</b></div><div><span>แหล่งที่มาของข้อมูล</span><b>${esc(m&&m.data_source||'–')}</b></div><div><span>จำนวนระเบียนที่ดึงมา</span><b>${fmt(n)} แถว</b></div><div><span>ไฟล์ข้อมูลแก้ไขล่าสุด</span><b>${thd(res&&res.last_modified)}</b></div><div><span>ชั้นข้อมูล / สัญญาอนุญาต</span><b>${esc(m&&(m.data_classification||m.data_category)||'–')} · ${esc(m&&m.license_title||'–')}</b></div><div><span>ดึงจาก API เมื่อ</span><b>${LOADED_AT?LOADED_AT.toLocaleString('th-TH',{dateStyle:'medium',timeStyle:'short'}):'–'}</b></div></div>
+ <div class="links"><a class="btn" href="${DSURL+pkg}" target="_blank" rel="noopener">${ic('external-link')}เปิดชุดข้อมูลต้นทาง</a><a class="btn" href="${apiUrl}" target="_blank" rel="noopener">${ic('code')}ตรวจสอบผ่าน API</a></div><code class="api">GET ${apiUrl}</code>`}
+function thinkHTML(i){const T_=think(i),P=policyFor(i);const c=dc(i.dimO);
+ return`<div class="g g2"><div class="card" style="--c:${c}"><h4>${ic('lightbulb')}ข้อสังเกตจากข้อมูล</h4><div class="sub">ข้อเท็จจริงที่อ่านได้จากตัวเลข (ไม่ใช่การสรุปสาเหตุ)</div>
+  ${T_.map(x=>`<div class="obs"><span class="od ${x.g===true?'good':x.g===false?'bad':'neu'}">${ic(x.g===true?'check':x.g===false?'triangle-alert':'info')}</span><p>${x.t}</p></div>`).join('')||'<p class="sub">ข้อมูลยังไม่พอวิเคราะห์</p>'}
+  <div class="frame"><div><span>ยุทธศาสตร์ชาติ 20 ปี</span><b>${P.P.ns}</b></div><div><span>เป้าหมายการพัฒนาที่ยั่งยืน</span><b>${(WHY[i.id]||[])[1]&&WHY[i.id][1]!=='บริบท'?WHY[i.id][1]+' · ':''}${P.P.sdg}</b></div></div></div>
+ <div class="card" style="--c:${c}"><h4>${ic('git-branch')}วงจรนโยบาย (Policy Cycle)</h4><div class="sub">แนวทางเบื้องต้นเพื่อประกอบการพิจารณา ควรยืนยันร่วมกับหน่วยงานเจ้าของข้อมูล</div>
+  <div class="cyc">${P.stage.map(s=>`<div class="st"><i>${s[0]}</i><div><b>${s[1]}</b><small>${s[2]}</small><p>${s[3]}</p></div></div>`).join('')}</div></div></div>`}
+async function fillAsk(i){const pkg=RES[i.key][1];if(META[pkg])return;const m=await loadMetaOne(pkg);const a=document.getElementById('w5-'+i.id),b=document.getElementById('ev-'+i.id);if(a){a.innerHTML=w5Cards(i,m);b.innerHTML=evidence(i,m);lucide.createIcons()}}
+
+/* ---- สรุปเชิงนโยบายรายมิติ ---- */
+function dimPolicy(d){const P=POL[d.id],c=dc(d);const sc=IND.filter(i=>i.dim===d.id&&i.sc!=null).sort((a,b)=>a.sc-b.sc);const weak=sc.filter(i=>i.sc<50),strong=sc.filter(i=>i.sc>=60);
+ const old=IND.filter(i=>i.dim===d.id&&i.last&&NOW_BE-i.last.y>=2);
+ return`<div class="sec">${secHead('เราคิดว่า… · สรุปเชิงนโยบายของมิติ','อ่านจากตัวชี้วัดทั้งหมดในมิติ ตามหลักนโยบายสาธารณะที่อิงหลักฐาน (Evidence-based Policy)',c)}
+ <div class="g g3"><div class="card" style="--c:${c}"><h4>${ic('triangle-alert')}ประเด็นเร่งด่วน</h4><div class="sub">คะแนนพัฒนาการต่ำกว่า 50</div>${weak.length?weak.map(i=>`<div class="obs"><span class="od bad">${ic(i.icon)}</span><p><b>${i.name}</b> · ${i.sc}/100</p></div>`).join(''):'<p class="sub">ไม่มีตัวชี้วัดที่ต่ำกว่า 50</p>'}</div>
+  <div class="card" style="--c:${c}"><h4>${ic('thumbs-up')}จุดแข็งที่ควรรักษา</h4><div class="sub">คะแนนพัฒนาการ 60 ขึ้นไป</div>${strong.length?strong.map(i=>`<div class="obs"><span class="od good">${ic(i.icon)}</span><p><b>${i.name}</b> · ${i.sc}/100</p></div>`).join(''):'<p class="sub">ยังไม่มีตัวชี้วัดที่ถึง 60</p>'}</div>
+  <div class="card" style="--c:${c}"><h4>${ic('landmark')}กรอบนโยบายที่เกี่ยวข้อง</h4><div class="frame" style="margin-top:6px"><div><span>ยุทธศาสตร์ชาติ</span><b>${P.ns}</b></div><div><span>SDGs</span><b>${P.sdg}</b></div><div><span>หน่วยงานหลัก</span><b>${P.ag}</b></div></div>
+   ${old.length?`<p class="sub" style="margin-top:10px">${ic('clock')} ข้อมูลเก่ากว่า 2 ปี: ${old.map(i=>i.name).join(', ')}</p>`:''}</div></div>
+ <div class="card" style="margin-top:18px;--c:${c}"><h4>${ic('route')}ทางเลือกนโยบายที่เสนอ</h4><div class="sub">เรียงตามความเร่งด่วนจากข้อมูล · แนวทางเบื้องต้นเพื่อประกอบการพิจารณา</div><div class="cyc">${(weak.length?P.weak:P.keep).map((t,k)=>`<div class="st"><i>${k+1}</i><div><p style="margin:0;color:var(--tx)">${t}</p></div></div>`).join('')}</div></div></div>`}
+
+/* ---- คำถามที่ผู้บริหารมักถาม (ภาพรวม) ---- */
+function faqHTML(){const keys=Object.keys(RES);const orgs=[...new Set(Object.values(META).filter(m=>m&&m.organization).map(m=>m.organization.title))];const yrs=IND.filter(i=>i.last).map(i=>i.last.y);
+ const lo=[...DIMS].filter(d=>d.score!=null).sort((a,b)=>a.score-b.score);const old=IND.filter(i=>i.last&&NOW_BE-i.last.y>=2);
+ const QA=[
+  ['Who','ใครจัดทำ และข้อมูลเป็นของใคร',`จัดทำโดยสำนักงานสถิติจังหวัดหนองบัวลำภู ข้อมูลเป็นของหน่วยงานในพื้นที่${orgs.length?` ${orgs.length} หน่วยงาน ได้แก่ ${orgs.slice(0,8).join(', ')}${orgs.length>8?' และอื่น ๆ':''}`:''} ซึ่งเผยแพร่ผ่านระบบบัญชีข้อมูลจังหวัด`],
+  ['What','ดัชนีนี้คืออะไร วัดอะไร',`ดัชนีความอยู่ดีมีสุขรวม ${DIMS.length} มิติ จาก ${IND.length} ตัวชี้วัด ครอบคลุมสุขภาพ การศึกษา เศรษฐกิจ สังคม ความปลอดภัย สิ่งแวดล้อม ที่อยู่อาศัยและดิจิทัล ปัจจุบันได้ ${OVERALL}/100 (${level(OVERALL).t})`],
+  ['Where','เอาข้อมูลมาจากไหน',`ดึงสดจาก API ของระบบบัญชีข้อมูลจังหวัด (nongbualamphu.gdcatalog.go.th) ${keys.length} ชุดข้อมูล ไม่มีการพิมพ์ตัวเลขเอง ทุกการ์ดกดดูชุดข้อมูลต้นทางและ API ได้`],
+  ['When','ข้อมูลเป็นของปีไหน',`ข้อมูลอยู่ในช่วง พ.ศ. ${Math.min(...yrs)}–${Math.max(...yrs)} แต่ละตัวชี้วัดใช้ปีล่าสุดที่หน่วยงานเผยแพร่ ซึ่งไม่ตรงกัน${old.length?` · มี ${old.length} ตัวชี้วัดที่ข้อมูลเก่ากว่า 2 ปี`:''}`],
+  ['How','คิดคะแนนอย่างไร ทำไมได้เท่านี้',`เทียบค่าปีล่าสุดกับช่วงข้อมูลย้อนหลังของจังหวัดเอง 100 = ดีที่สุดในรอบที่มีข้อมูล 0 = แย่ที่สุด แล้วเฉลี่ยรายมิติและรวม (น้ำหนักเท่ากัน) มิติที่ฉุดคะแนนมากที่สุดคือ ${lo.slice(0,2).map(d=>d.name+' ('+d.score+')').join(' และ ')}`],
+  ['Why','ทำไมต้องเชื่อตัวเลขนี้',`เพราะ (1) มาจากหน่วยงานราชการเจ้าของข้อมูลโดยตรง (2) ตรวจสอบย้อนกลับได้ทุกตัวเลขผ่าน API (3) วิธีคำนวณเปิดเผยในหน้าระเบียบวิธี ข้อจำกัดคือดัชนีนี้เทียบจังหวัดกับตัวเองในอดีต ไม่ได้จัดอันดับเทียบจังหวัดอื่น`],
+  ['So what','แล้วจังหวัดควรทำอะไรต่อ',`ใช้หลักวงจรนโยบาย: ยกประเด็นที่คะแนนต่ำขึ้นวาระ → เลือกทางเลือกนโยบายตามมิติ → มอบหน่วยงานหลักและอำเภอเป้าหมาย → ติดตามตัวชี้วัดเดิมทุกรอบข้อมูล ดูรายละเอียดได้ในแต่ละมิติ หัวข้อ “เราคิดว่า…”`],
+ ];
+ return QA.map(([e,q,a],k)=>`<details class="faq" ${k<2?'open':''}><summary><span class="we">${e}</span>${q}${ic('chevron-down')}</summary><p>${a}</p></details>`).join('')}
+
+/* ---- มาตรฐานสากลที่ใช้อ้างอิง ---- */
+const STD=[
+ ['OECD Well-being Framework','กรอบวัดความอยู่ดีมีสุข (How’s Life?)','layers','แบ่งความอยู่ดีมีสุขเป็นหลายมิติ ทั้งสภาพความเป็นอยู่ทางวัตถุและคุณภาพชีวิต ดัชนีนี้จัด 7 มิติตามแนวคิดเดียวกัน'],
+ ['Stiglitz–Sen–Fitoussi (2009)','วัดมากกว่า GDP','scale','ไม่ใช้ GDP ตัวเดียวตัดสินความกินดีอยู่ดี จึงวาง GPP คู่กับรายได้จริง หนี้ ความเหลื่อมล้ำ สุขภาพ และสิ่งแวดล้อม'],
+ ['UN SDGs · Leave No One Behind','เป้าหมายการพัฒนาที่ยั่งยืน','globe','ทุกตัวชี้วัดผูกกับเป้าหมาย SDG และแสดงช่องว่างรายอำเภอ เพื่อไม่ทิ้งพื้นที่ใดไว้ข้างหลัง'],
+ ['OECD/JRC Handbook (2008)','คู่มือสร้างดัชนีประกอบ','calculator','ทำตามขั้นตอนมาตรฐาน คือเลือกตัวชี้วัด ปรับค่าแบบ Min–Max กำหนดทิศทาง ให้น้ำหนักเท่ากัน รวมเป็นดัชนี และเปิดเผยวิธีคิด'],
+ ['UN Fundamental Principles of Official Statistics','หลักการพื้นฐานสถิติทางการ','badge-check','ใช้ข้อมูลทางการจากหน่วยงานเจ้าของข้อมูล เปิดเผยแหล่งที่มาและวิธีการ เป็นกลาง ไม่ปรับแต่งตัวเลข'],
+ ['ESS Quality Framework','มิติคุณภาพข้อมูลสถิติ','shield-check','ประเมินทุกตัวชี้วัดใน 5 ด้าน: ตรงความต้องการ แม่นยำ ทันเวลา เข้าถึงได้ และเปรียบเทียบได้'],
+ ['FAIR & Open Data Charter','ข้อมูลเปิดที่ค้นพบและใช้ซ้ำได้','database','ทุกตัวเลขค้นพบได้ (ลิงก์ชุดข้อมูล) เข้าถึงได้ (API) ใช้ร่วมกันได้ (CKAN/JSON) และใช้ซ้ำได้ (สัญญาอนุญาตเปิด)'],
+ ['UNESCAP Good Governance','หลักธรรมาภิบาล 8 ประการ','landmark','ยึดความโปร่งใส ภาระรับผิดชอบ และความเสมอภาค โดยระบุหน่วยงานรับผิดชอบและเปิดให้ตรวจสอบย้อนกลับได้'],
+ ['Evidence-based Policy · Policy Cycle','นโยบายที่อิงหลักฐาน และวงจรนโยบาย','git-branch','ข้อเสนอจัดตามวงจรนโยบาย (กำหนดประเด็น → ทางเลือก → นำไปปฏิบัติ → ประเมินผล) แยกข้อเท็จจริงออกจากข้อเสนอชัดเจน'],
+ ['Results-Based Management','การบริหารมุ่งผลสัมฤทธิ์','target','ตัวชี้วัดเป็นระดับผลลัพธ์ (Outcome) ไม่ใช่กิจกรรม ใช้ติดตามว่านโยบายเปลี่ยนชีวิตคนได้จริงหรือไม่'],
+];
+function quality(i,m){const lag=i.last?NOW_BE-i.last.y:9;const W=WHY[i.id]||[];
+ return[['ตรงความต้องการ','Relevance',W[1]&&W[1]!=='บริบท'?2:1,W[1]&&W[1]!=='บริบท'?'ผูกกับ '+W[1]:'ตัวชี้วัดเชิงบริบท'],
+  ['แม่นยำ น่าเชื่อถือ','Accuracy',m&&m.organization?2:1,m&&m.organization?'หน่วยงานราชการเจ้าของข้อมูล':'รอข้อมูลหน่วยงาน'],
+  ['ทันเวลา','Timeliness',lag<=1?2:lag===2?1:0,i.last?`ข้อมูลล่าสุดปี ${i.last.y} (ห่าง ${lag} ปี)`:'ไม่มีข้อมูล'],
+  ['เข้าถึงได้','Accessibility',2,'เปิดผ่าน API และหน้าชุดข้อมูล'],
+  ['เปรียบเทียบได้','Coherence',i.s.length>=5?2:i.s.length>=3?1:0,`อนุกรม ${i.s.length} ปี${i.d?' · แยกรายอำเภอได้':''}`]]}
+function qualityHTML(i,m){const q=quality(i,m);const tot=Math.round(sum(q.map(x=>x[2]))/10*100);
+ return`<div class="qrow"><div class="qscore"><b>${tot}</b><small>คุณภาพข้อมูล /100<br>ตามกรอบ ESS</small></div>${q.map(x=>`<div class="qb q${x[2]}"><span>${ic(x[2]===2?'circle-check':x[2]===1?'circle-alert':'circle-x')}${x[0]}</span><small>${x[1]} · ${x[3]}</small></div>`).join('')}</div>`}
+function stdStrip(){return`<div class="stds">${STD.map(s=>`<div class="std" title="${s[3]}"><span>${ic(s[2])}</span><div><b>${s[0]}</b><small>${s[1]}</small></div></div>`).join('')}</div>`}
+function stdDetail(){return`<div class="g g2" style="margin-top:10px">${STD.map(s=>`<div class="wq" style="--c:var(--brand)"><div class="wh">${ic(s[2])}<b>${s[0]}</b></div><small style="color:var(--tx3)">${s[1]}</small><p>${s[3]}</p></div>`).join('')}</div>`}
+
 /* ---------------- MODAL ---------------- */
 function bind(root){root.querySelectorAll('[data-ind]').forEach(c=>c.onclick=()=>openInd(c.dataset.ind));root.querySelectorAll('.dc[data-go]').forEach(c=>c.onclick=()=>go(c.dataset.go))}
 const modal=document.getElementById('modal');
@@ -746,14 +936,14 @@ function openInd(id){const i=IND.find(x=>x.id===id),c=dc(i.dimO),[rid,pkg]=RES[i
  <div class="card" style="margin-top:16px;--c:${c}"><h4>${ic('chart-line')}แนวโน้มรายปี</h4><div id="mChart" class="chart" style="height:300px"></div></div>
  ${i.d?`<div class="card" style="margin-top:16px;--c:${c}"><h4>${ic('map')}รายอำเภอ · พ.ศ. ${i.d.y}</h4><div class="maprow" style="margin-top:8px"><div id="mMap" style="height:380px"></div><div class="rank">${rankList(i)}</div></div></div>`:''}
  <div class="card" style="margin-top:16px;--c:${c}"><h4>${ic('table')}ตารางข้อมูล</h4><div class="tbl" style="margin-top:10px"><table class="t"><thead><tr><th>ปี พ.ศ.</th><th style="text-align:right">ค่า (${i.unit||'-'})</th><th style="text-align:right">เปลี่ยนแปลง</th></tr></thead><tbody>${[...i.s].reverse().map((p,k,a)=>{const q=a[k+1];const df=q?p.v-q.v:null;return`<tr><td>${p.y}</td><td class="n">${fmt(p.v,i.dec)}</td><td class="n" style="color:${df==null||!i.better||df===0?'var(--tx3)':((i.better==='up')===(df>0)?'#16a34a':'#e11d48')}">${df==null?'–':(df>0?'+':'')+fmt(df,i.dec)}</td></tr>`}).join('')}</tbody></table></div>
-  <div class="links"><a class="btn" href="${DSURL+pkg}" target="_blank" rel="noopener">${ic('external-link')}ชุดข้อมูลต้นทาง</a><a class="btn" href="${apiUrl}" target="_blank" rel="noopener">${ic('code')}เปิด API (JSON)</a></div><code class="api">GET ${apiUrl}</code></div>`);
+  <div class="links"><a class="btn" href="${DSURL+pkg}" target="_blank" rel="noopener">${ic('external-link')}ชุดข้อมูลต้นทาง</a><a class="btn" href="${apiUrl}" target="_blank" rel="noopener">${ic('code')}เปิด API (JSON)</a></div><code class="api">GET ${apiUrl}</code></div>${askBlock(i)}`);fillAsk(i);
  mk(document.getElementById('mChart'),{tooltip:TT,grid:{left:8,right:18,top:28,bottom:4,containLabel:true},xAxis:{type:'category',data:i.s.map(p=>p.y),...AX},yAxis:{type:'value',scale:true,...AX},series:[{type:'line',smooth:.3,symbolSize:10,data:i.s.map(p=>+p.v.toFixed(i.dec+1)),lineStyle:{width:3.5,color:c},itemStyle:{color:'#fff',borderColor:c,borderWidth:3},areaStyle:{color:grad(c,.3)},label:{show:true,position:'top',color:TXT,fontFamily:'Kanit',formatter:p=>fmt(p.value,i.dec)},markLine:i.s.length>2?{symbol:'none',lineStyle:{color:AX.axisLabel.color,type:'dashed'},label:{color:AX.axisLabel.color,formatter:p=>'เฉลี่ย '+fmt(p.value,i.dec)},data:[{type:'average'}]}:undefined}]});
  if(i.d)drawMap(document.getElementById('mMap'),i);}
 
 /* ---------------- CATALOG ---------------- */
 const CAT={q:'',group:'',start:0,rows:24};
 function renderCatalog(){const el=document.getElementById('p-catalog');const c=isDark()?'#2dd4bf':'#0d9488';
- el.innerHTML=`<section class="dhero" style="--c:${c};min-height:240px"><div class="media"><div class="ph" data-bg="dims/catalog"></div></div><div class="ico"><img data-src="icons/menu-catalog" data-fb="database" alt=""></div><div><div class="en">Provincial Data Catalog</div><h2>คลังข้อมูลจังหวัดหนองบัวลำภู</h2><p>ค้นหาชุดข้อมูลทั้งหมดในระบบบัญชีข้อมูลจังหวัดแบบเรียลไทม์ พร้อมดูตัวอย่างตารางได้ทันที</p></div><div class="big"><b id="catTotal">–</b><small>ชุดข้อมูล</small></div></section>
+ el.innerHTML=`<section class="dhero" style="--c:${c};min-height:240px"><div class="media"><div class="ph" data-bg="dims/catalog"></div><video data-video="dims/catalog" autoplay muted loop playsinline></video></div><div class="ico" style="background:#fff"><img data-src="brand/logo-gdcatalog" data-fb="database" alt="" style="width:70px;height:70px"></div><div><div class="en">Provincial Data Catalog · gdcatalog</div><h2>คลังข้อมูลจังหวัดหนองบัวลำภู</h2><p>ค้นหาชุดข้อมูลทั้งหมดในระบบบัญชีข้อมูลจังหวัดแบบเรียลไทม์ พร้อมดูตัวอย่างตารางได้ทันที</p></div><div class="big"><b id="catTotal">–</b><small>ชุดข้อมูล</small></div></section>
  <div class="sec"><label class="search">${ic('search')}<input id="catQ" placeholder="ค้นหาชุดข้อมูล เช่น ประชากร ผู้สูงอายุ ขยะ ท่องเที่ยว…" autocomplete="off"></label><div class="chips" id="catChips"></div><div id="catList"></div></div>`;
  lucide.createIcons();hydrate(el);let t;document.getElementById('catQ').oninput=e=>{clearTimeout(t);t=setTimeout(()=>{CAT.q=e.target.value.trim();CAT.start=0;loadCat()},350)};loadCat(true)}
 async function loadCat(first){const L=document.getElementById('catList');L.innerHTML='<div class="empty">กำลังค้นหา…</div>';
@@ -781,8 +971,8 @@ async function preview(rid,title,pkg){openModal(`<div class="mhead"><h2>${title}
 /* ---------------- SOURCES / API ---------------- */
 function renderSources(){const el=document.getElementById('p-sources');const keys=Object.keys(RES);const ok=keys.filter(k=>(RAW[k]||[]).length);const use=k=>IND.filter(i=>i.key===k).map(i=>i.name).join(', ')||'กราฟวิเคราะห์เชิงลึก';
  el.innerHTML=`${secHead('แหล่งข้อมูลและสถานะ API',`เชื่อมต่อสำเร็จ ${ok.length} จาก ${keys.length} ชุดข้อมูล · โหมด ${MODE==='jsonp'?'JSONP':'REST'} · ${LOADED_AT?LOADED_AT.toLocaleString('th-TH',{dateStyle:'medium',timeStyle:'short'}):''}`)}
- <div class="card"><div class="tbl" style="max-height:none"><table class="t"><thead><tr><th>สถานะ</th><th>ชุดข้อมูล</th><th>ใช้ในตัวชี้วัด</th><th style="text-align:right">แถว</th><th>ลิงก์</th></tr></thead><tbody>
- ${keys.map(k=>{const n=(RAW[k]||[]).length;return`<tr><td><span class="dot ${n?'live':'err'}" title="${RES[k][1]}" style="display:inline-block"></span></td><td style="white-space:normal;min-width:180px"><b style="font-family:var(--head);font-weight:500">${RES[k][1]}</b></td><td style="white-space:normal;color:var(--tx2);font-size:13px">${use(k)}</td><td class="n">${fmt(n)}</td><td><a class="btn" style="height:34px" href="${DSURL+RES[k][1]}" target="_blank" rel="noopener">${ic('external-link')}เปิด</a></td></tr>`}).join('')}
+ <div class="card"><div class="tbl" style="max-height:none"><table class="t"><thead><tr><th>สถานะ</th><th>ชุดข้อมูล</th><th>หน่วยงานเจ้าของข้อมูล</th><th>ความถี่ · ปรับปรุงล่าสุด</th><th>ใช้ในตัวชี้วัด</th><th style="text-align:right">แถว</th><th>ลิงก์</th></tr></thead><tbody>
+ ${keys.map(k=>{const n=(RAW[k]||[]).length;return`<tr><td><span class="dot ${n?'live':'err'}" title="${RES[k][1]}" style="display:inline-block"></span></td><td style="white-space:normal;min-width:180px"><b style="font-family:var(--head);font-weight:500">${esc((META[RES[k][1]]||{}).title||RES[k][1])}</b><br><small style="color:var(--tx3)">${RES[k][1]}</small></td><td style="white-space:normal;font-size:13px">${esc(((META[RES[k][1]]||{}).organization||{}).title||'…')}</td><td style="font-size:13px">${(()=>{const m=META[RES[k][1]]||{};return(m.update_frequency_unit?'ทุก '+(m.update_frequency_interval||1)+' '+m.update_frequency_unit:'–')+'<br><small style="color:var(--tx3)">'+thd(m.last_updated_date||m.metadata_modified)+'</small>'})()}</td><td style="white-space:normal;color:var(--tx2);font-size:13px">${use(k)}</td><td class="n">${fmt(n)}</td><td><a class="btn" style="height:34px" href="${DSURL+RES[k][1]}" target="_blank" rel="noopener">${ic('external-link')}เปิด</a></td></tr>`}).join('')}
  </tbody></table></div></div>`;lucide.createIcons()}
 
 function renderMethod(){document.getElementById('p-method').innerHTML=`${secHead('ระเบียบวิธีการคำนวณดัชนี','ที่มา สูตร และข้อควรระวังในการแปลผล')}<div class="card method">
@@ -791,7 +981,9 @@ function renderMethod(){document.getElementById('p-method').innerHTML=`${secHead
  <h5>3) คะแนนรายมิติและดัชนีรวม</h5>คะแนนมิติ = ค่าเฉลี่ยของตัวชี้วัดในมิติ (น้ำหนักเท่ากัน) · ดัชนีรวม = ค่าเฉลี่ย ${DIMS.length} มิติ · ตัวชี้วัดเชิงบริบท (เช่น จำนวนประชากร ดัชนีการสูงวัย) แสดงผลแต่ไม่คิดคะแนน
  <h5>4) ระดับผล</h5><span style="color:#0891b2">≥ 75 ดีมาก</span> · <span style="color:#16a34a">60–74 ดี</span> · <span style="color:#ca8a04">40–59 ปานกลาง</span> · <span style="color:#ea580c">25–39 ควรเฝ้าระวัง</span> · <span style="color:#e11d48">&lt; 25 ต้องเร่งพัฒนา</span>
  <h5>5) ข้อควรระวัง</h5>ดัชนีสะท้อนทิศทางการเปลี่ยนแปลงของจังหวัดเทียบกับตัวเอง ไม่ใช่การจัดอันดับกับจังหวัดอื่น · ปีล่าสุดของแต่ละตัวชี้วัดไม่ตรงกันตามรอบจัดเก็บของหน่วยงาน · ค่าที่ระบุ “ค่าเฉลี่ย 6 อำเภอ” คำนวณจากข้อมูลรายอำเภอ · ค่าศูนย์ผิดปกติในปีที่ยังไม่ครบรอบจะถูกตัดออก
- <h5>6) ตัวชี้วัดทั้งหมด</h5><div class="tbl"><table class="t"><thead><tr><th>มิติ</th><th>ตัวชี้วัด</th><th>ทิศทาง</th><th>ปีล่าสุด</th></tr></thead><tbody>${IND.map(i=>`<tr><td style="color:${dc(i.dimO)}">${i.dimO.name}</td><td>${i.name}</td><td>${i.better==='up'?'↑ มาก = ดี':i.better==='down'?'↓ น้อย = ดี':'บริบท'}</td><td>${i.last?i.last.y:'–'}</td></tr>`).join('')}</tbody></table></div></div>`}
+ <h5>6) หลักการสากลที่ใช้อ้างอิง</h5>${stdDetail()}
+ <h5>7) บทวิเคราะห์เชิงนโยบาย</h5>ส่วน “เราคิดว่า…” แยก <b>ข้อเท็จจริงจากข้อมูล</b> ออกจาก <b>ข้อเสนอเชิงนโยบาย</b> อย่างชัดเจน ข้อสังเกตทั้งหมดคำนวณอัตโนมัติจากตัวเลข (แนวโน้ม ค่าเฉลี่ยย้อนหลัง ช่องว่างรายอำเภอ ความทันสมัยของข้อมูล) ไม่ได้สรุปสาเหตุ ส่วนข้อเสนอจัดตามวงจรนโยบายสาธารณะ เชื่อมยุทธศาสตร์ชาติ 20 ปี และ SDGs เป็นแนวทางเบื้องต้นที่ควรยืนยันร่วมกับหน่วยงานเจ้าของข้อมูลก่อนใช้
+ <h5>8) ตัวชี้วัดทั้งหมด</h5><div class="tbl"><table class="t"><thead><tr><th>มิติ</th><th>ตัวชี้วัด</th><th>ทิศทาง</th><th>ปีล่าสุด</th></tr></thead><tbody>${IND.map(i=>`<tr><td style="color:${dc(i.dimO)}">${i.dimO.name}</td><td>${i.name}</td><td>${i.better==='up'?'↑ มาก = ดี':i.better==='down'?'↓ น้อย = ดี':'บริบท'}</td><td>${i.last?i.last.y:'–'}</td></tr>`).join('')}</tbody></table></div></div>`}
 
 /* =========================================================
    BOOT
@@ -801,7 +993,7 @@ function setStatus(f){const d=document.getElementById('stDot'),t=document.getEle
  document.getElementById('ftTime').textContent=LOADED_AT?'อัปเดตข้อมูล '+LOADED_AT.toLocaleString('th-TH',{dateStyle:'long',timeStyle:'short'}):''}
 function rebuild(){CHARTS.splice(0).forEach(c=>{try{c.dispose()}catch(e){}});RENDERED={};chartTheme();renderMenu();
  document.getElementById('pages').innerHTML=PAGES.map(p=>`<section class="page" id="p-${p.id}"></section>`).join('');go(CUR)}
-async function boot(){const fails=await loadAll();OVERALL=compute();setStatus(fails);rebuild();hydrate();
+async function boot(){const fails=await loadAll();OVERALL=compute();setStatus(fails);rebuild();hydrate();loadMeta().then(()=>{const f=document.getElementById('faq');if(f){f.innerHTML=faqHTML();lucide.createIcons()}});
  document.getElementById('loader').classList.add('out');
  if(SOURCE==='error')document.getElementById('p-overview').innerHTML=`<div class="card empty">ไม่สามารถเชื่อมต่อ API ระบบบัญชีข้อมูลจังหวัดได้ กรุณากด “รีเฟรชข้อมูล”</div>`}
 const themeIcon=()=>{document.getElementById('btnTheme').innerHTML=ic(isDark()?'sun':'moon');lucide.createIcons()};
