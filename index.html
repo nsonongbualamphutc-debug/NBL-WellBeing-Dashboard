@@ -334,6 +334,37 @@ footer.pf img{height:52px;width:auto}
 .std{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:16px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow)}
 .std span{width:38px;height:38px;flex:none;border-radius:11px;display:grid;place-items:center;background:var(--brandSoft);color:var(--brand)}
 .std span svg{width:19px;height:19px}.std b{font-family:var(--head);font-weight:600;font-size:13.5px;line-height:1.3;display:block}.std small{font-size:12px;color:var(--tx3)}
+
+/* ---- extras ---- */
+.tbtn.pri{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-color:transparent}.tbtn.pri:hover{color:#fff;filter:brightness(1.08)}
+.tbtn kbd{font-family:var(--font);font-size:11px;padding:2px 6px;border-radius:6px;background:var(--panel2);border:1px solid var(--line);color:var(--tx3)}
+.chip svg{width:14px;height:14px;vertical-align:-2px;margin-right:4px}
+.pillbar{display:inline-block;width:90px;height:7px;border-radius:6px;background:color-mix(in srgb,var(--tx3) 18%,transparent);overflow:hidden;vertical-align:middle}.pillbar i{display:block;height:100%;border-radius:6px}
+.sri.on{border-color:var(--brand)}
+#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);opacity:0;z-index:90;padding:12px 20px;border-radius:14px;background:#2b1531;color:#fff;font-size:14.5px;box-shadow:0 20px 40px -10px rgba(0,0,0,.4);transition:.3s;pointer-events:none}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+body.present .side,body.present .topbar,body.present footer.pf,body.present .scrim{display:none!important}
+body.present .main{margin-left:0;padding:16px 24px 90px}
+#presBar{position:fixed;left:0;right:0;bottom:0;z-index:70;pointer-events:none}
+#presBar .pp{height:4px;background:rgba(219,39,119,.15)}#presBar .pp i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--teal));animation:pp linear forwards}#presBar .pp i.paused{animation:none;width:0}
+@keyframes pp{to{width:100%}}
+#presBar .pc{pointer-events:auto;display:flex;gap:10px;align-items:center;justify-content:center;margin:12px auto;width:max-content;padding:8px 12px;border-radius:16px;background:var(--glass);backdrop-filter:blur(16px);border:1px solid var(--line2);box-shadow:var(--shadow2);font-family:var(--head);font-size:14.5px}
+#print{display:none}
+@media print{
+ @page{size:A4;margin:14mm}
+ body{background:#fff!important}body::before,body::after{display:none}
+ body>*:not(#print){display:none!important}
+ #print{display:block;color:#111;font-family:'Sarabun',sans-serif;font-size:11.5pt}
+ #print .ph1{display:flex;gap:14px;align-items:center;border-bottom:3px solid #db2777;padding-bottom:10px;margin-bottom:12px}
+ #print .ph1 img{height:52px}
+ #print h1{font-family:'Kanit';font-size:18pt;color:#9d174d}#print h2{font-family:'Kanit';font-size:13pt;font-weight:500}#print p{font-size:10pt;color:#555}
+ #print h3{font-family:'Kanit';font-size:12.5pt;color:#9d174d;margin:14px 0 6px}
+ #print .pg{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:start}
+ #print .pbig{border:2px solid #db2777;border-radius:12px;padding:12px;text-align:center}#print .pbig b{font-family:'Kanit';font-size:40pt;color:#db2777;line-height:1;display:block}#print .pbig small{display:block;color:#666;font-size:9pt;margin-top:6px}
+ #print table.pt{width:100%;border-collapse:collapse;font-size:10pt}#print .pt th,#print .pt td{border-bottom:1px solid #e5d5de;padding:5px 6px;text-align:left}#print .pt th{background:#fce7f3;font-family:'Kanit';font-weight:500}#print .pt .n{text-align:right}
+ #print ol{padding-left:20px;font-size:10.5pt;line-height:1.6}#print .pn{margin-top:14px;font-size:8.5pt;border-top:1px solid #ddd;padding-top:6px}
+}
+@media(max-width:1300px){.tbtn kbd{display:none}}
 .scrim{display:none}
 
 /* ============================== RESPONSIVE ============================== */
@@ -388,13 +419,18 @@ footer.pf img{height:52px;width:auto}
   <button class="ibtn burger" id="burger" aria-label="เมนู"><i data-lucide="menu"></i></button>
   <div class="crumb"><small id="crSub">ภาพรวมจังหวัด</small><h1 id="crTitle">ดัชนีความอยู่ดีมีสุข</h1></div>
   <div class="logos"><img data-src="brand/seal-nblp" data-fb="none" alt="ตราจังหวัดหนองบัวลำภู"><img data-src="brand/logo-nso" data-fb="none" alt="สำนักงานสถิติแห่งชาติ"><img data-src="brand/logo-gdcatalog" data-fb="none" alt="ระบบบัญชีข้อมูลภาครัฐ"></div>
-  <button class="tbtn" id="btnRefresh"><i data-lucide="refresh-cw"></i><span>รีเฟรชข้อมูล</span></button>
+  <button class="tbtn" id="btnSearch" title="ค้นหา (Ctrl+K)"><i data-lucide="search"></i><span>ค้นหา</span><kbd>Ctrl K</kbd></button>
+  <button class="tbtn pri" id="btnPresent" title="โหมดนำเสนอ"><i data-lucide="presentation"></i><span>นำเสนอ</span></button>
+  <button class="tbtn" id="btnPrint" title="รายงานสรุปผู้บริหาร (PDF)"><i data-lucide="file-text"></i><span>รายงาน PDF</span></button>
+  <button class="tbtn" id="btnShare" title="คัดลอกลิงก์หน้านี้"><i data-lucide="share-2"></i></button>
+  <button class="tbtn" id="btnRefresh" title="รีเฟรชข้อมูล"><i data-lucide="refresh-cw"></i></button>
   <button class="tbtn" id="btnFull" title="เต็มจอ"><i data-lucide="maximize"></i></button>
  </div>
  <div id="pages"></div>
  <footer class="pf"><img data-src="brand/seal-nblp" data-fb="none" alt=""><img data-src="brand/logo-nso" data-fb="none" alt=""><img data-src="brand/logo-gdcatalog" data-fb="none" alt=""><div><b style="font-family:var(--head);color:var(--tx)">สำนักงานสถิติจังหวัดหนองบัวลำภู</b><br>ศาลากลางจังหวัดหนองบัวลำภู ชั้น 2 ถ.หนองบัวลำภู–เลย ต.ลำภู อ.เมือง จ.หนองบัวลำภู 39000 · โทร 0 4231 6736</div><div style="margin-left:auto" id="ftTime"></div></footer>
 </div>
 
+<div id="presBar"></div><div id="print"></div>
 <div class="modal" id="modal"><div class="mbox" id="mbox"></div></div>
 
 <script>
@@ -677,6 +713,7 @@ const FEAT={
    ========================================================= */
 const PAGES=[
  {id:'overview',name:'ภาพรวมจังหวัด',en:'Overview',icon:'layout-dashboard',img:'icons/menu-overview',grp:'หน้าหลัก'},
+ {id:'district',name:'โปรไฟล์รายอำเภอ',en:'District Profile',icon:'map-pinned',img:'icons/menu-district',grp:'หน้าหลัก'},
  ...DIMS.map(d=>({id:d.id,name:d.name,en:d.en,icon:d.icon,img:'icons/dim-'+d.id,grp:'7 มิติความอยู่ดีมีสุข',dim:d})),
  {id:'catalog',name:'คลังข้อมูลจังหวัด',en:'Data Catalog',icon:'database',img:'icons/menu-catalog',grp:'ข้อมูลและระเบียบวิธี'},
  {id:'sources',name:'แหล่งข้อมูลและ API',en:'Sources & API',icon:'plug-zap',img:'icons/menu-sources',grp:'ข้อมูลและระเบียบวิธี'},
@@ -693,7 +730,7 @@ function go(id){if(!PAGES.find(p=>p.id===id))id='overview';CUR=id;const p=PAGES.
  document.querySelectorAll('.page').forEach(x=>x.classList.toggle('on',x.id==='p-'+id));
  document.getElementById('crTitle').textContent=p.name;document.getElementById('crSub').textContent=p.dim?'มิติที่ '+(DIMS.indexOf(p.dim)+1)+' จาก 7 · '+p.en:p.en;
  try{history.replaceState(null,'','#'+id)}catch(e){}
- if(!RENDERED[id]){RENDERED[id]=1;({overview:renderOverview,catalog:renderCatalog,sources:renderSources,method:renderMethod}[id]||(()=>renderDim(id)))()}
+ if(!RENDERED[id]){RENDERED[id]=1;({overview:renderOverview,district:renderDistrict,catalog:renderCatalog,sources:renderSources,method:renderMethod}[id]||(()=>renderDim(id)))()}
  setTimeout(()=>CHARTS.forEach(c=>{try{c.resize()}catch(e){}}),40);window.scrollTo({top:0,behavior:'smooth'});}
 
 function indCard(ind){const c=dc(ind.dimO),L=ind.last,dl=delta(ind);
@@ -738,12 +775,14 @@ function renderOverview(){const el=document.getElementById('p-overview');const l
    <div class="card" style="--c:#16a34a"><h4>${ic('thumbs-up')}จุดแข็ง</h4><div class="sub">ตัวชี้วัดที่อยู่ในระดับดีที่สุด</div>${scored.slice(0,5).map(insRow).join('')}</div>
    <div class="card" style="--c:#ea580c"><h4>${ic('triangle-alert')}ควรเฝ้าระวัง</h4><div class="sub">ตัวชี้วัดที่ควรเร่งติดตามเชิงนโยบาย</div>${scored.slice(-5).reverse().map(insRow).join('')}</div>
   </div></div>
+ <div class="sec">${secHead('ทิศทางดัชนีย้อนหลัง','คำนวณดัชนีของแต่ละปีจากข้อมูลที่มี ณ ปีนั้น · กดชื่อมิติในคำอธิบายกราฟเพื่อเปิด/ปิดเส้น')}<div class="card"><div id="gHist" class="chart" style="height:360px"></div></div></div>
  <div class="sec">${secHead('คำถามที่ผู้บริหารมักถาม (5W1H)','ใคร อะไร ที่ไหน เมื่อไร อย่างไร ทำไม และควรทำอะไรต่อ — ตอบจากข้อมูลจริงในระบบ')}<div id="faq">${faqHTML()}</div></div>
  <div class="sec">${secHead('อ้างอิงมาตรฐานสากล','หลักการที่ใช้ออกแบบดัชนี คุณภาพข้อมูล และบทวิเคราะห์เชิงนโยบาย')}${stdStrip()}</div>`;
  lucide.createIcons();hydrate(el);bind(el);
  mk(document.getElementById('gMain'),{series:[{type:'gauge',startAngle:220,endAngle:-40,min:0,max:100,radius:'98%',center:['50%','56%'],progress:{show:true,width:16,roundCap:true,itemStyle:{color:new echarts.graphic.LinearGradient(0,0,1,0,[{offset:0,color:'#fbcfe8'},{offset:1,color:'#ffffff'}])}},axisLine:{roundCap:true,lineStyle:{width:16,color:[[1,'rgba(255,255,255,.18)']]}},axisTick:{show:false},splitLine:{show:false},axisLabel:{show:false},pointer:{show:false},anchor:{show:false},title:{show:false},detail:{offsetCenter:[0,'2%'],fontSize:64,fontFamily:'Kanit',fontWeight:700,color:'#fff',formatter:'{value}'},data:[{value:OVERALL??0}]}]});
  mk(document.getElementById('gRadar'),{tooltip:{...TT,trigger:'item'},radar:{radius:'58%',center:['50%','54%'],indicator:DIMS.map(d=>({name:d.name.replace('เศรษฐกิจและรายได้','เศรษฐกิจ').replace('ประชากรและสังคม','สังคม').replace('ที่อยู่อาศัยและดิจิทัล','ที่อยู่อาศัย/ดิจิทัล'),max:100,color:dc(d)})),splitNumber:4,axisName:{fontFamily:'Kanit',fontSize:12.5},splitLine:{lineStyle:{color:AX.splitLine.lineStyle.color}},splitArea:{areaStyle:{color:['transparent']}},axisLine:{lineStyle:{color:AX.axisLine.lineStyle.color}}},
   series:[{type:'radar',symbolSize:8,data:[{value:DIMS.map(d=>d.score??0),name:'คะแนนรายมิติ',areaStyle:{color:'rgba(219,39,119,.22)'},lineStyle:{width:2.5,color:'#db2777'},itemStyle:{color:'#fff',borderColor:'#db2777',borderWidth:2},label:{show:true,color:TXT,fontFamily:'Kanit',fontWeight:600}}]}]});
+ drawHistory(document.getElementById('gHist'));
  requestAnimationFrame(()=>setTimeout(()=>el.querySelectorAll('[data-w]').forEach(i=>i.style.width=i.dataset.w+'%'),100));}
 
 /* ---------------- DIMENSION ---------------- */
@@ -920,6 +959,73 @@ function qualityHTML(i,m){const q=quality(i,m);const tot=Math.round(sum(q.map(x=
 function stdStrip(){return`<div class="stds">${STD.map(s=>`<div class="std" title="${s[3]}"><span>${ic(s[2])}</span><div><b>${s[0]}</b><small>${s[1]}</small></div></div>`).join('')}</div>`}
 function stdDetail(){return`<div class="g g2" style="margin-top:10px">${STD.map(s=>`<div class="wq" style="--c:var(--brand)"><div class="wh">${ic(s[2])}<b>${s[0]}</b></div><small style="color:var(--tx3)">${s[1]}</small><p>${s[3]}</p></div>`).join('')}</div>`}
 
+/* =========================================================
+   EXTRAS: โปรไฟล์อำเภอ · ดัชนีย้อนหลัง · โหมดนำเสนอ · รายงาน PDF · ค้นหา · แชร์
+   ========================================================= */
+function toast(t){let e=document.getElementById('toast');if(!e){e=document.createElement('div');e.id='toast';document.body.appendChild(e)}e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),2200)}
+
+/* ---- ดัชนีย้อนหลังรายปี ---- */
+function indexHistory(){const sc=IND.filter(i=>i.better&&i.s.length>=2);const ys=[...new Set(sc.flatMap(i=>i.s.map(p=>p.y)))].sort((a,b)=>a-b);const out=[];
+ ys.forEach(Y=>{const dimS={};sc.forEach(i=>{const pts=i.s.filter(p=>p.y<=Y);if(!pts.length)return;const vs=i.s.map(p=>p.v),mn=Math.min(...vs),mx=Math.max(...vs);const v=pts[pts.length-1].v;let x=mx===mn?50:(v-mn)/(mx-mn)*100;if(i.better==='down')x=100-x;(dimS[i.dim]=dimS[i.dim]||[]).push(x)});
+  const d={};DIMS.forEach(D=>{if(dimS[D.id])d[D.id]=sum(dimS[D.id])/dimS[D.id].length});const k=Object.keys(d);if(k.length>=5)out.push({y:Y,o:Math.round(sum(Object.values(d))/k.length),d})});return out}
+function drawHistory(el){const H=indexHistory();if(H.length<2){el.innerHTML='<div class="empty">ข้อมูลยังไม่พอสร้างอนุกรม</div>';return}
+ mk(el,{tooltip:TT,legend:{...LEG,type:'scroll',selected:Object.fromEntries(DIMS.map(d=>[d.name,false]))},grid:{left:8,right:18,top:44,bottom:4,containLabel:true},xAxis:{type:'category',data:H.map(h=>h.y),...AX},yAxis:{type:'value',min:0,max:100,...AX},
+  series:[{name:'ดัชนีรวม',type:'line',smooth:.3,symbolSize:10,lineStyle:{width:4,color:'#db2777'},itemStyle:{color:'#fff',borderColor:'#db2777',borderWidth:3},areaStyle:{color:grad('#db2777',.22)},label:{show:true,position:'top',color:TXT,fontFamily:'Kanit',fontWeight:600},data:H.map(h=>h.o)},
+   ...DIMS.map(d=>({name:d.name,type:'line',smooth:.3,symbolSize:6,lineStyle:{width:2,color:dc(d)},itemStyle:{color:dc(d)},data:H.map(h=>h.d[d.id]!=null?Math.round(h.d[d.id]):null)}))]})}
+
+/* ---- โปรไฟล์อำเภอ ---- */
+let DSEL=DISTRICTS[0];
+function distRows(dn){return IND.filter(i=>i.d&&i.d.v[dn]!=null).map(i=>{const e=Object.entries(i.d.v);const sorted=[...e].sort((a,b)=>i.better==='down'?a[1]-b[1]:b[1]-a[1]);const rank=sorted.findIndex(x=>x[0]===dn)+1;const avg=sum(e.map(x=>x[1]))/e.length;return{i,v:i.d.v[dn],y:i.d.y,rank,n:e.length,avg}})}
+function renderDistrict(){const el=document.getElementById('p-district');const c='#db2777';
+ el.innerHTML=`<section class="dhero" style="--c:${c};min-height:260px"><div class="media"><div class="ph" data-bg="hero/hero-home"></div><video data-video="hero/hero-home" autoplay muted loop playsinline></video></div>
+  <div class="ico"><img data-src="icons/menu-district" data-fb="map-pinned" alt=""></div><div><div class="en">District Profile · 6 อำเภอ</div><h2>โปรไฟล์รายอำเภอ</h2><p>เทียบอำเภอกับค่าเฉลี่ย 6 อำเภอในทุกตัวชี้วัดที่มีข้อมูลรายอำเภอ เพื่อหาจุดแข็งและพื้นที่เป้าหมายเชิงนโยบาย</p></div></section>
+ <div class="sec"><div class="chips" id="dchips">${DISTRICTS.map(d=>`<button class="chip ${d===DSEL?'on':''}" data-d="${d}">${ic('map-pin')}อำเภอ${d}</button>`).join('')}</div><div id="dbody"></div></div>`;
+ lucide.createIcons();hydrate(el);el.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{DSEL=b.dataset.d;el.querySelectorAll('[data-d]').forEach(x=>x.classList.toggle('on',x===b));drawDistrict()});drawDistrict()}
+function drawDistrict(){const B=document.getElementById('dbody');const R=distRows(DSEL);const sc=R.filter(r=>r.i.better);const top=[...sc].sort((a,b)=>a.rank-b.rank).slice(0,3),low=[...sc].sort((a,b)=>b.rank-a.rank).slice(0,3);
+ const scoreD=sc.length?Math.round(sum(sc.map(r=>(r.n-r.rank)/(r.n-1)*100))/sc.length):null;
+ B.innerHTML=`<div class="g g3" style="margin-top:18px"><div class="card"><h4>${ic('map')}ตำแหน่งในจังหวัด</h4><div class="sub">คลิกแผนที่เพื่อเปลี่ยนอำเภอ</div><div id="dpick" style="height:340px"></div></div>
+  <div class="card" style="--c:#16a34a"><h4>${ic('thumbs-up')}จุดแข็งของอำเภอ</h4><div class="sub">อันดับดีที่สุดเมื่อเทียบ 6 อำเภอ</div>${top.map(r=>`<div class="obs"><span class="od good">${ic(r.i.icon)}</span><p><b>${r.i.name}</b><br><small style="color:var(--tx3)">อันดับ ${r.rank}/${r.n} · ${fmt(r.v,r.i.dec)} ${r.i.unit}</small></p></div>`).join('')}</div>
+  <div class="card" style="--c:#ea580c"><h4>${ic('triangle-alert')}พื้นที่ที่ควรพัฒนา</h4><div class="sub">อันดับท้ายเมื่อเทียบ 6 อำเภอ</div>${low.map(r=>`<div class="obs"><span class="od bad">${ic(r.i.icon)}</span><p><b>${r.i.name}</b><br><small style="color:var(--tx3)">อันดับ ${r.rank}/${r.n} · ${fmt(r.v,r.i.dec)} ${r.i.unit}</small></p></div>`).join('')}
+   ${scoreD!=null?`<div class="frame"><div><span>ดัชนีสัมพัทธ์ของอำเภอ (เทียบ 6 อำเภอ)</span><b style="font-family:Kanit;font-size:22px;color:${level(scoreD).c}">${scoreD}/100 · ${level(scoreD).t}</b></div></div>`:''}</div></div>
+ <div class="card" style="margin-top:18px"><h4>${ic('table')}ตัวชี้วัดทั้งหมดของอำเภอ${DSEL}</h4><div class="sub">อันดับ 1 = ดีที่สุดใน 6 อำเภอ (ตัวชี้วัดเชิงบริบทเรียงจากค่ามากไปน้อย)</div>
+  <div class="tbl" style="max-height:none"><table class="t"><thead><tr><th>มิติ</th><th>ตัวชี้วัด</th><th>ปี</th><th style="text-align:right">อำเภอ${DSEL}</th><th style="text-align:right">เฉลี่ย 6 อำเภอ</th><th style="text-align:right">อันดับ</th><th>สถานะ</th></tr></thead><tbody>
+  ${R.map(r=>{const t=r.n>1?(r.n-r.rank)/(r.n-1):.5;const col=r.i.better?goodColor(t):'var(--tx3)';return`<tr data-ind="${r.i.id}" style="cursor:pointer"><td style="color:${dc(r.i.dimO)}">${r.i.dimO.name}</td><td style="white-space:normal">${r.i.name}</td><td>${r.y}</td><td class="n">${fmt(r.v,r.i.dec)}</td><td class="n" style="color:var(--tx3)">${fmt(r.avg,r.i.dec)}</td><td class="n"><b style="color:${col}">${r.rank}</b>/${r.n}</td><td>${r.i.better?`<span class="pillbar"><i style="width:${Math.round(t*100)}%;background:${col}"></i></span>`:'<span class="tag2">บริบท</span>'}</td></tr>`}).join('')}</tbody></table></div></div>`;
+ lucide.createIcons();bind(B);
+ if(!mapReady){echarts.registerMap('nbl',GEO);mapReady=true}
+ const ch=mk(document.getElementById('dpick'),{tooltip:{...TT,trigger:'item',formatter:p=>'อำเภอ'+p.name},series:[{type:'map',map:'nbl',aspectScale:.95,layoutCenter:['50%','50%'],layoutSize:'95%',selectedMode:false,label:{show:true,fontFamily:'Kanit',fontSize:12,color:'#1f0f1f',textBorderColor:'rgba(255,255,255,.9)',textBorderWidth:3,formatter:p=>DSHORT[p.name]||p.name},itemStyle:{borderColor:isDark()?'#0b0f1d':'#fff',borderWidth:2},emphasis:{itemStyle:{areaColor:'#f9a8d4'}},
+  data:DISTRICTS.map(n=>({name:n,itemStyle:{areaColor:n===DSEL?'#db2777':(isDark()?'#232a48':'#f3e8ef')},label:{color:n===DSEL?'#fff':'#1f0f1f',textBorderWidth:n===DSEL?0:3}}))}]});
+ ch.on('click',p=>{if(DISTRICTS.includes(p.name)){DSEL=p.name;document.querySelectorAll('#dchips [data-d]').forEach(x=>x.classList.toggle('on',x.dataset.d===DSEL));CHARTS.splice(CHARTS.indexOf(ch),1);ch.dispose();drawDistrict()}})}
+
+/* ---- โหมดนำเสนอ ---- */
+const PRES={on:false,i:0,t:null,dur:15000,seq:()=>['overview',...DIMS.map(d=>d.id),'district']};
+function presStart(){PRES.on=true;PRES.i=Math.max(0,PRES.seq().indexOf(CUR));document.body.classList.add('present');document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen().catch(()=>{});presShow();toast('โหมดนำเสนอ · ← → เปลี่ยนหน้า · Space หยุด · Esc ออก')}
+function presShow(){const s=PRES.seq();go(s[PRES.i]);const b=document.getElementById('presBar');b.innerHTML=`<div class="pp"><i style="animation-duration:${PRES.dur}ms" class="${PRES.t===false?'paused':''}"></i></div><div class="pc"><button class="ibtn" data-p="prev">${ic('chevron-left')}</button><span>${PRES.i+1} / ${s.length} · ${PAGES.find(p=>p.id===s[PRES.i]).name}</span><button class="ibtn" data-p="toggle">${ic(PRES.t===false?'play':'pause')}</button><button class="ibtn" data-p="next">${ic('chevron-right')}</button><button class="ibtn" data-p="exit">${ic('x')}</button></div>`;
+ lucide.createIcons();b.querySelectorAll('[data-p]').forEach(x=>x.onclick=()=>presCmd(x.dataset.p));clearTimeout(PRES.t);if(PRES.t!==false)PRES.t=setTimeout(()=>presCmd('next'),PRES.dur)}
+function presCmd(c){const n=PRES.seq().length;if(c==='next'){PRES.i=(PRES.i+1)%n;if(PRES.t===false)PRES.t=null;presShow()}else if(c==='prev'){PRES.i=(PRES.i-1+n)%n;presShow()}else if(c==='toggle'){if(PRES.t===false){PRES.t=null}else{clearTimeout(PRES.t);PRES.t=false}presShow()}else{PRES.on=false;clearTimeout(PRES.t);PRES.t=null;document.body.classList.remove('present');document.getElementById('presBar').innerHTML='';if(document.fullscreenElement)document.exitFullscreen().catch(()=>{})}}
+document.addEventListener('keydown',e=>{if(!PRES.on)return;if(e.key==='ArrowRight')presCmd('next');else if(e.key==='ArrowLeft')presCmd('prev');else if(e.key===' '){e.preventDefault();presCmd('toggle')}else if(e.key==='Escape')presCmd('exit')});
+
+/* ---- รายงานสรุปผู้บริหาร (พิมพ์/บันทึก PDF) ---- */
+function printBrief(){const P=document.getElementById('print');const sc=IND.filter(i=>i.sc!=null).sort((a,b)=>b.sc-a.sc);const lv=level(OVERALL);const logo=n=>document.querySelector(`img[data-src="brand/${n}"]`);const src=n=>{const i=logo(n);return i&&i.src?i.src:''};
+ const row=i=>`<tr><td>${i.dimO.name}</td><td>${i.name}</td><td class="n">${fmt(i.last.v,i.dec)} ${i.unit}</td><td class="n">${i.last.y}</td><td class="n"><b>${i.sc}</b></td></tr>`;
+ P.innerHTML=`<div class="ph1">${['seal-nblp','logo-nso','logo-gdcatalog'].map(n=>src(n)?`<img src="${src(n)}">`:'').join('')}<div><h1>รายงานสรุปสำหรับผู้บริหาร</h1><h2>ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู</h2><p>ข้อมูล ณ ${LOADED_AT?LOADED_AT.toLocaleString('th-TH',{dateStyle:'long',timeStyle:'short'}):''} · แหล่งข้อมูล: ระบบบัญชีข้อมูลจังหวัด ${Object.keys(RES).length} ชุดข้อมูล</p></div></div>
+ <div class="pg"><div class="pbig"><b>${OVERALL}</b><span>/100 · ${lv.t}</span><small>ดัชนีรวม ${DIMS.length} มิติ ${IND.filter(i=>i.sc!=null).length} ตัวชี้วัด</small></div>
+  <table class="pt"><thead><tr><th>มิติ</th><th class="n">คะแนน</th><th>ระดับ</th><th>ตัวชี้วัดที่ต่ำสุดในมิติ</th></tr></thead><tbody>${DIMS.map(d=>{const w=IND.filter(i=>i.dim===d.id&&i.sc!=null).sort((a,b)=>a.sc-b.sc)[0];return`<tr><td><b>${d.name}</b></td><td class="n"><b>${d.score??'–'}</b></td><td>${level(d.score).t}</td><td>${w?w.name+' ('+w.sc+')':'–'}</td></tr>`}).join('')}</tbody></table></div>
+ <h3>จุดแข็ง 5 อันดับ</h3><table class="pt"><thead><tr><th>มิติ</th><th>ตัวชี้วัด</th><th class="n">ค่าล่าสุด</th><th class="n">ปี</th><th class="n">คะแนน</th></tr></thead><tbody>${sc.slice(0,5).map(row).join('')}</tbody></table>
+ <h3>ประเด็นที่ควรเฝ้าระวัง 5 อันดับ</h3><table class="pt"><thead><tr><th>มิติ</th><th>ตัวชี้วัด</th><th class="n">ค่าล่าสุด</th><th class="n">ปี</th><th class="n">คะแนน</th></tr></thead><tbody>${sc.slice(-5).reverse().map(row).join('')}</tbody></table>
+ <h3>ข้อเสนอเชิงนโยบาย (ตามวงจรนโยบาย)</h3><ol>${DIMS.filter(d=>d.score!=null&&d.score<50).map(d=>`<li><b>${d.name}</b> (${d.score}): ${POL[d.id].weak[0]} · หน่วยงานหลัก ${POL[d.id].ag.split(' · ')[0]}</li>`).join('')||'<li>ทุกมิติอยู่ในระดับปานกลางขึ้นไป ควรรักษาระดับและติดตามต่อเนื่อง</li>'}</ol>
+ <p class="pn">หมายเหตุ: คะแนนเทียบค่าปีล่าสุดกับช่วงข้อมูลย้อนหลังของจังหวัด (Min–Max ตามคู่มือ OECD/JRC) ข้อเสนอเป็นแนวทางเบื้องต้นเพื่อประกอบการพิจารณา · จัดทำโดย สำนักงานสถิติจังหวัดหนองบัวลำภู · ${location.href.split('#')[0]}</p>`;
+ setTimeout(()=>window.print(),300)}
+
+/* ---- ค้นหา (Ctrl+K) ---- */
+function openSearch(){openModal(`<div class="mhead"><label class="search" style="flex:1">${ic('search')}<input id="sq" placeholder="ค้นหาตัวชี้วัด มิติ หรืออำเภอ…" autocomplete="off"></label><button class="ibtn x">${ic('x')}</button></div><div id="sr"></div>`);
+ const q=document.getElementById('sq');const run=()=>{const t=q.value.trim();const items=[...PAGES.map(p=>({k:'page',id:p.id,t:p.name,s:p.en,ic:p.icon,c:pc(p)})),...IND.filter(i=>i.s.length).map(i=>({k:'ind',id:i.id,t:i.name,s:'มิติ'+i.dimO.name+(i.last?' · '+fmt(i.last.v,i.dec)+' '+i.unit:''),ic:i.icon,c:dc(i.dimO)})),...DISTRICTS.map(d=>({k:'dist',id:d,t:'อำเภอ'+d,s:'โปรไฟล์อำเภอ',ic:'map-pin',c:'#db2777'}))].filter(x=>!t||(x.t+x.s).toLowerCase().includes(t.toLowerCase())).slice(0,14);
+  document.getElementById('sr').innerHTML=items.map((x,k)=>`<div class="ins sri ${k===0?'on':''}" style="--c:${x.c}" data-k="${x.k}" data-id="${x.id}"><div class="ic">${ic(x.ic)}</div><div><div class="t">${x.t}</div><div class="d">${x.s}</div></div><div>${ic('corner-down-left')}</div></div>`).join('')||'<div class="empty">ไม่พบ</div>';lucide.createIcons();
+  document.querySelectorAll('.sri').forEach(r=>r.onclick=()=>pickSearch(r))};
+ q.oninput=run;q.onkeydown=e=>{if(e.key==='Enter'){const r=document.querySelector('.sri');r&&pickSearch(r)}};run();setTimeout(()=>q.focus(),50)}
+function pickSearch(r){closeModal();const k=r.dataset.k,id=r.dataset.id;if(k==='page')go(id);else if(k==='ind'){go(IND.find(i=>i.id===id).dim);setTimeout(()=>openInd(id),300)}else{DSEL=id;RENDERED.district=0;go('district')}}
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openSearch()}});
+function shareLink(){const u=location.href;(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>toast('คัดลอกลิงก์หน้านี้แล้ว')).catch(()=>toast(u))}
+
 /* ---------------- MODAL ---------------- */
 function bind(root){root.querySelectorAll('[data-ind]').forEach(c=>c.onclick=()=>openInd(c.dataset.ind));root.querySelectorAll('.dc[data-go]').forEach(c=>c.onclick=()=>go(c.dataset.go))}
 const modal=document.getElementById('modal');
@@ -1000,6 +1106,7 @@ const themeIcon=()=>{document.getElementById('btnTheme').innerHTML=ic(isDark()?'
 document.getElementById('btnTheme').onclick=()=>{const t=isDark()?'light':'dark';document.documentElement.dataset.theme=t;try{localStorage.setItem('nblwb-theme',t)}catch(e){}themeIcon();setBodyBg();if(OVERALL!==null)rebuild()};
 document.getElementById('btnRefresh').onclick=async e=>{const b=e.currentTarget;b.classList.add('spin');b.disabled=true;document.getElementById('ldBar').style.width='0';document.getElementById('loader').classList.remove('out');await boot();b.classList.remove('spin');b.disabled=false};
 document.getElementById('btnFull').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{})};
+document.getElementById('btnSearch').onclick=openSearch;document.getElementById('btnPresent').onclick=presStart;document.getElementById('btnPrint').onclick=printBrief;document.getElementById('btnShare').onclick=shareLink;
 document.getElementById('burger').onclick=()=>document.body.classList.toggle('nav');
 document.getElementById('scrim').onclick=()=>document.body.classList.remove('nav');
 window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(h&&h!==CUR&&OVERALL!==null)go(h)});
