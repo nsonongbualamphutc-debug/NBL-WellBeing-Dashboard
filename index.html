@@ -571,6 +571,65 @@ body.present #botBtn,body.present #bot{display:none}
  .hero{padding:24px;min-height:0}.dhero{flex-wrap:wrap;padding:22px}.dhero .big{margin-left:0;text-align:left}
  .logos{display:none}.crumb h1{font-size:18px}.tbtn span{display:none}
 }
+/* ===== round 5 · insight cards & analyst brief ===== */
+.gi2{grid-template-columns:repeat(auto-fill,minmax(min(100%,380px),1fr))}
+.ins2{cursor:pointer;padding:20px 22px 16px;overflow:hidden;isolation:isolate;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s;display:flex;flex-direction:column}
+.ins2::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--c),color-mix(in srgb,var(--c) 0%,transparent))}
+.ins2::after{content:"";position:absolute;right:-18%;top:-40%;width:62%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--c) 20%,transparent),transparent 66%);z-index:-1;pointer-events:none;transition:.5s}
+.ins2:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--c) 45%,transparent);box-shadow:0 30px 60px -30px var(--c)}
+.ins2:hover::after{transform:scale(1.25)}
+.i2h{display:flex;gap:12px;align-items:flex-start}
+.i2ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;flex:none;background:linear-gradient(135deg,color-mix(in srgb,var(--c) 24%,transparent),color-mix(in srgb,var(--c) 6%,transparent));color:var(--c);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 22%,transparent)}
+.i2ic svg{width:22px;height:22px}
+.i2n{flex:1;min-width:0}.i2n b{display:block;font-family:var(--head);font-size:16px;font-weight:600;line-height:1.38}.i2n small{display:block;font-size:12px;color:var(--tx3);margin-top:3px}
+.vpill{flex:none;display:inline-flex;align-items:center;gap:5px;font-family:var(--head);font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:999px;white-space:nowrap}
+.vpill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 0 3px color-mix(in srgb,currentColor 22%,transparent)}
+.t-good .vpill{background:rgba(22,163,74,.11);color:#15803d}.t-bad .vpill{background:rgba(225,29,72,.1);color:#e11d48}.t-warn .vpill{background:rgba(217,119,6,.13);color:#b45309}.t-neu .vpill{background:color-mix(in srgb,var(--tx3) 13%,transparent);color:var(--tx2)}.t-ctx .vpill{background:color-mix(in srgb,var(--c) 12%,transparent);color:var(--c)}
+[data-theme=dark] .t-good .vpill{color:#4ade80}[data-theme=dark] .t-bad .vpill{color:#fb7185}[data-theme=dark] .t-warn .vpill{color:#fbbf24}
+.i2m{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:end;margin:16px 0 6px}
+.i2v .nv{display:flex;align-items:baseline;gap:6px;white-space:nowrap}
+.i2v b{font-family:var(--head);font-size:clamp(34px,3vw,44px);font-weight:800;letter-spacing:-1.2px;line-height:1;background:linear-gradient(120deg,var(--tx) 30%,var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+.i2v small{font-size:13px;color:var(--tx2)}
+.i2d{display:flex;align-items:center;gap:4px;font-family:var(--head);font-size:13.5px;font-weight:600;margin-top:9px;white-space:nowrap}.i2d svg{width:16px;height:16px}.i2d span{font-weight:400;color:var(--tx3);margin-left:5px;font-size:12px}
+.i2d.good{color:#16a34a}.i2d.bad{color:#e11d48}.i2d.neu{color:var(--tx2)}[data-theme=dark] .i2d.good{color:#4ade80}[data-theme=dark] .i2d.bad{color:#fb7185}
+.sp2 svg{width:100%;height:auto;display:block;overflow:visible}.sp2x{display:flex;justify-content:space-between;font-size:11px;color:var(--tx3);margin-top:3px;padding:0 2px}.sp2.none{font-size:12px;color:var(--tx3);text-align:right}
+.i2s{font-size:14.2px;line-height:1.65;color:var(--tx);opacity:.88;margin:8px 0 14px;flex:1}
+.i2f{display:flex;flex-direction:column;gap:12px;padding-top:13px;border-top:1px dashed var(--line)}
+.i2t{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.i2t .more{margin-left:auto;display:inline-flex;align-items:center;gap:3px;font-size:12.5px;font-weight:600;color:var(--c);opacity:.0;transform:translateX(-6px);transition:.3s}.i2t .more svg{width:14px;height:14px}.ins2:hover .more{opacity:1;transform:none}
+.cf{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--k);font-weight:500}.cf svg{width:14px;height:14px}
+.dsp .dsc{font-size:11.5px;color:var(--tx3);margin-bottom:7px}
+.dst{position:relative;height:6px;border-radius:6px;opacity:.85}
+.dst i{position:absolute;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--panel);border:2.5px solid var(--tx2);box-shadow:0 2px 6px rgba(0,0,0,.18)}
+.dsl{display:flex;justify-content:space-between;font-size:11.5px;color:var(--tx3);margin-top:7px}.dsl b{color:var(--tx2);font-weight:600}
+/* brief */
+.brief .bl{position:relative;overflow:hidden;border-radius:26px;padding:30px 34px;color:#fff;background:radial-gradient(120% 140% at 0% 0%,color-mix(in srgb,var(--c) 85%,#000) 0%,color-mix(in srgb,var(--c) 45%,#0b1020) 55%,#0b1020 100%);box-shadow:0 30px 70px -40px var(--c)}
+.brief .bl::after{content:"";position:absolute;right:-60px;top:-60px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 65%)}
+.blk{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;opacity:.8;font-weight:600}.blk svg{width:16px;height:16px}
+.brief .bl h3{font-family:var(--head);font-weight:700;font-size:clamp(22px,2.2vw,31px);line-height:1.42;margin:12px 0 20px;max-width:1050px;position:relative;z-index:1;text-wrap:balance}
+.sigb{display:flex;gap:4px;height:12px;border-radius:12px;overflow:hidden;max-width:620px}.sigb i{border-radius:3px}
+.sigl{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-size:13.5px;opacity:.92}.sigl i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}.sigl b{font-family:var(--head);font-size:15px;margin-left:3px}
+.fnd{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px;margin-top:18px}
+.fcard{display:flex;gap:14px;padding:22px 22px 18px;border-radius:22px;background:var(--panel);border:1px solid var(--line);cursor:pointer;transition:.3s;position:relative;overflow:hidden}
+.fcard:hover{transform:translateY(-4px);box-shadow:0 26px 50px -30px var(--c)}
+.fno{font-family:var(--head);font-size:44px;font-weight:800;line-height:.9;color:transparent;-webkit-text-stroke:1.5px color-mix(in srgb,var(--c) 70%,transparent);flex:none}
+.fcard.t-bad .fno{-webkit-text-stroke-color:#f43f5e}.fcard.t-good .fno{-webkit-text-stroke-color:#22c55e}.fcard.t-warn .fno{-webkit-text-stroke-color:#f59e0b}
+.fb{min-width:0}.fl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.lens{font-size:11.5px;font-weight:600;letter-spacing:.4px;color:var(--c);text-transform:uppercase}
+.fcard h4{font-family:var(--head);font-size:17px;font-weight:600;margin:8px 0 6px;line-height:1.4}.fcard p{font-size:14px;line-height:1.65;color:var(--tx2);margin:0 0 10px}
+.fcard ul{list-style:none;margin:0;padding:10px 0 0;border-top:1px dashed var(--line);display:grid;gap:7px}
+.fcard li{display:flex;gap:8px;font-size:12.8px;line-height:1.55;color:var(--tx2)}.fcard li svg{width:15px;height:15px;flex:none;margin-top:2px;color:var(--c)}.fcard li b{color:var(--tx);font-weight:600;margin-right:4px}.fcard li em{color:var(--tx3)}
+.bx{margin-top:18px}
+ol.rec{margin:12px 0 0;padding:0;list-style:none;counter-reset:r;display:grid;gap:10px}ol.rec li{counter-increment:r;display:grid;grid-template-columns:28px 1fr;gap:12px;font-size:14px;line-height:1.6}ol.rec li::before{content:counter(r);flex:none;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-family:var(--head);font-weight:700;font-size:13px;color:#fff;background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 55%,#000))}
+ol.rec li b{color:var(--c);font-weight:600}
+ul.cav{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:9px}ul.cav li{position:relative;padding-left:20px;font-size:13.5px;line-height:1.6;color:var(--tx2)}ul.cav li::before{content:"";position:absolute;left:3px;top:9px;width:7px;height:7px;border-radius:2px;background:color-mix(in srgb,var(--c,#d97706) 70%,transparent);transform:rotate(45deg)}ul.cav li b{color:var(--tx)}
+/* indicator modal brief */
+.ibl{border-radius:22px;padding:22px 24px;background:linear-gradient(135deg,color-mix(in srgb,var(--c) 14%,var(--panel)),var(--panel));border:1px solid color-mix(in srgb,var(--c) 30%,transparent)}
+.ibl h3{font-family:var(--head);font-size:21px;font-weight:700;line-height:1.5;margin:12px 0 8px}.ibl p{margin:0;font-size:14px;line-height:1.65;color:var(--tx2)}.ibl p b{color:var(--tx)}
+.lens4{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px;margin-top:14px}
+.ln{padding:16px 18px;border-radius:18px;background:var(--panel2);border:1px solid var(--line)}.ln h5{display:flex;align-items:center;gap:8px;margin:0 0 8px;font-family:var(--head);font-size:14.5px;font-weight:600;color:var(--c)}.ln h5 svg{width:17px;height:17px}.ln p{margin:0;font-size:13.6px;line-height:1.65;color:var(--tx)}.ln em{display:block;margin-top:6px;font-size:12px;color:var(--tx3)}
+.defs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px 22px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px dashed var(--line)}.defs span{font-size:12px;color:var(--tx3)}.defs p{margin:3px 0 0;font-size:13.6px;line-height:1.6}
+.ins.sig2{grid-template-columns:44px minmax(0,1fr);align-items:start}.ins.sig2 .fl{margin-bottom:6px}.ins.sig2 .t{font-size:15px}.ins.sig2 .d{font-size:13px;line-height:1.55;margin-top:4px}
+@media(min-width:1100px){.sigg{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr) minmax(0,1.2fr)!important}}
 </style>
 </head>
 <body>
@@ -824,7 +883,7 @@ function compute(){
 }
 const level=s=>s==null?{t:'ไม่มีข้อมูล',c:'#64748b'}:s>=75?{t:'ดีมาก',c:'#22d3ee'}:s>=60?{t:'ดี',c:'#4ade80'}:s>=40?{t:'ปานกลาง',c:'#facc15'}:s>=25?{t:'ควรเฝ้าระวัง',c:'#fb923c'}:{t:'ต้องเร่งพัฒนา',c:'#f43f5e'};
 function delta(ind){if(!ind.last||!ind.prev)return null;const df=ind.last.v-ind.prev.v;const pct=ind.prev.v?df/Math.abs(ind.prev.v)*100:0;
- const cls=!ind.better||df===0?'neu':((ind.better==='up')===(df>0)?'good':'bad');return{df,pct,cls,icon:df>0?'arrow-up-right':df<0?'arrow-down-right':'minus'}}
+ const cls=!ind.better||df===0?'neu':((ind.better==='up')===(df>0)?'good':'bad');const t=ind.unit==='%'?fmt(Math.abs(df),Math.min(2,Math.max(1,ind.dec)))+' จุด':fmt(Math.abs(pct),1)+'%';return{df,pct,cls,t,icon:df>0?'arrow-up-right':df<0?'arrow-down-right':'minus'}}
 function goodColor(t){/* t: 0 bad → 1 good */const st=[[244,63,94],[250,204,21],[34,197,94]];const p=t<.5?[st[0],st[1],t*2]:[st[1],st[2],(t-.5)*2];return`rgb(${p[0].map((c,i)=>Math.round(c+(p[1][i]-c)*p[2])).join(',')})`}
 
 
@@ -852,7 +911,7 @@ function sparkSVG(s,c){if(s.length<2)return'<div style="height:48px"></div>';con
 
 const FEAT={
  health:[
-  {t:'สาเหตุการตายที่สำคัญ',ic:'activity',sub:'ปีล่าสุด รวมชาย-หญิง (คน)',h:340,f:el=>{const R=recs('death');const y=Math.max(...years(R));const g={};R.filter(r=>yr(r)===y).forEach(r=>{const k=T(r['สาเหตุ']);g[k]=(g[k]||0)+(vOf(r)||0)});
+  {t:'สาเหตุการตายที่สำคัญ',ic:'activity',sub:'ปีล่าสุดที่มีข้อมูลครบปี รวมชาย-หญิง (คน)',h:340,f:el=>{const R=recs('death');const ys_=years(R),tot_=y=>sum(R.filter(r=>yr(r)===y).map(r=>vOf(r)||0));let y=ys_[ys_.length-1];if(ys_.length>1&&tot_(y)<tot_(ys_[ys_.length-2])*.75)y=ys_[ys_.length-2];const g={};R.filter(r=>yr(r)===y).forEach(r=>{const k=T(r['สาเหตุ']);g[k]=(g[k]||0)+(vOf(r)||0)});
    const a=Object.entries(g).filter(e=>!/^อื่น/.test(e[0])).sort((x,y)=>y[1]-x[1]).slice(0,8).reverse();
    mk(el,{title:{text:'พ.ศ. '+y,right:0,top:0,textStyle:{color:'#6b7a93',fontSize:12,fontWeight:400}},tooltip:TT,grid:{left:8,right:40,top:24,bottom:4,containLabel:true},xAxis:{type:'value',...AX},yAxis:{type:'category',data:a.map(e=>e[0].length>30?e[0].slice(0,30)+'…':e[0]),...AX,axisLabel:{...AX.axisLabel,width:200,overflow:'truncate'}},series:[{type:'bar',data:a.map(e=>e[1]),barWidth:14,itemStyle:{borderRadius:[0,7,7,0],color:hgrad('#fb7185')},label:{show:true,position:'right',color:TXT,formatter:p=>fmt(p.value)}}]})}},
   {t:'อัตราป่วยความดันโลหิตสูงตามกลุ่มอายุ',ic:'heart-pulse',sub:'ร้อยละ ภาพรวมจังหวัด เปรียบเทียบรายปี',h:340,f:el=>{const R=recs('ht').filter(r=>T(r['อำเภอ'])==='รวม'&&T(r['รายการกลุ่มอายุ'])==='รายกลุ่มอายุ');const ys=years(R);const ages=[...new Set(R.map(r=>T(r['กลุ่มอายุ'])))];const cols=['#fda4af','#fb7185','#e11d48'];
@@ -930,20 +989,161 @@ function go(id){if(!PAGES.find(p=>p.id===id))id='overview';CUR=id;const p=PAGES.
  if(!RENDERED[id]){RENDERED[id]=1;({overview:renderOverview,district:renderDistrict,sim:renderSim,stories:renderStories,targets:renderTargets,catalog:renderCatalog,sources:renderSources,method:renderMethod}[id]||(()=>renderDim(id)))()}
  setTimeout(()=>CHARTS.forEach(c=>{try{c.resize()}catch(e){}}),40);setTimeout(()=>fx(document.getElementById('p-'+id)),60);window.scrollTo({top:0,behavior:'smooth'});}
 
-function indCard(ind){const c=dc(ind.dimO),L=ind.last,dl=delta(ind);
+function _oldIndCard(ind){const c=dc(ind.dimO),L=ind.last,dl=delta(ind);
  return`<div class="card ind" style="--c:${c}" data-ind="${ind.id}">
   <div class="top"><div class="ic">${ic(ind.icon)}</div><div><div class="nm">${ind.name}</div><div class="yr">${L?'ข้อมูลปี พ.ศ. '+L.y:'ไม่มีข้อมูล'}${ind.note?' · '+ind.note:''}</div></div></div>
-  <div class="val"><b>${L?fmt(L.v,ind.dec):'–'}</b><small>${ind.unit}</small>${dl?`<span class="delta ${dl.cls}" style="margin-left:auto">${ic(dl.icon)}${fmt(Math.abs(dl.pct),1)}%</span>`:''}</div>
+  <div class="val"><b>${L?fmt(L.v,ind.dec):'–'}</b><small>${ind.unit}</small>${dl?`<span class="delta ${dl.cls}" style="margin-left:auto">${ic(dl.icon)}${dl.t}</span>`:''}</div>
   ${tgtChip(ind)}${sparkSVG(ind.s,c)}
   <div class="sbar">${ind.sc!=null?`<span>คะแนนพัฒนาการ</span><div class="track"><i style="width:${ind.sc}%;--c:${level(ind.sc).c}"></i></div><b>${ind.sc}</b>`:`<span class="tag2">ตัวชี้วัดเชิงบริบท · ไม่นำมาคิดคะแนน</span>`}</div></div>`}
 function secHead(t,p,c,right=''){return`<div class="sech" style="--c:${c||'var(--brand)'}"><div class="bar"></div><div><h3>${t}</h3>${p?`<p>${p}</p>`:''}</div>${right?`<div class="r">${right}</div>`:''}</div>`}
 
 /* ---------------- OVERVIEW ---------------- */
+/* =========================================================
+   ANALYST ENGINE · อ่านข้อมูลแบบนักวิเคราะห์ (แนวโน้ม · พื้นที่ · เกณฑ์ · ปัจจัยเชื่อมโยง · ความเชื่อมั่น)
+   ========================================================= */
+const LINKS={
+ ht:[['elder','สังคมสูงวัยขึ้น และผู้ป่วยความดันโลหิตสูงกระจุกอยู่ในกลุ่มอายุ 60 ปีขึ้นไป']],
+ doc:[['ht','ภาระผู้ป่วยโรคเรื้อรังที่เพิ่มขึ้นทำให้การขาดแคลนแพทย์ส่งผลรุนแรงขึ้น']],
+ dep:[['doc','การเข้าถึงบริการสุขภาพจิตขึ้นกับบุคลากรในพื้นที่']],
+ lbw:[['pov','ครัวเรือนยากจนเข้าถึงอาหารและการฝากครรภ์คุณภาพได้น้อยกว่า'],['nut','สุขภาพแม่และเด็กเชื่อมโยงกันตั้งแต่ในครรภ์จนถึงปฐมวัย']],
+ nut:[['inc','รายได้ครัวเรือนกำหนดคุณภาพอาหารของเด็กปฐมวัย']],
+ drop:[['pov','ความยากจนผลักให้เด็กออกไปทำงานหรือย้ายตามผู้ปกครอง'],['unemp','งานในพื้นที่ที่จำกัดทำให้ครอบครัวย้ายถิ่น']],
+ stud:[['birth','จำนวนเด็กเกิดที่ลดลงส่งผลโดยตรงต่อจำนวนนักเรียนในอีก 6–15 ปี']],
+ onet3:[['spr','ขนาดชั้นเรียนและทรัพยากรของโรงเรียนสัมพันธ์กับผลสัมฤทธิ์']],
+ inc:[['gpp','หากเศรษฐกิจจังหวัดโตแต่รายได้ครัวเรือนไม่โต แปลว่าการเติบโตกระจายไม่ทั่วถึง'],['unemp','การมีงานทำเป็นแหล่งรายได้หลักของครัวเรือน']],
+ gpp:[['inc','การเติบโตของ GPP ควรสะท้อนถึงรายได้ครัวเรือน']],
+ debt:[['inc','ภาระหนี้เทียบกับรายได้บอกความเปราะบางทางการเงินของครัวเรือน']],
+ pov:[['inc','รายได้ครัวเรือนเป็นตัวกำหนดหลักของความยากจน']],
+ unemp:[['gpp','การขยายตัวของเศรษฐกิจจังหวัดสร้างความต้องการแรงงาน']],
+ crime:[['drug','คดียาเสพติดเป็นสัดส่วนสำคัญของคดีอาญาทั้งหมด']],
+ drug:[['unemp','การว่างงานและการขาดโอกาสเพิ่มความเสี่ยงเข้าสู่วงจรยาเสพติด']],
+ roadd:[['roadi','จำนวนผู้บาดเจ็บบอกความถี่ของอุบัติเหตุ ผู้เสียชีวิตบอกความรุนแรง']],
+ pm:[['forest','การเผาในพื้นที่เกษตรและป่าเป็นแหล่งกำเนิดหลักของฝุ่นช่วงฤดูแล้ง']],
+ elder:[['birth','การเกิดที่ลดลงพร้อมอายุขัยที่ยืนยาวขึ้นเร่งให้เข้าสู่สังคมสูงวัยเร็วขึ้น']],
+ birth:[['pop','การเกิดที่ต่ำกว่าการตายทำให้ประชากรลดลง']],
+ pop:[['birth','ประชากรลดลงจากการเกิดที่ลดลงและการย้ายออกของวัยแรงงาน']],
+ hhpc:[['inc','คอมพิวเตอร์ยังเป็นสินค้าที่ผูกกับรายได้ ต่างจากโทรศัพท์มือถือ']],
+ hhnet:[['hhmob','อินเทอร์เน็ตของครัวเรือนส่วนใหญ่มาผ่านโทรศัพท์มือถือ']],
+ inet:[['hhnet','การเข้าถึงรายบุคคลสัมพันธ์กับการเชื่อมต่อของครัวเรือน']],
+};
+const ANC={};
+const dshort=n=>String(n).replace('เมืองหนองบัวลำภู','เมืองฯ');
+function AN(i){if(ANC[i.id])return ANC[i.id];const s=i.s,L=i.last,P=i.prev,F=s[0];const a={i,n:s.length,links:[],sev:0,v:{t:'ไม่มีข้อมูล',tone:'neu'},h:'',conf:{t:'ต่ำ',c:'#e11d48'},confWhy:[]};if(!L)return ANC[i.id]=a;
+ const gd=x=>i.better?((i.better==='up')===(x>0)):null;a.rate=i.unit==='%';
+ const C=(p,q)=>{const d=q.v-p.v,pct=p.v?d/Math.abs(p.v)*100:0;return{d,pct,txt:(d>0?'+':d<0?'−':'±')+(a.rate?fmt(Math.abs(d),Math.min(2,Math.max(1,i.dec)))+' จุด':fmt(Math.abs(pct),1)+'%'),abs:(a.rate?fmt(Math.abs(d),Math.min(2,Math.max(1,i.dec)))+' จุด':fmt(Math.abs(pct),1)+'%'),good:d===0?null:gd(d)}};
+ if(P)a.yoy=C(P,L);if(s.length>=3)a.lt=C(F,L);
+ const span=L.y-F.y;if(span>0&&F.v>0&&L.v>0&&s.length>=3)a.cagr=(Math.pow(L.v/F.v,1/span)-1)*100;
+ let st=0,sd=0;for(let k=s.length-1;k>0;k--){const d=Math.sign(s[k].v-s[k-1].v);if(k===s.length-1)sd=d;if(d&&d===sd)st++;else break}a.streak=st;a.sdir=sd;
+ const vs=s.map(p=>p.v),mx=Math.max(...vs),mn=Math.min(...vs);a.avg=sum(vs)/vs.length;
+ if(s.length>=4){if(L.v===mx&&vs.filter(v=>v===mx).length===1)a.rec='hi';else if(L.v===mn&&vs.filter(v=>v===mn).length===1)a.rec='lo'}
+ a.anom=!!(a.yoy&&P.v&&Math.abs(a.yoy.pct)>=200);
+ if(i.d){const pp=IND.find(x=>x.id==='pop');const pc=/^(คดี|คน|ราย)$/.test(i.unit)&&!['pop','doc','stud'].includes(i.id)&&pp&&pp.d;const e=Object.entries(i.d.v).map(([k,v])=>[k,pc?(pp.d.v[k]?v/pp.d.v[k]*1000:NaN):v]).filter(x=>isFinite(x[1])).sort((x,y)=>y[1]-x[1]);a.pc=!!pc;a.ddec=pc?2:i.dec;if(e.length>=3){const hi=e[0],lo=e[e.length-1],m=sum(e.map(x=>x[1]))/e.length,sdv=Math.sqrt(sum(e.map(x=>(x[1]-m)**2))/e.length);
+  a.dis={e,hi,lo,ratio:lo[1]>0?hi[1]/lo[1]:null,cv:m?sdv/Math.abs(m)*100:0,worst:i.better==='up'?lo:hi,best:i.better==='up'?hi:lo,y:i.d.y,mean:m}}}
+ a.tg=tgtStat(i);
+ a.links=(LINKS[i.id]||[]).map(([id,why])=>{const j=IND.find(x=>x.id===id);if(!j||j.s.length<2)return null;const f=j.s[0],l=j.last,d=l.v-f.v;
+  return{j,why,d,txt:`${j.name} ${d>0?'เพิ่มขึ้น':d<0?'ลดลง':'คงที่'}${d?' '+(j.unit==='%'?fmt(Math.abs(d),1)+' จุด':fmt(Math.abs(f.v?d/f.v*100:0),1)+'%'):''} (พ.ศ. ${f.y}–${l.y})`}}).filter(Boolean);
+ const lag=NOW_BE-L.y;a.lag=lag;let cs=0;
+ if(s.length>=5)cs+=2;else if(s.length>=3)cs+=1;else a.confWhy.push(`มีข้อมูลเพียง ${s.length} ปี จึงยังสรุปแนวโน้มไม่ได้มั่นคง`);
+ if(lag<=1)cs+=2;else if(lag<=2)cs+=1;else a.confWhy.push(`ข้อมูลล่าสุดคือปี ${L.y} ห่างจากปัจจุบัน ${lag} ปี`);
+ if(i.d)cs+=1;if(a.anom){cs-=2;a.confWhy.push(`ค่าปีล่าสุดเปลี่ยนจากปีก่อน ${a.yoy.txt} ผิดปกติ อาจเกิดจากนิยามหรือความครอบคลุมของการเก็บข้อมูลที่เปลี่ยนไป`)}
+ if(!a.confWhy.length)a.confWhy.push(`มีข้อมูลต่อเนื่อง ${s.length} ปี เป็นข้อมูลล่าสุด${i.d?' และแยกรายอำเภอได้':''}`);
+ a.conf=cs>=4?{t:'สูง',c:'#16a34a'}:cs>=2?{t:'ปานกลาง',c:'#d97706'}:{t:'ต่ำ',c:'#e11d48'};
+ const yrs=span+1;const recT=a.rec?`${a.rec==='hi'?'สูง':'ต่ำ'}สุดในรอบ ${yrs} ปี`:'';
+ if(!i.better)a.v={t:'ข้อมูลบริบท',tone:'ctx'};
+ else if(a.anom)a.v={t:'ต้องตรวจสอบข้อมูล',tone:'warn'};
+ else if(st>=3&&sd){const g=gd(sd);a.v={t:(g?'ดีขึ้นต่อเนื่อง ':'แย่ลงต่อเนื่อง ')+st+' ปี',tone:g?'good':'bad'}}
+ else if(a.yoy&&Math.abs(a.yoy.pct)<2)a.v={t:'ทรงตัว',tone:'neu'};
+ else if(a.yoy){const g=a.yoy.good;a.v={t:g?'ดีขึ้น':'แย่ลง',tone:g?'good':'bad'}}
+ else a.v={t:'ข้อมูลปีเดียว',tone:'neu'};
+ const mv=c=>`${c.d>0?'เพิ่มขึ้น':'ลดลง'} ${c.abs}`;
+ let h;
+ if(a.anom)h=`ค่าปี ${L.y} ต่างจากปี ${P.y} ถึง ${a.yoy.txt} ซึ่งผิดปกติ ควรตรวจสอบความครอบคลุมของข้อมูลกับหน่วยงานก่อนนำไปสรุป`;
+ else if(!i.better)h=a.lt?`${mv(a.lt)} ในรอบ ${span} ปี (พ.ศ. ${F.y}–${L.y})${recT?' · '+recT:''}`:(a.yoy?`${mv(a.yoy)} จากปี ${P.y}`:`ค่าล่าสุดปี ${L.y}`);
+ else if(st>=3&&sd)h=`${gd(sd)?'ดีขึ้น':'แย่ลง'}ต่อเนื่อง ${st} ปี${a.lt?` รวม${mv(a.lt)} ตั้งแต่ปี ${F.y}`:''}${recT?' · '+recT:''}`;
+ else if(a.yoy){h=`${mv(a.yoy)} จากปี ${P.y}${recT?' · '+recT:''}`;if(a.lt&&i.better&&Math.sign(a.lt.d)!==Math.sign(a.yoy.d)&&a.lt.d){a.mixed=1;h+=` แต่ภาพระยะยาว${a.lt.good?'ยังดีขึ้น':'ยังแย่ลง'} (${a.lt.txt} เทียบปี ${F.y})`}}
+ else h=`ค่าล่าสุดปี ${L.y} · ยังไม่มีข้อมูลปีก่อนให้เทียบ`;
+ if(a.dis&&a.dis.ratio&&a.dis.ratio>=1.4&&i.better&&!a.anom)h+=` · ${a.pc?'เมื่อคิดต่อประชากร ':''}${a.dis.worst[0]}${i.better==='up'?'ต่ำ':'สูง'}กว่า${a.dis.best[0]} ${fmt(a.dis.ratio,1)} เท่า`;
+ if(a.tg&&!a.anom)h+=` · ${a.tg.met?'บรรลุ':'ยังไม่บรรลุ'}เป้า ${a.tg.t.op==='<='?'≤':'≥'} ${fmt(a.tg.v,i.dec)}`;
+ a.h=h;
+ a.lens=a.anom?'คุณภาพข้อมูล':a.tg&&!a.tg.met?'เทียบเป้าหมาย':st>=3?'แนวโน้มต่อเนื่อง':a.dis&&a.dis.ratio>=1.5?'ความเหลื่อมล้ำเชิงพื้นที่':a.rec?'จุดสูง/ต่ำในรอบหลายปี':'การเปลี่ยนแปลงล่าสุด';
+ a.sev=(a.mixed?(a.lt.good?-.9:.6):0)+(a.v.tone==='bad'?3:a.v.tone==='warn'?2.2:a.v.tone==='good'?1.4:a.v.tone==='ctx'?.6:.3)+(st>=3?1:0)+(a.rec?.7:0)+(a.dis&&a.dis.ratio>=1.5?.6:0)+(a.tg?(a.tg.met?-1.2:1.2):0)+Math.min(1,Math.abs(a.yoy&&!a.anom?a.yoy.pct:0)/20);
+ return ANC[i.id]=a}
+function anReset(){Object.keys(ANC).forEach(k=>delete ANC[k])}
+
+/* ---- กราฟเส้นขนาดเล็ก (ไม่บิดสัดส่วน) ---- */
+function spark2(i,c){const s=i.s;if(s.length<2)return'<div class="sp2 none">ข้อมูลปีเดียว</div>';const W=240,H=74,vs=s.map(p=>p.v),mn=Math.min(...vs),mx=Math.max(...vs),rg=mx-mn||1;
+ const pts=s.map((p,k)=>[6+k/(s.length-1)*(W-12),H-8-(p.v-mn)/rg*(H-20)]);const d=pts.map((p,k)=>(k?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');const id='g'+i.id+Math.random().toString(36).slice(2,6);const L=pts[pts.length-1];
+ return`<div class="sp2"><svg viewBox="0 0 ${W} ${H}"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c}" stop-opacity=".32"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></linearGradient></defs>
+ <path d="${d} L${L[0]} ${H} L${pts[0][0]} ${H}Z" fill="url(#${id})"/><path d="${d}" fill="none" stroke="${c}" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>${pts.slice(0,-1).map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="2.4" fill="${c}" opacity=".55"/>`).join('')}<circle cx="${L[0]}" cy="${L[1]}" r="7" fill="${c}" opacity=".18"/><circle cx="${L[0]}" cy="${L[1]}" r="4" fill="#fff" stroke="${c}" stroke-width="2.5"/></svg>
+ <div class="sp2x"><span>${s[0].y}</span><span>${s[s.length-1].y}</span></div></div>`}
+
+/* ---- แถบกระจายค่า 6 อำเภอ ---- */
+function distStrip(i,a){const e=a.dis.e,lo=a.dis.lo,hi=a.dis.hi,rg=hi[1]-lo[1]||1;const up=i.better==='up',ctx=!i.better;
+ const gr=ctx?'linear-gradient(90deg,color-mix(in srgb,var(--c) 25%,transparent),var(--c))':up?'linear-gradient(90deg,#f43f5e,#facc15,#22c55e)':'linear-gradient(90deg,#22c55e,#facc15,#f43f5e)';
+ return`<div class="dsp"><div class="dsc">ค่ารายอำเภอ พ.ศ. ${a.dis.y}${a.pc?' (ต่อประชากร 1,000 คน)':''}${a.dis.ratio&&a.dis.ratio>=1.05?` · ต่างกัน ${fmt(a.dis.ratio,1)} เท่า`:''}</div><div class="dst" style="background:${gr}">${e.map(x=>`<i style="left:${(x[1]-lo[1])/rg*100}%" title="${x[0]}: ${fmt(x[1],a.ddec)}"></i>`).join('')}</div>
+ <div class="dsl"><span><b>${dshort(lo[0])}</b> ${fmt(lo[1],a.ddec)}</span><span><b>${dshort(hi[0])}</b> ${fmt(hi[1],a.ddec)}</span></div></div>`}
+
+/* ---- การ์ดข้อค้นพบรายตัวชี้วัด (แทนการ์ดเดิม) ---- */
+function indCard(ind){const a=AN(ind),c=dc(ind.dimO),L=ind.last;if(!L)return'';
+ return`<article class="card ins2 t-${a.v.tone}" style="--c:${c}" data-ind="${ind.id}">
+ <div class="i2h"><span class="i2ic">${ic(ind.icon)}</span><div class="i2n"><b>${ind.name}</b><small>ข้อมูล พ.ศ. ${L.y}${ind.note?' · '+ind.note:''}</small></div><span class="vpill">${a.v.t}</span></div>
+ <div class="i2m"><div class="i2v"><div class="nv"><b>${fmt(L.v,ind.dec)}</b><small>${ind.unit}</small></div>${a.yoy?`<div class="i2d ${a.yoy.good===true?'good':a.yoy.good===false?'bad':'neu'}">${ic(a.yoy.d>0?'trending-up':a.yoy.d<0?'trending-down':'minus')}${a.yoy.txt}<span>จากปี ${ind.prev.y}</span></div>`:''}</div>${spark2(ind,c)}</div>
+ <p class="i2s">${a.h}</p>
+ <div class="i2f">${a.dis?distStrip(ind,a):''}<div class="i2t">${tgtChip(ind)}<span class="cf" style="--k:${a.conf.c}" title="${esc(a.confWhy.join(' · '))}">${ic('shield-check')}ความเชื่อมั่น${a.conf.t}</span><span class="more">วิเคราะห์ ${ic('arrow-up-right')}</span></div></div></article>`}
+
+/* ---- บทวิเคราะห์ระดับมิติ (แทน “เราคิดว่า…”) ---- */
+function evList(a){const i=a.i,s=i.s,L=i.last,F=s[0],o=[];
+ if(a.lt)o.push(`${ic('chart-line')}<span><b>แนวโน้ม</b> พ.ศ. ${F.y} → ${L.y}: ${fmt(F.v,i.dec)} → ${fmt(L.v,i.dec)} ${i.unit} (${a.lt.txt}${a.cagr!=null&&Math.abs(a.cagr)>=.1&&!a.rate?` · เฉลี่ยปีละ ${a.cagr>0?'+':'−'}${fmt(Math.abs(a.cagr),1)}%`:''})</span>`);
+ if(a.dis)o.push(`${ic('map')}<span><b>พื้นที่${a.pc?' (ต่อประชากร 1,000 คน)':''}</b> ${a.dis.hi[0]} ${fmt(a.dis.hi[1],a.ddec)} สูงสุด · ${a.dis.lo[0]} ${fmt(a.dis.lo[1],a.ddec)} ต่ำสุด (ปี ${a.dis.y})</span>`);
+ if(a.tg)o.push(`${ic('target')}<span><b>เป้าหมาย</b> ${a.tg.t.op==='<='?'ไม่เกิน':'อย่างน้อย'} ${fmt(a.tg.v,i.dec)} → ${a.tg.met?'บรรลุแล้ว':'ยังห่าง '+fmt(Math.abs(a.tg.gap),i.dec)+' '+i.unit}</span>`);
+ a.links.slice(0,1).forEach(l=>o.push(`${ic('git-merge')}<span><b>ปัจจัยที่อาจเกี่ยวข้อง</b> ${l.txt} — ${l.why} <em>(สมมติฐาน)</em></span>`));
+ return o}
+function dimPolicy(d){const c=dc(d),P=POL[d.id];const A=IND.filter(i=>i.dim===d.id&&i.last).map(AN);const sc=A.filter(a=>a.i.better);
+ const cnt={good:0,neu:0,bad:0,warn:0};sc.forEach(a=>cnt[a.v.tone]=(cnt[a.v.tone]||0)+1);const ctx=A.length-sc.length;
+ const top=[...A].sort((x,y)=>y.sev-x.sev).slice(0,3);const worst=sc.filter(a=>a.v.tone==='bad').sort((x,y)=>y.sev-x.sev)[0];const best=sc.filter(a=>a.v.tone==='good').sort((x,y)=>y.sev-x.sev)[0];
+ const head=worst?`ประเด็นที่ต้องจับตามากที่สุดของมิติ${d.name} คือ “${worst.i.name}” ซึ่ง${worst.h.split(' · ')[0]}`:best?`มิติ${d.name}มีทิศทางเป็นบวก โดยเฉพาะ “${best.i.name}” ที่${best.h.split(' · ')[0]}`:`ตัวชี้วัดในมิติ${d.name}ส่วนใหญ่ทรงตัว`;
+ const seg=[['good','ดีขึ้น','#22c55e'],['neu','ทรงตัว','#94a3b8'],['bad','แย่ลง','#f43f5e'],['warn','ตรวจสอบข้อมูล','#f59e0b']].filter(x=>cnt[x[0]]);
+ const tgtA=worst||top[0];const area=tgtA&&tgtA.dis?tgtA.dis.worst[0]:null;
+ const recs=(cnt.bad||cnt.warn?P.weak:P.keep).map((t,k)=>k===0&&area?`${t} <b>· เริ่มที่อำเภอ${area}</b>`:t);
+ const cav=[];A.filter(a=>a.anom).forEach(a=>cav.push(`<b>${a.i.name}</b>: ${a.confWhy.find(x=>/ผิดปกติ/.test(x))||'ค่าผิดปกติ'}`));
+ const old=A.filter(a=>a.lag>=2);if(old.length)cav.push(`ข้อมูลเก่ากว่า 2 ปี: ${old.map(a=>`${a.i.name} (${a.i.last.y})`).join(', ')} — สภาพจริงอาจเปลี่ยนไปแล้ว`);
+ const few=A.filter(a=>a.n<3);if(few.length)cav.push(`ข้อมูลน้อยกว่า 3 ปี: ${few.map(a=>a.i.name).join(', ')} — ยังสรุปเป็นแนวโน้มไม่ได้`);
+ cav.push('ความเชื่อมโยงระหว่างตัวชี้วัดเป็นสมมติฐานเพื่อการวิเคราะห์ต่อ ไม่ใช่ข้อพิสูจน์เชิงสาเหตุ');cav.push('คะแนนมิติเทียบจังหวัดกับตัวเองในอดีต ไม่ใช่การจัดอันดับเทียบจังหวัดอื่น (ดูหน้าเป้าหมายและเทียบเคียง)');
+ return`<div class="sec">${secHead('บทวิเคราะห์มิติ'+d.name,'อ่านข้อมูลแบบนักวิเคราะห์ · แนวโน้ม · ความเหลื่อมล้ำเชิงพื้นที่ · เทียบเป้าหมาย · ปัจจัยที่อาจเกี่ยวข้อง · ความเชื่อมั่นของข้อสรุป',c)}
+ <div class="brief" style="--c:${c}">
+  <div class="bl"><div class="blk">${ic('quote')}บรรทัดสรุป</div><h3>${head}</h3>
+   <div class="sig"><div class="sigb">${seg.map(x=>`<i style="flex:${cnt[x[0]]};background:${x[2]}"></i>`).join('')}</div><div class="sigl">${seg.map(x=>`<span><i style="background:${x[2]}"></i>${x[1]} <b>${cnt[x[0]]}</b></span>`).join('')}${ctx?`<span><i style="background:var(--c)"></i>ข้อมูลบริบท <b>${ctx}</b></span>`:''}</div></div></div>
+  <div class="fnd">${top.map((a,k)=>`<div class="fcard t-${a.v.tone}" data-ind="${a.i.id}"><div class="fno">${String(k+1).padStart(2,'0')}</div><div class="fb"><div class="fl"><span class="lens">${a.lens}</span><span class="vpill">${a.v.t}</span></div><h4>${a.i.name}</h4><p>${a.h}</p><ul>${evList(a).map(x=>`<li>${x}</li>`).join('')}</ul></div></div>`).join('')}</div>
+  <div class="g g2 bx"><div class="card"><h4>${ic('route')}ข้อเสนอเชิงนโยบาย</h4><div class="sub">เรียงตามสิ่งที่ข้อมูลชี้ · หน่วยงานหลัก: ${P.ag}</div><ol class="rec">${recs.map(t=>`<li><span>${t}</span></li>`).join('')}</ol>
+   <div class="frame" style="margin-top:12px"><div><span>ยุทธศาสตร์ชาติ</span><b>${P.ns}</b></div><div><span>SDGs</span><b>${P.sdg}</b></div></div></div>
+   <div class="card"><h4>${ic('scale')}ข้อควรระวังในการตีความ</h4><div class="sub">ข้อจำกัดของข้อมูลที่ผู้ใช้ควรรู้ก่อนนำไปตัดสินใจ</div><ul class="cav">${cav.map(t=>`<li>${t}</li>`).join('')}</ul></div></div>
+ </div></div>`}
+
+/* ---- บทวิเคราะห์ระดับตัวชี้วัด (ในหน้าต่างรายละเอียด) ---- */
+function defRows(i,m){const org=m&&m.organization?m.organization.title:(m&&m.data_source)||'กำลังโหลด…';const freq=m&&m.update_frequency_unit?`ทุก ${m.update_frequency_interval||1} ${m.update_frequency_unit}`:'–';
+ return`<div class="defs"><div><span>นิยาม</span><p>${esc((m&&m.notes)||i.name)}</p></div><div><span>หน่วยงานเจ้าของข้อมูล</span><p>${esc(org)}${m&&m.maintainer&&m.maintainer!=='null'?' · '+esc(m.maintainer):''}</p></div><div><span>ช่วงเวลาและความถี่</span><p>พ.ศ. ${i.s.length?i.s[0].y+'–'+i.last.y:'–'} · ${freq} · ปรับปรุงล่าสุด ${thd(m&&(m.last_updated_date||m.metadata_modified))}</p></div><div><span>วิธีคำนวณในแดชบอร์ด</span><p>${howCalc(i)}</p></div></div>`}
+function askBlock(i){const a=AN(i),c=dc(i.dimO),W=WHY[i.id]||['',''],P=POL[i.dim],s=i.s,L=i.last,F=s[0];if(!L)return'';
+ const area=a.dis?a.dis.worst[0]:null;
+ const lens=[
+  ['แนวโน้มตามเวลา','chart-line',a.lt?`พ.ศ. ${F.y}–${L.y} ${a.lt.d>0?'เพิ่มขึ้น':'ลดลง'} ${a.lt.abs}${a.cagr!=null&&!a.rate&&Math.abs(a.cagr)>=.1?` (เฉลี่ยปีละ ${a.cagr>0?'+':'−'}${fmt(Math.abs(a.cagr),1)}%)`:''}${a.streak>=2?` · ทิศทางเดียวกัน ${a.streak} ปีล่าสุด`:''}${a.rec?` · ค่าปีล่าสุด${a.rec==='hi'?'สูง':'ต่ำ'}ที่สุดในรอบ ${L.y-F.y+1} ปี`:''}`:a.yoy?`เทียบปี ${i.prev.y}: ${a.yoy.txt} · ยังมีข้อมูลไม่ถึง 3 ปี`:'ข้อมูลยังไม่พอดูแนวโน้ม'],
+  ['ความเหลื่อมล้ำเชิงพื้นที่','map',a.dis?`ปี ${a.dis.y}${a.pc?' คิดต่อประชากร 1,000 คน (ปรับขนาดประชากรแล้ว)':''}: ${a.dis.hi[0]} ${fmt(a.dis.hi[1],a.ddec)} สูงสุด · ${a.dis.lo[0]} ${fmt(a.dis.lo[1],a.ddec)} ต่ำสุด${a.dis.ratio?` ต่างกัน ${fmt(a.dis.ratio,1)} เท่า`:''} · ค่าความแปรปรวนสัมพัทธ์ (CV) ${fmt(a.dis.cv,0)}% ${a.dis.cv>25?'ถือว่าแตกต่างกันมาก':a.dis.cv>10?'แตกต่างปานกลาง':'ใกล้เคียงกัน'}`:'ชุดข้อมูลนี้ไม่แยกรายอำเภอ จึงวิเคราะห์เชิงพื้นที่ไม่ได้'],
+  ['เทียบเกณฑ์และเป้าหมาย','target',a.tg?`เป้าหมาย ${a.tg.t.op==='<='?'ไม่เกิน':'อย่างน้อย'} ${fmt(a.tg.v,i.dec)} ${i.unit}${a.tg.t.src?` (${esc(a.tg.t.src)})`:''} → ${a.tg.met?'บรรลุแล้ว':'ยังไม่บรรลุ ห่าง '+fmt(Math.abs(a.tg.gap),i.dec)+' '+i.unit}`:`ยังไม่มีค่าเป้าหมายทางการในระบบ · เทียบค่าเฉลี่ยย้อนหลัง ${fmt(a.avg,i.dec)} ${i.unit} ค่าปีล่าสุด${L.v>a.avg?'สูงกว่า':'ต่ำกว่า'}ค่าเฉลี่ย`],
+  ['ปัจจัยที่อาจเกี่ยวข้อง','git-merge',a.links.length?a.links.map(l=>`${l.txt} — ${l.why}`).join('<br>')+'<em>เป็นสมมติฐานเพื่อการวิเคราะห์ต่อ ไม่ใช่ข้อสรุปเชิงสาเหตุ</em>':'ยังไม่มีตัวชี้วัดที่เชื่อมโยงในระบบ'],
+ ];
+ const rec=(a.v.tone==='bad'||a.v.tone==='warn'?P.weak:P.keep);
+ return`<div class="sec" style="margin-top:22px">${secHead('บทวิเคราะห์','ข้อค้นพบ หลักฐาน และนัยเชิงนโยบาย · อ่านจากข้อมูลจริงในระบบ',c)}
+ <div class="ibl t-${a.v.tone}" style="--c:${c}"><div class="fl"><span class="vpill">${a.v.t}</span><span class="cf" style="--k:${a.conf.c}">${ic('shield-check')}ความเชื่อมั่นของข้อสรุป: ${a.conf.t}</span></div><h3>${a.h}</h3>${W[0]?`<p><b>ทำไมสำคัญ</b> ${W[0]}</p>`:''}</div>
+ <div class="lens4">${lens.map(l=>`<div class="ln" style="--c:${c}"><h5>${ic(l[1])}${l[0]}</h5><p>${l[2]}</p></div>`).join('')}</div>
+ <div class="g g2" style="margin-top:14px"><div class="card" style="--c:${c}"><h4>${ic('route')}นัยเชิงนโยบาย</h4><div class="sub">${a.v.tone==='bad'||a.v.tone==='warn'?'ข้อมูลชี้ว่าควรยกเป็นประเด็นเร่งด่วน':'ข้อมูลชี้ว่าควรรักษาและต่อยอด'} · หน่วยงานหลัก: ${P.ag}</div><ol class="rec">${rec.map((t,k)=>`<li><span>${t}${k===0&&area&&i.better?` <b>· พื้นที่เป้าหมายแรก: อำเภอ${area}</b>`:''}</span></li>`).join('')}</ol></div>
+  <div class="card" style="--c:${c}"><h4>${ic('shield-check')}ความเชื่อมั่นของข้อสรุป · <span style="color:${a.conf.c}">${a.conf.t}</span></h4><div class="sub">ประเมินจากความยาวอนุกรม ความเป็นปัจจุบัน และความครอบคลุมเชิงพื้นที่</div><ul class="cav">${a.confWhy.map(t=>`<li>${t}</li>`).join('')}</ul></div></div></div>
+ <div class="sec">${secHead('ที่มา นิยาม และการตรวจสอบ','ทุกตัวเลขตรวจสอบย้อนกลับได้ถึงชุดข้อมูลต้นทาง',c)}<div class="card ev" id="ev-${i.id}">${defRows(i,META[RES[i.key][1]])}${evidence(i,META[RES[i.key][1]])}</div></div>`}
+async function fillAsk(i){const pkg=RES[i.key][1];if(META[pkg])return;const m=await loadMetaOne(pkg);const b=document.getElementById('ev-'+i.id);if(b){b.innerHTML=defRows(i,m)+evidence(i,m);lucide.createIcons()}}
+
 function renderOverview(){const el=document.getElementById('p-overview');const lv=level(OVERALL);
  const yrs=IND.filter(i=>i.last).map(i=>i.last.y);
  const KP=[['pop','users'],['gpp','trending-up'],['inc','wallet'],['unemp','briefcase'],['forest','trees'],['ita','badge-check']];
- const scored=IND.filter(i=>i.sc!=null).sort((a,b)=>b.sc-a.sc);
- const insRow=i=>{const dl=delta(i);return`<div class="ins" style="--c:${dc(i.dimO)}" data-ind="${i.id}"><div class="ic">${ic(i.icon)}</div><div><div class="t">${i.name}</div><div class="d">${fmt(i.last.v,i.dec)} ${i.unit} · พ.ศ. ${i.last.y}${dl?` · ${dl.df>0?'เพิ่มขึ้น':'ลดลง'} ${fmt(Math.abs(dl.pct),1)}% จากปี ${i.prev.y}`:''}</div></div><div class="s" style="color:${level(i.sc).c}">${i.sc}</div></div>`};
+ const AS=IND.filter(i=>i.better&&i.last).map(AN);const pos=AS.filter(a=>a.v.tone==='good').sort((x,y)=>y.sev-x.sev),neg=AS.filter(a=>a.v.tone==='bad'||a.v.tone==='warn').sort((x,y)=>y.sev-x.sev);
+ const insRow=a=>{const i=a.i;return`<div class="ins sig2 t-${a.v.tone}" style="--c:${dc(i.dimO)}" data-ind="${i.id}"><div class="ic">${ic(i.icon)}</div><div><div class="fl"><span class="vpill">${a.v.t}</span><span class="cf" style="--k:var(--tx3)">${i.dimO.name}</span></div><div class="t">${i.name} · <b style="font-weight:700">${fmt(i.last.v,i.dec)}</b> <small style="color:var(--tx3)">${i.unit}</small></div><div class="d">${a.h}</div></div></div>`};
  el.innerHTML=`
  <section class="hero">
   <div class="media"><div class="ph" data-bg="hero/hero-home"></div><video data-video="hero/hero-home" autoplay muted loop playsinline></video></div>
@@ -965,16 +1165,16 @@ function renderOverview(){const el=document.getElementById('p-overview');const l
     <div class="ft"><span class="lv">${L.t}</span><span class="go">${d.n} ตัวชี้วัด ${ic('arrow-right')}</span></div></div></div>`}).join('')}</div></div>
 
  <div class="sec">${secHead('ตัวเลขสำคัญของจังหวัด','ค่าล่าสุดและการเปลี่ยนแปลงจากปีก่อน')}
-  <div class="kpis">${KP.map(([id,icn])=>{const i=IND.find(x=>x.id===id),c=dc(i.dimO),dl=delta(i);return`<div class="kpi" style="--c:${c}" data-ind="${id}"><div class="obj"><img data-src="icons/kpi-${id}" data-fb="${icn}" alt=""></div><div class="lb">${i.name.replace(/\s*\(.*\)/,'')}</div><div class="v">${i.last?(i.last.v>=1e5?fmtC(i.last.v):fmt(i.last.v,i.dec)):'–'}<small>${i.unit}</small></div><div class="ft">${i.last?'พ.ศ. '+i.last.y:''}${dl?`<span class="delta ${dl.cls}">${ic(dl.icon)}${fmt(Math.abs(dl.pct),1)}%</span>`:''}</div></div>`}).join('')}</div></div>
+  <div class="kpis">${KP.map(([id,icn])=>{const i=IND.find(x=>x.id===id),c=dc(i.dimO),dl=delta(i);return`<div class="kpi" style="--c:${c}" data-ind="${id}"><div class="obj"><img data-src="icons/kpi-${id}" data-fb="${icn}" alt=""></div><div class="lb">${i.name.replace(/\s*\(.*\)/,'')}</div><div class="v">${i.last?(i.last.v>=1e5?fmtC(i.last.v):fmt(i.last.v,i.dec)):'–'}<small>${i.unit}</small></div><div class="ft">${i.last?'พ.ศ. '+i.last.y:''}${dl?`<span class="delta ${dl.cls}">${ic(dl.icon)}${dl.t}</span>`:''}</div></div>`}).join('')}</div></div>
 
- <div class="sec">${secHead('โปรไฟล์และข้อค้นพบสำคัญ','สรุปจุดแข็งและประเด็นที่ควรเฝ้าระวังโดยอัตโนมัติจากข้อมูลล่าสุด')}
-  <div class="g g3">
+ <div class="sec">${secHead('สัญญาณจากข้อมูล','อ่านทิศทางของทุกตัวชี้วัดเทียบปีก่อนและแนวโน้มหลายปี · ไม่ใช่แค่คะแนน แต่บอกว่าดีขึ้นหรือแย่ลง')}
+  <div class="g g3 sigg">
    <div class="card"><h4>${ic('radar')}โปรไฟล์ 7 มิติ</h4><div class="sub">คะแนนพัฒนาการรายมิติ (0–100)</div><div id="gRadar" class="chart" style="height:360px"></div></div>
-   <div class="card" style="--c:#16a34a"><h4>${ic('thumbs-up')}จุดแข็ง</h4><div class="sub">ตัวชี้วัดที่อยู่ในระดับดีที่สุด</div>${scored.slice(0,5).map(insRow).join('')}</div>
-   <div class="card" style="--c:#ea580c"><h4>${ic('triangle-alert')}ควรเฝ้าระวัง</h4><div class="sub">ตัวชี้วัดที่ควรเร่งติดตามเชิงนโยบาย</div>${scored.slice(-5).reverse().map(insRow).join('')}</div>
+   <div class="card" style="--c:#16a34a"><h4>${ic('trending-up')}สัญญาณบวก · ${pos.length} ตัวชี้วัด</h4><div class="sub">ดีขึ้นจากปีก่อนหรือดีขึ้นต่อเนื่อง เรียงตามความชัดเจนของสัญญาณ</div>${pos.slice(0,5).map(insRow).join('')||'<p class="sub">ยังไม่มีสัญญาณบวกที่ชัดเจน</p>'}</div>
+   <div class="card" style="--c:#ea580c"><h4>${ic('triangle-alert')}สัญญาณเตือน · ${neg.length} ตัวชี้วัด</h4><div class="sub">แย่ลง แย่ลงต่อเนื่อง ยังไม่ถึงเป้า หรือข้อมูลผิดปกติที่ต้องตรวจสอบ</div>${neg.slice(0,5).map(insRow).join('')||'<p class="sub">ไม่พบสัญญาณเตือน</p>'}</div>
   </div></div>
  <div class="sec">${secHead('ทิศทางดัชนีย้อนหลัง','คำนวณดัชนีของแต่ละปีจากข้อมูลที่มี ณ ปีนั้น · กดชื่อมิติในคำอธิบายกราฟเพื่อเปิด/ปิดเส้น')}<div class="card"><div id="gHist" class="chart" style="height:360px"></div></div></div>
- <div class="sec">${secHead('คำถามที่ผู้บริหารมักถาม (5W1H)','ใคร อะไร ที่ไหน เมื่อไร อย่างไร ทำไม และควรทำอะไรต่อ — ตอบจากข้อมูลจริงในระบบ')}<div id="faq">${faqHTML()}</div></div>
+ <div class="sec">${secHead('คำถามที่ผู้บริหารมักถาม','ตอบจากข้อมูลจริงในระบบ พร้อมข้อจำกัดที่ควรรู้')}<div id="faq">${faqHTML()}</div></div>
  <div class="sec">${secHead('อ้างอิงมาตรฐานสากล','หลักการที่ใช้ออกแบบดัชนี คุณภาพข้อมูล และบทวิเคราะห์เชิงนโยบาย')}${stdStrip()}</div>`;
  lucide.createIcons();hydrate(el);bind(el);
  mk(document.getElementById('gMain'),{series:[{type:'gauge',startAngle:220,endAngle:-40,min:0,max:100,radius:'98%',center:['50%','56%'],progress:{show:true,width:12,roundCap:true,itemStyle:{color:new echarts.graphic.LinearGradient(0,0,1,0,[{offset:0,color:'#fbcfe8'},{offset:1,color:'#ffffff'}])}},axisLine:{roundCap:true,lineStyle:{width:12,color:[[1,'rgba(255,255,255,.18)']]}},axisTick:{show:false},splitLine:{show:false},axisLabel:{show:false},pointer:{show:false},anchor:{show:false},title:{show:false},detail:{offsetCenter:[0,'4%'],fontSize:44,fontFamily:'Prompt',fontWeight:700,color:'#fff',formatter:'{value}'},data:[{value:OVERALL??0}]}]});
@@ -989,8 +1189,8 @@ function renderDim(id){const d=DIMS.find(x=>x.id===id),c=dc(d),el=document.getEl
   <div class="ico"><img data-src="icons/dim-${id}" data-fb="${d.icon}" alt=""></div>
   <div class="dtx"><div class="en">${d.en} · มิติที่ ${DIMS.indexOf(d)+1}</div><h2>มิติ${d.name}</h2><p>${d.desc}</p>
    <div class="dscore"><b>${d.score??'–'}</b><small>/100<br>คะแนนมิติ</small><span style="--lc:${lv.c}">${lv.t}</span><span class="dn">${inds.length} ตัวชี้วัด</span></div></div></section>
- <div class="sec">${secHead('ตัวชี้วัด','คลิกการ์ดเพื่อดูแนวโน้ม ข้อมูลรายอำเภอ และ API ต้นทาง',c)}<div class="g gi">${inds.map(indCard).join('')}</div></div>
  ${dimPolicy(d)}
+ <div class="sec">${secHead('ข้อค้นพบรายตัวชี้วัด','แต่ละการ์ดสรุปสถานะ แนวโน้ม ความต่างระหว่างอำเภอ และความเชื่อมั่นของข้อมูล · คลิกเพื่ออ่านบทวิเคราะห์เต็ม',c)}<div class="g gi2">${inds.map(indCard).join('')}</div></div>
  ${F.length?`<div class="sec">${secHead('วิเคราะห์เชิงลึก','รายละเอียดเพิ่มเติมจากชุดข้อมูลต้นทาง',c)}<div class="g g2">${F.map((f,k)=>`<div class="card" style="--c:${c}"><h4>${ic(f.ic)}${f.t}</h4><div class="sub">${f.sub}</div><div class="chart" id="f-${id}-${k}" style="height:${f.h||320}px"></div></div>`).join('')}</div></div>`:''}
  ${dl.length?`<div class="sec">${secHead('แผนที่รายอำเภอ','ขอบเขตอำเภอจริง · สีเขียว = ดีกว่า · สีแดง = ควรพัฒนา',c,`<select class="sel" id="dsel-${id}">${dl.map(i=>`<option value="${i.id}">${i.name}</option>`).join('')}</select>`)}<div class="card" style="--c:${c}"><div class="sub" id="dsub-${id}" style="margin-top:0"></div><div class="maprow"><div id="dmap-${id}" style="height:460px"></div><div class="rank" id="drank-${id}"></div></div></div></div>`:''}`;
  lucide.createIcons();hydrate(el);bind(el);
@@ -1089,7 +1289,7 @@ function policyFor(i){const P=POL[i.dim];const weak=i.sc!=null&&i.sc<60;const dd
   ['3','นำนโยบายไปปฏิบัติ','Implementation',`หน่วยงานหลัก: ${P.ag}${dd?` · พื้นที่เป้าหมายลำดับแรก: อำเภอ${dd.replace('เมืองหนองบัวลำภู','เมืองหนองบัวลำภู')}`:''}`],
   ['4','ติดตามและประเมินผล','Evaluation',i.better?`ติดตามตัวชี้วัดนี้ทุกรอบข้อมูล เป้าหมายคือให้ค่า${i.better==='up'?'เพิ่มขึ้น':'ลดลง'}ต่อเนื่อง และลดช่องว่างระหว่างอำเภอ`:'ใช้ติดตามการเปลี่ยนแปลงเชิงโครงสร้างประกอบการวางแผนระยะยาว']]}}
 
-function askBlock(i){const [rid,pkg]=RES[i.key];const W=WHY[i.id]||['',''];const c=dc(i.dimO);
+function _oldAskBlock(i){const [rid,pkg]=RES[i.key];const W=WHY[i.id]||['',''];const c=dc(i.dimO);
  return`<div class="sec" style="margin-top:20px">${secHead('ถาม–ตอบ 5W1H','ตอบคำถามที่ผู้บริหารมักถามเกี่ยวกับตัวชี้วัดนี้',c)}
  <div class="w5" id="w5-${i.id}">${w5Cards(i,META[pkg])}</div></div>
  <div class="sec">${secHead('รู้ได้อย่างไร? · หลักฐานและแหล่งที่มา','ทุกตัวเลขตรวจสอบย้อนกลับได้ถึงชุดข้อมูลต้นทาง',c)}<div class="card ev" id="ev-${i.id}">${evidence(i,META[pkg])}</div></div>
@@ -1107,10 +1307,10 @@ function thinkHTML(i){const T_=think(i),P=policyFor(i);const c=dc(i.dimO);
   <div class="frame"><div><span>ยุทธศาสตร์ชาติ 20 ปี</span><b>${P.P.ns}</b></div><div><span>เป้าหมายการพัฒนาที่ยั่งยืน</span><b>${(WHY[i.id]||[])[1]&&WHY[i.id][1]!=='บริบท'?WHY[i.id][1]+' · ':''}${P.P.sdg}</b></div></div></div>
  <div class="card" style="--c:${c}"><h4>${ic('git-branch')}วงจรนโยบาย (Policy Cycle)</h4><div class="sub">แนวทางเบื้องต้นเพื่อประกอบการพิจารณา ควรยืนยันร่วมกับหน่วยงานเจ้าของข้อมูล</div>
   <div class="cyc">${P.stage.map(s=>`<div class="st"><i>${s[0]}</i><div><b>${s[1]}</b><small>${s[2]}</small><p>${s[3]}</p></div></div>`).join('')}</div></div></div>`}
-async function fillAsk(i){const pkg=RES[i.key][1];if(META[pkg])return;const m=await loadMetaOne(pkg);const a=document.getElementById('w5-'+i.id),b=document.getElementById('ev-'+i.id);if(a){a.innerHTML=w5Cards(i,m);b.innerHTML=evidence(i,m);lucide.createIcons()}}
+async function _oldFillAsk(i){const pkg=RES[i.key][1];if(META[pkg])return;const m=await loadMetaOne(pkg);const a=document.getElementById('w5-'+i.id),b=document.getElementById('ev-'+i.id);if(a){a.innerHTML=w5Cards(i,m);b.innerHTML=evidence(i,m);lucide.createIcons()}}
 
 /* ---- สรุปเชิงนโยบายรายมิติ ---- */
-function dimPolicy(d){const P=POL[d.id],c=dc(d);const sc=IND.filter(i=>i.dim===d.id&&i.sc!=null).sort((a,b)=>a.sc-b.sc);const weak=sc.filter(i=>i.sc<50),strong=sc.filter(i=>i.sc>=60);
+function _oldDimPolicy(d){const P=POL[d.id],c=dc(d);const sc=IND.filter(i=>i.dim===d.id&&i.sc!=null).sort((a,b)=>a.sc-b.sc);const weak=sc.filter(i=>i.sc<50),strong=sc.filter(i=>i.sc>=60);
  const old=IND.filter(i=>i.dim===d.id&&i.last&&NOW_BE-i.last.y>=2);
  return`<div class="sec">${secHead('เราคิดว่า… · สรุปเชิงนโยบายของมิติ','อ่านจากตัวชี้วัดทั้งหมดในมิติ ตามหลักนโยบายสาธารณะที่อิงหลักฐาน (Evidence-based Policy)',c)}
  <div class="g g3"><div class="card" style="--c:${c}"><h4>${ic('triangle-alert')}ประเด็นเร่งด่วน</h4><div class="sub">คะแนนพัฒนาการต่ำกว่า 50</div>${weak.length?weak.map(i=>`<div class="obs"><span class="od bad">${ic(i.icon)}</span><p><b>${i.name}</b> · ${i.sc}/100</p></div>`).join(''):'<p class="sub">ไม่มีตัวชี้วัดที่ต่ำกว่า 50</p>'}</div>
@@ -1129,9 +1329,9 @@ function faqHTML(){const keys=Object.keys(RES);const orgs=[...new Set(Object.val
   ['When','ข้อมูลเป็นของปีไหน',`ข้อมูลอยู่ในช่วง พ.ศ. ${Math.min(...yrs)}–${Math.max(...yrs)} แต่ละตัวชี้วัดใช้ปีล่าสุดที่หน่วยงานเผยแพร่ ซึ่งไม่ตรงกัน${old.length?` · มี ${old.length} ตัวชี้วัดที่ข้อมูลเก่ากว่า 2 ปี`:''}`],
   ['How','คิดคะแนนอย่างไร ทำไมได้เท่านี้',`เทียบค่าปีล่าสุดกับช่วงข้อมูลย้อนหลังของจังหวัดเอง 100 = ดีที่สุดในรอบที่มีข้อมูล 0 = แย่ที่สุด แล้วเฉลี่ยรายมิติและรวม (น้ำหนักเท่ากัน) มิติที่ฉุดคะแนนมากที่สุดคือ ${lo.slice(0,2).map(d=>d.name+' ('+d.score+')').join(' และ ')}`],
   ['Why','ทำไมต้องเชื่อตัวเลขนี้',`เพราะ (1) มาจากหน่วยงานราชการเจ้าของข้อมูลโดยตรง (2) ตรวจสอบย้อนกลับได้ทุกตัวเลขผ่าน API (3) วิธีคำนวณเปิดเผยในหน้าระเบียบวิธี ข้อจำกัดคือดัชนีนี้เทียบจังหวัดกับตัวเองในอดีต ไม่ได้จัดอันดับเทียบจังหวัดอื่น`],
-  ['So what','แล้วจังหวัดควรทำอะไรต่อ',`ใช้หลักวงจรนโยบาย: ยกประเด็นที่คะแนนต่ำขึ้นวาระ → เลือกทางเลือกนโยบายตามมิติ → มอบหน่วยงานหลักและอำเภอเป้าหมาย → ติดตามตัวชี้วัดเดิมทุกรอบข้อมูล ดูรายละเอียดได้ในแต่ละมิติ หัวข้อ “เราคิดว่า…”`],
+  ['So what','แล้วจังหวัดควรทำอะไรต่อ',`ใช้หลักวงจรนโยบาย: ยกประเด็นที่คะแนนต่ำขึ้นวาระ → เลือกทางเลือกนโยบายตามมิติ → มอบหน่วยงานหลักและอำเภอเป้าหมาย → ติดตามตัวชี้วัดเดิมทุกรอบข้อมูล ดูรายละเอียดได้ในแต่ละมิติ หัวข้อ “บทวิเคราะห์มิติ”`],
  ];
- return QA.map(([e,q,a],k)=>`<details class="faq" ${k<2?'open':''}><summary><span class="we">${e}</span>${q}${ic('chevron-down')}</summary><p>${a}</p></details>`).join('')}
+ const QI={Who:'building-2',What:'circle-help',Where:'database',When:'calendar-clock',How:'calculator',Why:'shield-check','So what':'route'};return QA.map(([e,q,a],k)=>`<details class="faq" ${k<2?'open':''}><summary><span class="we" style="display:inline-grid;place-items:center">${ic(QI[e]||'circle-help')}</span>${q}${ic('chevron-down')}</summary><p>${a}</p></details>`).join('')}
 
 /* ---- มาตรฐานสากลที่ใช้อ้างอิง ---- */
 const STD=[
@@ -1228,13 +1428,13 @@ function shareLink(){const u=location.href;(navigator.clipboard?navigator.clipbo
    FX · count-up · scroll reveal · 3D tilt · spotlight · ticker
    ========================================================= */
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-function countUp(root){if(RM)return;root.querySelectorAll('.kpi .v,.dc .scr b,.dscore b,.cs b,.ind .val b,.cov .cp').forEach(el=>{const tn=[...el.childNodes].find(n=>n.nodeType===3&&/\d/.test(n.textContent));if(!tn||tn._c)return;tn._c=1;const raw=tn.textContent;const m=raw.match(/-?[\d,]*\.?\d+/);if(!m)return;const str=m[0],v=parseFloat(str.replace(/,/g,'')),dec=(str.split('.')[1]||'').length,pre=raw.slice(0,m.index),post=raw.slice(m.index+str.length);if(!isFinite(v)||v===0)return;
+function countUp(root){if(RM)return;root.querySelectorAll('.kpi .v,.dc .scr b,.dscore b,.cs b,.ind .val b,.i2v b,.cov .cp').forEach(el=>{const tn=[...el.childNodes].find(n=>n.nodeType===3&&/\d/.test(n.textContent));if(!tn||tn._c)return;tn._c=1;const raw=tn.textContent;const m=raw.match(/-?[\d,]*\.?\d+/);if(!m)return;const str=m[0],v=parseFloat(str.replace(/,/g,'')),dec=(str.split('.')[1]||'').length,pre=raw.slice(0,m.index),post=raw.slice(m.index+str.length);if(!isFinite(v)||v===0)return;
  const t0=performance.now(),D=1300;const step=t=>{const k=Math.min(1,(t-t0)/D),e=1-Math.pow(1-k,4);tn.textContent=pre+(v*e).toLocaleString('th-TH',{minimumFractionDigits:dec,maximumFractionDigits:dec})+post;if(k<1)requestAnimationFrame(step);else tn.textContent=raw};requestAnimationFrame(step)})}
 const IO=('IntersectionObserver' in window)?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');IO.unobserve(e.target);countUp(e.target)}}),{threshold:.08}):null;
 function reveal(root){if(RM||!IO){countUp(root);return}root.querySelectorAll('.sec,.dc,.kpi,.g>.card,.gi>.card,.cc,.dhero,.hero').forEach((el,i)=>{if(el._rv)return;el._rv=1;el.classList.add('rv');el.style.setProperty('--d',(i%6)*60+'ms');IO.observe(el)})}
 function fx(root){if(!root)return;reveal(root);if(RM)return;root.querySelectorAll('.dc,.kpi').forEach(el=>{if(el._t)return;el._t=1;el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*7}deg) rotateX(${-y*7}deg) translateY(-6px)`;el.style.setProperty('--gx',(x+.5)*100+'%');el.style.setProperty('--gy',(y+.5)*100+'%')});el.addEventListener('pointerleave',()=>{el.style.transform=''})})}
 document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.card');if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}},{passive:true});
-function buildTicker(){const t=document.getElementById('ticker');if(!t)return;const items=IND.filter(i=>i.last&&i.prev&&i.better).map(i=>{const d=delta(i);return`<span class="tk ${d.cls}" data-ind="${i.id}">${ic(i.icon)}<b>${i.name.replace(/\s*\(.*\)/,'')}</b>${fmt(i.last.v,i.dec)} ${i.unit}<em>${ic(d.icon)}${fmt(Math.abs(d.pct),1)}%</em><small>พ.ศ. ${i.last.y}</small></span>`}).join('');
+function buildTicker(){const t=document.getElementById('ticker');if(!t)return;const items=IND.filter(i=>i.last&&i.prev&&i.better).map(i=>{const d=delta(i);return`<span class="tk ${d.cls}" data-ind="${i.id}">${ic(i.icon)}<b>${i.name.replace(/\s*\(.*\)/,'')}</b>${fmt(i.last.v,i.dec)} ${i.unit}<em>${ic(d.icon)}${d.t}</em><small>พ.ศ. ${i.last.y}</small></span>`}).join('');
  t.innerHTML=`<div class="tkl"><i></i>LIVE</div><div class="tkw"><div class="tkr">${items}${items}</div></div>`;lucide.createIcons();t.querySelectorAll('[data-ind]').forEach(x=>x.onclick=()=>openInd(x.dataset.ind))}
 
 /* =========================================================
@@ -1289,7 +1489,7 @@ function botAnswer(q){const t=q.toLowerCase().replace(/\s+/g,'');const A=(h,acts
  if(/นโยบาย|ควรทำ|แนะนำ|แก้ไข|ทำอะไรก่อน/.test(t)){const w=[...DIMS].filter(d=>d.score!=null).sort((a,b)=>a.score-b.score).slice(0,2);
   return A(`ตามหลักวงจรนโยบาย ควรเริ่มจากมิติที่คะแนนต่ำสุด:<br>${w.map(d=>`• <b>${d.name}</b> (${d.score}/100): ${POL[d.id].weak[0]} — หน่วยงานหลัก ${POL[d.id].ag.split(' · ')[0]}`).join('<br>')}<br><small>เป็นแนวทางเบื้องต้นเพื่อประกอบการพิจารณา</small>`,[...w.map(d=>link('เปิดมิติ'+d.name,'page',d.id)),link('ลองจำลองนโยบาย','page','sim')])}
  if(ind&&!(dim&&!(KW[ind.id]||[]).some(k=>t.includes(k)&&k.length>3))){const i=ind,dl=delta(i),T_=think(i);
-  return A(`<b>${i.name}</b><br>ค่าล่าสุด ${fmt(i.last.v,i.dec)} ${i.unit} (พ.ศ. ${i.last.y})${dl?` · ${dl.df>0?'เพิ่มขึ้น':'ลดลง'} ${fmt(Math.abs(dl.pct),1)}% จากปีก่อน`:''}${i.sc!=null?`<br>คะแนนพัฒนาการ ${i.sc}/100 (${level(i.sc).t})`:''}${T_.length?'<br>'+T_.slice(0,2).map(x=>'• '+x.t).join('<br>'):''}`,[link('ดูรายละเอียด','ind',i.id)])}
+  return A(`<b>${i.name}</b><br>ค่าล่าสุด ${fmt(i.last.v,i.dec)} ${i.unit} (พ.ศ. ${i.last.y})${dl?` · ${dl.df>0?'เพิ่มขึ้น':'ลดลง'} ${dl.t} จากปีก่อน`:''}${i.sc!=null?`<br>คะแนนพัฒนาการ ${i.sc}/100 (${level(i.sc).t})`:''}${T_.length?'<br>'+T_.slice(0,2).map(x=>'• '+x.t).join('<br>'):''}`,[link('ดูรายละเอียด','ind',i.id)])}
  if(dim){const s=IND.filter(i=>i.dim===dim.id&&i.sc!=null).sort((a,b)=>a.sc-b.sc);return A(`<b>มิติ${dim.name}</b> ได้ ${dim.score}/100 (${level(dim.score).t})<br>ต่ำสุด: ${s.slice(0,s.length<=2?1:2).map(i=>`${i.name} (${i.sc})`).join(', ')}<br>สูงสุด: ${s.slice(-2).reverse().filter(i=>!s.slice(0,2).includes(i)||s.length<=2&&i===s[s.length-1]).map(i=>`${i.name} (${i.sc})`).join(', ')}`,[link('เปิดมิติ'+dim.name,'page',dim.id)])}
  if(/แย่|ห่วง|ปัญหา|เฝ้าระวัง|ต่ำ|อ่อน/.test(t)){const s=IND.filter(i=>i.sc!=null).sort((a,b)=>a.sc-b.sc).slice(0,4);return A(`ประเด็นที่ควรเฝ้าระวังที่สุด:<br>${s.map(i=>`• ${i.name} — ${fmt(i.last.v,i.dec)} ${i.unit} (คะแนน ${i.sc})`).join('<br>')}`,s.slice(0,2).map(i=>link(i.name,'ind',i.id)))}
  if(/ดี|แข็ง|เด่น|สูง/.test(t)){const s=IND.filter(i=>i.sc!=null).sort((a,b)=>b.sc-a.sc).slice(0,4);return A(`จุดแข็งของจังหวัด:<br>${s.map(i=>`• ${i.name} — ${fmt(i.last.v,i.dec)} ${i.unit} (คะแนน ${i.sc})`).join('<br>')}`,s.slice(0,2).map(i=>link(i.name,'ind',i.id)))}
@@ -1456,8 +1656,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 function openInd(id){const i=IND.find(x=>x.id===id),c=dc(i.dimO),[rid,pkg]=RES[i.key],dl=delta(i);const apiUrl=`${API}datastore_search?resource_id=${rid}&limit=5000`;
  openModal(`<div class="mhead"><div class="ic" style="width:52px;height:52px;border-radius:15px;display:grid;place-items:center;background:${c}22;color:${c};flex:none;font-size:24px">${ic(i.icon)}</div><div><div style="font-size:13px;color:${c};font-weight:600">มิติ${i.dimO.name}</div><h2>${i.name}</h2><div style="color:var(--tx3);font-size:13.5px">${i.note||''}</div></div><button class="ibtn x" aria-label="ปิด">${ic('x')}</button></div>
  <div class="kpis"><div class="kpi" style="--c:${c}"><div class="lb">ค่าล่าสุด</div><div class="v">${i.last?fmt(i.last.v,i.dec):'–'}<small>${i.unit}</small></div><div class="ft">${i.last?'พ.ศ. '+i.last.y:''}</div></div>
-  <div class="kpi" style="--c:${c}"><div class="lb">เปลี่ยนแปลงจากปีก่อน</div><div class="v">${dl?(dl.df>0?'+':'')+fmt(dl.df,i.dec):'–'}</div><div class="ft">${dl?`<span class="delta ${dl.cls}">${ic(dl.icon)}${fmt(Math.abs(dl.pct),1)}%</span> เทียบปี ${i.prev.y}`:''}</div></div>
-  <div class="kpi" style="--c:${level(i.sc).c}"><div class="lb">คะแนนพัฒนาการ</div><div class="v">${i.sc??'–'}<small>/100</small></div><div class="ft">${i.better?(i.better==='up'?'ค่ามาก = ดี':'ค่าน้อย = ดี'):'ตัวชี้วัดเชิงบริบท'}</div></div>
+  <div class="kpi" style="--c:${c}"><div class="lb">เปลี่ยนแปลงจากปีก่อน</div><div class="v">${dl?(dl.df>0?'+':'')+fmt(dl.df,i.dec):'–'}</div><div class="ft">${dl?`<span class="delta ${dl.cls}">${ic(dl.icon)}${dl.t}</span> เทียบปี ${i.prev.y}`:''}</div></div>
+  <div class="kpi t-${AN(i).v.tone}" style="--c:${c}"><div class="lb">สถานะ</div><div class="v" style="font-size:22px;line-height:1.3">${AN(i).v.t}</div><div class="ft">${i.better?(i.better==='up'?'ค่ามาก = ดี':'ค่าน้อย = ดี'):'ตัวชี้วัดเชิงบริบท'}${i.sc!=null?' · คะแนน '+i.sc+'/100':''}</div></div>
   <div class="kpi" style="--c:${c}"><div class="lb">ช่วงข้อมูล</div><div class="v" style="font-size:24px">${i.s.length?i.s[0].y+'–'+i.last.y:'–'}</div><div class="ft">${i.s.length} ปี</div></div></div>
  <div class="card" style="margin-top:16px;--c:${c}"><h4>${ic('chart-line')}แนวโน้มรายปี</h4><div id="mChart" class="chart" style="height:300px"></div></div>
  ${i.d?`<div class="card" style="margin-top:16px;--c:${c}"><h4>${ic('map')}รายอำเภอ · พ.ศ. ${i.d.y}</h4><div class="maprow" style="margin-top:8px"><div id="mMap" style="height:380px"></div><div class="rank">${rankList(i)}</div></div></div>`:''}
@@ -1605,7 +1805,7 @@ function renderMethod(){document.getElementById('p-method').innerHTML=`${secHead
 function setStatus(f){const d=document.getElementById('stDot'),t=document.getElementById('stTxt');d.className='dot';
  if(SOURCE==='live'){d.classList.add('live');t.textContent='API สด · '+Object.keys(RAW).length+' ชุดข้อมูล'}else if(SOURCE==='partial'){d.classList.add('cache');t.textContent=`API สด (${f.length} ชุดใช้สำเนา)`}else if(SOURCE==='cache'){d.classList.add('cache');t.textContent='ออฟไลน์ · ใช้สำเนาล่าสุด'}else{d.classList.add('err');t.textContent='เชื่อมต่อไม่ได้'}
  document.getElementById('ftTime').textContent=LOADED_AT?'อัปเดตข้อมูล '+LOADED_AT.toLocaleString('th-TH',{dateStyle:'long',timeStyle:'short'}):''}
-function rebuild(){CHARTS.splice(0).forEach(c=>{try{c.dispose()}catch(e){}});RENDERED={};chartTheme();renderMenu();buildTicker();
+function rebuild(){anReset();CHARTS.splice(0).forEach(c=>{try{c.dispose()}catch(e){}});RENDERED={};chartTheme();renderMenu();buildTicker();
  document.getElementById('pages').innerHTML=PAGES.map(p=>`<section class="page" id="p-${p.id}"></section>`).join('');go(CUR)}
 async function boot(){const fails=await loadAll();await loadTargets();OVERALL=compute();setStatus(fails);rebuild();hydrate();botInit();loadMeta().then(()=>{const f=document.getElementById('faq');if(f){f.innerHTML=faqHTML();lucide.createIcons()}});
  document.getElementById('loader').classList.add('out');
