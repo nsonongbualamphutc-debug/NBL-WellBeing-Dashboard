@@ -1,467 +1,290 @@
 <!DOCTYPE html>
-<html lang="th" data-theme="light">
+<html lang="th">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู</title>
-<meta name="description" content="NBL Well-Being Index · แดชบอร์ดดัชนีความอยู่ดีมีสุขจังหวัดหนองบัวลำภู ข้อมูลสดจากระบบบัญชีข้อมูลจังหวัด">
-<meta name="theme-color" content="#db2777">
-<meta property="og:title" content="ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู">
-<meta property="og:image" content="assets/hero/hero-home.jpg">
-<link rel="icon" href="assets/brand/logo-wellbeing.png">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู | NBL Well-Being Intelligence</title>
+<meta name="description" content="แดชบอร์ดดัชนีความอยู่ดีมีสุขจังหวัดหนองบัวลำภู ดึงข้อมูลสดผ่าน API ระบบบัญชีข้อมูลจังหวัด (gdcatalog)">
+<meta name="theme-color" content="#050b18">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Prompt:wght@500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
 <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
-<script>try{const t=localStorage.getItem('nblwb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
-/* ============================================================
-   THEME TOKENS  (light = ขาว-ชมพูบัว · dark = ราตรีหนองบัว)
-   ============================================================ */
 :root{
- --bg:#fbf3f7;--panel:#ffffff;--panel2:#fff6fa;--glass:rgba(255,255,255,.72);
- --line:rgba(190,24,93,.10);--line2:rgba(190,24,93,.2);
- --tx:#2b1531;--tx2:#6d5874;--tx3:#a08fa6;
- --brand:#db2777;--brand2:#be185d;--brandSoft:#fce7f3;--teal:#0d9488;--gold:#d97706;
- --shadow:0 14px 40px -18px rgba(157,23,77,.28);--shadow2:0 30px 70px -30px rgba(157,23,77,.35);
- --r:22px;--side:300px;
- --head:'Kanit',system-ui,sans-serif;--font:'Sarabun','Kanit',system-ui,sans-serif;
+  --bg:#050b18;--bg2:#0a1428;--card:rgba(255,255,255,.035);--card2:rgba(255,255,255,.06);
+  --line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);
+  --tx:#e8eef8;--tx2:#a6b3c8;--tx3:#6b7a93;
+  --lotus:#f472b6;--teal:#2dd4bf;--gold:#fbbf24;
+  --good:#22c55e;--bad:#f43f5e;
+  --r:18px;--font:'IBM Plex Sans Thai',system-ui,sans-serif;--head:'Prompt','IBM Plex Sans Thai',sans-serif;
 }
-[data-theme=dark]{
- --bg:#090c18;--panel:#11162a;--panel2:#161c34;--glass:rgba(17,22,42,.72);
- --line:rgba(255,255,255,.07);--line2:rgba(255,255,255,.14);
- --tx:#eef0fa;--tx2:#a9b2c8;--tx3:#6c7690;
- --brand:#f472b6;--brand2:#ec4899;--brandSoft:rgba(244,114,182,.12);--teal:#2dd4bf;--gold:#fbbf24;
- --shadow:0 14px 40px -18px rgba(0,0,0,.7);--shadow2:0 30px 70px -30px rgba(0,0,0,.9);
-}
-*{box-sizing:border-box;margin:0;padding:0;min-width:0}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--font);font-size:15.5px;background:var(--bg);color:var(--tx);min-height:100vh;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;overflow-x:clip;transition:background .4s,color .4s}
-body::before{content:"";position:fixed;inset:0;z-index:-2;background:var(--bgimg,none) center/cover no-repeat;opacity:.55}
-[data-theme=dark] body::before{opacity:.45}
-body::after{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 600px at 100% 0%,color-mix(in srgb,var(--brand) 14%,transparent),transparent 60%),radial-gradient(700px 500px at 0% 100%,color-mix(in srgb,var(--teal) 12%,transparent),transparent 60%)}
+body{font-family:var(--font);background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
 svg.lucide{width:1em;height:1em;stroke-width:2}
-img{display:block;max-width:100%}
 
-/* ============================== SIDEBAR ============================== */
-.side{position:fixed;inset:14px auto 14px 14px;width:var(--side);z-index:40;display:flex;flex-direction:column;background:var(--glass);backdrop-filter:blur(22px) saturate(160%);border:1px solid var(--line2);border-radius:28px;box-shadow:var(--shadow2);overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
-.brand{display:flex;gap:12px;align-items:center;padding:20px 20px 16px;border-bottom:1px solid var(--line)}
-.brand .logo{width:54px;height:54px;flex:none;border-radius:16px;display:grid;place-items:center;background:linear-gradient(145deg,var(--brandSoft),transparent);border:1px solid var(--line2);overflow:hidden}
-.brand .logo img{width:100%;height:100%;object-fit:contain}
-.brand .logo svg{width:40px;height:40px}
-.brand b{font-family:var(--head);font-size:17px;font-weight:700;line-height:1.2;display:block;background:linear-gradient(90deg,var(--brand2),var(--brand),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
-.brand small{font-size:11.5px;color:var(--tx3);letter-spacing:.6px;font-weight:600}
-.menu{flex:1;overflow-y:auto;padding:12px 12px 6px;scrollbar-width:thin}
-.mgrp{font-family:var(--head);font-size:12px;font-weight:600;color:var(--tx3);margin:10px 10px 6px;display:flex;align-items:center;gap:8px}
-.mgrp::after{content:"";flex:1;height:1px;background:var(--line)}
-.mi{position:relative;width:100%;display:grid;grid-template-columns:42px 1fr auto;gap:12px;align-items:center;padding:6px 10px 6px 7px;margin-bottom:4px;border-radius:16px;text-align:left;border:1px solid transparent;transition:.22s}
-.mi:hover{background:var(--panel);border-color:var(--line2);transform:translateX(3px)}
-.mi .ico{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 13%,var(--panel));color:var(--c);overflow:hidden;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 22%,transparent)}
-.mi .ico img{width:38px;height:38px;object-fit:contain}
-.mi .ico svg{width:22px;height:22px}
-.mi .t{font-family:var(--head);font-size:14.5px;font-weight:500;line-height:1.25}
-.mi .s{font-size:11.5px;color:var(--tx3);font-weight:500}
-.mi .sc{font-family:var(--head);font-size:13px;font-weight:600;min-width:38px;height:28px;padding:0 8px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 14%,transparent);color:var(--c)}
-.mi.on{background:linear-gradient(120deg,var(--c),color-mix(in srgb,var(--c) 70%,#000 0%));border-color:transparent;box-shadow:0 12px 26px -10px var(--c)}
-.mi.on .t,.mi.on .s{color:#fff}.mi.on .s{opacity:.85}
-.mi.on .ico{background:rgba(255,255,255,.22);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
-.mi.on .sc{background:rgba(255,255,255,.25);color:#fff}
-.sfoot{padding:12px 16px 16px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
-.srow{display:flex;gap:8px;align-items:center}
-.status{flex:1;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--tx2);padding:9px 12px;border-radius:12px;background:var(--panel);border:1px solid var(--line)}
-.dot{width:9px;height:9px;border-radius:50%;background:var(--tx3);flex:none}
-.dot.live{background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:pulse 2s infinite}.dot.cache{background:#f59e0b}.dot.err{background:#ef4444}
-@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
-.ibtn{width:40px;height:40px;flex:none;border-radius:12px;display:grid;place-items:center;background:var(--panel);border:1px solid var(--line);color:var(--tx2);transition:.2s}
-.ibtn:hover{color:var(--brand);border-color:var(--line2)}
-.ibtn svg{width:18px;height:18px}
-.credit{font-size:11.5px;color:var(--tx3);line-height:1.55;display:flex;gap:10px;align-items:center}
-.credit img{width:34px;height:34px;object-fit:contain;flex:none}
+/* ===== Background ===== */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(1200px 700px at 85% -10%,#132a52 0%,transparent 60%),radial-gradient(900px 600px at -10% 110%,#0f2e3a 0%,transparent 60%),var(--bg)}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.38;animation:float 26s ease-in-out infinite}
+.b1{width:560px;height:560px;background:#db2777;top:-180px;left:20%;opacity:.22}
+.b2{width:620px;height:620px;background:#0d9488;bottom:-260px;right:5%;animation-delay:-8s;opacity:.28}
+.b3{width:420px;height:420px;background:#4f46e5;top:35%;left:-160px;animation-delay:-16s;opacity:.22}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(60px,-40px) scale(1.08)}66%{transform:translate(-40px,50px) scale(.95)}}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 75%)}
+.lotus-wm{position:absolute;right:-120px;top:120px;width:620px;opacity:.035}
+@media (prefers-reduced-motion:reduce){.blob{animation:none}}
 
-/* ============================== MAIN ============================== */
-.main{margin-left:calc(var(--side) + 28px);padding:14px 22px 40px 0;min-height:100vh}
-.topbar{display:flex;align-items:center;gap:14px;padding:6px 4px 14px;flex-wrap:wrap}
-.burger{display:none}
-.crumb{flex:1;display:flex;flex-direction:column}
-.crumb small{font-size:12.5px;color:var(--tx3);font-weight:500}
-.crumb h1{font-family:var(--head);font-size:22px;font-weight:600;line-height:1.25}
-.tbtn{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 16px;border-radius:13px;background:var(--panel);border:1px solid var(--line);font-size:14px;font-weight:500;color:var(--tx2);box-shadow:var(--shadow);transition:.2s}
-.tbtn:hover{color:var(--brand);border-color:var(--line2)}
-.tbtn svg{width:17px;height:17px}
-.tbtn.spin svg{animation:rot 1s linear infinite}@keyframes rot{to{transform:rotate(360deg)}}
-.logos{display:flex;gap:12px;align-items:center;height:48px;padding:4px 14px;border-radius:14px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
-.logos img{height:38px;width:auto;object-fit:contain}
-.page{display:none;animation:up .5s cubic-bezier(.2,.8,.2,1) both}.page.on{display:block}
-@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-
-/* ============================== HERO ============================== */
-.hero{position:relative;min-height:440px;border-radius:30px;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:20px;align-items:end;padding:34px;color:#fff;box-shadow:var(--shadow2);background:linear-gradient(135deg,#831843,#be185d 45%,#0f766e)}
-.hero .media{position:absolute;inset:0;z-index:0}
-.hero .media>*{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero .media .ph{background:var(--ph,none) center/cover}
-.hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(26,6,22,.82) 0%,rgba(26,6,22,.45) 52%,rgba(26,6,22,.12) 100%),linear-gradient(0deg,rgba(26,6,22,.55),transparent 55%)}
-.hero>.in{position:relative;z-index:2}
-.hero .tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(8px)}
-.hero .tag svg{width:15px;height:15px}
-.hero h2{font-family:var(--head);font-size:clamp(30px,3.6vw,50px);font-weight:700;line-height:1.08;margin:16px 0 12px;text-wrap:balance;text-shadow:0 4px 30px rgba(0,0,0,.35)}
-.hero p{font-size:16.5px;line-height:1.65;max-width:620px;color:rgba(255,255,255,.88)}
-.hero .hlogos{display:inline-flex;gap:14px;align-items:center;margin-bottom:14px;padding:8px 16px;border-radius:18px;background:rgba(255,255,255,.92);box-shadow:0 10px 30px -12px rgba(0,0,0,.4)}
-.hero .hlogos img{height:50px;width:auto}
-.hero .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-.hero .meta span{display:inline-flex;gap:7px;align-items:center;font-size:13.5px;padding:8px 13px;border-radius:12px;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.18)}
-.hero .meta svg{width:15px;height:15px;color:#fbcfe8}
-.orb{justify-self:end;width:100%;max-width:340px;padding:18px 18px 16px;border-radius:26px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(18px) saturate(150%);text-align:center}
-.orb .lb{font-family:var(--head);font-size:14.5px;font-weight:500;opacity:.9}
-.orb .lvl{display:inline-flex;gap:6px;align-items:center;margin-top:-4px;padding:6px 14px;border-radius:999px;font-family:var(--head);font-weight:600;font-size:14px;background:#fff;color:var(--lc)}
-.orb .lvl svg{width:15px;height:15px}
-
-/* ============================== SECTIONS ============================== */
-.sec{margin-top:34px}
-.sech{display:flex;align-items:flex-end;gap:16px;margin-bottom:16px;flex-wrap:wrap}
-.sech .bar{width:6px;height:44px;border-radius:6px;background:linear-gradient(180deg,var(--c,var(--brand)),var(--teal))}
-.sech h3{font-family:var(--head);font-size:24px;font-weight:600;line-height:1.15}
-.sech p{font-size:14px;color:var(--tx2);margin-top:3px}
-.sech .r{margin-left:auto}
-.card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow)}
-.card h4{font-family:var(--head);font-size:16.5px;font-weight:600;display:flex;gap:9px;align-items:center}
-.card h4 svg{width:19px;height:19px;color:var(--c,var(--brand))}
-.card .sub{font-size:13px;color:var(--tx3);margin:3px 0 10px}
-.g{display:grid;gap:18px}
-.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
-.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
-.gi{grid-template-columns:repeat(auto-fill,minmax(265px,1fr))}
-.chart{width:100%;height:320px}
-
-/* ---- dimension mega cards ---- */
-.dims{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}
-.dc{grid-column:span 3;position:relative;min-height:330px;border-radius:26px;overflow:hidden;cursor:pointer;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;background:linear-gradient(160deg,var(--c),color-mix(in srgb,var(--c) 40%,#1a0616));box-shadow:var(--shadow);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
-.dc:nth-child(n+5){grid-column:span 4}
-.dc .ph{position:absolute;inset:0;background:var(--ph,none) center/cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
-.dc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 20%,rgba(15,5,15,.55) 55%,rgba(15,5,15,.9) 100%)}
-.dc:hover{transform:translateY(-6px);box-shadow:0 30px 60px -24px var(--c)}
-.dc:hover .ph{transform:scale(1.07)}
-.dc>*:not(.ph){position:relative;z-index:1}
-.dc .ico{position:absolute!important;top:14px;left:14px;width:64px;height:64px;border-radius:18px;display:grid;place-items:center;background:rgba(255,255,255,.18);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.35);overflow:hidden}
-.dc .ico img{width:58px;height:58px;object-fit:contain}
-.dc .ico svg{width:30px;height:30px}
-.dc .scr{position:absolute!important;top:14px;right:14px;text-align:right}
-.dc .scr b{font-family:var(--head);font-size:40px;font-weight:700;line-height:1;text-shadow:0 4px 18px rgba(0,0,0,.4)}
-.dc .scr small{display:block;font-size:12px;opacity:.85}
-.dc .en{font-size:12px;letter-spacing:1.5px;font-weight:600;opacity:.8;text-transform:uppercase}
-.dc h5{font-family:var(--head);font-size:22px;font-weight:600;line-height:1.2;margin:2px 0 10px}
-.dc .bar2{height:6px;border-radius:6px;background:rgba(255,255,255,.22);overflow:hidden}
-.dc .bar2 i{display:block;height:100%;width:0;border-radius:6px;background:#fff;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
-.dc .ft{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:13px}
-.dc .ft .lv{padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.2);font-weight:600}
-.dc .go{display:inline-flex;gap:5px;align-items:center;opacity:.9}
-.dc .go svg{width:15px;height:15px}
-
-/* ---- KPI ---- */
-.kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}@media(max-width:1500px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:640px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.kpi{position:relative;overflow:hidden;cursor:pointer;padding:18px 18px 16px;border-radius:22px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);transition:.25s}
-.kpi:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--c) 45%,transparent)}
-.kpi::before{content:"";position:absolute;inset:auto -30px -60px auto;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--c) 22%,transparent),transparent 70%)}
-.kpi .obj{position:absolute;right:10px;top:10px;width:58px;height:58px;display:grid;place-items:center;color:color-mix(in srgb,var(--c) 40%,transparent)}
-.kpi .obj img{width:58px;height:58px;object-fit:contain;filter:drop-shadow(0 8px 14px rgba(0,0,0,.18))}
-.kpi .obj svg{width:34px;height:34px;stroke-width:1.6}
-.kpi .lb{font-size:13.5px;color:var(--tx2);font-weight:500;padding-right:60px;min-height:40px;line-height:1.45}
-.kpi .v{font-family:var(--head);font-size:clamp(22px,2vw,30px);white-space:nowrap;font-weight:700;margin:6px 0 2px;letter-spacing:-.3px;color:var(--c)}
-.kpi .v small{font-size:13px;font-weight:500;color:var(--tx3);margin-left:5px}
-.kpi .ft{font-size:12.5px;color:var(--tx3);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-
-/* ---- delta / indicator ---- */
-.delta{display:inline-flex;align-items:center;gap:3px;font-size:12.5px;font-weight:600;padding:3px 8px;border-radius:8px;white-space:nowrap}
-.delta svg{width:13px;height:13px}
-.delta.good{color:#16a34a;background:rgba(34,197,94,.13)}.delta.bad{color:#e11d48;background:rgba(244,63,94,.12)}.delta.neu{color:var(--tx2);background:color-mix(in srgb,var(--tx3) 15%,transparent)}
-[data-theme=dark] .delta.good{color:#4ade80}[data-theme=dark] .delta.bad{color:#fb7185}
-.ind{cursor:pointer;transition:.25s;padding:16px 17px 14px;overflow:hidden}
-.ind::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:4px;border-radius:0 4px 4px 0;background:var(--c)}
-.ind:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--c) 40%,transparent);box-shadow:0 20px 40px -22px var(--c)}
-.ind .top{display:flex;gap:11px;align-items:flex-start}
-.ind .ic{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 13%,transparent);color:var(--c)}
-.ind .ic svg{width:20px;height:20px}
-.ind .nm{font-family:var(--head);font-size:14.5px;font-weight:500;line-height:1.35}
-.ind .yr{font-size:12px;color:var(--tx3);margin-top:2px}
-.ind .val{display:flex;align-items:baseline;gap:6px;margin:12px 0 0;flex-wrap:wrap}
-.ind .val b{font-family:var(--head);font-size:29px;font-weight:700;letter-spacing:-.4px}
-.ind .val small{font-size:13px;color:var(--tx2)}
-.spark{width:100%;height:48px;margin-top:6px;display:block}
-.sbar{display:flex;align-items:center;gap:9px;margin-top:8px;font-size:12px;color:var(--tx3)}
-.track{flex:1;height:6px;border-radius:9px;background:color-mix(in srgb,var(--tx3) 18%,transparent);overflow:hidden}
-.track i{display:block;height:100%;border-radius:9px;background:var(--c)}
-.sbar b{font-family:var(--head);color:var(--tx);font-size:14px}
-.tag2{font-size:11.5px;padding:3px 8px;border-radius:7px;background:color-mix(in srgb,var(--tx3) 14%,transparent);color:var(--tx3)}
-
-/* ---- insights ---- */
-.ins{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:12px;border-radius:16px;background:var(--panel2);border:1px solid var(--line);cursor:pointer;transition:.2s;margin-top:10px}
-.ins:hover{border-color:var(--line2);transform:translateX(3px)}
-.ins .ic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 14%,transparent);color:var(--c)}
-.ins .ic svg{width:21px;height:21px}
-.ins .t{font-family:var(--head);font-size:14.5px;font-weight:500;line-height:1.35}
-.ins .d{font-size:12.5px;color:var(--tx3);margin-top:2px}
-.ins .s{font-family:var(--head);font-weight:700;font-size:20px}
-
-/* ---- dimension hero ---- */
-.dhero{position:relative;min-height:300px;border-radius:30px;overflow:hidden;color:#fff;display:flex;align-items:flex-end;gap:20px;padding:28px 30px;box-shadow:var(--shadow2);background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 35%,#14051a))}
-.dhero .media{position:absolute;inset:0}
-.dhero .media>*{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.dhero .media .ph{background:var(--ph,none) center/cover}
-.dhero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,4,15,.85),rgba(15,4,15,.35) 60%,rgba(15,4,15,.1)),linear-gradient(0deg,rgba(15,4,15,.5),transparent 60%)}
-.dhero>*:not(.media){position:relative;z-index:1}
-.dhero .ico{width:92px;height:92px;flex:none;border-radius:26px;display:grid;place-items:center;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(10px);overflow:hidden}
-.dhero .ico img{width:84px;height:84px;object-fit:contain}.dhero .ico svg{width:44px;height:44px}
-.dhero .en{font-size:13px;letter-spacing:2px;font-weight:600;opacity:.85;text-transform:uppercase}
-.dhero h2{font-family:var(--head);font-size:clamp(28px,3.2vw,42px);font-weight:700;line-height:1.1;margin:4px 0 8px}
-.dhero p{max-width:640px;line-height:1.6;opacity:.9}
-.dhero .big{margin-left:auto;text-align:right}
-.dhero .big b{font-family:var(--head);font-size:72px;font-weight:800;line-height:.9;text-shadow:0 6px 30px rgba(0,0,0,.4)}
-.dhero .big small{display:block;font-size:13px;opacity:.85;margin-top:6px}
-.dhero .big span{display:inline-block;margin-top:10px;padding:6px 14px;border-radius:999px;background:#fff;color:var(--lc);font-family:var(--head);font-weight:600;font-size:14px}
-
-/* ---- map ---- */
-.maprow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px;align-items:center}
-.rank{display:flex;flex-direction:column;gap:10px}
-.rank .r{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;font-size:14px}
-.rank i{font-style:normal;font-family:var(--head);font-size:12.5px;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:var(--panel2);border:1px solid var(--line);color:var(--tx2)}
-.rank b{font-family:var(--head);font-weight:600}
-.rank .bar{height:7px;border-radius:6px;margin-top:5px}
-select.sel{font-family:var(--font);font-size:14.5px;height:44px;padding:0 14px;border-radius:12px;background:var(--panel2);color:var(--tx);border:1px solid var(--line2);outline:none;max-width:100%}
-select.sel:focus{border-color:var(--brand)}
-
-/* ---- catalog ---- */
-.search{display:flex;align-items:center;gap:10px;height:54px;padding:0 18px;border-radius:16px;background:var(--panel);border:1px solid var(--line2);box-shadow:var(--shadow)}
-.search input{flex:1;background:none;border:0;outline:none;color:var(--tx);font-family:var(--font);font-size:16px}
-.search svg{width:20px;height:20px;color:var(--brand)}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.chip{font-size:13.5px;padding:8px 14px;border-radius:999px;background:var(--panel);border:1px solid var(--line);color:var(--tx2);transition:.2s;font-weight:500}
-.chip:hover{border-color:var(--line2);color:var(--brand)}
-.chip.on{background:var(--brand);border-color:var(--brand);color:#fff}
-.chip em{font-style:normal;opacity:.65;margin-left:5px}
-.ds{display:flex;flex-direction:column;gap:9px;padding:16px;border-radius:18px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);transition:.2s}
-.ds:hover{border-color:var(--line2);transform:translateY(-2px)}
-.ds h5{font-family:var(--head);font-size:15px;font-weight:500;line-height:1.4}
-.ds .org{font-size:12.5px;color:var(--tx3);display:flex;gap:6px;align-items:center}
-.ds .org svg{width:14px;height:14px;flex:none}
-.fm{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.fmt{font-size:11px;font-weight:700;padding:3px 8px;border-radius:7px;letter-spacing:.4px}
-.fmt.CSV{background:rgba(34,197,94,.14);color:#16a34a}.fmt.XLSX,.fmt.XLS{background:rgba(37,99,235,.13);color:#2563eb}.fmt.API{background:var(--brandSoft);color:var(--brand)}.fmt.x{background:color-mix(in srgb,var(--tx3) 15%,transparent);color:var(--tx2)}
-.btn{display:inline-flex;align-items:center;gap:7px;height:40px;padding:0 14px;border-radius:12px;background:var(--panel2);border:1px solid var(--line2);font-size:13.5px;font-weight:500;color:var(--tx);transition:.2s}
-.btn:hover{border-color:var(--brand);color:var(--brand)}
-.btn.pri{background:linear-gradient(135deg,var(--brand),var(--brand2));border-color:transparent;color:#fff}
-.btn.pri:hover{color:#fff;filter:brightness(1.08)}
+/* ===== Layout ===== */
+.wrap{max-width:1480px;margin:0 auto;padding:22px clamp(14px,2.6vw,36px) 60px}
+header.top{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:6px 0 18px}
+.brand{display:flex;align-items:center;gap:16px;flex:1;min-width:300px}
+.emblem{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(244,114,182,.22),rgba(45,212,191,.14));border:1px solid rgba(244,114,182,.35);box-shadow:0 10px 40px -10px rgba(244,114,182,.5),inset 0 1px 0 rgba(255,255,255,.15)}
+.emblem svg{width:42px;height:42px}
+.brand h1{font-family:var(--head);font-weight:700;font-size:clamp(20px,2.3vw,30px);line-height:1.2;letter-spacing:-.2px;background:linear-gradient(90deg,#fff 0%,#fbcfe8 55%,#99f6e4 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand p{color:var(--tx2);font-size:13.5px;margin-top:3px;letter-spacing:.3px}
+.brand p b{color:var(--teal);font-weight:600}
+.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:13px;color:var(--tx2);backdrop-filter:blur(12px)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--tx3);box-shadow:0 0 0 0 currentColor}
+.dot.live{background:#22c55e;color:rgba(34,197,94,.6);animation:pulse 2s infinite}
+.dot.cache{background:#fbbf24}.dot.err{background:#f43f5e}
+@keyframes pulse{0%{box-shadow:0 0 0 0 currentColor}70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:12px;background:var(--card2);border:1px solid var(--line2);font-size:13.5px;font-weight:500;transition:.2s}
+.btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25)}
+.btn.primary{background:linear-gradient(135deg,#db2777,#7c3aed);border-color:transparent;box-shadow:0 8px 24px -8px rgba(219,39,119,.6)}
 .btn svg{width:16px;height:16px}
-.pager{display:flex;justify-content:center;gap:12px;margin-top:20px;align-items:center;color:var(--tx2);font-size:14px}
+.spin svg{animation:rot 1s linear infinite}@keyframes rot{to{transform:rotate(360deg)}}
 
-/* ---- tables ---- */
-.tbl{overflow:auto;border:1px solid var(--line);border-radius:16px;max-height:420px}
-table.t{width:100%;border-collapse:collapse;font-size:14px}
-table.t th,table.t td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
-table.t th{color:var(--tx2);font-weight:600;position:sticky;top:0;background:var(--panel2);font-family:var(--head);font-size:13.5px}
-table.t td.n{text-align:right;font-family:var(--head)}
-code.api{display:block;font-size:12px;padding:10px 12px;border-radius:12px;background:var(--panel2);color:var(--teal);overflow-x:auto;white-space:nowrap;margin-top:12px;border:1px solid var(--line)}
+/* ===== Tabs ===== */
+nav.tabs{position:sticky;top:0;z-index:20;margin:0 calc(-1*clamp(14px,2.6vw,36px));padding:10px clamp(14px,2.6vw,36px);background:rgba(5,11,24,.72);backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;font-size:14px;font-weight:500;color:var(--tx2);border:1px solid transparent;transition:.2s;white-space:nowrap}
+.tab svg{width:17px;height:17px;color:var(--c,var(--tx2))}
+.tab:hover{color:var(--tx);background:var(--card)}
+.tab.on{color:#fff;background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border-color:var(--line2);box-shadow:inset 0 -2px 0 var(--c,var(--lotus))}
+.tab .sc{font-size:11.5px;padding:2px 7px;border-radius:999px;background:rgba(255,255,255,.07);color:var(--tx2);font-weight:600}
 
-/* ---- modal ---- */
-.modal{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(20,6,20,.45);backdrop-filter:blur(8px)}
-.modal.on{display:flex;animation:up .3s ease}
-.mbox{width:min(1080px,100%);max-height:92vh;overflow:auto;background:var(--bg);border:1px solid var(--line2);border-radius:26px;padding:24px;box-shadow:var(--shadow2)}
+/* ===== Cards ===== */
+.panel{display:none;animation:fadeup .45s ease both}.panel.on{display:block}
+@keyframes fadeup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.card{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:var(--r);padding:20px;backdrop-filter:blur(14px);box-shadow:0 20px 50px -30px rgba(0,0,0,.8)}
+.card h3{font-family:var(--head);font-size:16px;font-weight:600;display:flex;align-items:center;gap:9px;margin-bottom:4px}
+.card h3 svg{width:18px;height:18px;color:var(--c,var(--teal))}
+.card .sub{font-size:12.5px;color:var(--tx3);margin-bottom:12px}
+.g{display:grid;gap:18px;margin-top:18px}
+.g-hero{grid-template-columns:minmax(300px,1.05fr) minmax(320px,1.2fr) minmax(300px,1fr)}
+.g-2{grid-template-columns:repeat(auto-fit,minmax(420px,1fr))}
+.g-feat{grid-template-columns:1.25fr 1fr}
+.g-ind{grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+@media(max-width:1200px){.g-hero{grid-template-columns:1fr 1fr}.g-hero>.card:last-child{grid-column:1/-1}.g-feat{grid-template-columns:1fr}}
+@media(max-width:760px){.g-hero,.g-2{grid-template-columns:1fr}}
+.chart{width:100%;height:300px}
+
+/* ===== Hero ===== */
+.gauge-wrap{display:flex;flex-direction:column;align-items:center;text-align:center}
+.lvl{display:inline-flex;align-items:center;gap:6px;margin-top:-6px;padding:6px 14px;border-radius:999px;font-weight:600;font-size:14px}
+.hero-note{font-size:12.5px;color:var(--tx3);margin-top:10px;line-height:1.6;max-width:340px}
+.dimbars{display:flex;flex-direction:column;gap:11px;margin-top:6px}
+.dimbar{display:grid;grid-template-columns:30px 1fr auto;align-items:center;gap:10px;cursor:pointer;padding:6px 8px;border-radius:10px;transition:.2s}
+.dimbar:hover{background:rgba(255,255,255,.05)}
+.dimbar .ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 18%,transparent);color:var(--c)}
+.dimbar .ic svg{width:16px;height:16px}
+.dimbar .nm{font-size:13.5px;margin-bottom:5px;display:flex;justify-content:space-between}
+.track{height:7px;border-radius:9px;background:rgba(255,255,255,.07);overflow:hidden}
+.track i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,color-mix(in srgb,var(--c) 55%,transparent),var(--c));box-shadow:0 0 12px var(--c);transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.dimbar b{font-family:var(--head);font-size:17px;min-width:36px;text-align:right}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:18px}
+.kpi{position:relative;overflow:hidden;padding:16px 18px;border-radius:16px;background:linear-gradient(160deg,color-mix(in srgb,var(--c) 14%,transparent),rgba(255,255,255,.02) 60%);border:1px solid color-mix(in srgb,var(--c) 28%,transparent)}
+.kpi .ic{position:absolute;right:-10px;bottom:-14px;opacity:.12;color:var(--c)}
+.kpi .ic svg{width:92px;height:92px;stroke-width:1.5}
+.kpi .lb{font-size:12.5px;color:var(--tx2);display:flex;align-items:center;gap:6px}
+.kpi .lb svg{width:14px;height:14px;color:var(--c)}
+.kpi .v{font-family:var(--head);font-weight:700;font-size:27px;margin:6px 0 2px;letter-spacing:-.3px}
+.kpi .v small{font-size:13px;font-weight:500;color:var(--tx2);margin-left:5px}
+.kpi .ft{font-size:12px;color:var(--tx3);display:flex;gap:8px;align-items:center}
+
+.insights{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+@media(max-width:900px){.insights{grid-template-columns:1fr}}
+.ins-list{display:flex;flex-direction:column;gap:10px}
+.ins{display:grid;grid-template-columns:38px 1fr auto;gap:12px;align-items:center;padding:11px 12px;border-radius:13px;background:rgba(255,255,255,.03);border:1px solid var(--line);cursor:pointer;transition:.2s}
+.ins:hover{border-color:var(--line2);background:rgba(255,255,255,.06)}
+.ins .ic{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 16%,transparent);color:var(--c)}
+.ins .ic svg{width:19px;height:19px}
+.ins .t{font-size:13.5px;font-weight:500;line-height:1.4}
+.ins .d{font-size:12px;color:var(--tx3);margin-top:2px}
+.ins .s{font-family:var(--head);font-weight:700;font-size:18px}
+
+/* ===== Dimension header ===== */
+.dhead{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:18px;padding:22px 24px;border-radius:22px;background:linear-gradient(120deg,color-mix(in srgb,var(--c) 20%,transparent),rgba(255,255,255,.02) 55%);border:1px solid color-mix(in srgb,var(--c) 30%,transparent);position:relative;overflow:hidden}
+.dhead .big{position:absolute;right:30px;top:50%;transform:translateY(-50%);color:var(--c);opacity:.09}
+.dhead .big svg{width:170px;height:170px;stroke-width:1.2}
+.dhead .ic{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 22%,transparent);color:var(--c);border:1px solid color-mix(in srgb,var(--c) 40%,transparent)}
+.dhead .ic svg{width:32px;height:32px}
+.dhead h2{font-family:var(--head);font-size:26px;font-weight:700}
+.dhead p{color:var(--tx2);font-size:13.5px;margin-top:3px;max-width:640px;line-height:1.6}
+.ring{margin-left:auto;display:flex;align-items:center;gap:14px;z-index:1}
+.ring .num{font-family:var(--head);font-size:40px;font-weight:800;line-height:1}
+.ring .lab{font-size:12.5px;color:var(--tx2)}
+
+/* ===== Indicator card ===== */
+.ind{cursor:pointer;transition:.25s;padding:16px 17px 14px;overflow:hidden}
+.ind:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--c) 45%,transparent);box-shadow:0 18px 40px -20px color-mix(in srgb,var(--c) 60%,transparent)}
+.ind .top{display:flex;gap:11px;align-items:flex-start}
+.ind .ic{flex:none;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 15%,transparent);color:var(--c)}
+.ind .ic svg{width:19px;height:19px}
+.ind .nm{font-size:13.5px;font-weight:500;line-height:1.35;color:var(--tx)}
+.ind .yr{font-size:11.5px;color:var(--tx3);margin-top:2px}
+.ind .val{display:flex;align-items:baseline;gap:6px;margin:12px 0 2px}
+.ind .val b{font-family:var(--head);font-size:28px;font-weight:700;letter-spacing:-.4px}
+.ind .val small{font-size:12.5px;color:var(--tx2)}
+.delta{display:inline-flex;align-items:center;gap:3px;font-size:12px;font-weight:600;padding:3px 8px;border-radius:8px}
+.delta svg{width:13px;height:13px}
+.delta.good{color:#4ade80;background:rgba(34,197,94,.12)}.delta.bad{color:#fb7185;background:rgba(244,63,94,.12)}.delta.neu{color:var(--tx2);background:rgba(255,255,255,.06)}
+.spark{width:100%;height:46px;margin-top:8px;display:block}
+.scorebar{display:flex;align-items:center;gap:9px;margin-top:8px;font-size:11.5px;color:var(--tx3)}
+.scorebar .track{flex:1;height:5px}
+.scorebar b{font-family:var(--head);color:var(--tx);font-size:13px}
+.tag{font-size:10.5px;padding:2px 7px;border-radius:6px;background:rgba(255,255,255,.06);color:var(--tx3)}
+
+/* ===== District map ===== */
+.dmap{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:center}
+@media(max-width:600px){.dmap{grid-template-columns:1fr}}
+.dmap svg.hex{width:100%;max-width:380px;justify-self:center}
+.hexc{transition:.25s;cursor:default}.hexc:hover{filter:brightness(1.25)}
+select.sel{font-family:inherit;font-size:13px;padding:8px 12px;border-radius:10px;background:#0d1a33;color:var(--tx);border:1px solid var(--line2);outline:none;max-width:100%}
+.rank{display:flex;flex-direction:column;gap:8px}
+.rank div{display:grid;grid-template-columns:22px 1fr auto;gap:8px;align-items:center;font-size:13px}
+.rank i{font-style:normal;font-size:11px;width:22px;height:22px;border-radius:7px;display:grid;place-items:center;background:rgba(255,255,255,.06);color:var(--tx2)}
+.rank .bar{height:6px;border-radius:6px;margin-top:4px}
+
+/* ===== Catalog ===== */
+.cat-tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.search{flex:1;min-width:260px;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line2)}
+.search input{flex:1;background:none;border:0;outline:none;color:var(--tx);font-family:inherit;font-size:15px}
+.search svg{width:18px;height:18px;color:var(--tx3)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chip{font-size:12.5px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--tx2);transition:.2s}
+.chip:hover{border-color:var(--line2);color:var(--tx)}
+.chip.on{background:linear-gradient(135deg,rgba(219,39,119,.3),rgba(124,58,237,.3));border-color:rgba(244,114,182,.5);color:#fff}
+.chip em{font-style:normal;opacity:.6;margin-left:4px}
+.dsgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;margin-top:16px}
+.ds{display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid var(--line);transition:.2s}
+.ds:hover{border-color:rgba(45,212,191,.4);background:rgba(255,255,255,.05)}
+.ds h4{font-size:14.5px;font-weight:600;line-height:1.4}
+.ds .org{font-size:12px;color:var(--tx3);display:flex;gap:6px;align-items:center}
+.ds .org svg{width:13px;height:13px}
+.ds .fm{display:flex;gap:6px;flex-wrap:wrap}
+.fmt{font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:6px;letter-spacing:.4px}
+.fmt.CSV{background:rgba(34,197,94,.15);color:#4ade80}.fmt.XLSX,.fmt.XLS{background:rgba(59,130,246,.15);color:#60a5fa}.fmt.API{background:rgba(244,114,182,.15);color:#f9a8d4}.fmt.x{background:rgba(255,255,255,.07);color:var(--tx2)}
+.ds .act{display:flex;gap:8px;margin-top:auto;padding-top:6px}
+.ds .act .btn{padding:7px 11px;font-size:12.5px}
+.pager{display:flex;justify-content:center;gap:10px;margin-top:18px;align-items:center;color:var(--tx2);font-size:13px}
+
+/* ===== Modal ===== */
+.modal{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(2,6,16,.7);backdrop-filter:blur(8px)}
+.modal.on{display:flex;animation:fadeup .3s ease}
+.mbox{width:min(1100px,100%);max-height:92vh;overflow:auto;background:linear-gradient(180deg,#0d1830,#081124);border:1px solid var(--line2);border-radius:22px;padding:24px;box-shadow:0 40px 100px -20px rgba(0,0,0,.9)}
 .mhead{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px}
-.mhead h2{font-family:var(--head);font-size:22px;font-weight:600;line-height:1.3}
-.mhead .x{margin-left:auto;flex:none}
+.mhead h2{font-family:var(--head);font-size:21px;font-weight:600;line-height:1.35}
+.mhead .x{margin-left:auto;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:rgba(255,255,255,.06);flex:none}
+.mhead .x:hover{background:rgba(255,255,255,.12)}
+table.t{width:100%;border-collapse:collapse;font-size:13px}
+table.t th,table.t td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+table.t th{color:var(--tx2);font-weight:500;position:sticky;top:0;background:#0b162c}
+table.t td.n{text-align:right;font-family:var(--head)}
+.tbl{max-height:360px;overflow:auto;border:1px solid var(--line);border-radius:14px}
 .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+code.api{display:block;font-size:11.5px;padding:10px 12px;border-radius:10px;background:rgba(0,0,0,.35);color:#99f6e4;overflow-x:auto;white-space:nowrap;margin-top:12px;border:1px solid var(--line)}
 
-/* ---- loader ---- */
-#loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--bg);transition:opacity .6s}
+/* ===== Loader ===== */
+#loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:radial-gradient(800px 500px at 50% 40%,#10224a,#050b18 70%);transition:opacity .6s}
 #loader.out{opacity:0;pointer-events:none}
 .ld{text-align:center;width:min(420px,86vw)}
-.ld .lt{width:120px;height:120px;margin:0 auto;animation:bloom 2.4s ease-in-out infinite}
-.ld .lt img,.ld .lt svg{width:100%;height:100%;object-fit:contain}
-@keyframes bloom{0%,100%{transform:scale(.94)}50%{transform:scale(1.05)}}
-.ld h2{font-family:var(--head);font-size:21px;font-weight:600;margin:18px 0 6px}
-.ld p{color:var(--tx2);font-size:14px}
-.prog{height:7px;border-radius:9px;background:var(--brandSoft);overflow:hidden;margin-top:18px}
-.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--teal));transition:width .3s}
+.ld svg.lotus{width:110px;height:110px;animation:bloom 2.4s ease-in-out infinite}
+@keyframes bloom{0%,100%{transform:scale(.92);filter:drop-shadow(0 0 10px rgba(244,114,182,.3))}50%{transform:scale(1.05);filter:drop-shadow(0 0 30px rgba(244,114,182,.7))}}
+.ld h2{font-family:var(--head);font-size:20px;margin:18px 0 6px}
+.ld p{color:var(--tx2);font-size:13.5px}
+.prog{height:6px;border-radius:9px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:18px}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,#db2777,#2dd4bf);transition:width .3s}
 
-.method{line-height:1.85;color:var(--tx2)}
-.method h5{color:var(--tx);font-family:var(--head);font-size:17px;font-weight:600;margin:18px 0 6px}
-.method code{background:var(--brandSoft);padding:2px 8px;border-radius:7px;color:var(--brand2);font-size:13.5px}
+.sec-title{display:flex;align-items:center;gap:10px;margin:30px 0 4px;font-family:var(--head);font-size:18px;font-weight:600}
+.sec-title svg{width:20px;height:20px;color:var(--teal)}
+.sec-title span{font-family:var(--font);font-size:12.5px;color:var(--tx3);font-weight:400}
+.method{line-height:1.85;font-size:14px;color:var(--tx2)}
+.method h4{color:var(--tx);font-family:var(--head);font-size:16px;margin:16px 0 6px}
+.method code{background:rgba(255,255,255,.07);padding:2px 7px;border-radius:6px;color:#99f6e4;font-size:13px}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:var(--tx3);font-size:12.5px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .empty{padding:40px;text-align:center;color:var(--tx3)}
-footer.pf{margin-top:40px;padding:22px;border-radius:22px;background:var(--panel);border:1px solid var(--line);display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:13.5px;color:var(--tx2);line-height:1.6}
-footer.pf img{height:52px;width:auto}
-
-/* ---- 5W1H / policy ---- */
-.w5{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-@media(max-width:900px){.w5{grid-template-columns:1fr}}
-.wq{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px 16px;box-shadow:var(--shadow)}
-.wh{display:flex;align-items:center;gap:8px;margin-bottom:6px}
-.wh svg{width:18px;height:18px;color:var(--c)}
-.wh b{font-family:var(--head);font-weight:600;font-size:15px}
-.we{font-family:var(--head);font-size:11.5px;font-weight:700;letter-spacing:.5px;padding:3px 9px;border-radius:8px;background:color-mix(in srgb,var(--c,var(--brand)) 14%,transparent);color:var(--c,var(--brand))}
-.wq p{font-size:14px;color:var(--tx2);line-height:1.65}
-.evg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
-.evg div{padding:12px 14px;border-radius:14px;background:var(--panel2);border:1px solid var(--line)}
-.evg span{display:block;font-size:12.5px;color:var(--tx3)}.evg b{font-family:var(--head);font-weight:500;font-size:14.5px}
-@media(max-width:900px){.evg{grid-template-columns:1fr}}
-.qrow{display:grid;grid-template-columns:120px repeat(5,minmax(0,1fr));gap:10px;align-items:stretch}
-@media(max-width:1000px){.qrow{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.qscore{border-radius:14px;padding:10px;text-align:center;background:linear-gradient(135deg,var(--brand),var(--teal));color:#fff}
-.qscore b{font-family:var(--head);font-size:34px;line-height:1}.qscore small{display:block;font-size:11.5px;opacity:.9;line-height:1.35}
-.qb{border-radius:14px;padding:10px 12px;border:1px solid var(--line);background:var(--panel2)}
-.qb span{display:flex;gap:6px;align-items:center;font-family:var(--head);font-weight:500;font-size:14px}
-.qb span svg{width:17px;height:17px}.qb small{display:block;font-size:12px;color:var(--tx3);margin-top:3px;line-height:1.4}
-.qb.q2 svg{color:#16a34a}.qb.q1 svg{color:#d97706}.qb.q0 svg{color:#e11d48}
-.obs{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;margin-top:10px}
-.obs p{font-size:14.5px;line-height:1.6;color:var(--tx)}
-.od{width:34px;height:34px;border-radius:10px;display:grid;place-items:center}
-.od svg{width:17px;height:17px}.od.good{background:rgba(34,197,94,.13);color:#16a34a}.od.bad{background:rgba(244,63,94,.12);color:#e11d48}.od.neu{background:color-mix(in srgb,var(--tx3) 15%,transparent);color:var(--tx2)}
-.frame{display:grid;gap:8px;margin-top:14px}
-.frame div{padding:10px 12px;border-radius:12px;background:var(--panel2);border:1px solid var(--line)}
-.frame span{display:block;font-size:12px;color:var(--tx3)}.frame b{font-weight:500;font-size:14px;line-height:1.5}
-.cyc{display:flex;flex-direction:column;gap:10px;margin-top:6px}
-.st{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start;padding:12px;border-radius:14px;background:var(--panel2);border:1px solid var(--line);position:relative}
-.st i{font-style:normal;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-family:var(--head);font-weight:700;color:#fff;background:linear-gradient(135deg,var(--c,var(--brand)),var(--teal))}
-.st b{font-family:var(--head);font-weight:600}.st small{color:var(--tx3);margin-left:6px;font-size:12px}.st p{font-size:14px;color:var(--tx2);line-height:1.6;margin-top:2px}
-.faq{background:var(--panel);border:1px solid var(--line);border-radius:18px;margin-top:10px;box-shadow:var(--shadow);overflow:hidden}
-.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:15px 18px;font-family:var(--head);font-size:16px;font-weight:500}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary svg{margin-left:auto;width:18px;height:18px;color:var(--tx3);transition:.25s}
-.faq[open] summary svg{transform:rotate(180deg)}
-.faq p{padding:0 18px 16px 18px;color:var(--tx2);line-height:1.75}
-.stds{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
-@media(max-width:1300px){.stds{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.std{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:16px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow)}
-.std span{width:38px;height:38px;flex:none;border-radius:11px;display:grid;place-items:center;background:var(--brandSoft);color:var(--brand)}
-.std span svg{width:19px;height:19px}.std b{font-family:var(--head);font-weight:600;font-size:13.5px;line-height:1.3;display:block}.std small{font-size:12px;color:var(--tx3)}
-
-/* ---- extras ---- */
-.tbtn.pri{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-color:transparent}.tbtn.pri:hover{color:#fff;filter:brightness(1.08)}
-.tbtn kbd{font-family:var(--font);font-size:11px;padding:2px 6px;border-radius:6px;background:var(--panel2);border:1px solid var(--line);color:var(--tx3)}
-.chip svg{width:14px;height:14px;vertical-align:-2px;margin-right:4px}
-.pillbar{display:inline-block;width:90px;height:7px;border-radius:6px;background:color-mix(in srgb,var(--tx3) 18%,transparent);overflow:hidden;vertical-align:middle}.pillbar i{display:block;height:100%;border-radius:6px}
-.sri.on{border-color:var(--brand)}
-#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);opacity:0;z-index:90;padding:12px 20px;border-radius:14px;background:#2b1531;color:#fff;font-size:14.5px;box-shadow:0 20px 40px -10px rgba(0,0,0,.4);transition:.3s;pointer-events:none}
-#toast.on{opacity:1;transform:translate(-50%,0)}
-body.present .side,body.present .topbar,body.present footer.pf,body.present .scrim{display:none!important}
-body.present .main{margin-left:0;padding:16px 24px 90px}
-#presBar{position:fixed;left:0;right:0;bottom:0;z-index:70;pointer-events:none}
-#presBar .pp{height:4px;background:rgba(219,39,119,.15)}#presBar .pp i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--teal));animation:pp linear forwards}#presBar .pp i.paused{animation:none;width:0}
-@keyframes pp{to{width:100%}}
-#presBar .pc{pointer-events:auto;display:flex;gap:10px;align-items:center;justify-content:center;margin:12px auto;width:max-content;padding:8px 12px;border-radius:16px;background:var(--glass);backdrop-filter:blur(16px);border:1px solid var(--line2);box-shadow:var(--shadow2);font-family:var(--head);font-size:14.5px}
-#print{display:none}
-@media print{
- @page{size:A4;margin:14mm}
- body{background:#fff!important}body::before,body::after{display:none}
- body>*:not(#print){display:none!important}
- #print{display:block;color:#111;font-family:'Sarabun',sans-serif;font-size:11.5pt}
- #print .ph1{display:flex;gap:14px;align-items:center;border-bottom:3px solid #db2777;padding-bottom:10px;margin-bottom:12px}
- #print .ph1 img{height:52px}
- #print h1{font-family:'Kanit';font-size:18pt;color:#9d174d}#print h2{font-family:'Kanit';font-size:13pt;font-weight:500}#print p{font-size:10pt;color:#555}
- #print h3{font-family:'Kanit';font-size:12.5pt;color:#9d174d;margin:14px 0 6px}
- #print .pg{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:start}
- #print .pbig{border:2px solid #db2777;border-radius:12px;padding:12px;text-align:center}#print .pbig b{font-family:'Kanit';font-size:40pt;color:#db2777;line-height:1;display:block}#print .pbig small{display:block;color:#666;font-size:9pt;margin-top:6px}
- #print table.pt{width:100%;border-collapse:collapse;font-size:10pt}#print .pt th,#print .pt td{border-bottom:1px solid #e5d5de;padding:5px 6px;text-align:left}#print .pt th{background:#fce7f3;font-family:'Kanit';font-weight:500}#print .pt .n{text-align:right}
- #print ol{padding-left:20px;font-size:10.5pt;line-height:1.6}#print .pn{margin-top:14px;font-size:8.5pt;border-top:1px solid #ddd;padding-top:6px}
-}
-@media(max-width:1300px){.tbtn kbd{display:none}}
-.scrim{display:none}
-
-/* ============================== RESPONSIVE ============================== */
-@media(max-width:1280px){.dc,.dc:nth-child(n+5){grid-column:span 6}.dc:last-child{grid-column:span 12}}
-@media(max-width:1100px){
- .side{transform:translateX(calc(-100% - 20px))}
- body.nav .side{transform:none}
- body.nav .scrim{display:block;position:fixed;inset:0;z-index:35;background:rgba(20,6,20,.4)}
- .main{margin-left:0;padding:12px 14px 40px}
- .burger{display:grid}
- .hero{grid-template-columns:1fr}.orb{justify-self:start}
- .g2,.g3,.maprow{grid-template-columns:1fr}
-}
-@media(max-width:640px){
- .dc,.dc:nth-child(n+5),.dc:last-child{grid-column:span 12;min-height:280px}
- .hero{padding:24px;min-height:0}.dhero{flex-wrap:wrap;padding:22px}.dhero .big{margin-left:0;text-align:left}
- .logos{display:none}.crumb h1{font-size:18px}.tbtn span{display:none}
-}
 </style>
 </head>
 <body>
-<!-- lotus symbol (ใช้เป็นโลโก้สำรองเมื่อยังไม่มีไฟล์ assets/brand/logo-wellbeing.png) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
- <linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbcfe8"/><stop offset="1" stop-color="#db2777"/></linearGradient>
- <linearGradient id="lg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f9a8d4"/><stop offset="1" stop-color="#be185d"/></linearGradient>
- <linearGradient id="lg3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
- <g id="lotus"><path d="M100 30C120 60 122 100 100 140 78 100 80 60 100 30Z" fill="url(#lg1)"/><path d="M100 140C70 120 52 92 50 58 78 70 96 100 100 140Z" fill="url(#lg2)" opacity=".92"/><path d="M100 140C130 120 148 92 150 58 122 70 104 100 100 140Z" fill="url(#lg2)" opacity=".92"/><path d="M100 142C64 140 34 122 18 96 50 92 82 110 100 142Z" fill="url(#lg2)" opacity=".7"/><path d="M100 142C136 140 166 122 182 96 150 92 118 110 100 142Z" fill="url(#lg2)" opacity=".7"/><path d="M28 156C70 146 130 146 172 156 130 168 70 168 28 156Z" fill="url(#lg3)" opacity=".85"/></g>
-</defs></svg>
+<div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="grid"></div>
+<svg class="lotus-wm" viewBox="0 0 200 200"><use href="#lotusPath"/></svg></div>
+
+<svg width="0" height="0" style="position:absolute">
+ <defs>
+  <linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbcfe8"/><stop offset="1" stop-color="#db2777"/></linearGradient>
+  <linearGradient id="lg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f9a8d4"/><stop offset="1" stop-color="#be185d"/></linearGradient>
+  <linearGradient id="lg3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
+  <g id="lotusPath">
+   <path d="M100 30 C120 60 122 100 100 140 C78 100 80 60 100 30Z" fill="url(#lg1)"/>
+   <path d="M100 140 C70 120 52 92 50 58 C78 70 96 100 100 140Z" fill="url(#lg2)" opacity=".92"/>
+   <path d="M100 140 C130 120 148 92 150 58 C122 70 104 100 100 140Z" fill="url(#lg2)" opacity=".92"/>
+   <path d="M100 142 C64 140 34 122 18 96 C50 92 82 110 100 142Z" fill="url(#lg2)" opacity=".7"/>
+   <path d="M100 142 C136 140 166 122 182 96 C150 92 118 110 100 142Z" fill="url(#lg2)" opacity=".7"/>
+   <path d="M28 156 C70 146 130 146 172 156 C130 168 70 168 28 156Z" fill="url(#lg3)" opacity=".85"/>
+  </g>
+ </defs>
+</svg>
 
 <div id="loader"><div class="ld">
- <div class="lt"><img data-src="brand/logo-wellbeing" data-fb="lotus" alt=""></div>
+ <svg class="lotus" viewBox="0 0 200 200"><use href="#lotusPath"/></svg>
  <h2>กำลังเชื่อมต่อระบบบัญชีข้อมูลจังหวัด</h2>
- <p id="ldTxt">nongbualamphu.gdcatalog.go.th</p>
+ <p id="ldTxt">nongbualamphu.gdcatalog.go.th · CKAN API</p>
  <div class="prog"><i id="ldBar"></i></div>
 </div></div>
 
-<div class="scrim" id="scrim"></div>
-<aside class="side" id="side">
- <div class="brand">
-  <div class="logo"><img data-src="brand/logo-wellbeing" data-fb="lotus" alt="โลโก้"></div>
-  <div><b>NBL Well-Being Index</b><small>ดัชนีความอยู่ดีมีสุข · หนองบัวลำภู</small></div>
- </div>
- <nav class="menu" id="menu"></nav>
- <div class="sfoot">
-  <div class="srow"><div class="status"><span class="dot" id="stDot"></span><span id="stTxt">กำลังโหลด…</span></div><button class="ibtn" id="btnTheme" title="สลับโหมดสว่าง/มืด"><i data-lucide="moon"></i></button></div>
-  <div class="credit"><img data-src="brand/logo-nso" data-fb="none" alt=""><div>จัดทำโดย สำนักงานสถิติจังหวัดหนองบัวลำภู<br>ร่วมกับหน่วยงานเจ้าของข้อมูล</div></div>
- </div>
-</aside>
-
-<div class="main">
- <div class="topbar">
-  <button class="ibtn burger" id="burger" aria-label="เมนู"><i data-lucide="menu"></i></button>
-  <div class="crumb"><small id="crSub">ภาพรวมจังหวัด</small><h1 id="crTitle">ดัชนีความอยู่ดีมีสุข</h1></div>
-  <div class="logos"><img data-src="brand/seal-nblp" data-fb="none" alt="ตราจังหวัดหนองบัวลำภู"><img data-src="brand/logo-nso" data-fb="none" alt="สำนักงานสถิติแห่งชาติ"><img data-src="brand/logo-gdcatalog" data-fb="none" alt="ระบบบัญชีข้อมูลภาครัฐ"></div>
-  <button class="tbtn" id="btnSearch" title="ค้นหา (Ctrl+K)"><i data-lucide="search"></i><span>ค้นหา</span><kbd>Ctrl K</kbd></button>
-  <button class="tbtn pri" id="btnPresent" title="โหมดนำเสนอ"><i data-lucide="presentation"></i><span>นำเสนอ</span></button>
-  <button class="tbtn" id="btnPrint" title="รายงานสรุปผู้บริหาร (PDF)"><i data-lucide="file-text"></i><span>รายงาน PDF</span></button>
-  <button class="tbtn" id="btnShare" title="คัดลอกลิงก์หน้านี้"><i data-lucide="share-2"></i></button>
-  <button class="tbtn" id="btnRefresh" title="รีเฟรชข้อมูล"><i data-lucide="refresh-cw"></i></button>
-  <button class="tbtn" id="btnFull" title="เต็มจอ"><i data-lucide="maximize"></i></button>
- </div>
- <div id="pages"></div>
- <footer class="pf"><img data-src="brand/seal-nblp" data-fb="none" alt=""><img data-src="brand/logo-nso" data-fb="none" alt=""><img data-src="brand/logo-gdcatalog" data-fb="none" alt=""><div><b style="font-family:var(--head);color:var(--tx)">สำนักงานสถิติจังหวัดหนองบัวลำภู</b><br>ศาลากลางจังหวัดหนองบัวลำภู ชั้น 2 ถ.หนองบัวลำภู–เลย ต.ลำภู อ.เมือง จ.หนองบัวลำภู 39000 · โทร 0 4231 6736</div><div style="margin-left:auto" id="ftTime"></div></footer>
+<div class="wrap">
+ <header class="top">
+  <div class="brand">
+   <div class="emblem"><svg viewBox="0 0 200 200"><use href="#lotusPath"/></svg></div>
+   <div>
+    <h1>ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู</h1>
+    <p><b>NBL Well-Being Intelligence</b> · ข้อมูลสดจากระบบบัญชีข้อมูลจังหวัด (Provincial Data Catalog API)</p>
+   </div>
+  </div>
+  <div class="actions">
+   <span class="pill"><span class="dot" id="stDot"></span><span id="stTxt">กำลังโหลด…</span></span>
+   <span class="pill"><i data-lucide="database"></i><span id="stCnt">–</span></span>
+   <button class="btn" id="btnRefresh"><i data-lucide="refresh-cw"></i>รีเฟรชข้อมูล</button>
+   <button class="btn" id="btnFull" title="เต็มจอ"><i data-lucide="maximize"></i></button>
+  </div>
+ </header>
+ <nav class="tabs" id="tabs"></nav>
+ <main id="main"></main>
+ <footer>
+  <div>© สำนักงานสถิติจังหวัดหนองบัวลำภู · ข้อมูล: <a href="https://nongbualamphu.gdcatalog.go.th/dataset/" target="_blank" style="color:var(--teal)">ระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู</a></div>
+  <div id="ftTime"></div>
+ </footer>
 </div>
 
-<div id="presBar"></div><div id="print"></div>
 <div class="modal" id="modal"><div class="mbox" id="mbox"></div></div>
 
 <script>
-{
 /* =========================================================
-   ASSETS  (วางไฟล์จาก GPT/Flow ใน ./assets ตามชื่อ — ไม่ต้องแก้โค้ด)
-   รองรับนามสกุล .webp .jpg .png (ภาพ) และ .mp4 (วิดีโอ)
-   ========================================================= */
-const ASSET='assets/';
-const _probe={};
-function resolveImg(name){if(_probe[name])return _probe[name];
- _probe[name]=new Promise(res=>{const ex=['webp','jpg','png'];let i=0;const tryNext=()=>{if(i>=ex.length)return res(null);const u=ASSET+name+'.'+ex[i++];const im=new Image();im.onload=()=>res(u);im.onerror=tryNext;im.src=u};tryNext()});return _probe[name]}
-function hydrate(root=document){
- root.querySelectorAll('img[data-src]:not([data-h])').forEach(el=>{el.dataset.h=1;const fb=el.dataset.fb;el.style.visibility='hidden';
-  resolveImg(el.dataset.src).then(u=>{if(u){el.src=u;el.style.visibility=''}else if(fb==='lotus'){el.outerHTML='<svg viewBox="0 0 200 200"><use href="#lotus"/></svg>'}else if(fb&&fb!=='none'){el.outerHTML=`<i data-lucide="${fb}"></i>`;lucide.createIcons()}else el.remove()})});
- root.querySelectorAll('[data-bg]:not([data-h])').forEach(el=>{el.dataset.h=1;resolveImg(el.dataset.bg).then(u=>{if(u)el.style.setProperty('--ph',`url("${u}")`)})});
- root.querySelectorAll('video[data-video]:not([data-h])').forEach(v=>{v.dataset.h=1;v.muted=true;v.addEventListener('error',()=>v.remove(),true);v.addEventListener('loadeddata',()=>{v.style.opacity=1;v.play().catch(()=>{})});v.style.opacity=0;v.style.transition='opacity 1s';v.src=ASSET+v.dataset.video+'.mp4'});
-}
-function setBodyBg(){const th=document.documentElement.dataset.theme;resolveImg('bg/bg-'+th).then(u=>document.body.style.setProperty('--bgimg',u?`url("${u}")`:'none'))}
-
-/* =========================================================
-   DATA SOURCES & INDICATORS
+   CONFIG
    ========================================================= */
 const HOST='https://nongbualamphu.gdcatalog.go.th';
 const API=HOST+'/api/3/action/';
 const DSURL=HOST+'/dataset/';
 const CACHE_KEY='nbl-wellbeing-v1';
 const DISTRICTS=['เมืองหนองบัวลำภู','นากลาง','โนนสัง','ศรีบุญเรือง','สุวรรณคูหา','นาวัง'];
-const DSHORT={'เมืองหนองบัวลำภู':'เมืองฯ'};
-/* ขอบเขตอำเภอจริง (OpenGISData-Thailand · districts.geojson · pro_code 39) ลดความละเอียดแล้ว */
-const GEO={"type":"FeatureCollection","features":[{"type":"Feature","properties":{"name":"สุวรรณคูหา"},"geometry":{"type":"MultiPolygon","coordinates":[[[[102.3484,17.5291],[102.3687,17.4997],[102.3993,17.4146],[102.376,17.4155],[102.3668,17.4242],[102.353,17.426],[102.3465,17.4321],[102.3369,17.4288],[102.3292,17.434],[102.3164,17.4315],[102.3163,17.4198],[102.3097,17.4096],[102.2949,17.4134],[102.284,17.4271],[102.2761,17.4176],[102.2563,17.4265],[102.2557,17.4406],[102.2393,17.4586],[102.2204,17.4654],[102.209,17.4627],[102.207,17.4716],[102.1987,17.4741],[102.178,17.492],[102.1612,17.4928],[102.1583,17.4858],[102.1501,17.4868],[102.1333,17.4978],[102.1273,17.4983],[102.126,17.5093],[102.1348,17.5095],[102.1393,17.5228],[102.14,17.5303],[102.1335,17.5421],[102.1344,17.5595],[102.116,17.5766],[102.1149,17.59],[102.1058,17.6083],[102.0958,17.6157],[102.0828,17.635],[102.1042,17.647],[102.1095,17.6389],[102.121,17.6331],[102.1292,17.6362],[102.1318,17.6473],[102.1379,17.6487],[102.1452,17.6617],[102.1602,17.6662],[102.1723,17.662],[102.1842,17.6678],[102.2174,17.6606],[102.2461,17.6659],[102.2628,17.66],[102.2754,17.6676],[102.2966,17.6622],[102.2868,17.6737],[102.3182,17.6788],[102.3267,17.5922],[102.3336,17.5787],[102.3323,17.5546],[102.3484,17.5291]]]]}},{"type":"Feature","properties":{"name":"นาวัง"},"geometry":{"type":"MultiPolygon","coordinates":[[[[102.0939,17.2508],[102.1008,17.2132],[102.0949,17.1945],[102.0855,17.2109],[102.0818,17.2313],[102.0844,17.2366],[102.0695,17.2571],[102.0527,17.2516],[102.0299,17.2707],[102.0268,17.2812],[102.0148,17.2795],[102.0167,17.2868],[102.0027,17.2958],[101.9861,17.3233],[101.9923,17.335],[102.0097,17.3336],[102.0206,17.3412],[102.0134,17.3622],[102.0184,17.3668],[102.0179,17.374],[101.9892,17.4036],[101.9849,17.4149],[101.9931,17.4195],[101.9846,17.4427],[101.9919,17.4595],[101.9989,17.4564],[102.0324,17.4589],[102.0521,17.4495],[102.0917,17.4643],[102.0962,17.4722],[102.1118,17.4818],[102.1203,17.4673],[102.1105,17.4489],[102.1008,17.4444],[102.0967,17.4359],[102.1032,17.4178],[102.1159,17.404],[102.1112,17.3934],[102.1073,17.3933],[102.1099,17.3903],[102.1074,17.3846],[102.1164,17.3378],[102.1066,17.3318],[102.12,17.3223],[102.1207,17.3051],[102.126,17.3037],[102.1059,17.2862],[102.1052,17.2631],[102.0939,17.2508]]]]}},{"type":"Feature","properties":{"name":"โนนสัง"},"geometry":{"type":"MultiPolygon","coordinates":[[[[102.6023,16.7723],[102.5378,16.7846],[102.4965,16.8036],[102.479,16.8073],[102.4712,16.8025],[102.4536,16.8109],[102.4536,16.8058],[102.4477,16.8028],[102.45,16.7948],[102.4454,16.7919],[102.4205,16.7952],[102.4057,16.8138],[102.4053,16.8268],[102.3906,16.8472],[102.3863,16.8626],[102.3909,16.868],[102.3772,16.8708],[102.3776,16.8754],[102.3678,16.878],[102.3788,16.9011],[102.3746,16.9084],[102.3816,16.9115],[102.3869,16.9271],[102.41,16.9275],[102.4182,16.9631],[102.4487,17.0151],[102.4594,17.0245],[102.4712,17.0281],[102.4852,17.0223],[102.4954,17.0039],[102.5037,17.002],[102.523,17.0119],[102.545,17.0139],[102.5747,17.0327],[102.5805,17.0405],[102.6086,17.0275],[102.6383,17.0066],[102.6694,16.9937],[102.6762,16.9818],[102.6795,16.968],[102.671,16.9413],[102.6244,16.8436],[102.613,16.7989],[102.615,16.7771],[102.6108,16.7713],[102.6023,16.7723]]]]}},{"type":"Feature","properties":{"name":"ศรีบุญเรือง"},"geometry":{"type":"MultiPolygon","coordinates":[[[[102.3772,16.8708],[102.3909,16.868],[102.3863,16.8626],[102.3906,16.8472],[102.4053,16.8268],[102.4057,16.8138],[102.3916,16.8104],[102.3781,16.8173],[102.3776,16.8105],[102.3613,16.8165],[102.3506,16.8303],[102.3465,16.8172],[102.3383,16.8239],[102.336,16.8312],[102.3397,16.8371],[102.3233,16.8465],[102.3317,16.8486],[102.3303,16.8552],[102.316,16.855],[102.3246,16.8674],[102.3111,16.868],[102.3019,16.8775],[102.3072,16.8842],[102.2907,16.8851],[102.2961,16.8909],[102.2546,16.8948],[102.2501,16.8915],[102.2493,16.8787],[102.2448,16.8814],[102.2421,16.8757],[102.2342,16.8802],[102.2333,16.8751],[102.2276,16.8751],[102.2257,16.8688],[102.2133,16.8614],[102.2153,16.8583],[102.2036,16.8625],[102.1877,16.858],[102.1803,16.8718],[102.1713,16.8652],[102.1675,16.8704],[102.1584,16.8717],[102.1558,16.8812],[102.1442,16.8807],[102.1442,16.8765],[102.1239,16.881],[102.1047,16.8973],[102.0968,16.8908],[102.0993,16.882],[102.0812,16.8894],[102.0702,16.885],[102.066,16.8957],[102.0457,16.9072],[102.0299,16.9505],[102.0585,16.9652],[102.0652,16.9609],[102.0718,16.9625],[102.0893,16.9788],[102.1254,16.9913],[102.1358,17.0113],[102.1408,17.0117],[102.1535,17.0274],[102.1253,17.041],[102.1172,17.0579],[102.108,17.0614],[102.1019,17.0697],[102.1056,17.0827],[102.1,17.087],[102.0991,17.1018],[102.092,17.1032],[102.0914,17.1108],[102.0725,17.1124],[102.0654,17.1207],[102.0482,17.1238],[102.0379,17.131],[102.023,17.1313],[102.0164,17.1399],[102.0206,17.154],[102.0383,17.1579],[102.0449,17.165],[102.0323,17.1735],[102.03,17.1921],[102.0174,17.2021],[102.0278,17.2047],[102.0377,17.2208],[102.0407,17.211],[102.0635,17.2023],[102.0819,17.1702],[102.0999,17.1805],[102.1096,17.1777],[102.124,17.1824],[102.1307,17.1726],[102.1417,17.1766],[102.1678,17.1644],[102.1808,17.1678],[102.192,17.1547],[102.2194,17.1507],[102.2281,17.1432],[102.23,17.1283],[102.2422,17.1373],[102.2493,17.1355],[102.2557,17.1396],[102.2746,17.1348],[102.2821,17.1272],[102.3192,17.1178],[102.3313,17.0846],[102.3302,17.0703],[102.3226,17.0539],[102.3289,17.0299],[102.3205,16.9764],[102.3215,16.9636],[102.3298,16.9553],[102.3441,16.9634],[102.3572,16.9484],[102.3749,16.9523],[102.3734,16.9302],[102.3869,16.9271],[102.3816,16.9115],[102.3746,16.9084],[102.3788,16.9011],[102.3678,16.878],[102.3776,16.8754],[102.3772,16.8708]]]]}},{"type":"Feature","properties":{"name":"เมืองหนองบัวลำภู"},"geometry":{"type":"MultiPolygon","coordinates":[[[[102.4182,16.9631],[102.41,16.9275],[102.3869,16.9271],[102.3734,16.9302],[102.3749,16.9523],[102.3572,16.9484],[102.3441,16.9634],[102.3296,16.9555],[102.3215,16.9636],[102.3205,16.9764],[102.3289,17.0299],[102.3226,17.0539],[102.3302,17.0703],[102.3313,17.0846],[102.3192,17.1178],[102.2821,17.1272],[102.2746,17.1348],[102.2557,17.1396],[102.2493,17.1355],[102.2422,17.1373],[102.2451,17.1461],[102.2403,17.1514],[102.2429,17.1631],[102.2758,17.2069],[102.2699,17.2224],[102.2789,17.2392],[102.2769,17.2495],[102.2494,17.2774],[102.2614,17.2881],[102.2358,17.3249],[102.2405,17.3394],[102.2452,17.3417],[102.2655,17.3108],[102.2741,17.314],[102.2897,17.3081],[102.2945,17.3314],[102.3042,17.3394],[102.3066,17.3492],[102.3082,17.3595],[102.3028,17.3772],[102.3148,17.367],[102.3424,17.3599],[102.3805,17.3823],[102.4217,17.3751],[102.4378,17.3394],[102.4414,17.3223],[102.4395,17.2805],[102.4584,17.2817],[102.4626,17.2754],[102.4783,17.2751],[102.4899,17.2843],[102.5033,17.286],[102.5218,17.2747],[102.5366,17.2583],[102.571,17.2551],[102.5929,17.2655],[102.5732,17.2362],[102.5518,17.2359],[102.5419,17.2171],[102.5355,17.2288],[102.5218,17.2253],[102.5036,17.1951],[102.5206,17.1511],[102.5206,17.1454],[102.5069,17.1392],[102.5202,17.1003],[102.5438,17.0672],[102.5805,17.0405],[102.5747,17.0327],[102.545,17.0139],[102.523,17.0119],[102.5037,17.002],[102.4954,17.0039],[102.4852,17.0223],[102.4712,17.0281],[102.4594,17.0245],[102.4487,17.0151],[102.4182,16.9631]]]]}},{"type":"Feature","properties":{"name":"นากลาง"},"geometry":{"type":"MultiPolygon","coordinates":[[[[102.2403,17.1514],[102.2451,17.1461],[102.2422,17.1373],[102.23,17.1283],[102.2281,17.1432],[102.2194,17.1507],[102.192,17.1547],[102.1808,17.1678],[102.1678,17.1644],[102.1417,17.1766],[102.1307,17.1726],[102.124,17.1824],[102.1096,17.1777],[102.0999,17.1805],[102.0949,17.1945],[102.1008,17.2132],[102.0939,17.2508],[102.1052,17.2631],[102.1059,17.2862],[102.126,17.3037],[102.1207,17.3051],[102.12,17.3223],[102.1066,17.3318],[102.1164,17.3378],[102.1074,17.3846],[102.1099,17.3903],[102.1073,17.3933],[102.1112,17.3934],[102.1159,17.404],[102.1032,17.4178],[102.0967,17.4359],[102.1008,17.4444],[102.1105,17.4489],[102.1203,17.4673],[102.1118,17.4818],[102.1286,17.4922],[102.1273,17.4983],[102.1333,17.4978],[102.1501,17.4868],[102.1583,17.4858],[102.1612,17.4928],[102.178,17.492],[102.1987,17.4741],[102.207,17.4716],[102.209,17.4627],[102.2204,17.4654],[102.2393,17.4586],[102.2557,17.4406],[102.2563,17.4265],[102.2761,17.4176],[102.284,17.4271],[102.2949,17.4134],[102.3097,17.4096],[102.3163,17.4198],[102.3164,17.4315],[102.3292,17.434],[102.3369,17.4288],[102.3465,17.4321],[102.353,17.426],[102.3668,17.4242],[102.376,17.4155],[102.3993,17.4146],[102.4217,17.3751],[102.3805,17.3823],[102.3424,17.3599],[102.3148,17.367],[102.3028,17.3772],[102.3082,17.3595],[102.3066,17.3492],[102.3042,17.3394],[102.2945,17.3314],[102.2897,17.3081],[102.2741,17.314],[102.2655,17.3108],[102.2452,17.3417],[102.2405,17.3394],[102.2358,17.3249],[102.2614,17.2881],[102.2494,17.2774],[102.2769,17.2495],[102.2789,17.2392],[102.2699,17.2224],[102.2758,17.2069],[102.2429,17.1631],[102.2403,17.1514]]]]}}]};
+const DSHORT={'เมืองหนองบัวลำภู':'เมืองฯ','นากลาง':'นากลาง','โนนสัง':'โนนสัง','ศรีบุญเรือง':'ศรีบุญเรือง','สุวรรณคูหา':'สุวรรณคูหา','นาวัง':'นาวัง'};
+
 /* resource_id + package slug ของแต่ละชุดข้อมูล */
 const RES={
  ht:['962e4de2-8df8-4998-86cf-c6b24d12f4c2','ht2568'],
@@ -522,13 +345,13 @@ const ic=n=>`<i data-lucide="${n}"></i>`;
    DIMENSIONS & INDICATORS
    ========================================================= */
 const DIMS=[
- {id:'health',name:'สุขภาพ',en:'Health',icon:'heart-pulse',c:'#fb7185',cl:'#e11d48',desc:'ภาวะสุขภาพ โรคไม่ติดต่อเรื้อรัง สุขภาพแม่และเด็ก สุขภาพจิต และการเข้าถึงบุคลากรทางการแพทย์'},
- {id:'edu',name:'การศึกษา',en:'Education',icon:'graduation-cap',c:'#a78bfa',cl:'#7c3aed',desc:'คุณภาพผลสัมฤทธิ์ทางการเรียน การคงอยู่ในระบบการศึกษา และโครงสร้างชั้นเรียน'},
- {id:'econ',name:'เศรษฐกิจและรายได้',en:'Economy & Income',icon:'wallet',c:'#fbbf24',cl:'#d97706',desc:'ผลิตภัณฑ์จังหวัด รายได้-หนี้สินครัวเรือน ความเหลื่อมล้ำ การจ้างงาน และรายได้ท่องเที่ยว'},
- {id:'society',name:'ประชากรและสังคม',en:'Population & Society',icon:'users',c:'#22d3ee',cl:'#0891b2',desc:'โครงสร้างประชากร สังคมสูงวัย ความยากจน กลุ่มเปราะบาง และธรรมาภิบาลภาครัฐ'},
- {id:'safety',name:'ความปลอดภัย',en:'Safety',icon:'shield-check',c:'#60a5fa',cl:'#2563eb',desc:'อุบัติเหตุทางถนน คดีอาญา และปัญหายาเสพติดในพื้นที่'},
- {id:'env',name:'สิ่งแวดล้อม',en:'Environment',icon:'leaf',c:'#4ade80',cl:'#16a34a',desc:'คุณภาพอากาศ (PM2.5) พื้นที่ป่าไม้ และการจัดการขยะมูลฝอย'},
- {id:'living',name:'ที่อยู่อาศัยและดิจิทัล',en:'Housing & Digital',icon:'house',c:'#f472b6',cl:'#db2777',desc:'ความมั่นคงที่อยู่อาศัย และการเข้าถึงเทคโนโลยีสารสนเทศของครัวเรือน'},
+ {id:'health',name:'สุขภาพ',en:'Health',icon:'heart-pulse',c:'#fb7185',desc:'ภาวะสุขภาพ โรคไม่ติดต่อเรื้อรัง สุขภาพแม่และเด็ก สุขภาพจิต และการเข้าถึงบุคลากรทางการแพทย์'},
+ {id:'edu',name:'การศึกษา',en:'Education',icon:'graduation-cap',c:'#a78bfa',desc:'คุณภาพผลสัมฤทธิ์ทางการเรียน การคงอยู่ในระบบการศึกษา และโครงสร้างชั้นเรียน'},
+ {id:'econ',name:'เศรษฐกิจและรายได้',en:'Economy & Income',icon:'wallet',c:'#fbbf24',desc:'ผลิตภัณฑ์จังหวัด รายได้-หนี้สินครัวเรือน ความเหลื่อมล้ำ การจ้างงาน และรายได้ท่องเที่ยว'},
+ {id:'society',name:'ประชากรและสังคม',en:'Population & Society',icon:'users',c:'#22d3ee',desc:'โครงสร้างประชากร สังคมสูงวัย ความยากจน กลุ่มเปราะบาง และธรรมาภิบาลภาครัฐ'},
+ {id:'safety',name:'ความปลอดภัย',en:'Safety',icon:'shield-check',c:'#60a5fa',desc:'อุบัติเหตุทางถนน คดีอาญา และปัญหายาเสพติดในพื้นที่'},
+ {id:'env',name:'สิ่งแวดล้อม',en:'Environment',icon:'leaf',c:'#4ade80',desc:'คุณภาพอากาศ (PM2.5) พื้นที่ป่าไม้ และการจัดการขยะมูลฝอย'},
+ {id:'living',name:'ที่อยู่อาศัยและดิจิทัล',en:'Housing & Digital',icon:'house',c:'#f472b6',desc:'ความมั่นคงที่อยู่อาศัย และการเข้าถึงเทคโนโลยีสารสนเทศของครัวเรือน'},
 ];
 const IND=[
  /* ---- health ---- */
@@ -574,7 +397,6 @@ const IND=[
  {id:'inet',dim:'living',key:'inet',name:'ประชากรที่เข้าถึงอินเทอร์เน็ต',unit:'พันคน',dec:1,better:'up',icon:'globe'},
 ];
 
-
 /* =========================================================
    DATA LAYER  (fetch → JSONP fallback → localStorage cache)
    ========================================================= */
@@ -607,7 +429,6 @@ async function loadAll(){
  return fails;
 }
 
-
 /* =========================================================
    ANALYTICS
    ========================================================= */
@@ -633,34 +454,30 @@ function delta(ind){if(!ind.last||!ind.prev)return null;const df=ind.last.v-ind.
  const cls=!ind.better||df===0?'neu':((ind.better==='up')===(df>0)?'good':'bad');return{df,pct,cls,icon:df>0?'arrow-up-right':df<0?'arrow-down-right':'minus'}}
 function goodColor(t){/* t: 0 bad → 1 good */const st=[[244,63,94],[250,204,21],[34,197,94]];const p=t<.5?[st[0],st[1],t*2]:[st[1],st[2],(t-.5)*2];return`rgb(${p[0].map((c,i)=>Math.round(c+(p[1][i]-c)*p[2])).join(',')})`}
 
-
-
 /* =========================================================
-   THEME & CHART HELPERS
+   CHARTS
    ========================================================= */
-const isDark=()=>document.documentElement.dataset.theme==='dark';
-const dc=d=>isDark()?d.c:d.cl;
-let AX,TT,LEG,TXT;
-function chartTheme(){const dk=isDark();TXT=dk?'#eef0fa':'#2b1531';const mut=dk?'#8f9ab3':'#8a7590';const ln=dk?'rgba(255,255,255,.1)':'rgba(190,24,93,.12)';const sp=dk?'rgba(255,255,255,.06)':'rgba(190,24,93,.07)';
- AX={axisLine:{lineStyle:{color:ln}},axisLabel:{color:mut,fontFamily:'Sarabun',fontSize:12.5},splitLine:{lineStyle:{color:sp}},axisTick:{show:false}};
- TT={trigger:'axis',backgroundColor:dk?'rgba(17,22,42,.96)':'rgba(255,255,255,.97)',borderColor:dk?'rgba(255,255,255,.15)':'rgba(190,24,93,.2)',borderWidth:1,padding:[10,14],extraCssText:'border-radius:14px;box-shadow:0 14px 40px -12px rgba(0,0,0,.3)',textStyle:{color:TXT,fontFamily:'Sarabun',fontSize:13.5},axisPointer:{type:'shadow',shadowStyle:{color:dk?'rgba(255,255,255,.04)':'rgba(219,39,119,.05)'}}};
- LEG={textStyle:{color:mut,fontFamily:'Sarabun',fontSize:13},top:0,icon:'roundRect',itemWidth:12,itemHeight:8};}
 const CHARTS=[];
-function mk(el,opt){if(!el)return;const c=echarts.init(el,null,{renderer:'canvas'});c.setOption(Object.assign({textStyle:{fontFamily:'Sarabun'},animationDuration:1100,animationEasing:'cubicOut'},opt));CHARTS.push(c);return c}
+const AX={axisLine:{lineStyle:{color:'rgba(255,255,255,.12)'}},axisLabel:{color:'#8b9ab3',fontFamily:'IBM Plex Sans Thai'},splitLine:{lineStyle:{color:'rgba(255,255,255,.06)'}},axisTick:{show:false}};
+const TT={trigger:'axis',backgroundColor:'rgba(10,20,40,.95)',borderColor:'rgba(255,255,255,.15)',textStyle:{color:'#e8eef8',fontFamily:'IBM Plex Sans Thai'},axisPointer:{type:'shadow',shadowStyle:{color:'rgba(255,255,255,.04)'}}};
+function mk(el,opt){if(!el)return;const c=echarts.init(el,null,{renderer:'canvas'});c.setOption(Object.assign({textStyle:{fontFamily:'IBM Plex Sans Thai'},animationDuration:1100,animationEasing:'cubicOut'},opt));CHARTS.push(c);return c}
 const grad=(c,a=.45)=>new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:c+Math.round(a*255).toString(16).padStart(2,'0')},{offset:1,color:c+'00'}]);
-const hgrad=c=>new echarts.graphic.LinearGradient(0,0,1,0,[{offset:0,color:c+'66'},{offset:1,color:c}]);
-const vgrad=c=>new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:c},{offset:1,color:c+'55'}]);
+const hgrad=c=>new echarts.graphic.LinearGradient(0,0,1,0,[{offset:0,color:c+'55'},{offset:1,color:c}]);
+const vgrad=c=>new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:c},{offset:1,color:c+'44'}]);
+const LEG={textStyle:{color:'#a6b3c8'},top:0,icon:'roundRect',itemWidth:12,itemHeight:8};
 const recs=k=>RAW[k]||[];
 const years=rows=>[...new Set(rows.map(yr).filter(isFinite))].sort((a,b)=>a-b);
-function sparkSVG(s,c){if(s.length<2)return'<div style="height:48px"></div>';const W=260,H=48,vs=s.map(p=>p.v),mn=Math.min(...vs),mx=Math.max(...vs),rg=mx-mn||1;
- const pts=s.map((p,i)=>[i/(s.length-1)*(W-8)+4,H-6-(p.v-mn)/rg*(H-14)]);const d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');const id='sg'+Math.random().toString(36).slice(2,7);const L=pts[pts.length-1];
- return`<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c}" stop-opacity=".3"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></linearGradient></defs><path d="${d} L${L[0]} ${H} L${pts[0][0]} ${H}Z" fill="url(#${id})"/><path d="${d}" fill="none" stroke="${c}" stroke-width="2.2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/><circle cx="${L[0]}" cy="${L[1]}" r="3.5" fill="${c}"/></svg>`}
 
+function sparkSVG(s,c){if(s.length<2)return'<div style="height:46px"></div>';const W=260,H=46,vs=s.map(p=>p.v),mn=Math.min(...vs),mx=Math.max(...vs),rg=mx-mn||1;
+ const pts=s.map((p,i)=>[i/(s.length-1)*(W-8)+4,H-6-(p.v-mn)/rg*(H-14)]);const d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');const id='sg'+Math.random().toString(36).slice(2,7);const L=pts[pts.length-1];
+ return`<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c}" stop-opacity=".35"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></linearGradient></defs><path d="${d} L${L[0]} ${H} L${pts[0][0]} ${H}Z" fill="url(#${id})"/><path d="${d}" fill="none" stroke="${c}" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/><circle cx="${L[0]}" cy="${L[1]}" r="3.5" fill="${c}"/></svg>`}
+
+/* ---- Feature chart renderers per dimension ---- */
 const FEAT={
  health:[
   {t:'สาเหตุการตายที่สำคัญ',ic:'activity',sub:'ปีล่าสุด รวมชาย-หญิง (คน)',h:340,f:el=>{const R=recs('death');const y=Math.max(...years(R));const g={};R.filter(r=>yr(r)===y).forEach(r=>{const k=T(r['สาเหตุ']);g[k]=(g[k]||0)+(vOf(r)||0)});
    const a=Object.entries(g).filter(e=>!/^อื่น/.test(e[0])).sort((x,y)=>y[1]-x[1]).slice(0,8).reverse();
-   mk(el,{title:{text:'พ.ศ. '+y,right:0,top:0,textStyle:{color:'#6b7a93',fontSize:12,fontWeight:400}},tooltip:TT,grid:{left:8,right:40,top:24,bottom:4,containLabel:true},xAxis:{type:'value',...AX},yAxis:{type:'category',data:a.map(e=>e[0].length>30?e[0].slice(0,30)+'…':e[0]),...AX,axisLabel:{...AX.axisLabel,width:200,overflow:'truncate'}},series:[{type:'bar',data:a.map(e=>e[1]),barWidth:14,itemStyle:{borderRadius:[0,7,7,0],color:hgrad('#fb7185')},label:{show:true,position:'right',color:TXT,formatter:p=>fmt(p.value)}}]})}},
+   mk(el,{title:{text:'พ.ศ. '+y,right:0,top:0,textStyle:{color:'#6b7a93',fontSize:12,fontWeight:400}},tooltip:TT,grid:{left:8,right:40,top:24,bottom:4,containLabel:true},xAxis:{type:'value',...AX},yAxis:{type:'category',data:a.map(e=>e[0].length>30?e[0].slice(0,30)+'…':e[0]),...AX,axisLabel:{...AX.axisLabel,width:200,overflow:'truncate'}},series:[{type:'bar',data:a.map(e=>e[1]),barWidth:14,itemStyle:{borderRadius:[0,7,7,0],color:hgrad('#fb7185')},label:{show:true,position:'right',color:'#e8eef8',formatter:p=>fmt(p.value)}}]})}},
   {t:'อัตราป่วยความดันโลหิตสูงตามกลุ่มอายุ',ic:'heart-pulse',sub:'ร้อยละ ภาพรวมจังหวัด เปรียบเทียบรายปี',h:340,f:el=>{const R=recs('ht').filter(r=>T(r['อำเภอ'])==='รวม'&&T(r['รายการกลุ่มอายุ'])==='รายกลุ่มอายุ');const ys=years(R);const ages=[...new Set(R.map(r=>T(r['กลุ่มอายุ'])))];const cols=['#fda4af','#fb7185','#e11d48'];
    mk(el,{tooltip:TT,legend:LEG,grid:{left:8,right:10,top:34,bottom:4,containLabel:true},xAxis:{type:'category',data:ages,...AX},yAxis:{type:'value',...AX},series:ys.map((y,i)=>({name:'พ.ศ. '+y,type:'bar',barGap:'15%',itemStyle:{borderRadius:[6,6,0,0],color:vgrad(cols[(i+cols.length-ys.length)%cols.length]||'#fb7185')},data:ages.map(a=>{const r=R.find(x=>yr(x)===y&&T(x['กลุ่มอายุ'])===a);return r?vOf(r):null})}))})}},
  ],
@@ -676,19 +493,19 @@ const FEAT={
    mk(el,{tooltip:TT,legend:{...LEG,type:'scroll'},grid:{left:8,right:10,top:40,bottom:4,containLabel:true},xAxis:{type:'category',data:ys.map(y=>'พ.ศ. '+y),...AX},yAxis:{type:'value',...AX},series:src.map((s,i)=>({name:s,type:'bar',stack:'a',barWidth:46,itemStyle:{color:pal[i%pal.length],borderRadius:i===src.length-1?[6,6,0,0]:0},data:ys.map(y=>{const r=R.find(x=>yr(x)===y&&T(x['แหล่งรายได้'])===s);return r?vOf(r):0})}))})}},
   {t:'GPP ต่อหัว และรายได้ท่องเที่ยว',ic:'trending-up',sub:'บาท/คน/ปี (เส้น) · ล้านบาท (แท่ง)',h:330,f:el=>{const g=IND.find(i=>i.id==='gpp').s,t=IND.find(i=>i.id==='tour').s;const ys=[...new Set([...g,...t].map(p=>p.y))].sort();
    mk(el,{tooltip:TT,legend:LEG,grid:{left:8,right:8,top:36,bottom:4,containLabel:true},xAxis:{type:'category',data:ys,...AX},yAxis:[{type:'value',...AX,name:'บาท/คน',nameTextStyle:{color:'#6b7a93'}},{type:'value',...AX,splitLine:{show:false},name:'ล้านบาท',nameTextStyle:{color:'#6b7a93'}}],
-    series:[{name:'รายได้ท่องเที่ยว',type:'bar',yAxisIndex:1,barWidth:18,itemStyle:{borderRadius:[6,6,0,0],color:vgrad('#2dd4bf')},data:ys.map(y=>(t.find(p=>p.y===y)||{}).v??null)},{name:'GPP ต่อหัว',type:'line',smooth:.3,symbolSize:8,lineStyle:{width:3,color:'#fbbf24'},itemStyle:{color:'#fbbf24'},areaStyle:{color:grad('#fbbf24',.25)},connectNulls:true,data:ys.map(y=>(g.find(p=>p.y===y)||{}).v??null)}]})}},
+    series:[{name:'รายได้ท่องเที่ยว',type:'bar',yAxisIndex:1,barWidth:18,itemStyle:{borderRadius:[6,6,0,0],color:vgrad('#2dd4bf')},data:ys.map(y=>(t.find(p=>p.y===y)||{}).v??null)},{name:'GPP ต่อหัว',type:'line',smooth:true,symbolSize:8,lineStyle:{width:3,color:'#fbbf24'},itemStyle:{color:'#fbbf24'},areaStyle:{color:grad('#fbbf24',.25)},connectNulls:true,data:ys.map(y=>(g.find(p=>p.y===y)||{}).v??null)}]})}},
  ],
  society:[
   {t:'การเกิด – การตาย และการเพิ่มตามธรรมชาติ',ic:'activity',sub:'จำนวนคนต่อปี จากการทะเบียน',h:330,f:el=>{const B=IND.find(i=>i.id==='birth').s;const Dd=series({key:'dead'});const ys=[...new Set([...B,...Dd].map(p=>p.y))].sort();const gv=(s,y)=>(s.find(p=>p.y===y)||{}).v??null;
-   mk(el,{tooltip:TT,legend:LEG,grid:{left:8,right:10,top:36,bottom:4,containLabel:true},xAxis:{type:'category',data:ys,...AX},yAxis:{type:'value',...AX},series:[{name:'การเกิด',type:'line',smooth:.3,symbolSize:8,lineStyle:{width:3,color:'#22d3ee'},itemStyle:{color:'#22d3ee'},areaStyle:{color:grad('#22d3ee',.25)},data:ys.map(y=>gv(B,y))},{name:'การตาย',type:'line',smooth:.3,symbolSize:8,lineStyle:{width:3,color:'#f472b6'},itemStyle:{color:'#f472b6'},areaStyle:{color:grad('#f472b6',.18)},data:ys.map(y=>gv(Dd,y))},{name:'เพิ่มตามธรรมชาติ',type:'bar',barWidth:14,itemStyle:{borderRadius:4,color:p=>p.value<0?'#f43f5e':'#4ade80'},data:ys.map(y=>{const b=gv(B,y),d=gv(Dd,y);return b!=null&&d!=null?b-d:null})}]})}},
+   mk(el,{tooltip:TT,legend:LEG,grid:{left:8,right:10,top:36,bottom:4,containLabel:true},xAxis:{type:'category',data:ys,...AX},yAxis:{type:'value',...AX},series:[{name:'การเกิด',type:'line',smooth:true,symbolSize:8,lineStyle:{width:3,color:'#22d3ee'},itemStyle:{color:'#22d3ee'},areaStyle:{color:grad('#22d3ee',.25)},data:ys.map(y=>gv(B,y))},{name:'การตาย',type:'line',smooth:true,symbolSize:8,lineStyle:{width:3,color:'#f472b6'},itemStyle:{color:'#f472b6'},areaStyle:{color:grad('#f472b6',.18)},data:ys.map(y=>gv(Dd,y))},{name:'เพิ่มตามธรรมชาติ',type:'bar',barWidth:14,itemStyle:{borderRadius:4,color:p=>p.value<0?'#f43f5e':'#4ade80'},data:ys.map(y=>{const b=gv(B,y),d=gv(Dd,y);return b!=null&&d!=null?b-d:null})}]})}},
   {t:'คนพิการที่จดทะเบียน จำแนกตามประเภท',ic:'accessibility',sub:'ปีล่าสุด (คน)',h:330,f:el=>{const R=recs('dis');const y=Math.max(...years(R));const g={};R.filter(r=>yr(r)===y).forEach(r=>{const k=T(r['ประเภท']);g[k]=(g[k]||0)+(vOf(r)||0)});const a=Object.entries(g).sort((x,y)=>y[1]-x[1]).reverse();
-   mk(el,{title:{text:'พ.ศ. '+y,right:0,top:0,textStyle:{color:'#6b7a93',fontSize:12,fontWeight:400}},tooltip:TT,grid:{left:8,right:44,top:24,bottom:4,containLabel:true},xAxis:{type:'value',...AX},yAxis:{type:'category',data:a.map(e=>e[0]),...AX},series:[{type:'bar',barWidth:13,data:a.map(e=>e[1]),itemStyle:{borderRadius:[0,7,7,0],color:hgrad('#22d3ee')},label:{show:true,position:'right',color:TXT,formatter:p=>fmt(p.value)}}]})}},
+   mk(el,{title:{text:'พ.ศ. '+y,right:0,top:0,textStyle:{color:'#6b7a93',fontSize:12,fontWeight:400}},tooltip:TT,grid:{left:8,right:44,top:24,bottom:4,containLabel:true},xAxis:{type:'value',...AX},yAxis:{type:'category',data:a.map(e=>e[0]),...AX},series:[{type:'bar',barWidth:13,data:a.map(e=>e[1]),itemStyle:{borderRadius:[0,7,7,0],color:hgrad('#22d3ee')},label:{show:true,position:'right',color:'#e8eef8',formatter:p=>fmt(p.value)}}]})}},
  ],
  safety:[
   {t:'อุบัติเหตุจราจรทางบก',ic:'car-front',sub:'ผู้เสียชีวิตและผู้บาดเจ็บ (ราย)',h:320,f:el=>{const a=IND.find(i=>i.id==='roadd').s,b=IND.find(i=>i.id==='roadi').s;const ys=[...new Set([...a,...b].map(p=>p.y))].sort();
-   mk(el,{tooltip:TT,legend:LEG,grid:{left:8,right:10,top:36,bottom:4,containLabel:true},xAxis:{type:'category',data:ys,...AX},yAxis:{type:'value',...AX},series:[{name:'บาดเจ็บ',type:'bar',barWidth:22,itemStyle:{borderRadius:[6,6,0,0],color:vgrad('#60a5fa')},data:ys.map(y=>(b.find(p=>p.y===y)||{}).v??null)},{name:'เสียชีวิต',type:'line',smooth:.3,symbolSize:9,lineStyle:{width:3,color:'#f43f5e'},itemStyle:{color:'#f43f5e'},data:ys.map(y=>(a.find(p=>p.y===y)||{}).v??null)}]})}},
+   mk(el,{tooltip:TT,legend:LEG,grid:{left:8,right:10,top:36,bottom:4,containLabel:true},xAxis:{type:'category',data:ys,...AX},yAxis:{type:'value',...AX},series:[{name:'บาดเจ็บ',type:'bar',barWidth:22,itemStyle:{borderRadius:[6,6,0,0],color:vgrad('#60a5fa')},data:ys.map(y=>(b.find(p=>p.y===y)||{}).v??null)},{name:'เสียชีวิต',type:'line',smooth:true,symbolSize:9,lineStyle:{width:3,color:'#f43f5e'},itemStyle:{color:'#f43f5e'},data:ys.map(y=>(a.find(p=>p.y===y)||{}).v??null)}]})}},
   {t:'คดีอาญาและคดียาเสพติด',ic:'siren',sub:'จำนวนคดีต่อปี',h:320,f:el=>{const a=IND.find(i=>i.id==='crime').s,b=IND.find(i=>i.id==='drug').s;const ys=[...new Set([...a,...b].map(p=>p.y))].sort();
-   mk(el,{tooltip:TT,legend:LEG,grid:{left:8,right:10,top:36,bottom:4,containLabel:true},xAxis:{type:'category',data:ys,...AX},yAxis:{type:'value',...AX},series:[{name:'คดีอาญาที่รับแจ้ง',type:'line',smooth:.3,symbolSize:8,lineStyle:{width:3,color:'#818cf8'},itemStyle:{color:'#818cf8'},areaStyle:{color:grad('#818cf8',.25)},data:ys.map(y=>(a.find(p=>p.y===y)||{}).v??null)},{name:'คดียาเสพติด',type:'line',smooth:.3,symbolSize:8,lineStyle:{width:3,color:'#f472b6'},itemStyle:{color:'#f472b6'},areaStyle:{color:grad('#f472b6',.2)},data:ys.map(y=>(b.find(p=>p.y===y)||{}).v??null)}]})}},
+   mk(el,{tooltip:TT,legend:LEG,grid:{left:8,right:10,top:36,bottom:4,containLabel:true},xAxis:{type:'category',data:ys,...AX},yAxis:{type:'value',...AX},series:[{name:'คดีอาญาที่รับแจ้ง',type:'line',smooth:true,symbolSize:8,lineStyle:{width:3,color:'#818cf8'},itemStyle:{color:'#818cf8'},areaStyle:{color:grad('#818cf8',.25)},data:ys.map(y=>(a.find(p=>p.y===y)||{}).v??null)},{name:'คดียาเสพติด',type:'line',smooth:true,symbolSize:8,lineStyle:{width:3,color:'#f472b6'},itemStyle:{color:'#f472b6'},areaStyle:{color:grad('#f472b6',.2)},data:ys.map(y=>(b.find(p=>p.y===y)||{}).v??null)}]})}},
  ],
  env:[
   {t:'ปฏิทินฝุ่น PM2.5 — วันที่เกินมาตรฐานรายเดือน',ic:'wind',sub:'สีเข้ม = จำนวนวันเกินมาตรฐานมาก',h:300,f:el=>{const M=['ม.ค','ก.พ','มี.ค','เม.ย','พ.ค','มิ.ย','ก.ค','ส.ค','ก.ย','ต.ค','พ.ย','ธ.ค'];const R=recs('pm');const ys=years(R);const data=[];
@@ -696,7 +513,7 @@ const FEAT={
    mk(el,{tooltip:{...TT,trigger:'item',formatter:p=>`พ.ศ. ${ys[p.value[1]]} · ${M[p.value[0]]}.<br><b>${p.value[2]}</b> วัน`},grid:{left:8,right:10,top:10,bottom:44,containLabel:true},xAxis:{type:'category',data:M,...AX,splitArea:{show:false}},yAxis:{type:'category',data:ys.map(String),...AX},visualMap:{min:0,max:25,calculable:false,orient:'horizontal',left:'center',bottom:0,itemHeight:180,itemWidth:10,textStyle:{color:'#8b9ab3'},inRange:{color:['#0f2a2a','#1f6f5c','#facc15','#f97316','#dc2626']}},series:[{type:'heatmap',data,label:{show:true,color:'#fff',formatter:p=>p.value[2]||''},itemStyle:{borderColor:'#081124',borderWidth:3,borderRadius:6}}]})}},
   {t:'พื้นที่ป่าไม้ และปริมาณขยะมูลฝอย',ic:'trees',sub:'ร้อยละของพื้นที่จังหวัด (เส้น) · ตัน/วัน (แท่ง)',h:300,f:el=>{const a=IND.find(i=>i.id==='forest').s,b=IND.find(i=>i.id==='waste').s;const ys=[...new Set([...a,...b].map(p=>p.y))].sort();
    mk(el,{tooltip:TT,legend:LEG,grid:{left:8,right:8,top:36,bottom:4,containLabel:true},xAxis:{type:'category',data:ys,...AX},yAxis:[{type:'value',...AX,min:v=>Math.floor(v.min-1),name:'% ป่าไม้',nameTextStyle:{color:'#6b7a93'}},{type:'value',...AX,splitLine:{show:false},name:'ตัน/วัน',nameTextStyle:{color:'#6b7a93'}}],
-    series:[{name:'ขยะมูลฝอย',type:'bar',yAxisIndex:1,barWidth:16,itemStyle:{borderRadius:[6,6,0,0],color:vgrad('#a3a3a3')},data:ys.map(y=>(b.find(p=>p.y===y)||{}).v??null)},{name:'พื้นที่ป่าไม้',type:'line',smooth:.3,symbolSize:8,lineStyle:{width:3,color:'#4ade80'},itemStyle:{color:'#4ade80'},areaStyle:{color:grad('#4ade80',.25)},connectNulls:true,data:ys.map(y=>(a.find(p=>p.y===y)||{}).v??null)}]})}},
+    series:[{name:'ขยะมูลฝอย',type:'bar',yAxisIndex:1,barWidth:16,itemStyle:{borderRadius:[6,6,0,0],color:vgrad('#a3a3a3')},data:ys.map(y=>(b.find(p=>p.y===y)||{}).v??null)},{name:'พื้นที่ป่าไม้',type:'line',smooth:true,symbolSize:8,lineStyle:{width:3,color:'#4ade80'},itemStyle:{color:'#4ade80'},areaStyle:{color:grad('#4ade80',.25)},connectNulls:true,data:ys.map(y=>(a.find(p=>p.y===y)||{}).v??null)}]})}},
  ],
  living:[
   {t:'การเข้าถึงเทคโนโลยีของครัวเรือน',ic:'wifi',sub:'ร้อยละของครัวเรือนทั้งหมด',h:320,f:el=>{const ids=[['hhmob','#f472b6'],['hhnet','#2dd4bf'],['hhpc','#a78bfa']];const S=ids.map(([i])=>IND.find(x=>x.id===i));const ys=[...new Set(S.flatMap(s=>s.s.map(p=>p.y)))].sort();
@@ -706,414 +523,166 @@ const FEAT={
  ],
 };
 
-
-
 /* =========================================================
-   PAGES
+   RENDER
    ========================================================= */
-const PAGES=[
- {id:'overview',name:'ภาพรวมจังหวัด',en:'Overview',icon:'layout-dashboard',img:'icons/menu-overview',grp:'หน้าหลัก'},
- {id:'district',name:'โปรไฟล์รายอำเภอ',en:'District Profile',icon:'map-pinned',img:'icons/menu-district',grp:'หน้าหลัก'},
- ...DIMS.map(d=>({id:d.id,name:d.name,en:d.en,icon:d.icon,img:'icons/dim-'+d.id,grp:'7 มิติความอยู่ดีมีสุข',dim:d})),
- {id:'catalog',name:'คลังข้อมูลจังหวัด',en:'Data Catalog',icon:'database',img:'icons/menu-catalog',grp:'ข้อมูลและระเบียบวิธี'},
- {id:'sources',name:'แหล่งข้อมูลและ API',en:'Sources & API',icon:'plug-zap',img:'icons/menu-sources',grp:'ข้อมูลและระเบียบวิธี'},
- {id:'method',name:'ระเบียบวิธี',en:'Methodology',icon:'book-open',img:'icons/menu-method',grp:'ข้อมูลและระเบียบวิธี'},
-];
-const pc=p=>p.dim?dc(p.dim):(isDark()?'#f472b6':'#db2777');
 let OVERALL=null,CUR='overview',RENDERED={};
+function renderTabs(){const t=[{id:'overview',name:'ภาพรวม',icon:'layout-dashboard',c:'#f472b6'},...DIMS,{id:'catalog',name:'คลังข้อมูลจังหวัด',icon:'database',c:'#2dd4bf'},{id:'method',name:'ระเบียบวิธี',icon:'info',c:'#94a3b8'}];
+ document.getElementById('tabs').innerHTML=t.map(x=>`<button class="tab ${x.id===CUR?'on':''}" style="--c:${x.c}" data-tab="${x.id}">${ic(x.icon)}${x.name}${x.score!=null&&x.en?`<span class="sc">${x.score}</span>`:''}</button>`).join('');
+ document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>go(b.dataset.tab));}
+function go(id){CUR=id;document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('on',b.dataset.tab===id));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+id));
+ if(!RENDERED[id]){RENDERED[id]=1;(id==='overview'?renderOverview:id==='catalog'?renderCatalog:id==='method'?()=>{}:()=>renderDim(id))()}
+ setTimeout(()=>CHARTS.forEach(c=>c.resize()),30);const tb=document.querySelector(`.tab[data-tab="${id}"]`);tb&&tb.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});window.scrollTo({top:0,behavior:'smooth'});}
 
-function renderMenu(){let g='',h='';PAGES.forEach(p=>{if(p.grp!==g){g=p.grp;h+=`<div class="mgrp">${g}</div>`}
- h+=`<button class="mi ${p.id===CUR?'on':''}" style="--c:${pc(p)}" data-go="${p.id}"><span class="ico"><img data-src="${p.img}" data-fb="${p.icon}" alt=""></span><span><span class="t">${p.name}</span><br><span class="s">${p.en}</span></span>${p.dim&&p.dim.score!=null?`<span class="sc">${p.dim.score}</span>`:p.id==='overview'&&OVERALL!=null?`<span class="sc">${OVERALL}</span>`:''}</button>`});
- const m=document.getElementById('menu');m.innerHTML=h;m.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{go(b.dataset.go);document.body.classList.remove('nav')});hydrate(m);lucide.createIcons();}
-function go(id){if(!PAGES.find(p=>p.id===id))id='overview';CUR=id;const p=PAGES.find(x=>x.id===id);
- document.querySelectorAll('.mi').forEach(b=>b.classList.toggle('on',b.dataset.go===id));
- document.querySelectorAll('.page').forEach(x=>x.classList.toggle('on',x.id==='p-'+id));
- document.getElementById('crTitle').textContent=p.name;document.getElementById('crSub').textContent=p.dim?'มิติที่ '+(DIMS.indexOf(p.dim)+1)+' จาก 7 · '+p.en:p.en;
- try{history.replaceState(null,'','#'+id)}catch(e){}
- if(!RENDERED[id]){RENDERED[id]=1;({overview:renderOverview,district:renderDistrict,catalog:renderCatalog,sources:renderSources,method:renderMethod}[id]||(()=>renderDim(id)))()}
- setTimeout(()=>CHARTS.forEach(c=>{try{c.resize()}catch(e){}}),40);window.scrollTo({top:0,behavior:'smooth'});}
-
-function indCard(ind){const c=dc(ind.dimO),L=ind.last,dl=delta(ind);
+function indCard(ind){const c=ind.dimO.c,L=ind.last,dl=delta(ind);
  return`<div class="card ind" style="--c:${c}" data-ind="${ind.id}">
   <div class="top"><div class="ic">${ic(ind.icon)}</div><div><div class="nm">${ind.name}</div><div class="yr">${L?'ข้อมูลปี พ.ศ. '+L.y:'ไม่มีข้อมูล'}${ind.note?' · '+ind.note:''}</div></div></div>
-  <div class="val"><b>${L?fmt(L.v,ind.dec):'–'}</b><small>${ind.unit}</small>${dl?`<span class="delta ${dl.cls}" style="margin-left:auto">${ic(dl.icon)}${fmt(Math.abs(dl.pct),1)}%</span>`:''}</div>
+  <div class="val"><b>${L?fmt(L.v,ind.dec):'–'}</b><small>${ind.unit}</small>
+   ${dl?`<span class="delta ${dl.cls}" style="margin-left:auto">${ic(dl.icon)}${fmt(Math.abs(dl.pct),1)}%</span>`:''}</div>
   ${sparkSVG(ind.s,c)}
-  <div class="sbar">${ind.sc!=null?`<span>คะแนนพัฒนาการ</span><div class="track"><i style="width:${ind.sc}%;--c:${level(ind.sc).c}"></i></div><b>${ind.sc}</b>`:`<span class="tag2">ตัวชี้วัดเชิงบริบท · ไม่นำมาคิดคะแนน</span>`}</div></div>`}
-function secHead(t,p,c,right=''){return`<div class="sech" style="--c:${c||'var(--brand)'}"><div class="bar"></div><div><h3>${t}</h3>${p?`<p>${p}</p>`:''}</div>${right?`<div class="r">${right}</div>`:''}</div>`}
+  <div class="scorebar">${ind.sc!=null?`<span>คะแนนพัฒนาการ</span><div class="track"><i style="width:${ind.sc}%;--c:${level(ind.sc).c}"></i></div><b>${ind.sc}</b>`:`<span class="tag">ตัวชี้วัดเชิงบริบท · ไม่นำมาคิดคะแนน</span>`}</div>
+ </div>`}
 
-/* ---------------- OVERVIEW ---------------- */
-function renderOverview(){const el=document.getElementById('p-overview');const lv=level(OVERALL);
- const yrs=IND.filter(i=>i.last).map(i=>i.last.y);
- const KP=[['pop','users'],['gpp','trending-up'],['inc','wallet'],['unemp','briefcase'],['forest','trees'],['ita','badge-check']];
+function renderOverview(){
+ const el=document.getElementById('p-overview');const lv=level(OVERALL);
+ const kp=[['pop','users','#22d3ee'],['gpp','trending-up','#fbbf24'],['inc','wallet','#f59e0b'],['unemp','briefcase','#fb7185'],['forest','trees','#4ade80'],['ita','badge-check','#a78bfa']].map(([id,icn,c])=>{const i=IND.find(x=>x.id===id);const dl=delta(i);
+  return`<div class="kpi" style="--c:${c};cursor:pointer" data-ind="${id}"><div class="ic">${ic(icn)}</div><div class="lb">${ic(icn)}${i.name.replace(/\(.*\)/,'')}</div><div class="v">${i.last?(i.last.v>=1e5?fmtC(i.last.v):fmt(i.last.v,i.dec)):'–'}<small>${i.unit}</small></div><div class="ft">${i.last?'พ.ศ. '+i.last.y:''}${dl?`<span class="delta ${dl.cls}">${ic(dl.icon)}${fmt(Math.abs(dl.pct),1)}%</span>`:''}</div></div>`}).join('');
  const scored=IND.filter(i=>i.sc!=null).sort((a,b)=>b.sc-a.sc);
- const insRow=i=>{const dl=delta(i);return`<div class="ins" style="--c:${dc(i.dimO)}" data-ind="${i.id}"><div class="ic">${ic(i.icon)}</div><div><div class="t">${i.name}</div><div class="d">${fmt(i.last.v,i.dec)} ${i.unit} · พ.ศ. ${i.last.y}${dl?` · ${dl.df>0?'เพิ่มขึ้น':'ลดลง'} ${fmt(Math.abs(dl.pct),1)}% จากปี ${i.prev.y}`:''}</div></div><div class="s" style="color:${level(i.sc).c}">${i.sc}</div></div>`};
+ const insRow=i=>{const dl=delta(i);return`<div class="ins" style="--c:${i.dimO.c}" data-ind="${i.id}"><div class="ic">${ic(i.icon)}</div><div><div class="t">${i.name}</div><div class="d">${fmt(i.last.v,i.dec)} ${i.unit} (พ.ศ. ${i.last.y})${dl?` · ${dl.df>0?'เพิ่มขึ้น':'ลดลง'} ${fmt(Math.abs(dl.pct),1)}% จากปี ${i.prev.y}`:''}</div></div><div class="s" style="color:${level(i.sc).c}">${i.sc}</div></div>`};
  el.innerHTML=`
- <section class="hero">
-  <div class="media"><div class="ph" data-bg="hero/hero-home"></div><video data-video="hero/hero-home" autoplay muted loop playsinline></video></div>
-  <div class="in">
-   <div class="hlogos"><img data-src="brand/seal-nblp" data-fb="none" alt=""><img data-src="brand/logo-nso" data-fb="none" alt=""><img data-src="brand/logo-gdcatalog" data-fb="none" alt=""></div><br>
-   <span class="tag">${ic('sparkles')}Nong Bua Lam Phu Well-Being Index</span>
-   <h2>ดัชนีความอยู่ดีมีสุข<br>จังหวัดหนองบัวลำภู</h2>
-   <p>ติดตามคุณภาพชีวิตของคนหนองบัวลำภูครบ 7 มิติ จาก ${IND.length} ตัวชี้วัด ดึงข้อมูลสดจากระบบบัญชีข้อมูลจังหวัด ${Object.keys(RES).length} ชุดข้อมูลของหน่วยงานในพื้นที่</p>
-   <div class="meta"><span>${ic('database')}${Object.keys(RAW).length} ชุดข้อมูลสด</span><span>${ic('calendar-range')}ข้อมูล พ.ศ. ${Math.min(...yrs)}–${Math.max(...yrs)}</span><span>${ic('map-pin')}6 อำเภอ</span></div>
-  </div>
-  <div class="in orb"><div class="lb">ดัชนีความอยู่ดีมีสุขรวม</div><div id="gMain" style="height:220px"></div><span class="lvl" style="--lc:${lv.c}">${ic('award')}${lv.t}</span></div>
- </section>
+ <div class="g g-hero">
+  <div class="card gauge-wrap"><h3 style="align-self:flex-start">${ic('sparkles')}ดัชนีความอยู่ดีมีสุขรวม</h3><div class="sub" style="align-self:flex-start">Composite Well-Being Index · ${DIMS.length} มิติ ${IND.filter(i=>i.sc!=null).length} ตัวชี้วัด</div>
+   <div id="gMain" class="chart" style="height:250px"></div>
+   <span class="lvl" style="color:${lv.c};background:${lv.c}1f;border:1px solid ${lv.c}55">${ic('award')}ระดับ: ${lv.t}</span>
+   <div class="hero-note">คะแนน 0–100 สะท้อน “ทิศทางพัฒนาการ” ของแต่ละตัวชี้วัด เทียบกับช่วงข้อมูลย้อนหลังของจังหวัดเอง (100 = ดีที่สุดในรอบที่มีข้อมูล)</div></div>
+  <div class="card"><h3>${ic('radar')}โปรไฟล์ความอยู่ดีมีสุข ${DIMS.length} มิติ</h3><div class="sub">คลิกมิติเพื่อดูรายละเอียด</div><div id="gRadar" class="chart" style="height:330px"></div></div>
+  <div class="card"><h3>${ic('bar-chart-3')}คะแนนรายมิติ</h3><div class="sub">เรียงตามโครงสร้างดัชนี</div>
+   <div class="dimbars">${DIMS.map(d=>`<div class="dimbar" style="--c:${d.c}" data-go="${d.id}"><div class="ic">${ic(d.icon)}</div><div><div class="nm"><span>${d.name}</span><span style="color:var(--tx3);font-size:11.5px">${d.n} ตัวชี้วัด</span></div><div class="track"><i style="width:0" data-w="${d.score??0}"></i></div></div><b style="color:${d.c}">${d.score??'–'}</b></div>`).join('')}</div></div>
+ </div>
+ <div class="kpis">${kp}</div>
+ <div class="insights">
+  <div class="card"><h3 style="--c:#4ade80">${ic('thumbs-up')}จุดแข็ง · ตัวชี้วัดที่อยู่ในระดับดีที่สุด</h3><div class="sub">คะแนนพัฒนาการสูงสุด 5 อันดับ</div><div class="ins-list">${scored.slice(0,5).map(insRow).join('')}</div></div>
+  <div class="card"><h3 style="--c:#fb923c">${ic('triangle-alert')}ประเด็นที่ควรเฝ้าระวัง</h3><div class="sub">คะแนนพัฒนาการต่ำสุด 5 อันดับ — ควรเร่งติดตามเชิงนโยบาย</div><div class="ins-list">${scored.slice(-5).reverse().map(insRow).join('')}</div></div>
+ </div>
+ <div class="sec-title">${ic('grid-3x3')}ตัวชี้วัดทั้งหมด <span>คลิกการ์ดเพื่อดูข้อมูลเชิงลึก รายอำเภอ และ API</span></div>
+ ${DIMS.map(d=>`<div style="margin-top:16px;display:flex;align-items:center;gap:8px;color:${d.c};font-family:var(--head);font-weight:600">${ic(d.icon)}${d.name}</div><div class="g g-ind" style="margin-top:10px">${IND.filter(i=>i.dim===d.id&&i.s.length).map(indCard).join('')}</div>`).join('')}`;
+ lucide.createIcons();
+ mk(document.getElementById('gMain'),{series:[{type:'gauge',startAngle:220,endAngle:-40,min:0,max:100,radius:'96%',center:['50%','56%'],progress:{show:true,width:18,roundCap:true,itemStyle:{color:new echarts.graphic.LinearGradient(0,0,1,0,[{offset:0,color:'#db2777'},{offset:.5,color:'#a855f7'},{offset:1,color:'#2dd4bf'}]),shadowBlur:20,shadowColor:'rgba(219,39,119,.5)'}},axisLine:{roundCap:true,lineStyle:{width:18,color:[[1,'rgba(255,255,255,.07)']]}},axisTick:{distance:-30,splitNumber:4,lineStyle:{color:'rgba(255,255,255,.25)',width:1},length:5},splitLine:{distance:-34,length:10,lineStyle:{color:'rgba(255,255,255,.35)',width:2}},axisLabel:{distance:-12,color:'#6b7a93',fontSize:11},pointer:{show:false},anchor:{show:false},title:{show:false},detail:{offsetCenter:[0,'4%'],fontSize:62,fontFamily:'Prompt',fontWeight:800,color:'#fff',formatter:'{value}'},data:[{value:OVERALL??0}]}]});
+ mk(document.getElementById('gRadar'),{tooltip:{...TT,trigger:'item'},radar:{radius:'66%',center:['50%','54%'],indicator:DIMS.map(d=>({name:d.name,max:100,color:d.c})),splitNumber:4,axisName:{fontFamily:'IBM Plex Sans Thai',fontSize:12.5},splitLine:{lineStyle:{color:'rgba(255,255,255,.1)'}},splitArea:{areaStyle:{color:['rgba(255,255,255,.015)','rgba(255,255,255,.035)']}},axisLine:{lineStyle:{color:'rgba(255,255,255,.1)'}}},
+  series:[{type:'radar',symbolSize:7,data:[{value:DIMS.map(d=>d.score??0),name:'คะแนนรายมิติ',areaStyle:{color:new echarts.graphic.RadialGradient(.5,.5,1,[{offset:0,color:'rgba(45,212,191,.15)'},{offset:1,color:'rgba(219,39,119,.55)'}])},lineStyle:{width:2.5,color:'#f472b6'},itemStyle:{color:'#fff',borderColor:'#f472b6',borderWidth:2},label:{show:true,color:'#fff',fontFamily:'Prompt',fontWeight:600}}]}]}).on('click',()=>{});
+ requestAnimationFrame(()=>el.querySelectorAll('.track i[data-w]').forEach(i=>i.style.width=i.dataset.w+'%'));
+ el.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));bindInd(el);
+}
 
- <div class="sec">${secHead('7 มิติความอยู่ดีมีสุข','เลือกมิติเพื่อดูตัวชี้วัด การวิเคราะห์เชิงลึก และแผนที่รายอำเภอ')}
-  <div class="dims">${DIMS.map(d=>{const L=level(d.score);return`<div class="dc" style="--c:${dc(d)}" data-go="${d.id}"><div class="ph" data-bg="dims/${d.id}"></div>
-   <div class="ico"><img data-src="icons/dim-${d.id}" data-fb="${d.icon}" alt=""></div><div class="scr"><b>${d.score??'–'}</b><small>คะแนน / 100</small></div>
-   <div class="en">${d.en}</div><h5>${d.name}</h5><div class="bar2"><i data-w="${d.score??0}"></i></div>
-   <div class="ft"><span class="lv">${L.t}</span><span class="go">${d.n} ตัวชี้วัด ${ic('arrow-right')}</span></div></div>`}).join('')}</div></div>
+function hexMap(ind){const dv=ind.d;if(!dv)return'';const vals=Object.values(dv.v),mn=Math.min(...vals),mx=Math.max(...vals);
+ const P={'สุวรรณคูหา':[160,72],'นากลาง':[240,72],'นาวัง':[120,141],'เมืองหนองบัวลำภู':[280,141],'ศรีบุญเรือง':[160,210],'โนนสัง':[240,210]};
+ const hx=(cx,cy,r)=>Array.from({length:6},(_,i)=>{const a=Math.PI/180*(60*i-30);return(cx+r*Math.cos(a)).toFixed(1)+','+(cy+r*Math.sin(a)).toFixed(1)}).join(' ');
+ const col=v=>{let t=mx===mn?.5:(v-mn)/(mx-mn);if(ind.better==='down')t=1-t;return ind.better?goodColor(t):`rgba(34,211,238,${.25+.6*t})`};
+ const prov=ind.last&&ind.last.y===dv.y?ind.last.v:null;
+ return`<svg class="hex" viewBox="60 20 280 245">
+  ${Object.entries(P).map(([d,[x,y]])=>{const v=dv.v[d];return`<g class="hexc"><title>${d}: ${fmt(v,ind.dec)} ${ind.unit}</title><polygon points="${hx(x,y,44)}" fill="${v!=null?col(v):'rgba(255,255,255,.05)'}" fill-opacity=".85" stroke="#081124" stroke-width="3"/><text x="${x}" y="${y-6}" text-anchor="middle" fill="#fff" font-size="10.5" font-family="IBM Plex Sans Thai" font-weight="500">${DSHORT[d]}</text><text x="${x}" y="${y+12}" text-anchor="middle" fill="#fff" font-size="13.5" font-family="Prompt" font-weight="700">${v!=null?fmtC(v):'–'}</text></g>`}).join('')}
+  <polygon points="${hx(200,141,44)}" fill="rgba(255,255,255,.04)" stroke="rgba(244,114,182,.5)" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <svg x="181" y="108" width="38" height="38" viewBox="0 0 200 200"><use href="#lotusPath"/></svg>
+  <text x="200" y="164" text-anchor="middle" fill="#f9a8d4" font-size="9.5" font-family="IBM Plex Sans Thai">${prov!=null?'จังหวัด '+fmtC(prov):'จังหวัด'}</text>
+ </svg>`}
+function rankList(ind){const dv=ind.d;const a=Object.entries(dv.v).sort((x,y)=>ind.better==='down'?x[1]-y[1]:y[1]-x[1]);const mx=Math.max(...a.map(e=>Math.abs(e[1])))||1;const vals=a.map(e=>e[1]),mn=Math.min(...vals),MX=Math.max(...vals);
+ return`<div class="rank">${a.map(([d,v],i)=>{let t=MX===mn?.5:(v-mn)/(MX-mn);if(ind.better==='down')t=1-t;const c=ind.better?goodColor(t):'#22d3ee';return`<div><i>${i+1}</i><div><div style="display:flex;justify-content:space-between"><span>${d}</span><b style="font-family:Prompt">${fmt(v,ind.dec)}</b></div><div class="bar" style="width:${Math.abs(v)/mx*100}%;background:linear-gradient(90deg,${c}55,${c})"></div></div></div>`}).join('')}</div>`}
+function distBlock(dimId,host){const list=IND.filter(i=>i.dim===dimId&&i.d);if(!list.length)return;
+ host.innerHTML=`<div class="card" style="--c:${list[0].dimO.c}"><div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start"><div><h3>${ic('map')}เปรียบเทียบรายอำเภอ</h3><div class="sub" id="dsub"></div></div><select class="sel" id="dsel">${list.map(i=>`<option value="${i.id}">${i.name}</option>`).join('')}</select></div><div class="dmap"><div id="dhex"></div><div id="drank"></div></div><div class="sub" style="margin:10px 0 0">แผนภาพเชิงพื้นที่แบบหกเหลี่ยม (จัดวางตามทิศโดยประมาณ) · สีเขียว = ดีกว่า, สีแดง = ควรพัฒนา</div></div>`;
+ const draw=id=>{const i=IND.find(x=>x.id===id);host.querySelector('#dhex').innerHTML=hexMap(i);host.querySelector('#drank').innerHTML=rankList(i);host.querySelector('#dsub').textContent=`ข้อมูลปี พ.ศ. ${i.d.y} · หน่วย: ${i.unit||'ดัชนี'}`};
+ host.querySelector('#dsel').onchange=e=>draw(e.target.value);draw(list[0].id);lucide.createIcons();}
 
- <div class="sec">${secHead('ตัวเลขสำคัญของจังหวัด','ค่าล่าสุดและการเปลี่ยนแปลงจากปีก่อน')}
-  <div class="kpis">${KP.map(([id,icn])=>{const i=IND.find(x=>x.id===id),c=dc(i.dimO),dl=delta(i);return`<div class="kpi" style="--c:${c}" data-ind="${id}"><div class="obj"><img data-src="icons/kpi-${id}" data-fb="${icn}" alt=""></div><div class="lb">${i.name.replace(/\s*\(.*\)/,'')}</div><div class="v">${i.last?(i.last.v>=1e5?fmtC(i.last.v):fmt(i.last.v,i.dec)):'–'}<small>${i.unit}</small></div><div class="ft">${i.last?'พ.ศ. '+i.last.y:''}${dl?`<span class="delta ${dl.cls}">${ic(dl.icon)}${fmt(Math.abs(dl.pct),1)}%</span>`:''}</div></div>`}).join('')}</div></div>
+function renderDim(id){const d=DIMS.find(x=>x.id===id),el=document.getElementById('p-'+id),lv=level(d.score),inds=IND.filter(i=>i.dim===id&&i.s.length),F=FEAT[id]||[];
+ el.innerHTML=`<div class="dhead" style="--c:${d.c}"><div class="big">${ic(d.icon)}</div><div class="ic">${ic(d.icon)}</div><div><div style="font-size:12px;letter-spacing:2px;color:${d.c};text-transform:uppercase;font-weight:600">${d.en}</div><h2>มิติ${d.name}</h2><p>${d.desc}</p></div>
+  <div class="ring"><div style="text-align:right"><div class="num" style="color:${d.c}">${d.score??'–'}</div><div class="lab">คะแนนมิติ / 100</div></div><span class="lvl" style="margin:0;color:${lv.c};background:${lv.c}1f;border:1px solid ${lv.c}55">${lv.t}</span></div></div>
+  <div class="g g-ind">${inds.map(indCard).join('')}</div>
+  <div class="g g-2">${F.map((f,k)=>`<div class="card" style="--c:${d.c}"><h3>${ic(f.ic)}${f.t}</h3><div class="sub">${f.sub}</div><div class="chart" id="f-${id}-${k}" style="height:${f.h||300}px"></div></div>`).join('')}</div>
+  <div class="g" id="dist-${id}"></div>`;
+ lucide.createIcons();F.forEach((f,k)=>{try{f.f(document.getElementById(`f-${id}-${k}`))}catch(e){console.warn(e);document.getElementById(`f-${id}-${k}`).innerHTML='<div class="empty">ไม่สามารถแสดงกราฟได้</div>'}});
+ distBlock(id,document.getElementById('dist-'+id));bindInd(el);}
 
- <div class="sec">${secHead('โปรไฟล์และข้อค้นพบสำคัญ','สรุปจุดแข็งและประเด็นที่ควรเฝ้าระวังโดยอัตโนมัติจากข้อมูลล่าสุด')}
-  <div class="g g3">
-   <div class="card"><h4>${ic('radar')}โปรไฟล์ 7 มิติ</h4><div class="sub">คะแนนพัฒนาการรายมิติ (0–100)</div><div id="gRadar" class="chart" style="height:360px"></div></div>
-   <div class="card" style="--c:#16a34a"><h4>${ic('thumbs-up')}จุดแข็ง</h4><div class="sub">ตัวชี้วัดที่อยู่ในระดับดีที่สุด</div>${scored.slice(0,5).map(insRow).join('')}</div>
-   <div class="card" style="--c:#ea580c"><h4>${ic('triangle-alert')}ควรเฝ้าระวัง</h4><div class="sub">ตัวชี้วัดที่ควรเร่งติดตามเชิงนโยบาย</div>${scored.slice(-5).reverse().map(insRow).join('')}</div>
-  </div></div>
- <div class="sec">${secHead('ทิศทางดัชนีย้อนหลัง','คำนวณดัชนีของแต่ละปีจากข้อมูลที่มี ณ ปีนั้น · กดชื่อมิติในคำอธิบายกราฟเพื่อเปิด/ปิดเส้น')}<div class="card"><div id="gHist" class="chart" style="height:360px"></div></div></div>
- <div class="sec">${secHead('คำถามที่ผู้บริหารมักถาม (5W1H)','ใคร อะไร ที่ไหน เมื่อไร อย่างไร ทำไม และควรทำอะไรต่อ — ตอบจากข้อมูลจริงในระบบ')}<div id="faq">${faqHTML()}</div></div>
- <div class="sec">${secHead('อ้างอิงมาตรฐานสากล','หลักการที่ใช้ออกแบบดัชนี คุณภาพข้อมูล และบทวิเคราะห์เชิงนโยบาย')}${stdStrip()}</div>`;
- lucide.createIcons();hydrate(el);bind(el);
- mk(document.getElementById('gMain'),{series:[{type:'gauge',startAngle:220,endAngle:-40,min:0,max:100,radius:'98%',center:['50%','56%'],progress:{show:true,width:16,roundCap:true,itemStyle:{color:new echarts.graphic.LinearGradient(0,0,1,0,[{offset:0,color:'#fbcfe8'},{offset:1,color:'#ffffff'}])}},axisLine:{roundCap:true,lineStyle:{width:16,color:[[1,'rgba(255,255,255,.18)']]}},axisTick:{show:false},splitLine:{show:false},axisLabel:{show:false},pointer:{show:false},anchor:{show:false},title:{show:false},detail:{offsetCenter:[0,'2%'],fontSize:64,fontFamily:'Kanit',fontWeight:700,color:'#fff',formatter:'{value}'},data:[{value:OVERALL??0}]}]});
- mk(document.getElementById('gRadar'),{tooltip:{...TT,trigger:'item'},radar:{radius:'58%',center:['50%','54%'],indicator:DIMS.map(d=>({name:d.name.replace('เศรษฐกิจและรายได้','เศรษฐกิจ').replace('ประชากรและสังคม','สังคม').replace('ที่อยู่อาศัยและดิจิทัล','ที่อยู่อาศัย/ดิจิทัล'),max:100,color:dc(d)})),splitNumber:4,axisName:{fontFamily:'Kanit',fontSize:12.5},splitLine:{lineStyle:{color:AX.splitLine.lineStyle.color}},splitArea:{areaStyle:{color:['transparent']}},axisLine:{lineStyle:{color:AX.axisLine.lineStyle.color}}},
-  series:[{type:'radar',symbolSize:8,data:[{value:DIMS.map(d=>d.score??0),name:'คะแนนรายมิติ',areaStyle:{color:'rgba(219,39,119,.22)'},lineStyle:{width:2.5,color:'#db2777'},itemStyle:{color:'#fff',borderColor:'#db2777',borderWidth:2},label:{show:true,color:TXT,fontFamily:'Kanit',fontWeight:600}}]}]});
- drawHistory(document.getElementById('gHist'));
- requestAnimationFrame(()=>setTimeout(()=>el.querySelectorAll('[data-w]').forEach(i=>i.style.width=i.dataset.w+'%'),100));}
-
-/* ---------------- DIMENSION ---------------- */
-function renderDim(id){const d=DIMS.find(x=>x.id===id),c=dc(d),el=document.getElementById('p-'+id),lv=level(d.score),inds=IND.filter(i=>i.dim===id&&i.s.length),F=FEAT[id]||[],dl=IND.filter(i=>i.dim===id&&i.d);
- el.innerHTML=`<section class="dhero" style="--c:${c}"><div class="media"><div class="ph" data-bg="dims/${id}"></div><video data-video="dims/${id}" autoplay muted loop playsinline></video></div>
-  <div class="ico"><img data-src="icons/dim-${id}" data-fb="${d.icon}" alt=""></div>
-  <div><div class="en">${d.en} · มิติที่ ${DIMS.indexOf(d)+1}</div><h2>มิติ${d.name}</h2><p>${d.desc}</p></div>
-  <div class="big"><b>${d.score??'–'}</b><small>คะแนนมิติ / 100</small><span style="--lc:${lv.c}">${lv.t}</span></div></section>
- <div class="sec">${secHead('ตัวชี้วัด','คลิกการ์ดเพื่อดูแนวโน้ม ข้อมูลรายอำเภอ และ API ต้นทาง',c)}<div class="g gi">${inds.map(indCard).join('')}</div></div>
- ${dimPolicy(d)}
- ${F.length?`<div class="sec">${secHead('วิเคราะห์เชิงลึก','รายละเอียดเพิ่มเติมจากชุดข้อมูลต้นทาง',c)}<div class="g g2">${F.map((f,k)=>`<div class="card" style="--c:${c}"><h4>${ic(f.ic)}${f.t}</h4><div class="sub">${f.sub}</div><div class="chart" id="f-${id}-${k}" style="height:${f.h||320}px"></div></div>`).join('')}</div></div>`:''}
- ${dl.length?`<div class="sec">${secHead('แผนที่รายอำเภอ','ขอบเขตอำเภอจริง · สีเขียว = ดีกว่า · สีแดง = ควรพัฒนา',c,`<select class="sel" id="dsel-${id}">${dl.map(i=>`<option value="${i.id}">${i.name}</option>`).join('')}</select>`)}<div class="card" style="--c:${c}"><div class="sub" id="dsub-${id}" style="margin-top:0"></div><div class="maprow"><div id="dmap-${id}" style="height:460px"></div><div class="rank" id="drank-${id}"></div></div></div></div>`:''}`;
- lucide.createIcons();hydrate(el);bind(el);
- F.forEach((f,k)=>{try{f.f(document.getElementById(`f-${id}-${k}`))}catch(e){console.warn(e);document.getElementById(`f-${id}-${k}`).innerHTML='<div class="empty">ไม่สามารถแสดงกราฟได้</div>'}});
- if(dl.length){let mc;const draw=iid=>{const i=IND.find(x=>x.id===iid);document.getElementById('dsub-'+id).textContent=`${i.name} · ข้อมูลปี พ.ศ. ${i.d.y} · หน่วย: ${i.unit||'ดัชนี'}`;
-   if(mc){mc.dispose();CHARTS.splice(CHARTS.indexOf(mc),1)}mc=drawMap(document.getElementById('dmap-'+id),i);document.getElementById('drank-'+id).innerHTML=rankList(i)};
-  document.getElementById('dsel-'+id).onchange=e=>draw(e.target.value);draw(dl[0].id)}}
-
-/* ---------------- MAP ---------------- */
-let mapReady=false;
-function drawMap(el,ind){if(!mapReady){echarts.registerMap('nbl',GEO);mapReady=true}
- const vals=Object.values(ind.d.v),mn=Math.min(...vals),mx=Math.max(...vals);
- const good=['#ef4444','#facc15','#22c55e'],neutral=isDark()?['#3b1a33','#f472b6']:['#fde7f1','#be185d'];
- return mk(el,{tooltip:{...TT,trigger:'item',formatter:p=>`<b style="font-family:Kanit">${p.name}</b><br>${isFinite(p.value)?fmt(p.value,ind.dec)+' '+ind.unit:'ไม่มีข้อมูล'}`},
-  visualMap:{min:mn,max:mx===mn?mn+1:mx,calculable:true,orient:'horizontal',left:'center',bottom:0,itemWidth:12,itemHeight:180,text:['สูง','ต่ำ'],textStyle:{color:AX.axisLabel.color,fontFamily:'Sarabun'},inRange:{color:ind.better==='down'?[...good].reverse():ind.better==='up'?good:neutral},formatter:v=>fmtC(v)},
-  series:[{type:'map',map:'nbl',roam:false,aspectScale:.95,layoutCenter:['50%','46%'],layoutSize:'92%',selectedMode:false,
-   label:{show:true,fontFamily:'Kanit',fontSize:12.5,fontWeight:500,color:'#1f0f1f',textBorderColor:'rgba(255,255,255,.85)',textBorderWidth:3,formatter:p=>(DSHORT[p.name]||p.name)+'\n'+(isFinite(p.value)?fmtC(p.value):'')},
-   itemStyle:{borderColor:isDark()?'#0b0f1d':'#ffffff',borderWidth:2,areaColor:isDark()?'#1d2440':'#f3e8ef'},
-   emphasis:{label:{color:'#000'},itemStyle:{areaColor:'#f9a8d4',shadowBlur:20,shadowColor:'rgba(219,39,119,.5)'}},
-   data:DISTRICTS.map(n=>({name:n,value:ind.d.v[n]}))}]})}
-function rankList(ind){const a=Object.entries(ind.d.v).sort((x,y)=>y[1]-x[1]);const vals=a.map(e=>e[1]),mn=Math.min(...vals),MX=Math.max(...vals);
- return a.map(([d,v],i)=>{let t=MX===mn?.5:(v-mn)/(MX-mn);if(ind.better==='down')t=1-t;const c=ind.better?goodColor(t):'#db2777';return`<div class="r"><i>${i+1}</i><div><div style="display:flex;justify-content:space-between;gap:8px"><span>${d}</span><b>${fmt(v,ind.dec)}</b></div><div class="bar" style="width:${Math.max(4,Math.abs(v)/Math.max(...vals.map(Math.abs))*100)}%;background:${c}"></div></div></div>`}).join('')}
-
-/* =========================================================
-   5W1H · หลักฐาน · บทวิเคราะห์เชิงนโยบาย (Policy Cycle)
-   ========================================================= */
-const META={};
-const NOW_BE=new Date().getFullYear()+543;
-async function loadMetaOne(pkg){if(META[pkg])return META[pkg];try{META[pkg]=await api('package_show',{id:pkg})}catch(e){META[pkg]={_err:1}}return META[pkg]}
-async function loadMeta(){const q=[...new Set(Object.values(RES).map(r=>r[1]))];async function w(){while(q.length)await loadMetaOne(q.shift())}await Promise.all(Array.from({length:5},w));if(RENDERED.sources){RENDERED.sources=0;if(CUR==='sources'){RENDERED.sources=1;renderSources()}}}
-const thd=s=>{if(!s)return'–';const d=new Date(s);return isNaN(d)?s:d.toLocaleDateString('th-TH',{day:'numeric',month:'short',year:'numeric'})};
-
-/* กรอบนโยบายรายมิติ: ยุทธศาสตร์ชาติ 20 ปี · SDGs · หน่วยงานหลัก · เครื่องมือนโยบาย */
-const POL={
- health:{ns:'ยุทธศาสตร์ชาติด้านที่ 3 การพัฒนาและเสริมสร้างศักยภาพทรัพยากรมนุษย์',sdg:'SDG 3 สุขภาพและความเป็นอยู่ที่ดี',ag:'สำนักงานสาธารณสุขจังหวัด · โรงพยาบาล/รพ.สต. · อปท. · อสม.',weak:['คัดกรองเชิงรุกในกลุ่มเสี่ยงผ่าน อสม. และ รพ.สต. โดยเริ่มจากอำเภอที่ค่าสูงสุด','จัดสรรบุคลากรการแพทย์และบริการเคลื่อนที่ไปอำเภอที่ขาดแคลน','ใช้กองทุนหลักประกันสุขภาพระดับท้องถิ่นของ อปท. สนับสนุนงานส่งเสริมป้องกัน'],keep:['รักษาระดับบริการ และถอดบทเรียนอำเภอที่ทำได้ดีไปขยายผล']},
- edu:{ns:'ยุทธศาสตร์ชาติด้านที่ 3 การพัฒนาและเสริมสร้างศักยภาพทรัพยากรมนุษย์',sdg:'SDG 4 การศึกษาที่มีคุณภาพ',ag:'สำนักงานศึกษาธิการจังหวัด · สพป./สพม. · อปท. · สถานศึกษา',weak:['ระบบติดตามเด็กเสี่ยงหลุดออกจากระบบเป็นรายบุคคล ร่วมกับครอบครัวและชุมชน','ยกระดับการสอนวิชาหลักในโรงเรียนขนาดเล็ก ผ่านการเรียนรู้ออนไลน์และครูเครือข่าย','ทุนและการศึกษาทางเลือกสำหรับเด็กจากครัวเรือนยากจน'],keep:['ขยายแนวปฏิบัติที่ดีของโรงเรียนที่ผลสัมฤทธิ์สูงไปยังเครือข่าย']},
- econ:{ns:'ยุทธศาสตร์ชาติด้านที่ 2 การสร้างความสามารถในการแข่งขัน และด้านที่ 4 การสร้างโอกาสและความเสมอภาคทางสังคม',sdg:'SDG 1 · 8 · 10 ขจัดความยากจน งานที่มีคุณค่า ลดความเหลื่อมล้ำ',ag:'สำนักงานพาณิชย์ · เกษตร · แรงงาน · ท่องเที่ยวและกีฬา · คลังจังหวัด',weak:['เพิ่มมูลค่าสินค้าเกษตรและสินค้าอัตลักษณ์ (แปรรูป มาตรฐาน ตลาดออนไลน์)','คลินิกแก้หนี้และความรู้ทางการเงินครัวเรือน ลดหนี้นอกระบบ','ส่งเสริมการจ้างงานในพื้นที่และท่องเที่ยวชุมชนเพื่อกระจายรายได้'],keep:['รักษาโมเมนตัมการเติบโต และกระจายประโยชน์สู่กลุ่มรายได้น้อย']},
- society:{ns:'ยุทธศาสตร์ชาติด้านที่ 4 การสร้างโอกาสและความเสมอภาคทางสังคม และด้านที่ 6 การปรับสมดุลการบริหารจัดการภาครัฐ',sdg:'SDG 1 · 10 · 16 ความยากจน ความเหลื่อมล้ำ สถาบันที่เข้มแข็ง',ag:'สำนักงานพัฒนาสังคมฯ · พัฒนาชุมชน · ที่ทำการปกครอง · สำนักงานจังหวัด',weak:['ระบบดูแลผู้สูงอายุและผู้มีภาวะพึ่งพิงระยะยาวโดยชุมชน','ช่วยเหลือแบบเจาะจงครัวเรือนเปราะบางด้วยข้อมูล TPMAP/จปฐ.','เสริมธรรมาภิบาลและความโปร่งใสของหน่วยงานรัฐ (ITA)'],keep:['รักษาระบบคุ้มครองทางสังคม และเตรียมรับสังคมสูงวัยล่วงหน้า']},
- safety:{ns:'ยุทธศาสตร์ชาติด้านที่ 1 ความมั่นคง',sdg:'SDG 3.6 อุบัติเหตุทางถนน · SDG 16 สังคมสงบสุข',ag:'ตำรวจภูธรจังหวัด · ป้องกันและบรรเทาสาธารณภัย · ขนส่งจังหวัด · ศูนย์ปฏิบัติการความปลอดภัยทางถนน',weak:['แก้จุดเสี่ยงอุบัติเหตุรายอำเภอ และบังคับใช้กฎหมายช่วงเทศกาล','ป้องกันและบำบัดยาเสพติดโดยใช้ชุมชนเป็นฐาน','ขยายกล้อง CCTV และเครือข่ายเฝ้าระวังในพื้นที่เสี่ยง'],keep:['รักษามาตรการที่ได้ผล และติดตามจุดเสี่ยงต่อเนื่อง']},
- env:{ns:'ยุทธศาสตร์ชาติด้านที่ 5 การสร้างการเติบโตบนคุณภาพชีวิตที่เป็นมิตรต่อสิ่งแวดล้อม',sdg:'SDG 11 · 13 · 15 เมืองยั่งยืน ภูมิอากาศ ระบบนิเวศบนบก',ag:'สำนักงานทรัพยากรธรรมชาติฯ · ป้องกันและบรรเทาสาธารณภัย · เกษตรจังหวัด · อปท.',weak:['ลดการเผาในที่โล่งช่วง ม.ค.–เม.ย. ด้วยมาตรการจูงใจเกษตรกร','คัดแยกขยะต้นทางและธนาคารขยะชุมชน','เพิ่มป่าชุมชนและพื้นที่สีเขียว'],keep:['รักษาพื้นที่ป่า และยกระดับการจัดการขยะให้ครอบคลุม']},
- living:{ns:'ยุทธศาสตร์ชาติด้านที่ 4 การสร้างโอกาสและความเสมอภาคทางสังคม',sdg:'SDG 9 · 11 · 17 โครงสร้างพื้นฐาน เมืองยั่งยืน ความร่วมมือ',ag:'สำนักงานดิจิทัลเพื่อเศรษฐกิจและสังคมจังหวัด · พัฒนาสังคมฯ · พอช. · อปท.',weak:['ขยายอินเทอร์เน็ตชุมชนและพัฒนาทักษะดิจิทัล','สนับสนุนอุปกรณ์ดิจิทัลเพื่อการเรียนรู้ในครัวเรือนรายได้น้อย','บ้านมั่นคงและซ่อมแซมที่อยู่อาศัยกลุ่มเปราะบาง'],keep:['ต่อยอดการเข้าถึงดิจิทัลสู่บริการภาครัฐออนไลน์']},
-};
-/* ทำไมตัวชี้วัดนี้สำคัญ + เป้าหมาย SDG ที่เชื่อมโยง */
-const WHY={
- ht:['โรคความดันโลหิตสูงเป็นต้นเหตุของโรคหัวใจ หลอดเลือดสมอง และไตวาย ซึ่งเป็นภาระค่ารักษาระยะยาวของครอบครัวและรัฐ','SDG 3.4'],
- nut:['ภาวะโภชนาการสมส่วนในเด็กปฐมวัยสะท้อนพัฒนาการทั้งร่างกายและสมอง ซึ่งส่งผลต่อการเรียนรู้ในอนาคต','SDG 2.2'],
- lbw:['ทารกน้ำหนักต่ำกว่าเกณฑ์มีความเสี่ยงต่อพัฒนาการล่าช้าและการเจ็บป่วย สะท้อนคุณภาพการดูแลหญิงตั้งครรภ์','SDG 3.2'],
- doc:['สะท้อนการเข้าถึงบุคลากรทางการแพทย์ ยิ่งประชากรต่อแพทย์สูง ยิ่งรอคิวนานและเข้าถึงบริการยาก','SDG 3.c'],
- dep:['สุขภาพจิตเป็นปัญหาที่มองไม่เห็น การเข้าถึงบริการสูงแปลว่าระบบค้นหาและดูแลผู้ป่วยทำงานได้ดี','SDG 3.4'],
- onet3:['สะท้อนคุณภาพผลสัมฤทธิ์ทางการเรียนระดับชาติ ใช้เทียบกับมาตรฐานประเทศได้','SDG 4.1'],
- drop:['เด็กที่หลุดออกจากระบบการศึกษามีโอกาสตกอยู่ในวงจรความยากจนและความเสี่ยงทางสังคม','SDG 4.1'],
- stud:['ใช้วางแผนครู ห้องเรียน และงบประมาณ สะท้อนแนวโน้มการเกิดที่ลดลง','SDG 4'],
- spr:['บอกขนาดชั้นเรียน ห้องเล็กมากสะท้อนโรงเรียนขนาดเล็กที่ต้องบริหารทรัพยากรร่วมกัน','SDG 4'],
- gpp:['ขนาดเศรษฐกิจเฉลี่ยต่อคน สะท้อนศักยภาพการผลิตของจังหวัด','SDG 8.1'],
- inc:['รายได้ที่ครัวเรือนได้รับจริง ใกล้ชิดคุณภาพชีวิตมากกว่า GPP','SDG 1 · 10'],
- debt:['หนี้สูงกดดันการใช้จ่ายและการออม โดยเฉพาะหนี้นอกระบบที่ดอกเบี้ยสูง','SDG 1'],
- gini:['วัดความเหลื่อมล้ำของรายได้ ค่าเข้าใกล้ 0 คือกระจายรายได้เท่าเทียม','SDG 10.1'],
- unemp:['สะท้อนโอกาสการมีงานทำของคนในพื้นที่','SDG 8.5'],
- wage:['ค่าแรงขั้นต่ำเป็นฐานรายได้ของแรงงาน ใช้เทียบกับค่าครองชีพ','SDG 8.5'],
- tour:['รายได้ท่องเที่ยวกระจายเงินสู่ชุมชน ร้านค้า และที่พัก','SDG 8.9'],
- pop:['ฐานในการวางแผนทุกนโยบาย ทั้งบริการสาธารณะและงบประมาณ','บริบท'],
- elder:['ค่าเกิน 100 แปลว่ามีผู้สูงอายุมากกว่าเด็ก สะท้อนสังคมสูงวัยที่ต้องเตรียมระบบดูแล','บริบท'],
- pov:['สัดส่วนคนยากจนตามเกณฑ์ จปฐ. ใช้เจาะจงกลุ่มที่ต้องช่วยเหลือ','SDG 1.2'],
- dis:['ใช้วางแผนสวัสดิการ สิ่งอำนวยความสะดวก และการจ้างงานคนพิการ','SDG 10.2'],
- birth:['การเกิดลดลงส่งผลต่อโครงสร้างประชากร แรงงาน และจำนวนนักเรียนในอนาคต','บริบท'],
- ita:['สะท้อนคุณธรรมและความโปร่งใสในการดำเนินงานของหน่วยงานภาครัฐ','SDG 16.5 · 16.6'],
- roadd:['การเสียชีวิตบนถนนป้องกันได้ และกระทบแรงงานวัยทำงานโดยตรง','SDG 3.6'],
- roadi:['ผู้บาดเจ็บสะท้อนความรุนแรงของปัญหา และภาระของระบบสาธารณสุข','SDG 3.6'],
- crime:['สะท้อนความปลอดภัยในชีวิตและทรัพย์สิน (จำนวนรับแจ้งขึ้นกับการแจ้งความด้วย)','SDG 16.1'],
- drug:['ยาเสพติดเชื่อมโยงกับอาชญากรรม สุขภาพ และครอบครัว (คดีสูงอาจมาจากการปราบปรามเข้มข้นด้วย)','SDG 3.5'],
- pm:['ฝุ่น PM2.5 กระทบสุขภาพระบบทางเดินหายใจ โดยเฉพาะเด็กและผู้สูงอายุ','SDG 11.6'],
- forest:['ป่าไม้คือแหล่งต้นน้ำ อากาศดี และความหลากหลายทางชีวภาพ','SDG 15.1'],
- waste:['ปริมาณขยะต่อวันสะท้อนภาระการจัดการของท้องถิ่นและพฤติกรรมการบริโภค','SDG 11.6 · 12.5'],
- house:['ที่อยู่อาศัยมั่นคงเป็นพื้นฐานความอยู่ดีมีสุขของครัวเรือน','SDG 11.1'],
- hhnet:['อินเทอร์เน็ตคือโครงสร้างพื้นฐานของการเรียน การทำงาน และบริการรัฐออนไลน์','SDG 17.8'],
- hhmob:['โทรศัพท์มือถือเป็นช่องทางหลักในการเข้าถึงข้อมูลและบริการทางการเงิน','SDG 9.c'],
- hhpc:['คอมพิวเตอร์สะท้อนความพร้อมด้านการเรียนรู้และทักษะดิจิทัลขั้นสูง','SDG 4.4'],
- inet:['จำนวนคนที่เข้าถึงอินเทอร์เน็ตสะท้อนความเหลื่อมล้ำทางดิจิทัล','SDG 17.8'],
-};
-function howCalc(i){const a=i.agg==='avg'?'ค่าเฉลี่ยของรายการในปีเดียวกัน':i.agg==='first'?'ค่าที่ชุดข้อมูลรายงานสำหรับปีนั้น':i.agg==='max'?'อัตราสูงสุดที่มีผลในปีนั้น':typeof i.agg==='function'?'คำนวณตามสูตรเฉพาะของตัวชี้วัด':'ผลรวมของรายการในปีเดียวกัน';
- return `ดึงข้อมูลจาก API แล้วรวมเป็นรายปีด้วย${a}${i.note?' ('+i.note+')':''} จากนั้นคิดคะแนนพัฒนาการโดยเทียบปีล่าสุดกับช่วงข้อมูลย้อนหลัง${i.better==='down'?' (ค่าน้อย = ดี)':i.better==='up'?' (ค่ามาก = ดี)':' (ตัวชี้วัดเชิงบริบท ไม่คิดคะแนน)'}`}
-/* ---- วิเคราะห์อัตโนมัติ: เราคิดว่า… ---- */
-function think(i){const o=[];if(!i.last)return o;const s=i.s,L=i.last,F=s[0];
- if(s.length>=3){const ch=F.v?(L.v-F.v)/Math.abs(F.v)*100:0;const good=i.better?((i.better==='up')===(ch>0)):null;
-  o.push({k:'trend',t:`ตลอด ${s.length} ปี (พ.ศ. ${F.y}–${L.y}) ค่า${ch>=0?'เพิ่มขึ้น':'ลดลง'} ${fmt(Math.abs(ch),1)}%${good===null?'':good?' ซึ่งเป็นทิศทางที่ดี':' ซึ่งเป็นทิศทางที่ต้องติดตาม'}`,g:good})}
- if(s.length>=3){const avg=sum(s.map(p=>p.v))/s.length;const above=L.v>avg;o.push({k:'avg',t:`ค่าปีล่าสุด${above?'สูงกว่า':'ต่ำกว่า'}ค่าเฉลี่ยย้อนหลัง (${fmt(avg,i.dec)} ${i.unit})`,g:i.better?((i.better==='up')===above):null})}
- if(i.d){const e=Object.entries(i.d.v).sort((a,b)=>b[1]-a[1]);const hi=e[0],lo=e[e.length-1];const gap=lo[1]?hi[1]/lo[1]:null;const worst=i.better==='down'?hi:lo,best=i.better==='down'?lo:hi;
-  o.push({k:'area',t:i.better?`ความเหลื่อมล้ำเชิงพื้นที่: ${worst[0]} อยู่ในสถานะที่ควรเร่งพัฒนามากที่สุด (${fmt(worst[1],i.dec)}) ขณะที่ ${best[0]} ดีที่สุด (${fmt(best[1],i.dec)})${gap&&gap>1.5?` ต่างกัน ${fmt(gap,1)} เท่า`:''}`:`อำเภอที่มีค่าสูงสุดคือ ${hi[0]} (${fmt(hi[1],i.dec)}) ต่ำสุดคือ ${lo[0]} (${fmt(lo[1],i.dec)})`,g:null})}
- const lag=NOW_BE-L.y;if(lag>=2)o.push({k:'lag',t:`ข้อมูลล่าสุดคือปี พ.ศ. ${L.y} ห่างจากปัจจุบัน ${lag} ปี ควรขอให้หน่วยงานเจ้าของข้อมูลปรับปรุงก่อนใช้ตัดสินใจ`,g:false});
- if(s.length<3)o.push({k:'few',t:`มีข้อมูลเพียง ${s.length} ปี ยังสรุปแนวโน้มได้ไม่มั่นคง ควรใช้ร่วมกับข้อมูลอื่น`,g:false});
- return o}
-function policyFor(i){const P=POL[i.dim];const weak=i.sc!=null&&i.sc<60;const dd=i.d&&i.better?Object.entries(i.d.v).sort((a,b)=>i.better==='down'?b[1]-a[1]:a[1]-b[1])[0][0]:null;
- return{P,weak,stage:[
-  ['1','กำหนดประเด็นนโยบาย','Agenda Setting',i.sc==null?'ใช้เป็นข้อมูลบริบทประกอบการวางแผน ไม่ใช่เป้าหมายโดยตรง':i.sc<40?`เป็นประเด็นที่ควรยกขึ้นวาระของจังหวัด (คะแนน ${i.sc}/100 · ${level(i.sc).t})`:i.sc<60?`อยู่ในระดับปานกลาง (คะแนน ${i.sc}/100) ควรติดตามใกล้ชิดก่อนกลายเป็นปัญหา`:`อยู่ในระดับ${level(i.sc).t} (คะแนน ${i.sc}/100) ควรรักษาระดับ`],
-  ['2','กำหนดทางเลือกนโยบาย','Policy Formulation',(weak?P.weak:P.keep).join(' · ')],
-  ['3','นำนโยบายไปปฏิบัติ','Implementation',`หน่วยงานหลัก: ${P.ag}${dd?` · พื้นที่เป้าหมายลำดับแรก: อำเภอ${dd.replace('เมืองหนองบัวลำภู','เมืองหนองบัวลำภู')}`:''}`],
-  ['4','ติดตามและประเมินผล','Evaluation',i.better?`ติดตามตัวชี้วัดนี้ทุกรอบข้อมูล เป้าหมายคือให้ค่า${i.better==='up'?'เพิ่มขึ้น':'ลดลง'}ต่อเนื่อง และลดช่องว่างระหว่างอำเภอ`:'ใช้ติดตามการเปลี่ยนแปลงเชิงโครงสร้างประกอบการวางแผนระยะยาว']]}}
-
-function askBlock(i){const [rid,pkg]=RES[i.key];const W=WHY[i.id]||['',''];const c=dc(i.dimO);
- return`<div class="sec" style="margin-top:20px">${secHead('ถาม–ตอบ 5W1H','ตอบคำถามที่ผู้บริหารมักถามเกี่ยวกับตัวชี้วัดนี้',c)}
- <div class="w5" id="w5-${i.id}">${w5Cards(i,META[pkg])}</div></div>
- <div class="sec">${secHead('รู้ได้อย่างไร? · หลักฐานและแหล่งที่มา','ทุกตัวเลขตรวจสอบย้อนกลับได้ถึงชุดข้อมูลต้นทาง',c)}<div class="card ev" id="ev-${i.id}">${evidence(i,META[pkg])}</div></div>
- <div class="sec">${secHead('เราคิดว่า… · บทวิเคราะห์เชิงนโยบาย','วิเคราะห์จากข้อมูลตามหลักวงจรนโยบายสาธารณะ (Policy Cycle) · เพื่อประกอบการพิจารณา',c)}${thinkHTML(i)}</div>`}
-function w5Cards(i,m){const W=WHY[i.id]||['',''];const org=m&&m.organization?m.organization.title:(m&&m.data_source)||'กำลังโหลด…';const freq=m&&m.update_frequency_unit?`ทุก ${m.update_frequency_interval||1} ${m.update_frequency_unit}`:'–';
- const Q=[['What','คืออะไร','circle-help',(m&&m.notes)||i.name],['Why','ทำไมสำคัญ','target',`${W[0]}${W[1]&&W[1]!=='บริบท'?` <span class="tag2">${W[1]}</span>`:''}`],['Who','ใครเป็นเจ้าของข้อมูล','building-2',`${org}${m&&m.maintainer&&m.maintainer!=='null'?' · '+m.maintainer:''}`],
-  ['Where','ครอบคลุมพื้นที่ใด',`map-pin`,`จังหวัดหนองบัวลำภู${i.d?' · แยกได้ 6 อำเภอ':''}${m&&m.geo_coverage?' (ระดับ'+m.geo_coverage+')':''}`],['When','ข้อมูลปีไหน ปรับปรุงเมื่อไร','calendar-clock',`พ.ศ. ${i.s.length?i.s[0].y+'–'+i.last.y:'–'} · ความถี่ ${freq} · ปรับปรุงล่าสุด ${thd(m&&(m.last_updated_date||m.metadata_modified))}`],['How','คำนวณอย่างไร','calculator',howCalc(i)]];
- return Q.map(([e,t,icn,a])=>`<div class="wq" style="--c:${dc(i.dimO)}"><div class="wh"><span class="we">${e}</span>${ic(icn)}<b>${t}</b></div><p>${a}</p></div>`).join('')}
-function evidence(i,m){const [rid,pkg]=RES[i.key];const n=(RAW[i.key]||[]).length;const res=m&&m.resources?m.resources.find(r=>r.id===rid):null;const apiUrl=`${API}datastore_search?resource_id=${rid}&limit=5000`;
- return`${qualityHTML(i,m)}<div class="evg"><div><span>ชุดข้อมูลต้นทาง</span><b>${esc(m&&m.title||pkg)}</b></div><div><span>แหล่งที่มาของข้อมูล</span><b>${esc(m&&m.data_source||'–')}</b></div><div><span>จำนวนระเบียนที่ดึงมา</span><b>${fmt(n)} แถว</b></div><div><span>ไฟล์ข้อมูลแก้ไขล่าสุด</span><b>${thd(res&&res.last_modified)}</b></div><div><span>ชั้นข้อมูล / สัญญาอนุญาต</span><b>${esc(m&&(m.data_classification||m.data_category)||'–')} · ${esc(m&&m.license_title||'–')}</b></div><div><span>ดึงจาก API เมื่อ</span><b>${LOADED_AT?LOADED_AT.toLocaleString('th-TH',{dateStyle:'medium',timeStyle:'short'}):'–'}</b></div></div>
- <div class="links"><a class="btn" href="${DSURL+pkg}" target="_blank" rel="noopener">${ic('external-link')}เปิดชุดข้อมูลต้นทาง</a><a class="btn" href="${apiUrl}" target="_blank" rel="noopener">${ic('code')}ตรวจสอบผ่าน API</a></div><code class="api">GET ${apiUrl}</code>`}
-function thinkHTML(i){const T_=think(i),P=policyFor(i);const c=dc(i.dimO);
- return`<div class="g g2"><div class="card" style="--c:${c}"><h4>${ic('lightbulb')}ข้อสังเกตจากข้อมูล</h4><div class="sub">ข้อเท็จจริงที่อ่านได้จากตัวเลข (ไม่ใช่การสรุปสาเหตุ)</div>
-  ${T_.map(x=>`<div class="obs"><span class="od ${x.g===true?'good':x.g===false?'bad':'neu'}">${ic(x.g===true?'check':x.g===false?'triangle-alert':'info')}</span><p>${x.t}</p></div>`).join('')||'<p class="sub">ข้อมูลยังไม่พอวิเคราะห์</p>'}
-  <div class="frame"><div><span>ยุทธศาสตร์ชาติ 20 ปี</span><b>${P.P.ns}</b></div><div><span>เป้าหมายการพัฒนาที่ยั่งยืน</span><b>${(WHY[i.id]||[])[1]&&WHY[i.id][1]!=='บริบท'?WHY[i.id][1]+' · ':''}${P.P.sdg}</b></div></div></div>
- <div class="card" style="--c:${c}"><h4>${ic('git-branch')}วงจรนโยบาย (Policy Cycle)</h4><div class="sub">แนวทางเบื้องต้นเพื่อประกอบการพิจารณา ควรยืนยันร่วมกับหน่วยงานเจ้าของข้อมูล</div>
-  <div class="cyc">${P.stage.map(s=>`<div class="st"><i>${s[0]}</i><div><b>${s[1]}</b><small>${s[2]}</small><p>${s[3]}</p></div></div>`).join('')}</div></div></div>`}
-async function fillAsk(i){const pkg=RES[i.key][1];if(META[pkg])return;const m=await loadMetaOne(pkg);const a=document.getElementById('w5-'+i.id),b=document.getElementById('ev-'+i.id);if(a){a.innerHTML=w5Cards(i,m);b.innerHTML=evidence(i,m);lucide.createIcons()}}
-
-/* ---- สรุปเชิงนโยบายรายมิติ ---- */
-function dimPolicy(d){const P=POL[d.id],c=dc(d);const sc=IND.filter(i=>i.dim===d.id&&i.sc!=null).sort((a,b)=>a.sc-b.sc);const weak=sc.filter(i=>i.sc<50),strong=sc.filter(i=>i.sc>=60);
- const old=IND.filter(i=>i.dim===d.id&&i.last&&NOW_BE-i.last.y>=2);
- return`<div class="sec">${secHead('เราคิดว่า… · สรุปเชิงนโยบายของมิติ','อ่านจากตัวชี้วัดทั้งหมดในมิติ ตามหลักนโยบายสาธารณะที่อิงหลักฐาน (Evidence-based Policy)',c)}
- <div class="g g3"><div class="card" style="--c:${c}"><h4>${ic('triangle-alert')}ประเด็นเร่งด่วน</h4><div class="sub">คะแนนพัฒนาการต่ำกว่า 50</div>${weak.length?weak.map(i=>`<div class="obs"><span class="od bad">${ic(i.icon)}</span><p><b>${i.name}</b> · ${i.sc}/100</p></div>`).join(''):'<p class="sub">ไม่มีตัวชี้วัดที่ต่ำกว่า 50</p>'}</div>
-  <div class="card" style="--c:${c}"><h4>${ic('thumbs-up')}จุดแข็งที่ควรรักษา</h4><div class="sub">คะแนนพัฒนาการ 60 ขึ้นไป</div>${strong.length?strong.map(i=>`<div class="obs"><span class="od good">${ic(i.icon)}</span><p><b>${i.name}</b> · ${i.sc}/100</p></div>`).join(''):'<p class="sub">ยังไม่มีตัวชี้วัดที่ถึง 60</p>'}</div>
-  <div class="card" style="--c:${c}"><h4>${ic('landmark')}กรอบนโยบายที่เกี่ยวข้อง</h4><div class="frame" style="margin-top:6px"><div><span>ยุทธศาสตร์ชาติ</span><b>${P.ns}</b></div><div><span>SDGs</span><b>${P.sdg}</b></div><div><span>หน่วยงานหลัก</span><b>${P.ag}</b></div></div>
-   ${old.length?`<p class="sub" style="margin-top:10px">${ic('clock')} ข้อมูลเก่ากว่า 2 ปี: ${old.map(i=>i.name).join(', ')}</p>`:''}</div></div>
- <div class="card" style="margin-top:18px;--c:${c}"><h4>${ic('route')}ทางเลือกนโยบายที่เสนอ</h4><div class="sub">เรียงตามความเร่งด่วนจากข้อมูล · แนวทางเบื้องต้นเพื่อประกอบการพิจารณา</div><div class="cyc">${(weak.length?P.weak:P.keep).map((t,k)=>`<div class="st"><i>${k+1}</i><div><p style="margin:0;color:var(--tx)">${t}</p></div></div>`).join('')}</div></div></div>`}
-
-/* ---- คำถามที่ผู้บริหารมักถาม (ภาพรวม) ---- */
-function faqHTML(){const keys=Object.keys(RES);const orgs=[...new Set(Object.values(META).filter(m=>m&&m.organization).map(m=>m.organization.title))];const yrs=IND.filter(i=>i.last).map(i=>i.last.y);
- const lo=[...DIMS].filter(d=>d.score!=null).sort((a,b)=>a.score-b.score);const old=IND.filter(i=>i.last&&NOW_BE-i.last.y>=2);
- const QA=[
-  ['Who','ใครจัดทำ และข้อมูลเป็นของใคร',`จัดทำโดยสำนักงานสถิติจังหวัดหนองบัวลำภู ข้อมูลเป็นของหน่วยงานในพื้นที่${orgs.length?` ${orgs.length} หน่วยงาน ได้แก่ ${orgs.slice(0,8).join(', ')}${orgs.length>8?' และอื่น ๆ':''}`:''} ซึ่งเผยแพร่ผ่านระบบบัญชีข้อมูลจังหวัด`],
-  ['What','ดัชนีนี้คืออะไร วัดอะไร',`ดัชนีความอยู่ดีมีสุขรวม ${DIMS.length} มิติ จาก ${IND.length} ตัวชี้วัด ครอบคลุมสุขภาพ การศึกษา เศรษฐกิจ สังคม ความปลอดภัย สิ่งแวดล้อม ที่อยู่อาศัยและดิจิทัล ปัจจุบันได้ ${OVERALL}/100 (${level(OVERALL).t})`],
-  ['Where','เอาข้อมูลมาจากไหน',`ดึงสดจาก API ของระบบบัญชีข้อมูลจังหวัด (nongbualamphu.gdcatalog.go.th) ${keys.length} ชุดข้อมูล ไม่มีการพิมพ์ตัวเลขเอง ทุกการ์ดกดดูชุดข้อมูลต้นทางและ API ได้`],
-  ['When','ข้อมูลเป็นของปีไหน',`ข้อมูลอยู่ในช่วง พ.ศ. ${Math.min(...yrs)}–${Math.max(...yrs)} แต่ละตัวชี้วัดใช้ปีล่าสุดที่หน่วยงานเผยแพร่ ซึ่งไม่ตรงกัน${old.length?` · มี ${old.length} ตัวชี้วัดที่ข้อมูลเก่ากว่า 2 ปี`:''}`],
-  ['How','คิดคะแนนอย่างไร ทำไมได้เท่านี้',`เทียบค่าปีล่าสุดกับช่วงข้อมูลย้อนหลังของจังหวัดเอง 100 = ดีที่สุดในรอบที่มีข้อมูล 0 = แย่ที่สุด แล้วเฉลี่ยรายมิติและรวม (น้ำหนักเท่ากัน) มิติที่ฉุดคะแนนมากที่สุดคือ ${lo.slice(0,2).map(d=>d.name+' ('+d.score+')').join(' และ ')}`],
-  ['Why','ทำไมต้องเชื่อตัวเลขนี้',`เพราะ (1) มาจากหน่วยงานราชการเจ้าของข้อมูลโดยตรง (2) ตรวจสอบย้อนกลับได้ทุกตัวเลขผ่าน API (3) วิธีคำนวณเปิดเผยในหน้าระเบียบวิธี ข้อจำกัดคือดัชนีนี้เทียบจังหวัดกับตัวเองในอดีต ไม่ได้จัดอันดับเทียบจังหวัดอื่น`],
-  ['So what','แล้วจังหวัดควรทำอะไรต่อ',`ใช้หลักวงจรนโยบาย: ยกประเด็นที่คะแนนต่ำขึ้นวาระ → เลือกทางเลือกนโยบายตามมิติ → มอบหน่วยงานหลักและอำเภอเป้าหมาย → ติดตามตัวชี้วัดเดิมทุกรอบข้อมูล ดูรายละเอียดได้ในแต่ละมิติ หัวข้อ “เราคิดว่า…”`],
- ];
- return QA.map(([e,q,a],k)=>`<details class="faq" ${k<2?'open':''}><summary><span class="we">${e}</span>${q}${ic('chevron-down')}</summary><p>${a}</p></details>`).join('')}
-
-/* ---- มาตรฐานสากลที่ใช้อ้างอิง ---- */
-const STD=[
- ['OECD Well-being Framework','กรอบวัดความอยู่ดีมีสุข (How’s Life?)','layers','แบ่งความอยู่ดีมีสุขเป็นหลายมิติ ทั้งสภาพความเป็นอยู่ทางวัตถุและคุณภาพชีวิต ดัชนีนี้จัด 7 มิติตามแนวคิดเดียวกัน'],
- ['Stiglitz–Sen–Fitoussi (2009)','วัดมากกว่า GDP','scale','ไม่ใช้ GDP ตัวเดียวตัดสินความกินดีอยู่ดี จึงวาง GPP คู่กับรายได้จริง หนี้ ความเหลื่อมล้ำ สุขภาพ และสิ่งแวดล้อม'],
- ['UN SDGs · Leave No One Behind','เป้าหมายการพัฒนาที่ยั่งยืน','globe','ทุกตัวชี้วัดผูกกับเป้าหมาย SDG และแสดงช่องว่างรายอำเภอ เพื่อไม่ทิ้งพื้นที่ใดไว้ข้างหลัง'],
- ['OECD/JRC Handbook (2008)','คู่มือสร้างดัชนีประกอบ','calculator','ทำตามขั้นตอนมาตรฐาน คือเลือกตัวชี้วัด ปรับค่าแบบ Min–Max กำหนดทิศทาง ให้น้ำหนักเท่ากัน รวมเป็นดัชนี และเปิดเผยวิธีคิด'],
- ['UN Fundamental Principles of Official Statistics','หลักการพื้นฐานสถิติทางการ','badge-check','ใช้ข้อมูลทางการจากหน่วยงานเจ้าของข้อมูล เปิดเผยแหล่งที่มาและวิธีการ เป็นกลาง ไม่ปรับแต่งตัวเลข'],
- ['ESS Quality Framework','มิติคุณภาพข้อมูลสถิติ','shield-check','ประเมินทุกตัวชี้วัดใน 5 ด้าน: ตรงความต้องการ แม่นยำ ทันเวลา เข้าถึงได้ และเปรียบเทียบได้'],
- ['FAIR & Open Data Charter','ข้อมูลเปิดที่ค้นพบและใช้ซ้ำได้','database','ทุกตัวเลขค้นพบได้ (ลิงก์ชุดข้อมูล) เข้าถึงได้ (API) ใช้ร่วมกันได้ (CKAN/JSON) และใช้ซ้ำได้ (สัญญาอนุญาตเปิด)'],
- ['UNESCAP Good Governance','หลักธรรมาภิบาล 8 ประการ','landmark','ยึดความโปร่งใส ภาระรับผิดชอบ และความเสมอภาค โดยระบุหน่วยงานรับผิดชอบและเปิดให้ตรวจสอบย้อนกลับได้'],
- ['Evidence-based Policy · Policy Cycle','นโยบายที่อิงหลักฐาน และวงจรนโยบาย','git-branch','ข้อเสนอจัดตามวงจรนโยบาย (กำหนดประเด็น → ทางเลือก → นำไปปฏิบัติ → ประเมินผล) แยกข้อเท็จจริงออกจากข้อเสนอชัดเจน'],
- ['Results-Based Management','การบริหารมุ่งผลสัมฤทธิ์','target','ตัวชี้วัดเป็นระดับผลลัพธ์ (Outcome) ไม่ใช่กิจกรรม ใช้ติดตามว่านโยบายเปลี่ยนชีวิตคนได้จริงหรือไม่'],
-];
-function quality(i,m){const lag=i.last?NOW_BE-i.last.y:9;const W=WHY[i.id]||[];
- return[['ตรงความต้องการ','Relevance',W[1]&&W[1]!=='บริบท'?2:1,W[1]&&W[1]!=='บริบท'?'ผูกกับ '+W[1]:'ตัวชี้วัดเชิงบริบท'],
-  ['แม่นยำ น่าเชื่อถือ','Accuracy',m&&m.organization?2:1,m&&m.organization?'หน่วยงานราชการเจ้าของข้อมูล':'รอข้อมูลหน่วยงาน'],
-  ['ทันเวลา','Timeliness',lag<=1?2:lag===2?1:0,i.last?`ข้อมูลล่าสุดปี ${i.last.y} (ห่าง ${lag} ปี)`:'ไม่มีข้อมูล'],
-  ['เข้าถึงได้','Accessibility',2,'เปิดผ่าน API และหน้าชุดข้อมูล'],
-  ['เปรียบเทียบได้','Coherence',i.s.length>=5?2:i.s.length>=3?1:0,`อนุกรม ${i.s.length} ปี${i.d?' · แยกรายอำเภอได้':''}`]]}
-function qualityHTML(i,m){const q=quality(i,m);const tot=Math.round(sum(q.map(x=>x[2]))/10*100);
- return`<div class="qrow"><div class="qscore"><b>${tot}</b><small>คุณภาพข้อมูล /100<br>ตามกรอบ ESS</small></div>${q.map(x=>`<div class="qb q${x[2]}"><span>${ic(x[2]===2?'circle-check':x[2]===1?'circle-alert':'circle-x')}${x[0]}</span><small>${x[1]} · ${x[3]}</small></div>`).join('')}</div>`}
-function stdStrip(){return`<div class="stds">${STD.map(s=>`<div class="std" title="${s[3]}"><span>${ic(s[2])}</span><div><b>${s[0]}</b><small>${s[1]}</small></div></div>`).join('')}</div>`}
-function stdDetail(){return`<div class="g g2" style="margin-top:10px">${STD.map(s=>`<div class="wq" style="--c:var(--brand)"><div class="wh">${ic(s[2])}<b>${s[0]}</b></div><small style="color:var(--tx3)">${s[1]}</small><p>${s[3]}</p></div>`).join('')}</div>`}
-
-/* =========================================================
-   EXTRAS: โปรไฟล์อำเภอ · ดัชนีย้อนหลัง · โหมดนำเสนอ · รายงาน PDF · ค้นหา · แชร์
-   ========================================================= */
-function toast(t){let e=document.getElementById('toast');if(!e){e=document.createElement('div');e.id='toast';document.body.appendChild(e)}e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),2200)}
-
-/* ---- ดัชนีย้อนหลังรายปี ---- */
-function indexHistory(){const sc=IND.filter(i=>i.better&&i.s.length>=2);const ys=[...new Set(sc.flatMap(i=>i.s.map(p=>p.y)))].sort((a,b)=>a-b);const out=[];
- ys.forEach(Y=>{const dimS={};sc.forEach(i=>{const pts=i.s.filter(p=>p.y<=Y);if(!pts.length)return;const vs=i.s.map(p=>p.v),mn=Math.min(...vs),mx=Math.max(...vs);const v=pts[pts.length-1].v;let x=mx===mn?50:(v-mn)/(mx-mn)*100;if(i.better==='down')x=100-x;(dimS[i.dim]=dimS[i.dim]||[]).push(x)});
-  const d={};DIMS.forEach(D=>{if(dimS[D.id])d[D.id]=sum(dimS[D.id])/dimS[D.id].length});const k=Object.keys(d);if(k.length>=5)out.push({y:Y,o:Math.round(sum(Object.values(d))/k.length),d})});return out}
-function drawHistory(el){const H=indexHistory();if(H.length<2){el.innerHTML='<div class="empty">ข้อมูลยังไม่พอสร้างอนุกรม</div>';return}
- mk(el,{tooltip:TT,legend:{...LEG,type:'scroll',selected:Object.fromEntries(DIMS.map(d=>[d.name,false]))},grid:{left:8,right:18,top:44,bottom:4,containLabel:true},xAxis:{type:'category',data:H.map(h=>h.y),...AX},yAxis:{type:'value',min:0,max:100,...AX},
-  series:[{name:'ดัชนีรวม',type:'line',smooth:.3,symbolSize:10,lineStyle:{width:4,color:'#db2777'},itemStyle:{color:'#fff',borderColor:'#db2777',borderWidth:3},areaStyle:{color:grad('#db2777',.22)},label:{show:true,position:'top',color:TXT,fontFamily:'Kanit',fontWeight:600},data:H.map(h=>h.o)},
-   ...DIMS.map(d=>({name:d.name,type:'line',smooth:.3,symbolSize:6,lineStyle:{width:2,color:dc(d)},itemStyle:{color:dc(d)},data:H.map(h=>h.d[d.id]!=null?Math.round(h.d[d.id]):null)}))]})}
-
-/* ---- โปรไฟล์อำเภอ ---- */
-let DSEL=DISTRICTS[0];
-function distRows(dn){return IND.filter(i=>i.d&&i.d.v[dn]!=null).map(i=>{const e=Object.entries(i.d.v);const sorted=[...e].sort((a,b)=>i.better==='down'?a[1]-b[1]:b[1]-a[1]);const rank=sorted.findIndex(x=>x[0]===dn)+1;const avg=sum(e.map(x=>x[1]))/e.length;return{i,v:i.d.v[dn],y:i.d.y,rank,n:e.length,avg}})}
-function renderDistrict(){const el=document.getElementById('p-district');const c='#db2777';
- el.innerHTML=`<section class="dhero" style="--c:${c};min-height:260px"><div class="media"><div class="ph" data-bg="hero/hero-home"></div><video data-video="hero/hero-home" autoplay muted loop playsinline></video></div>
-  <div class="ico"><img data-src="icons/menu-district" data-fb="map-pinned" alt=""></div><div><div class="en">District Profile · 6 อำเภอ</div><h2>โปรไฟล์รายอำเภอ</h2><p>เทียบอำเภอกับค่าเฉลี่ย 6 อำเภอในทุกตัวชี้วัดที่มีข้อมูลรายอำเภอ เพื่อหาจุดแข็งและพื้นที่เป้าหมายเชิงนโยบาย</p></div></section>
- <div class="sec"><div class="chips" id="dchips">${DISTRICTS.map(d=>`<button class="chip ${d===DSEL?'on':''}" data-d="${d}">${ic('map-pin')}อำเภอ${d}</button>`).join('')}</div><div id="dbody"></div></div>`;
- lucide.createIcons();hydrate(el);el.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{DSEL=b.dataset.d;el.querySelectorAll('[data-d]').forEach(x=>x.classList.toggle('on',x===b));drawDistrict()});drawDistrict()}
-function drawDistrict(){const B=document.getElementById('dbody');const R=distRows(DSEL);const sc=R.filter(r=>r.i.better);const top=[...sc].sort((a,b)=>a.rank-b.rank).slice(0,3),low=[...sc].sort((a,b)=>b.rank-a.rank).slice(0,3);
- const scoreD=sc.length?Math.round(sum(sc.map(r=>(r.n-r.rank)/(r.n-1)*100))/sc.length):null;
- B.innerHTML=`<div class="g g3" style="margin-top:18px"><div class="card"><h4>${ic('map')}ตำแหน่งในจังหวัด</h4><div class="sub">คลิกแผนที่เพื่อเปลี่ยนอำเภอ</div><div id="dpick" style="height:340px"></div></div>
-  <div class="card" style="--c:#16a34a"><h4>${ic('thumbs-up')}จุดแข็งของอำเภอ</h4><div class="sub">อันดับดีที่สุดเมื่อเทียบ 6 อำเภอ</div>${top.map(r=>`<div class="obs"><span class="od good">${ic(r.i.icon)}</span><p><b>${r.i.name}</b><br><small style="color:var(--tx3)">อันดับ ${r.rank}/${r.n} · ${fmt(r.v,r.i.dec)} ${r.i.unit}</small></p></div>`).join('')}</div>
-  <div class="card" style="--c:#ea580c"><h4>${ic('triangle-alert')}พื้นที่ที่ควรพัฒนา</h4><div class="sub">อันดับท้ายเมื่อเทียบ 6 อำเภอ</div>${low.map(r=>`<div class="obs"><span class="od bad">${ic(r.i.icon)}</span><p><b>${r.i.name}</b><br><small style="color:var(--tx3)">อันดับ ${r.rank}/${r.n} · ${fmt(r.v,r.i.dec)} ${r.i.unit}</small></p></div>`).join('')}
-   ${scoreD!=null?`<div class="frame"><div><span>ดัชนีสัมพัทธ์ของอำเภอ (เทียบ 6 อำเภอ)</span><b style="font-family:Kanit;font-size:22px;color:${level(scoreD).c}">${scoreD}/100 · ${level(scoreD).t}</b></div></div>`:''}</div></div>
- <div class="card" style="margin-top:18px"><h4>${ic('table')}ตัวชี้วัดทั้งหมดของอำเภอ${DSEL}</h4><div class="sub">อันดับ 1 = ดีที่สุดใน 6 อำเภอ (ตัวชี้วัดเชิงบริบทเรียงจากค่ามากไปน้อย)</div>
-  <div class="tbl" style="max-height:none"><table class="t"><thead><tr><th>มิติ</th><th>ตัวชี้วัด</th><th>ปี</th><th style="text-align:right">อำเภอ${DSEL}</th><th style="text-align:right">เฉลี่ย 6 อำเภอ</th><th style="text-align:right">อันดับ</th><th>สถานะ</th></tr></thead><tbody>
-  ${R.map(r=>{const t=r.n>1?(r.n-r.rank)/(r.n-1):.5;const col=r.i.better?goodColor(t):'var(--tx3)';return`<tr data-ind="${r.i.id}" style="cursor:pointer"><td style="color:${dc(r.i.dimO)}">${r.i.dimO.name}</td><td style="white-space:normal">${r.i.name}</td><td>${r.y}</td><td class="n">${fmt(r.v,r.i.dec)}</td><td class="n" style="color:var(--tx3)">${fmt(r.avg,r.i.dec)}</td><td class="n"><b style="color:${col}">${r.rank}</b>/${r.n}</td><td>${r.i.better?`<span class="pillbar"><i style="width:${Math.round(t*100)}%;background:${col}"></i></span>`:'<span class="tag2">บริบท</span>'}</td></tr>`}).join('')}</tbody></table></div></div>`;
- lucide.createIcons();bind(B);
- if(!mapReady){echarts.registerMap('nbl',GEO);mapReady=true}
- const ch=mk(document.getElementById('dpick'),{tooltip:{...TT,trigger:'item',formatter:p=>'อำเภอ'+p.name},series:[{type:'map',map:'nbl',aspectScale:.95,layoutCenter:['50%','50%'],layoutSize:'95%',selectedMode:false,label:{show:true,fontFamily:'Kanit',fontSize:12,color:'#1f0f1f',textBorderColor:'rgba(255,255,255,.9)',textBorderWidth:3,formatter:p=>DSHORT[p.name]||p.name},itemStyle:{borderColor:isDark()?'#0b0f1d':'#fff',borderWidth:2},emphasis:{itemStyle:{areaColor:'#f9a8d4'}},
-  data:DISTRICTS.map(n=>({name:n,itemStyle:{areaColor:n===DSEL?'#db2777':(isDark()?'#232a48':'#f3e8ef')},label:{color:n===DSEL?'#fff':'#1f0f1f',textBorderWidth:n===DSEL?0:3}}))}]});
- ch.on('click',p=>{if(DISTRICTS.includes(p.name)){DSEL=p.name;document.querySelectorAll('#dchips [data-d]').forEach(x=>x.classList.toggle('on',x.dataset.d===DSEL));CHARTS.splice(CHARTS.indexOf(ch),1);ch.dispose();drawDistrict()}})}
-
-/* ---- โหมดนำเสนอ ---- */
-const PRES={on:false,i:0,t:null,dur:15000,seq:()=>['overview',...DIMS.map(d=>d.id),'district']};
-function presStart(){PRES.on=true;PRES.i=Math.max(0,PRES.seq().indexOf(CUR));document.body.classList.add('present');document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen().catch(()=>{});presShow();toast('โหมดนำเสนอ · ← → เปลี่ยนหน้า · Space หยุด · Esc ออก')}
-function presShow(){const s=PRES.seq();go(s[PRES.i]);const b=document.getElementById('presBar');b.innerHTML=`<div class="pp"><i style="animation-duration:${PRES.dur}ms" class="${PRES.t===false?'paused':''}"></i></div><div class="pc"><button class="ibtn" data-p="prev">${ic('chevron-left')}</button><span>${PRES.i+1} / ${s.length} · ${PAGES.find(p=>p.id===s[PRES.i]).name}</span><button class="ibtn" data-p="toggle">${ic(PRES.t===false?'play':'pause')}</button><button class="ibtn" data-p="next">${ic('chevron-right')}</button><button class="ibtn" data-p="exit">${ic('x')}</button></div>`;
- lucide.createIcons();b.querySelectorAll('[data-p]').forEach(x=>x.onclick=()=>presCmd(x.dataset.p));clearTimeout(PRES.t);if(PRES.t!==false)PRES.t=setTimeout(()=>presCmd('next'),PRES.dur)}
-function presCmd(c){const n=PRES.seq().length;if(c==='next'){PRES.i=(PRES.i+1)%n;if(PRES.t===false)PRES.t=null;presShow()}else if(c==='prev'){PRES.i=(PRES.i-1+n)%n;presShow()}else if(c==='toggle'){if(PRES.t===false){PRES.t=null}else{clearTimeout(PRES.t);PRES.t=false}presShow()}else{PRES.on=false;clearTimeout(PRES.t);PRES.t=null;document.body.classList.remove('present');document.getElementById('presBar').innerHTML='';if(document.fullscreenElement)document.exitFullscreen().catch(()=>{})}}
-document.addEventListener('keydown',e=>{if(!PRES.on)return;if(e.key==='ArrowRight')presCmd('next');else if(e.key==='ArrowLeft')presCmd('prev');else if(e.key===' '){e.preventDefault();presCmd('toggle')}else if(e.key==='Escape')presCmd('exit')});
-
-/* ---- รายงานสรุปผู้บริหาร (พิมพ์/บันทึก PDF) ---- */
-function printBrief(){const P=document.getElementById('print');const sc=IND.filter(i=>i.sc!=null).sort((a,b)=>b.sc-a.sc);const lv=level(OVERALL);const logo=n=>document.querySelector(`img[data-src="brand/${n}"]`);const src=n=>{const i=logo(n);return i&&i.src?i.src:''};
- const row=i=>`<tr><td>${i.dimO.name}</td><td>${i.name}</td><td class="n">${fmt(i.last.v,i.dec)} ${i.unit}</td><td class="n">${i.last.y}</td><td class="n"><b>${i.sc}</b></td></tr>`;
- P.innerHTML=`<div class="ph1">${['seal-nblp','logo-nso','logo-gdcatalog'].map(n=>src(n)?`<img src="${src(n)}">`:'').join('')}<div><h1>รายงานสรุปสำหรับผู้บริหาร</h1><h2>ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู</h2><p>ข้อมูล ณ ${LOADED_AT?LOADED_AT.toLocaleString('th-TH',{dateStyle:'long',timeStyle:'short'}):''} · แหล่งข้อมูล: ระบบบัญชีข้อมูลจังหวัด ${Object.keys(RES).length} ชุดข้อมูล</p></div></div>
- <div class="pg"><div class="pbig"><b>${OVERALL}</b><span>/100 · ${lv.t}</span><small>ดัชนีรวม ${DIMS.length} มิติ ${IND.filter(i=>i.sc!=null).length} ตัวชี้วัด</small></div>
-  <table class="pt"><thead><tr><th>มิติ</th><th class="n">คะแนน</th><th>ระดับ</th><th>ตัวชี้วัดที่ต่ำสุดในมิติ</th></tr></thead><tbody>${DIMS.map(d=>{const w=IND.filter(i=>i.dim===d.id&&i.sc!=null).sort((a,b)=>a.sc-b.sc)[0];return`<tr><td><b>${d.name}</b></td><td class="n"><b>${d.score??'–'}</b></td><td>${level(d.score).t}</td><td>${w?w.name+' ('+w.sc+')':'–'}</td></tr>`}).join('')}</tbody></table></div>
- <h3>จุดแข็ง 5 อันดับ</h3><table class="pt"><thead><tr><th>มิติ</th><th>ตัวชี้วัด</th><th class="n">ค่าล่าสุด</th><th class="n">ปี</th><th class="n">คะแนน</th></tr></thead><tbody>${sc.slice(0,5).map(row).join('')}</tbody></table>
- <h3>ประเด็นที่ควรเฝ้าระวัง 5 อันดับ</h3><table class="pt"><thead><tr><th>มิติ</th><th>ตัวชี้วัด</th><th class="n">ค่าล่าสุด</th><th class="n">ปี</th><th class="n">คะแนน</th></tr></thead><tbody>${sc.slice(-5).reverse().map(row).join('')}</tbody></table>
- <h3>ข้อเสนอเชิงนโยบาย (ตามวงจรนโยบาย)</h3><ol>${DIMS.filter(d=>d.score!=null&&d.score<50).map(d=>`<li><b>${d.name}</b> (${d.score}): ${POL[d.id].weak[0]} · หน่วยงานหลัก ${POL[d.id].ag.split(' · ')[0]}</li>`).join('')||'<li>ทุกมิติอยู่ในระดับปานกลางขึ้นไป ควรรักษาระดับและติดตามต่อเนื่อง</li>'}</ol>
- <p class="pn">หมายเหตุ: คะแนนเทียบค่าปีล่าสุดกับช่วงข้อมูลย้อนหลังของจังหวัด (Min–Max ตามคู่มือ OECD/JRC) ข้อเสนอเป็นแนวทางเบื้องต้นเพื่อประกอบการพิจารณา · จัดทำโดย สำนักงานสถิติจังหวัดหนองบัวลำภู · ${location.href.split('#')[0]}</p>`;
- setTimeout(()=>window.print(),300)}
-
-/* ---- ค้นหา (Ctrl+K) ---- */
-function openSearch(){openModal(`<div class="mhead"><label class="search" style="flex:1">${ic('search')}<input id="sq" placeholder="ค้นหาตัวชี้วัด มิติ หรืออำเภอ…" autocomplete="off"></label><button class="ibtn x">${ic('x')}</button></div><div id="sr"></div>`);
- const q=document.getElementById('sq');const run=()=>{const t=q.value.trim();const items=[...PAGES.map(p=>({k:'page',id:p.id,t:p.name,s:p.en,ic:p.icon,c:pc(p)})),...IND.filter(i=>i.s.length).map(i=>({k:'ind',id:i.id,t:i.name,s:'มิติ'+i.dimO.name+(i.last?' · '+fmt(i.last.v,i.dec)+' '+i.unit:''),ic:i.icon,c:dc(i.dimO)})),...DISTRICTS.map(d=>({k:'dist',id:d,t:'อำเภอ'+d,s:'โปรไฟล์อำเภอ',ic:'map-pin',c:'#db2777'}))].filter(x=>!t||(x.t+x.s).toLowerCase().includes(t.toLowerCase())).slice(0,14);
-  document.getElementById('sr').innerHTML=items.map((x,k)=>`<div class="ins sri ${k===0?'on':''}" style="--c:${x.c}" data-k="${x.k}" data-id="${x.id}"><div class="ic">${ic(x.ic)}</div><div><div class="t">${x.t}</div><div class="d">${x.s}</div></div><div>${ic('corner-down-left')}</div></div>`).join('')||'<div class="empty">ไม่พบ</div>';lucide.createIcons();
-  document.querySelectorAll('.sri').forEach(r=>r.onclick=()=>pickSearch(r))};
- q.oninput=run;q.onkeydown=e=>{if(e.key==='Enter'){const r=document.querySelector('.sri');r&&pickSearch(r)}};run();setTimeout(()=>q.focus(),50)}
-function pickSearch(r){closeModal();const k=r.dataset.k,id=r.dataset.id;if(k==='page')go(id);else if(k==='ind'){go(IND.find(i=>i.id===id).dim);setTimeout(()=>openInd(id),300)}else{DSEL=id;RENDERED.district=0;go('district')}}
-document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openSearch()}});
-function shareLink(){const u=location.href;(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>toast('คัดลอกลิงก์หน้านี้แล้ว')).catch(()=>toast(u))}
-
-/* ---------------- MODAL ---------------- */
-function bind(root){root.querySelectorAll('[data-ind]').forEach(c=>c.onclick=()=>openInd(c.dataset.ind));root.querySelectorAll('.dc[data-go]').forEach(c=>c.onclick=()=>go(c.dataset.go))}
-const modal=document.getElementById('modal');
-function openModal(html){document.getElementById('mbox').innerHTML=html;modal.classList.add('on');lucide.createIcons();document.body.style.overflow='hidden'}
-function closeModal(){modal.classList.remove('on');document.body.style.overflow='';['mChart','mMap'].forEach(id=>{const c=document.getElementById(id);if(c){const i=echarts.getInstanceByDom(c);if(i){CHARTS.splice(CHARTS.indexOf(i),1);i.dispose()}}})}
-modal.onclick=e=>{if(e.target===modal||e.target.closest('.x'))closeModal()};
+function bindInd(root){root.querySelectorAll('[data-ind]').forEach(c=>c.onclick=()=>openInd(c.dataset.ind))}
+function openModal(html){const m=document.getElementById('modal');document.getElementById('mbox').innerHTML=html;m.classList.add('on');lucide.createIcons();document.body.style.overflow='hidden'}
+function closeModal(){document.getElementById('modal').classList.remove('on');document.body.style.overflow='';const c=document.getElementById('mChart');if(c){const i=echarts.getInstanceByDom(c);i&&i.dispose()}}
+document.getElementById('modal').onclick=e=>{if(e.target.id==='modal'||e.target.closest('.x'))closeModal()};
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-function openInd(id){const i=IND.find(x=>x.id===id),c=dc(i.dimO),[rid,pkg]=RES[i.key],dl=delta(i);const apiUrl=`${API}datastore_search?resource_id=${rid}&limit=5000`;
- openModal(`<div class="mhead"><div class="ic" style="width:52px;height:52px;border-radius:15px;display:grid;place-items:center;background:${c}22;color:${c};flex:none;font-size:24px">${ic(i.icon)}</div><div><div style="font-size:13px;color:${c};font-weight:600">มิติ${i.dimO.name}</div><h2>${i.name}</h2><div style="color:var(--tx3);font-size:13.5px">${i.note||''}</div></div><button class="ibtn x" aria-label="ปิด">${ic('x')}</button></div>
- <div class="kpis"><div class="kpi" style="--c:${c}"><div class="lb">ค่าล่าสุด</div><div class="v">${i.last?fmt(i.last.v,i.dec):'–'}<small>${i.unit}</small></div><div class="ft">${i.last?'พ.ศ. '+i.last.y:''}</div></div>
+
+function openInd(id){const i=IND.find(x=>x.id===id),c=i.dimO.c,[rid,pkg]=RES[i.key],dl=delta(i);
+ const apiUrl=`${API}datastore_search?resource_id=${rid}&limit=5000`;
+ openModal(`<div class="mhead"><div class="ic" style="width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:${c}22;color:${c};flex:none">${ic(i.icon)}</div><div><div style="font-size:12px;color:${c};font-weight:600">มิติ${i.dimO.name}</div><h2>${i.name}</h2><div style="color:var(--tx3);font-size:13px">${i.note||''}</div></div><button class="x">${ic('x')}</button></div>
+ <div class="kpis" style="margin-top:0"><div class="kpi" style="--c:${c}"><div class="lb">ค่าล่าสุด</div><div class="v">${i.last?fmt(i.last.v,i.dec):'–'}<small>${i.unit}</small></div><div class="ft">${i.last?'พ.ศ. '+i.last.y:''}</div></div>
   <div class="kpi" style="--c:${c}"><div class="lb">เปลี่ยนแปลงจากปีก่อน</div><div class="v">${dl?(dl.df>0?'+':'')+fmt(dl.df,i.dec):'–'}</div><div class="ft">${dl?`<span class="delta ${dl.cls}">${ic(dl.icon)}${fmt(Math.abs(dl.pct),1)}%</span> เทียบปี ${i.prev.y}`:''}</div></div>
   <div class="kpi" style="--c:${level(i.sc).c}"><div class="lb">คะแนนพัฒนาการ</div><div class="v">${i.sc??'–'}<small>/100</small></div><div class="ft">${i.better?(i.better==='up'?'ค่ามาก = ดี':'ค่าน้อย = ดี'):'ตัวชี้วัดเชิงบริบท'}</div></div>
-  <div class="kpi" style="--c:${c}"><div class="lb">ช่วงข้อมูล</div><div class="v" style="font-size:24px">${i.s.length?i.s[0].y+'–'+i.last.y:'–'}</div><div class="ft">${i.s.length} ปี</div></div></div>
- <div class="card" style="margin-top:16px;--c:${c}"><h4>${ic('chart-line')}แนวโน้มรายปี</h4><div id="mChart" class="chart" style="height:300px"></div></div>
- ${i.d?`<div class="card" style="margin-top:16px;--c:${c}"><h4>${ic('map')}รายอำเภอ · พ.ศ. ${i.d.y}</h4><div class="maprow" style="margin-top:8px"><div id="mMap" style="height:380px"></div><div class="rank">${rankList(i)}</div></div></div>`:''}
- <div class="card" style="margin-top:16px;--c:${c}"><h4>${ic('table')}ตารางข้อมูล</h4><div class="tbl" style="margin-top:10px"><table class="t"><thead><tr><th>ปี พ.ศ.</th><th style="text-align:right">ค่า (${i.unit||'-'})</th><th style="text-align:right">เปลี่ยนแปลง</th></tr></thead><tbody>${[...i.s].reverse().map((p,k,a)=>{const q=a[k+1];const df=q?p.v-q.v:null;return`<tr><td>${p.y}</td><td class="n">${fmt(p.v,i.dec)}</td><td class="n" style="color:${df==null||!i.better||df===0?'var(--tx3)':((i.better==='up')===(df>0)?'#16a34a':'#e11d48')}">${df==null?'–':(df>0?'+':'')+fmt(df,i.dec)}</td></tr>`}).join('')}</tbody></table></div>
-  <div class="links"><a class="btn" href="${DSURL+pkg}" target="_blank" rel="noopener">${ic('external-link')}ชุดข้อมูลต้นทาง</a><a class="btn" href="${apiUrl}" target="_blank" rel="noopener">${ic('code')}เปิด API (JSON)</a></div><code class="api">GET ${apiUrl}</code></div>${askBlock(i)}`);fillAsk(i);
- mk(document.getElementById('mChart'),{tooltip:TT,grid:{left:8,right:18,top:28,bottom:4,containLabel:true},xAxis:{type:'category',data:i.s.map(p=>p.y),...AX},yAxis:{type:'value',scale:true,...AX},series:[{type:'line',smooth:.3,symbolSize:10,data:i.s.map(p=>+p.v.toFixed(i.dec+1)),lineStyle:{width:3.5,color:c},itemStyle:{color:'#fff',borderColor:c,borderWidth:3},areaStyle:{color:grad(c,.3)},label:{show:true,position:'top',color:TXT,fontFamily:'Kanit',formatter:p=>fmt(p.value,i.dec)},markLine:i.s.length>2?{symbol:'none',lineStyle:{color:AX.axisLabel.color,type:'dashed'},label:{color:AX.axisLabel.color,formatter:p=>'เฉลี่ย '+fmt(p.value,i.dec)},data:[{type:'average'}]}:undefined}]});
- if(i.d)drawMap(document.getElementById('mMap'),i);}
+  <div class="kpi" style="--c:${c}"><div class="lb">ช่วงข้อมูล</div><div class="v" style="font-size:22px">${i.s.length?i.s[0].y+'–'+i.last.y:'–'}</div><div class="ft">${i.s.length} ปี</div></div></div>
+ <div class="card" style="margin-top:16px"><h3 style="--c:${c}">${ic('chart-line')}แนวโน้มรายปี</h3><div id="mChart" class="chart" style="height:300px"></div></div>
+ ${i.d?`<div class="card" style="margin-top:16px;--c:${c}"><h3>${ic('map')}รายอำเภอ · พ.ศ. ${i.d.y}</h3><div class="dmap" style="margin-top:10px"><div>${hexMap(i)}</div><div>${rankList(i)}</div></div></div>`:''}
+ <div class="card" style="margin-top:16px"><h3 style="--c:${c}">${ic('table')}ตารางข้อมูล</h3><div class="tbl" style="margin-top:8px"><table class="t"><thead><tr><th>ปี พ.ศ.</th><th style="text-align:right">ค่า (${i.unit||'-'})</th><th style="text-align:right">เปลี่ยนแปลง</th></tr></thead><tbody>${[...i.s].reverse().map((p,k,a)=>{const q=a[k+1];const df=q?p.v-q.v:null;return`<tr><td>${p.y}</td><td class="n">${fmt(p.v,i.dec)}</td><td class="n" style="color:${df==null?'var(--tx3)':(!i.better||df===0)?'var(--tx2)':((i.better==='up')===(df>0)?'#4ade80':'#fb7185')}">${df==null?'–':(df>0?'+':'')+fmt(df,i.dec)}</td></tr>`}).join('')}</tbody></table></div>
+  <div class="links"><a class="btn" href="${DSURL+pkg}" target="_blank">${ic('external-link')}ชุดข้อมูลต้นทาง</a><a class="btn" href="${apiUrl}" target="_blank">${ic('code')}เปิด API (JSON)</a></div><code class="api">GET ${apiUrl}</code></div>`);
+ mk(document.getElementById('mChart'),{tooltip:TT,grid:{left:8,right:16,top:20,bottom:4,containLabel:true},xAxis:{type:'category',data:i.s.map(p=>p.y),...AX},yAxis:{type:'value',scale:true,...AX},series:[{type:'line',smooth:true,symbolSize:10,data:i.s.map(p=>+p.v.toFixed(i.dec+1)),lineStyle:{width:3.5,color:c,shadowBlur:14,shadowColor:c},itemStyle:{color:'#fff',borderColor:c,borderWidth:3},areaStyle:{color:grad(c,.35)},label:{show:true,position:'top',color:'#e8eef8',formatter:p=>fmt(p.value,i.dec)},markLine:i.s.length>2?{symbol:'none',lineStyle:{color:'rgba(255,255,255,.25)',type:'dashed'},label:{color:'#8b9ab3',formatter:'เฉลี่ย {c}'},data:[{type:'average'}]}:undefined}]});
+}
 
-/* ---------------- CATALOG ---------------- */
+/* ---------- Catalog explorer (live package_search) ---------- */
 const CAT={q:'',group:'',start:0,rows:24};
-function renderCatalog(){const el=document.getElementById('p-catalog');const c=isDark()?'#2dd4bf':'#0d9488';
- el.innerHTML=`<section class="dhero" style="--c:${c};min-height:240px"><div class="media"><div class="ph" data-bg="dims/catalog"></div><video data-video="dims/catalog" autoplay muted loop playsinline></video></div><div class="ico" style="background:#fff"><img data-src="brand/logo-gdcatalog" data-fb="database" alt="" style="width:70px;height:70px"></div><div><div class="en">Provincial Data Catalog · gdcatalog</div><h2>คลังข้อมูลจังหวัดหนองบัวลำภู</h2><p>ค้นหาชุดข้อมูลทั้งหมดในระบบบัญชีข้อมูลจังหวัดแบบเรียลไทม์ พร้อมดูตัวอย่างตารางได้ทันที</p></div><div class="big"><b id="catTotal">–</b><small>ชุดข้อมูล</small></div></section>
- <div class="sec"><label class="search">${ic('search')}<input id="catQ" placeholder="ค้นหาชุดข้อมูล เช่น ประชากร ผู้สูงอายุ ขยะ ท่องเที่ยว…" autocomplete="off"></label><div class="chips" id="catChips"></div><div id="catList"></div></div>`;
- lucide.createIcons();hydrate(el);let t;document.getElementById('catQ').oninput=e=>{clearTimeout(t);t=setTimeout(()=>{CAT.q=e.target.value.trim();CAT.start=0;loadCat()},350)};loadCat(true)}
+async function renderCatalog(){const el=document.getElementById('p-catalog');
+ el.innerHTML=`<div class="dhead" style="--c:#2dd4bf"><div class="big">${ic('database')}</div><div class="ic">${ic('database')}</div><div><div style="font-size:12px;letter-spacing:2px;color:#2dd4bf;font-weight:600">PROVINCIAL DATA CATALOG</div><h2>คลังข้อมูลจังหวัดหนองบัวลำภู</h2><p>ค้นหาชุดข้อมูลทั้งหมดในระบบบัญชีข้อมูลจังหวัดแบบเรียลไทม์ผ่าน CKAN API พร้อมดูตัวอย่างข้อมูลได้ทันที</p></div><div class="ring"><div style="text-align:right"><div class="num" style="color:#2dd4bf" id="catTotal">–</div><div class="lab">ชุดข้อมูล</div></div></div></div>
+ <div class="card" style="margin-top:18px"><div class="cat-tools"><label class="search">${ic('search')}<input id="catQ" placeholder="ค้นหาชุดข้อมูล เช่น ประชากร, ผู้สูงอายุ, ขยะ, ท่องเที่ยว…"></label></div><div class="chips" id="catChips"></div></div>
+ <div id="catList"></div>`;lucide.createIcons();
+ let t;document.getElementById('catQ').oninput=e=>{clearTimeout(t);t=setTimeout(()=>{CAT.q=e.target.value.trim();CAT.start=0;loadCat()},350)};
+ loadCat(true);}
 async function loadCat(first){const L=document.getElementById('catList');L.innerHTML='<div class="empty">กำลังค้นหา…</div>';
  try{const p={q:CAT.q,rows:CAT.rows,start:CAT.start,sort:CAT.q?'score desc, metadata_modified desc':'metadata_modified desc','facet.field':'["groups"]','facet.limit':60};if(CAT.group)p.fq=`groups:"${CAT.group}"`;
   const r=await api('package_search',p);document.getElementById('catTotal').textContent=fmt(r.count);
-  if(first){const it=((r.search_facets.groups||{}).items||[]).sort((a,b)=>b.count-a.count);const ch=document.getElementById('catChips');
-   ch.innerHTML=`<button class="chip on" data-g="">ทั้งหมด</button>`+it.map(g=>`<button class="chip" data-g="${esc(g.name)}">${esc(g.display_name)}<em>${g.count}</em></button>`).join('');
-   ch.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{ch.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));b.classList.add('on');CAT.group=b.dataset.g;CAT.start=0;loadCat()})}
+  if(first||!document.querySelector('#catChips .chip')){const items=(r.search_facets.groups||{}).items||[];items.sort((a,b)=>b.count-a.count);
+   document.getElementById('catChips').innerHTML=`<button class="chip on" data-g="">ทั้งหมด</button>`+items.map(g=>`<button class="chip" data-g="${esc(g.name)}">${esc(g.display_name)}<em>${g.count}</em></button>`).join('');
+   document.querySelectorAll('#catChips .chip').forEach(b=>b.onclick=()=>{document.querySelectorAll('#catChips .chip').forEach(x=>x.classList.remove('on'));b.classList.add('on');CAT.group=b.dataset.g;CAT.start=0;loadCat()})}
   if(!r.results.length){L.innerHTML='<div class="empty">ไม่พบชุดข้อมูล</div>';return}
-  L.innerHTML=`<div class="g gi" style="margin-top:18px;grid-template-columns:repeat(auto-fill,minmax(310px,1fr))">${r.results.map(p=>{const f=[...new Set(p.resources.map(x=>T(x.format).toUpperCase()).filter(Boolean))];const ds=p.resources.find(x=>x.datastore_active);
-   return`<div class="ds"><h5>${esc(p.title)}</h5><div class="org">${ic('building-2')}${esc(p.organization?p.organization.title:'-')}</div><div class="fm">${f.map(x=>`<span class="fmt ${['CSV','XLSX','XLS','API'].includes(x)?x:'x'}">${esc(x)}</span>`).join('')}${ds?'<span class="fmt API">API</span>':''}<span class="tag2" style="margin-left:auto">${new Date(p.metadata_modified).toLocaleDateString('th-TH',{day:'numeric',month:'short',year:'2-digit'})}</span></div>
-    <div class="links" style="margin-top:auto">${ds?`<button class="btn pri" data-prev="${ds.id}" data-t="${esc(p.title)}" data-p="${esc(p.name)}">${ic('eye')}ดูข้อมูล</button>`:''}<a class="btn" href="${DSURL+p.name}" target="_blank" rel="noopener">${ic('external-link')}เปิดชุดข้อมูล</a></div></div>`}).join('')}</div>
+  L.innerHTML=`<div class="dsgrid">${r.results.map(p=>{const f=[...new Set(p.resources.map(x=>T(x.format).toUpperCase()).filter(Boolean))];const ds=p.resources.find(x=>x.datastore_active);
+   return`<div class="ds"><h4>${esc(p.title)}</h4><div class="org">${ic('building-2')}${esc(p.organization?p.organization.title:'-')}</div><div class="fm">${f.map(x=>`<span class="fmt ${['CSV','XLSX','XLS','API'].includes(x)?x:'x'}">${esc(x)}</span>`).join('')}${ds?'<span class="fmt API">API</span>':''}<span class="tag" style="margin-left:auto">${new Date(p.metadata_modified).toLocaleDateString('th-TH',{day:'numeric',month:'short',year:'2-digit'})}</span></div>
+    <div class="act">${ds?`<button class="btn primary" data-prev="${ds.id}" data-t="${esc(p.title)}" data-p="${esc(p.name)}">${ic('eye')}ดูข้อมูล</button>`:''}<a class="btn" href="${DSURL+p.name}" target="_blank">${ic('external-link')}เปิดชุดข้อมูล</a></div></div>`}).join('')}</div>
    <div class="pager"><button class="btn" id="pgPrev" ${CAT.start===0?'disabled style="opacity:.4"':''}>${ic('chevron-left')}ก่อนหน้า</button><span>${CAT.start+1}–${Math.min(CAT.start+CAT.rows,r.count)} จาก ${fmt(r.count)}</span><button class="btn" id="pgNext" ${CAT.start+CAT.rows>=r.count?'disabled style="opacity:.4"':''}>ถัดไป${ic('chevron-right')}</button></div>`;
   lucide.createIcons();
   document.getElementById('pgPrev').onclick=()=>{if(CAT.start>0){CAT.start-=CAT.rows;loadCat()}};document.getElementById('pgNext').onclick=()=>{if(CAT.start+CAT.rows<r.count){CAT.start+=CAT.rows;loadCat()}};
   L.querySelectorAll('[data-prev]').forEach(b=>b.onclick=()=>preview(b.dataset.prev,b.dataset.t,b.dataset.p));
- }catch(e){L.innerHTML=`<div class="empty">ไม่สามารถเชื่อมต่อ API ได้ในขณะนี้</div>`}}
-async function preview(rid,title,pkg){openModal(`<div class="mhead"><h2>${title}</h2><button class="ibtn x">${ic('x')}</button></div><div class="empty">กำลังโหลดข้อมูล…</div>`);
+ }catch(e){L.innerHTML=`<div class="empty">${ic('wifi-off')}<br>ไม่สามารถเชื่อมต่อ API ได้ในขณะนี้</div>`;lucide.createIcons()}}
+async function preview(rid,title,pkg){openModal(`<div class="mhead"><h2>${title}</h2><button class="x">${ic('x')}</button></div><div class="empty">กำลังโหลดข้อมูล…</div>`);
  try{const r=await api('datastore_search',{resource_id:rid,limit:200});const f=r.fields.filter(x=>x.id!=='_id').map(x=>x.id);const apiUrl=`${API}datastore_search?resource_id=${rid}`;
-  openModal(`<div class="mhead"><div><div style="font-size:13px;color:var(--brand);font-weight:600">ตัวอย่าง ${r.records.length} จาก ${fmt(r.total)} แถว</div><h2>${title}</h2></div><button class="ibtn x">${ic('x')}</button></div>
+  openModal(`<div class="mhead"><div><div style="font-size:12px;color:#2dd4bf;font-weight:600">ตัวอย่างข้อมูล ${r.records.length} จาก ${fmt(r.total)} แถว</div><h2>${title}</h2></div><button class="x">${ic('x')}</button></div>
   <div class="tbl" style="max-height:60vh"><table class="t"><thead><tr>${f.map(x=>`<th>${esc(x)}</th>`).join('')}</tr></thead><tbody>${r.records.map(rw=>`<tr>${f.map(x=>{const v=rw[x];return`<td class="${typeof v==='number'?'n':''}">${esc(typeof v==='number'?fmt(v,v%1?2:0):v)}</td>`}).join('')}</tr>`).join('')}</tbody></table></div>
-  <div class="links"><a class="btn" href="${DSURL+pkg}" target="_blank" rel="noopener">${ic('external-link')}ชุดข้อมูลต้นทาง</a><a class="btn" href="${apiUrl}" target="_blank" rel="noopener">${ic('code')}API (JSON)</a></div><code class="api">GET ${apiUrl}</code>`)}
- catch(e){openModal(`<div class="mhead"><h2>${title}</h2><button class="ibtn x">${ic('x')}</button></div><div class="empty">โหลดข้อมูลไม่สำเร็จ</div>`)}}
+  <div class="links"><a class="btn" href="${DSURL+pkg}" target="_blank">${ic('external-link')}ชุดข้อมูลต้นทาง</a><a class="btn" href="${apiUrl}" target="_blank">${ic('code')}API (JSON)</a></div><code class="api">GET ${apiUrl}</code>`)}
+ catch(e){openModal(`<div class="mhead"><h2>${title}</h2><button class="x">${ic('x')}</button></div><div class="empty">โหลดข้อมูลไม่สำเร็จ</div>`)}}
 
-/* ---------------- SOURCES / API ---------------- */
-function renderSources(){const el=document.getElementById('p-sources');const keys=Object.keys(RES);const ok=keys.filter(k=>(RAW[k]||[]).length);const use=k=>IND.filter(i=>i.key===k).map(i=>i.name).join(', ')||'กราฟวิเคราะห์เชิงลึก';
- el.innerHTML=`${secHead('แหล่งข้อมูลและสถานะ API',`เชื่อมต่อสำเร็จ ${ok.length} จาก ${keys.length} ชุดข้อมูล · โหมด ${MODE==='jsonp'?'JSONP':'REST'} · ${LOADED_AT?LOADED_AT.toLocaleString('th-TH',{dateStyle:'medium',timeStyle:'short'}):''}`)}
- <div class="card"><div class="tbl" style="max-height:none"><table class="t"><thead><tr><th>สถานะ</th><th>ชุดข้อมูล</th><th>หน่วยงานเจ้าของข้อมูล</th><th>ความถี่ · ปรับปรุงล่าสุด</th><th>ใช้ในตัวชี้วัด</th><th style="text-align:right">แถว</th><th>ลิงก์</th></tr></thead><tbody>
- ${keys.map(k=>{const n=(RAW[k]||[]).length;return`<tr><td><span class="dot ${n?'live':'err'}" title="${RES[k][1]}" style="display:inline-block"></span></td><td style="white-space:normal;min-width:180px"><b style="font-family:var(--head);font-weight:500">${esc((META[RES[k][1]]||{}).title||RES[k][1])}</b><br><small style="color:var(--tx3)">${RES[k][1]}</small></td><td style="white-space:normal;font-size:13px">${esc(((META[RES[k][1]]||{}).organization||{}).title||'…')}</td><td style="font-size:13px">${(()=>{const m=META[RES[k][1]]||{};return(m.update_frequency_unit?'ทุก '+(m.update_frequency_interval||1)+' '+m.update_frequency_unit:'–')+'<br><small style="color:var(--tx3)">'+thd(m.last_updated_date||m.metadata_modified)+'</small>'})()}</td><td style="white-space:normal;color:var(--tx2);font-size:13px">${use(k)}</td><td class="n">${fmt(n)}</td><td><a class="btn" style="height:34px" href="${DSURL+RES[k][1]}" target="_blank" rel="noopener">${ic('external-link')}เปิด</a></td></tr>`}).join('')}
- </tbody></table></div></div>`;lucide.createIcons()}
-
-function renderMethod(){document.getElementById('p-method').innerHTML=`${secHead('ระเบียบวิธีการคำนวณดัชนี','ที่มา สูตร และข้อควรระวังในการแปลผล')}<div class="card method">
- <h5>1) แหล่งข้อมูล</h5>ดึงข้อมูลสดจากระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู ผ่าน CKAN Datastore API (<code>datastore_search</code>) ${Object.keys(RES).length} ชุดข้อมูล ครอบคลุม ${IND.length} ตัวชี้วัด ใน ${DIMS.length} มิติ ระบบเรียก API โดยตรง และสลับเป็น JSONP อัตโนมัติเมื่อเบราว์เซอร์บล็อก CORS พร้อมเก็บสำเนาล่าสุดไว้ในเครื่องเพื่อใช้เมื่อเชื่อมต่อไม่ได้
- <h5>2) คะแนนพัฒนาการรายตัวชี้วัด (0–100)</h5>เทียบค่าล่าสุดกับค่าต่ำสุด–สูงสุดในช่วงข้อมูลย้อนหลังของจังหวัด <code>(ค่าล่าสุด − ต่ำสุด) ÷ (สูงสุด − ต่ำสุด) × 100</code> ตัวชี้วัดที่ค่าน้อยดีกว่า (เช่น ว่างงาน คดีอาญา PM2.5) ใช้ <code>100 − คะแนน</code>
- <h5>3) คะแนนรายมิติและดัชนีรวม</h5>คะแนนมิติ = ค่าเฉลี่ยของตัวชี้วัดในมิติ (น้ำหนักเท่ากัน) · ดัชนีรวม = ค่าเฉลี่ย ${DIMS.length} มิติ · ตัวชี้วัดเชิงบริบท (เช่น จำนวนประชากร ดัชนีการสูงวัย) แสดงผลแต่ไม่คิดคะแนน
- <h5>4) ระดับผล</h5><span style="color:#0891b2">≥ 75 ดีมาก</span> · <span style="color:#16a34a">60–74 ดี</span> · <span style="color:#ca8a04">40–59 ปานกลาง</span> · <span style="color:#ea580c">25–39 ควรเฝ้าระวัง</span> · <span style="color:#e11d48">&lt; 25 ต้องเร่งพัฒนา</span>
- <h5>5) ข้อควรระวัง</h5>ดัชนีสะท้อนทิศทางการเปลี่ยนแปลงของจังหวัดเทียบกับตัวเอง ไม่ใช่การจัดอันดับกับจังหวัดอื่น · ปีล่าสุดของแต่ละตัวชี้วัดไม่ตรงกันตามรอบจัดเก็บของหน่วยงาน · ค่าที่ระบุ “ค่าเฉลี่ย 6 อำเภอ” คำนวณจากข้อมูลรายอำเภอ · ค่าศูนย์ผิดปกติในปีที่ยังไม่ครบรอบจะถูกตัดออก
- <h5>6) หลักการสากลที่ใช้อ้างอิง</h5>${stdDetail()}
- <h5>7) บทวิเคราะห์เชิงนโยบาย</h5>ส่วน “เราคิดว่า…” แยก <b>ข้อเท็จจริงจากข้อมูล</b> ออกจาก <b>ข้อเสนอเชิงนโยบาย</b> อย่างชัดเจน ข้อสังเกตทั้งหมดคำนวณอัตโนมัติจากตัวเลข (แนวโน้ม ค่าเฉลี่ยย้อนหลัง ช่องว่างรายอำเภอ ความทันสมัยของข้อมูล) ไม่ได้สรุปสาเหตุ ส่วนข้อเสนอจัดตามวงจรนโยบายสาธารณะ เชื่อมยุทธศาสตร์ชาติ 20 ปี และ SDGs เป็นแนวทางเบื้องต้นที่ควรยืนยันร่วมกับหน่วยงานเจ้าของข้อมูลก่อนใช้
- <h5>8) ตัวชี้วัดทั้งหมด</h5><div class="tbl"><table class="t"><thead><tr><th>มิติ</th><th>ตัวชี้วัด</th><th>ทิศทาง</th><th>ปีล่าสุด</th></tr></thead><tbody>${IND.map(i=>`<tr><td style="color:${dc(i.dimO)}">${i.dimO.name}</td><td>${i.name}</td><td>${i.better==='up'?'↑ มาก = ดี':i.better==='down'?'↓ น้อย = ดี':'บริบท'}</td><td>${i.last?i.last.y:'–'}</td></tr>`).join('')}</tbody></table></div></div>`}
+function renderMethod(){document.getElementById('p-method').innerHTML=`<div class="card method" style="margin-top:18px">
+ <h3>${ic('info')}ระเบียบวิธีการคำนวณดัชนี</h3>
+ <h4>1) แหล่งข้อมูล</h4>ดึงข้อมูลสดจาก <b>ระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู</b> ผ่าน CKAN Datastore API (<code>/api/3/action/datastore_search</code>) จำนวน ${Object.keys(RES).length} ชุดข้อมูล จาก ${new Set(Object.values(RES).map(r=>r[1])).size} รายการในบัญชีข้อมูล ครอบคลุม ${IND.length} ตัวชี้วัด ใน ${DIMS.length} มิติ ระบบเรียก API โดยตรง และสลับเป็น JSONP อัตโนมัติหากเบราว์เซอร์บล็อก CORS พร้อมเก็บสำเนาล่าสุดไว้ในเครื่องเพื่อใช้กรณีเชื่อมต่อไม่ได้
+ <h4>2) คะแนนพัฒนาการรายตัวชี้วัด (0–100)</h4>เทียบค่าล่าสุดกับค่าต่ำสุด–สูงสุดในช่วงข้อมูลย้อนหลังของจังหวัดเอง: <code>คะแนน = (ค่าล่าสุด − ต่ำสุด) ÷ (สูงสุด − ต่ำสุด) × 100</code> สำหรับตัวชี้วัดที่ “ค่าน้อยดีกว่า” (เช่น อัตราว่างงาน คดีอาญา ฝุ่น PM2.5) ใช้ <code>100 − คะแนน</code> · 100 = ดีที่สุดในรอบที่มีข้อมูล, 0 = แย่ที่สุด
+ <h4>3) คะแนนรายมิติ และดัชนีรวม</h4>คะแนนมิติ = ค่าเฉลี่ยเลขคณิตของคะแนนตัวชี้วัดในมิตินั้น (น้ำหนักเท่ากัน) · ดัชนีรวม = ค่าเฉลี่ยของคะแนน ${DIMS.length} มิติ (น้ำหนักเท่ากัน) · ตัวชี้วัดเชิงบริบท (เช่น จำนวนประชากร ดัชนีการสูงวัย) แสดงผลแต่ไม่นำมาคิดคะแนน
+ <h4>4) ระดับผล</h4><span style="color:#22d3ee">≥ 75 ดีมาก</span> · <span style="color:#4ade80">60–74 ดี</span> · <span style="color:#facc15">40–59 ปานกลาง</span> · <span style="color:#fb923c">25–39 ควรเฝ้าระวัง</span> · <span style="color:#f43f5e">&lt; 25 ต้องเร่งพัฒนา</span>
+ <h4>5) ข้อควรระวังในการแปลผล</h4>ดัชนีนี้สะท้อน “ทิศทางการเปลี่ยนแปลงของจังหวัดเมื่อเทียบกับตัวเอง” ไม่ใช่การจัดอันดับเทียบจังหวัดอื่น · ตัวชี้วัดแต่ละตัวมีปีล่าสุดไม่ตรงกันตามรอบการจัดเก็บของหน่วยงาน · ค่าที่ระบุ “ค่าเฉลี่ย 6 อำเภอ” คำนวณจากข้อมูลรายอำเภอเนื่องจากชุดข้อมูลไม่มีค่ารวมจังหวัด · ค่าที่เป็นศูนย์ผิดปกติในบางชุด (เช่น อัตราว่างงานปีที่ยังไม่ครบรอบ) จะถูกตัดออก
+ <h4>6) ตัวชี้วัดและแหล่งข้อมูล</h4><div class="tbl" style="margin-top:8px"><table class="t"><thead><tr><th>มิติ</th><th>ตัวชี้วัด</th><th>ทิศทาง</th><th>ปีล่าสุด</th><th>ชุดข้อมูล</th></tr></thead><tbody>${IND.map(i=>`<tr><td style="color:${i.dimO.c}">${i.dimO.name}</td><td>${i.name}</td><td>${i.better==='up'?'↑ มาก = ดี':i.better==='down'?'↓ น้อย = ดี':'บริบท'}</td><td>${i.last?i.last.y:'–'}</td><td><a href="${DSURL+RES[i.key][1]}" target="_blank" style="color:#2dd4bf">${RES[i.key][1]}</a></td></tr>`).join('')}</tbody></table></div></div>`;lucide.createIcons();}
 
 /* =========================================================
    BOOT
    ========================================================= */
-function setStatus(f){const d=document.getElementById('stDot'),t=document.getElementById('stTxt');d.className='dot';
- if(SOURCE==='live'){d.classList.add('live');t.textContent='API สด · '+Object.keys(RAW).length+' ชุดข้อมูล'}else if(SOURCE==='partial'){d.classList.add('cache');t.textContent=`API สด (${f.length} ชุดใช้สำเนา)`}else if(SOURCE==='cache'){d.classList.add('cache');t.textContent='ออฟไลน์ · ใช้สำเนาล่าสุด'}else{d.classList.add('err');t.textContent='เชื่อมต่อไม่ได้'}
- document.getElementById('ftTime').textContent=LOADED_AT?'อัปเดตข้อมูล '+LOADED_AT.toLocaleString('th-TH',{dateStyle:'long',timeStyle:'short'}):''}
-function rebuild(){CHARTS.splice(0).forEach(c=>{try{c.dispose()}catch(e){}});RENDERED={};chartTheme();renderMenu();
- document.getElementById('pages').innerHTML=PAGES.map(p=>`<section class="page" id="p-${p.id}"></section>`).join('');go(CUR)}
-async function boot(){const fails=await loadAll();OVERALL=compute();setStatus(fails);rebuild();hydrate();loadMeta().then(()=>{const f=document.getElementById('faq');if(f){f.innerHTML=faqHTML();lucide.createIcons()}});
+function setStatus(fails){const d=document.getElementById('stDot'),t=document.getElementById('stTxt');d.className='dot';
+ if(SOURCE==='live'){d.classList.add('live');t.textContent='เชื่อมต่อ API สด'}
+ else if(SOURCE==='partial'){d.classList.add('cache');t.textContent=`API สด (${fails.length} ชุดใช้สำเนา)`}
+ else if(SOURCE==='cache'){d.classList.add('cache');t.textContent='ออฟไลน์ · ใช้สำเนาล่าสุด'}
+ else{d.classList.add('err');t.textContent='เชื่อมต่อไม่ได้'}
+ const n=Object.values(RAW).reduce((a,r)=>a+r.length,0);document.getElementById('stCnt').textContent=`${Object.keys(RAW).length} ชุดข้อมูล · ${fmt(n)} แถว`;
+ document.getElementById('ftTime').textContent=LOADED_AT?'อัปเดตข้อมูล: '+LOADED_AT.toLocaleString('th-TH',{dateStyle:'long',timeStyle:'short'}):'';}
+async function boot(){
+ const fails=await loadAll();
+ CHARTS.splice(0).forEach(c=>c.dispose());RENDERED={};
+ OVERALL=compute();setStatus(fails);renderTabs();
+ document.getElementById('main').innerHTML=['overview',...DIMS.map(d=>d.id),'catalog','method'].map(id=>`<section class="panel" id="p-${id}"></section>`).join('');
+ renderMethod();RENDERED.method=1;go(CUR);lucide.createIcons();
  document.getElementById('loader').classList.add('out');
- if(SOURCE==='error')document.getElementById('p-overview').innerHTML=`<div class="card empty">ไม่สามารถเชื่อมต่อ API ระบบบัญชีข้อมูลจังหวัดได้ กรุณากด “รีเฟรชข้อมูล”</div>`}
-const themeIcon=()=>{document.getElementById('btnTheme').innerHTML=ic(isDark()?'sun':'moon');lucide.createIcons()};
-document.getElementById('btnTheme').onclick=()=>{const t=isDark()?'light':'dark';document.documentElement.dataset.theme=t;try{localStorage.setItem('nblwb-theme',t)}catch(e){}themeIcon();setBodyBg();if(OVERALL!==null)rebuild()};
+ if(SOURCE==='error')document.getElementById('p-overview').innerHTML=`<div class="card empty" style="margin-top:20px">${ic('wifi-off')}<br>ไม่สามารถเชื่อมต่อ API ระบบบัญชีข้อมูลจังหวัดได้ กรุณากด “รีเฟรชข้อมูล” อีกครั้ง</div>`;
+}
 document.getElementById('btnRefresh').onclick=async e=>{const b=e.currentTarget;b.classList.add('spin');b.disabled=true;document.getElementById('ldBar').style.width='0';document.getElementById('loader').classList.remove('out');await boot();b.classList.remove('spin');b.disabled=false};
 document.getElementById('btnFull').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{})};
-document.getElementById('btnSearch').onclick=openSearch;document.getElementById('btnPresent').onclick=presStart;document.getElementById('btnPrint').onclick=printBrief;document.getElementById('btnShare').onclick=shareLink;
-document.getElementById('burger').onclick=()=>document.body.classList.toggle('nav');
-document.getElementById('scrim').onclick=()=>document.body.classList.remove('nav');
-window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(h&&h!==CUR&&OVERALL!==null)go(h)});
 let rz;window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>CHARTS.forEach(c=>{try{c.resize()}catch(e){}}),120)});
-CUR=(location.hash||'#overview').slice(1);
-lucide.createIcons();themeIcon();setBodyBg();hydrate();boot();
-}
+lucide.createIcons();boot();
 </script>
 </body>
 </html>
