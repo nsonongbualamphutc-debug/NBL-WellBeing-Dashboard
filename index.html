@@ -1951,7 +1951,7 @@ function renderOverview(){const el=document.getElementById('p-overview');const l
 
 /* ---------------- DIMENSION ---------------- */
 function renderDim(id){const d=DIMS.find(x=>x.id===id),c=dc(d),el=document.getElementById('p-'+id),lv=level(d.score),inds=IND.filter(i=>i.dim===id&&i.s.length),F=FEAT[id]||[],dl=IND.filter(i=>i.dim===id&&i.d);
- el.innerHTML=`<section class="dhero" style="--c:${c}"><div class="media"><div class="ph" data-bg="dims/${id}"></div><video data-video="dims/${id}" autoplay muted loop playsinline></video></div>
+ el.innerHTML=`<section class="dhero" style="--c:${c}"><div class="media"><div class="ph" data-bg="dims/${({safety:'safety-v2'})[id]||id}"></div><video data-video="dims/${({safety:'safety-v2'})[id]||id}" autoplay muted loop playsinline></video></div>
   <div class="ico"><img data-src="icons/dim-${id}" data-fb="${d.icon}" alt=""></div>
   <div class="dtx"><div class="en">${d.en} · มิติที่ ${DIMS.indexOf(d)+1}</div><h2><em>มิติ</em><span class="dnm">${d.name}</span></h2><p>${d.desc}</p>
    <div class="dscore"><div class="dring" style="--p:${d.score??0}"><b>${d.score??'–'}</b><small>/100</small></div><div class="dmeta"><small>คะแนนมิติ · เทียบ 7 มิติ อันดับ ${[...DIMS].filter(x=>x.score!=null).sort((x,y)=>y.score-x.score).indexOf(d)+1}</small><div class="dchips"><span style="--lc:${lv.c}">${lv.t}</span><span class="dn">${inds.length} ตัวชี้วัด</span></div></div></div></div></section>
