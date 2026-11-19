@@ -1004,25 +1004,24 @@ pre.code{background:#160b18;color:#fbe7f3;border-radius:14px;padding:16px 18px;f
 .dmeta>small{display:block;font-size:12.5px;opacity:.85;margin-bottom:9px;letter-spacing:.2px;line-height:1.3}
 .dchips{display:flex;gap:8px;flex-wrap:wrap}
 @media(max-width:700px){.dhero::before{background:linear-gradient(180deg,rgba(10,4,20,.25),rgba(10,4,20,.55) 45%,color-mix(in srgb,var(--c) 30%,rgba(10,4,20,.85)))}.dhero .dscore{display:flex;width:100%}.dring{width:80px;height:80px}.dring b{font-size:30px!important}}
-/* r7.9b split hero: colour-gradient text panel + image on the right (no text over faces) */
-.dhero{background:radial-gradient(70% 90% at 0% 0%,color-mix(in srgb,var(--c) 60%,transparent),transparent 70%),radial-gradient(60% 80% at 30% 120%,color-mix(in srgb,var(--c) 35%,#2a0b3d),transparent 70%),linear-gradient(135deg,color-mix(in srgb,var(--c) 58%,#16052a),#0b0618 78%)!important}
-.dhero .media{left:46%!important;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 12%,#000 30%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 12%,#000 30%)}
-.dhero .media .ph,.dhero .media video{background-position:50% 30%!important;object-position:50% 30%!important}
-.dhero::before{background:radial-gradient(40% 60% at 18% 30%,rgba(255,255,255,.08),transparent 70%),linear-gradient(0deg,rgba(10,4,20,.38),transparent 40%)!important}
-.dhero .dtx,.dhero>div:not(.media):not(.ico):not(.big){max-width:min(46%,600px)!important}
-.dhero h2{font-size:clamp(34px,4vw,58px)!important}
-@media(max-width:900px){.dhero .dtx,.dhero>div:not(.media):not(.ico):not(.big){max-width:100%!important}}
-@media(max-width:900px){.dhero{padding-top:calc(min(56vw,360px) - 30px)!important;min-height:0!important;flex-wrap:wrap}.dhero .media{left:0!important;bottom:auto!important;height:min(56vw,360px)!important;-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent);mask-image:linear-gradient(180deg,#000 62%,transparent)}.dhero::before{background:none!important}}
-.dhero .big b{filter:drop-shadow(0 4px 18px rgba(0,0,0,.55))}
-.mk4 .kpi .v.kst{white-space:normal!important;flex-wrap:wrap!important;font-size:clamp(18px,1.7vw,24px)!important;line-height:1.25!important}
-/* r7.9c tablet/phone topbar: one tidy row */
-@media(max-width:1366px){.topbar .tbtn:not(.pri) span,.topbar .tbtn:not(.pri) kbd{display:none!important}.topbar .tbtn:not(.pri){padding:0;width:42px;justify-content:center}}
-@media(max-width:1280px){.topbar .logos{display:none}}
-@media(max-width:1100px){.topbar{flex-wrap:nowrap!important;gap:8px}.topbar .crumb{flex:1;min-width:0}.topbar .crumb h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.4;padding:3px 0}.topbar .crumb small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}}
-@media(max-width:700px){.topbar .tbtn.pri span{display:none}.topbar .tbtn.pri{padding:0;width:42px;justify-content:center}#btnFull,#btnRefresh{display:none}}
-@media(max-width:520px){#btnPrint,#btnShare{display:none}}
-@media(max-width:640px){.mk4 .kpi .v{font-size:21px!important}}
-@media(hover:none){.tbtn,.ibtn,.chip,.mi{touch-action:manipulation}}
+/* r7.10 premium hero: blurred-image backdrop + sharp image right */
+.dhero{background:#0b0618!important;padding:30px 34px!important}
+.dhero .media{left:0!important;-webkit-mask-image:none!important;mask-image:none!important}
+.dhero .media .phb{position:absolute;inset:-60px;background:var(--ph,none) center/cover;filter:blur(40px) saturate(1.35) brightness(.62);transform:scale(1.1)}
+.dhero .media>.ph:not(.phb),.dhero .media video{left:30%!important;width:70%!important;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.5) 14%,#000 34%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.5) 14%,#000 34%);background-position:50% 30%!important;object-position:50% 30%!important}
+.dhero::before{background:linear-gradient(90deg,color-mix(in srgb,var(--c) 30%,rgba(8,4,18,.78)) 0%,color-mix(in srgb,var(--c) 14%,rgba(8,4,18,.5)) 30%,rgba(8,4,18,.12) 52%,transparent 66%),radial-gradient(60% 90% at 0% 100%,color-mix(in srgb,var(--c) 38%,transparent),transparent 70%),linear-gradient(0deg,rgba(8,4,18,.55),transparent 38%)!important}
+.dhero .ico{position:absolute!important;top:26px;left:30px;width:66px!important;height:66px!important;border-radius:20px!important;z-index:3!important}
+.dhero .ico img{width:60px!important;height:60px!important}.dhero .ico svg{width:32px!important;height:32px!important}
+.dhero .dtx,.dhero>div:not(.media):not(.ico):not(.big){max-width:min(48%,620px)!important}
+.dhero h2 em{display:inline!important;font-size:1em!important;font-weight:300!important;letter-spacing:0!important;color:#fff!important;opacity:.82!important;margin:0 .06em 0 0!important}
+.dhero h2{font-size:clamp(36px,4.3vw,62px)!important}
+.dhero .en{margin-top:84px}
+@media(max-width:1100px){.dhero{padding:22px!important;padding-top:calc(min(56vw,360px) - 20px)!important;min-height:0!important;flex-wrap:wrap}
+ .dhero .media>.ph:not(.phb),.dhero .media video{left:0!important;width:100%!important;bottom:auto!important;height:min(56vw,360px)!important;-webkit-mask-image:linear-gradient(180deg,#000 60%,transparent)!important;mask-image:linear-gradient(180deg,#000 60%,transparent)!important}
+ .dhero::before{background:linear-gradient(180deg,transparent 30%,color-mix(in srgb,var(--c) 18%,rgba(8,4,18,.55)) 60%)!important}
+ .dhero .dtx,.dhero>div:not(.media):not(.ico):not(.big){max-width:100%!important}.dhero .en{margin-top:0}.dhero .ico{top:16px;left:16px;width:56px!important;height:56px!important}.dhero .ico img{width:50px!important;height:50px!important}}
+.dhero .dscore{flex-wrap:nowrap!important}.dhero .dmeta{min-width:0}
+@media(max-width:1100px){.dhero .dtx,.dhero>div:not(.media):not(.ico):not(.big){max-width:100%!important}}
 </style>
 </head>
 <body>
@@ -1086,6 +1085,7 @@ const _probe={};
 function resolveImg(name){if(_probe[name])return _probe[name];
  _probe[name]=new Promise(res=>{const ex=['webp','jpg','png'];let i=0;const tryNext=()=>{if(i>=ex.length)return res(null);const u=ASSET+name+'.'+ex[i++];const im=new Image();im.onload=()=>res(u);im.onerror=tryNext;im.src=u};tryNext()});return _probe[name]}
 function hydrate(root=document){
+ root.querySelectorAll('.dhero .media>.ph[data-bg]:not([data-b2])').forEach(ph=>{ph.dataset.b2=1;const b=document.createElement('div');b.className='phb';b.dataset.bg=ph.dataset.bg;ph.parentNode.insertBefore(b,ph.parentNode.firstChild)});
  root.querySelectorAll('img[data-src]:not([data-h])').forEach(el=>{el.dataset.h=1;const fb=el.dataset.fb;el.style.visibility='hidden';
   resolveImg(el.dataset.src).then(u=>{if(u){el.src=u;el.style.visibility=''}else if(fb==='lotus'){el.outerHTML='<svg viewBox="0 0 200 200"><use href="#lotus"/></svg>'}else if(fb&&fb!=='none'){el.outerHTML=`<i data-lucide="${fb}"></i>`;lucide.createIcons()}else el.remove()})});
  root.querySelectorAll('[data-bg]:not([data-h])').forEach(el=>{el.dataset.h=1;resolveImg(el.dataset.bg).then(u=>{if(u)el.style.setProperty('--ph',`url("${u}")`)})});
