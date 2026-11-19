@@ -683,6 +683,28 @@ ul.cav{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:9px}ul.cav li{
 @media(max-width:1100px){.rr{grid-template-columns:14px 1fr}}
 
 .feed{-webkit-mask-image:linear-gradient(#000 82%,transparent);mask-image:linear-gradient(#000 82%,transparent);padding-bottom:28px}
+
+/* ===== round 6 · card art ===== */
+body.ctex .card,body.ctex .fcard,body.ctex .kpi{background-image:linear-gradient(color-mix(in srgb,var(--panel) 80%,transparent),color-mix(in srgb,var(--panel) 80%,transparent)),var(--cardtex);background-size:cover,cover;background-position:center,center}
+[data-theme=dark] body.ctex .card,[data-theme=dark] body.ctex .fcard,[data-theme=dark] body.ctex .kpi{background-image:linear-gradient(color-mix(in srgb,var(--panel) 72%,transparent),color-mix(in srgb,var(--panel) 72%,transparent)),var(--cardtex)}
+.cart{position:absolute;right:-34px;top:-30px;width:min(46%,210px);aspect-ratio:1;object-fit:contain;pointer-events:none;z-index:-1;opacity:.55;-webkit-mask-image:radial-gradient(circle at 60% 40%,#000 34%,transparent 70%);mask-image:radial-gradient(circle at 60% 40%,#000 34%,transparent 70%);transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .4s}
+[data-theme=dark] .cart{opacity:.42}
+.ins2:hover .cart,.fcard:hover .cart,.bm:hover .cart{transform:scale(1.08) rotate(-3deg);opacity:.75}
+.fcard,.card.bm{isolation:isolate;overflow:hidden}
+.ins2 .i2h,.fcard .fb,.fcard .fno{position:relative}
+.brief .bl .blbg{position:absolute;inset:0;background:var(--ph,none) right center/cover no-repeat;z-index:0}
+.brief .bl .blbg[style*="--ph"]::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,8,22,.94) 0%,rgba(6,8,22,.78) 42%,color-mix(in srgb,var(--c) 25%,rgba(6,8,22,.25)) 100%)}
+.brief .bl>*:not(.blbg){position:relative;z-index:1}
+.card.fy{isolation:isolate;overflow:hidden}
+.fyart{position:absolute;inset:0 0 auto 0;height:220px;background:var(--ph,none) right center/cover no-repeat;z-index:-1;opacity:.32;-webkit-mask-image:linear-gradient(180deg,#000 10%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 55%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,#000 10%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 55%);mask-composite:intersect}
+[data-theme=dark] .fyart{opacity:.4}
+
+.ins2 .cart{right:-46px;top:-48px;width:min(42%,180px);opacity:.42}
+[data-theme=dark] .ins2 .cart{opacity:.34}
+.ins2:hover .cart{opacity:.62}
+.ins2 .vpill,.fcard .vpill{position:relative;isolation:isolate}
+.ins2 .vpill::after,.fcard .vpill::after{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--panel);opacity:.9;z-index:-1}
+.ins2 .sp2{position:relative;z-index:1}
 </style>
 </head>
 <body>
@@ -751,7 +773,7 @@ function hydrate(root=document){
  root.querySelectorAll('[data-bg]:not([data-h])').forEach(el=>{el.dataset.h=1;resolveImg(el.dataset.bg).then(u=>{if(u)el.style.setProperty('--ph',`url("${u}")`)})});
  root.querySelectorAll('video[data-video]:not([data-h])').forEach(v=>{v.dataset.h=1;v.muted=true;v.addEventListener('error',()=>v.remove(),true);v.addEventListener('loadeddata',()=>{v.style.opacity=1;v.play().catch(()=>{})});v.style.opacity=0;v.style.transition='opacity 1s';v.src=ASSET+v.dataset.video+'.mp4'});
 }
-function setBodyBg(){const th=document.documentElement.dataset.theme;resolveImg('bg/bg-'+th).then(u=>document.body.style.setProperty('--bgimg',u?`url("${u}")`:'none'))}
+function setBodyBg(){const th=document.documentElement.dataset.theme;resolveImg('bg/bg-'+th).then(u=>document.body.style.setProperty('--bgimg',u?`url("${u}")`:'none'));resolveImg('cards/card-'+th).then(u=>{document.body.style.setProperty('--cardtex',u?`url("${u}")`:'none');document.body.classList.toggle('ctex',!!u)})}
 
 /* =========================================================
    DATA SOURCES & INDICATORS
@@ -1138,7 +1160,7 @@ function distStrip(i,a){const e=a.dis.e,lo=a.dis.lo,hi=a.dis.hi,rg=hi[1]-lo[1]||
 
 /* ---- การ์ดข้อค้นพบรายตัวชี้วัด (แทนการ์ดเดิม) ---- */
 function indCard(ind){const a=AN(ind),c=dc(ind.dimO),L=ind.last;if(!L)return'';
- return`<article class="card ins2 t-${a.v.tone}" style="--c:${c}" data-ind="${ind.id}">
+ return`<article class="card ins2 t-${a.v.tone}" style="--c:${c}" data-ind="${ind.id}"><img class="cart" data-src="cards/corner-${ind.dim}" data-fb="none" alt="">
  <div class="i2h"><span class="i2ic">${ic(ind.icon)}</span><div class="i2n"><b>${ind.name}</b><small>ข้อมูล พ.ศ. ${L.y}${ind.note?' · '+ind.note:''}</small></div><span class="vpill">${a.v.t}</span></div>
  <div class="i2m"><div class="i2v"><div class="nv"><b>${fmt(L.v,ind.dec)}</b><small>${ind.unit}</small></div>${a.yoy?`<div class="i2d ${a.yoy.good===true?'good':a.yoy.good===false?'bad':'neu'}">${ic(a.yoy.d>0?'trending-up':a.yoy.d<0?'trending-down':'minus')}${a.yoy.txt}<span>จากปี ${ind.prev.y}</span></div>`:''}</div>${spark2(ind,c)}</div>
  <p class="i2s">${a.h}</p>
@@ -1164,9 +1186,9 @@ function dimPolicy(d){const c=dc(d),P=POL[d.id];const A=IND.filter(i=>i.dim===d.
  cav.push('ความเชื่อมโยงระหว่างตัวชี้วัดเป็นสมมติฐานเพื่อการวิเคราะห์ต่อ ไม่ใช่ข้อพิสูจน์เชิงสาเหตุ');cav.push('คะแนนมิติเทียบจังหวัดกับตัวเองในอดีต ไม่ใช่การจัดอันดับเทียบจังหวัดอื่น (ดูหน้าเป้าหมายและเทียบเคียง)');
  return`<div class="sec">${secHead('บทวิเคราะห์มิติ'+d.name,'อ่านข้อมูลแบบนักวิเคราะห์ · แนวโน้ม · ความเหลื่อมล้ำเชิงพื้นที่ · เทียบเป้าหมาย · ปัจจัยที่อาจเกี่ยวข้อง · ความเชื่อมั่นของข้อสรุป',c)}
  <div class="brief" style="--c:${c}">
-  <div class="bl"><div class="blk">${ic('quote')}บรรทัดสรุป</div><h3>${head}</h3>
+  <div class="bl"><div class="blbg" data-bg="cards/brief-${d.id}"></div><div class="blk">${ic('quote')}บรรทัดสรุป</div><h3>${head}</h3>
    <div class="sig"><div class="sigb">${seg.map(x=>`<i style="flex:${cnt[x[0]]};background:${x[2]}"></i>`).join('')}</div><div class="sigl">${seg.map(x=>`<span><i style="background:${x[2]}"></i>${x[1]} <b>${cnt[x[0]]}</b></span>`).join('')}${ctx?`<span><i style="background:var(--c)"></i>ข้อมูลบริบท <b>${ctx}</b></span>`:''}</div></div></div>
-  <div class="fnd">${top.map((a,k)=>`<div class="fcard t-${a.v.tone}" data-ind="${a.i.id}"><div class="fno">${String(k+1).padStart(2,'0')}</div><div class="fb"><div class="fl"><span class="lens">${a.lens}</span><span class="vpill">${a.v.t}</span></div><h4>${a.i.name}</h4><p>${a.h}</p><ul>${evList(a).map(x=>`<li>${x}</li>`).join('')}</ul></div></div>`).join('')}</div>
+  <div class="fnd">${top.map((a,k)=>`<div class="fcard t-${a.v.tone}" data-ind="${a.i.id}"><img class="cart" data-src="cards/corner-${a.i.dim}" data-fb="none" alt=""><div class="fno">${String(k+1).padStart(2,'0')}</div><div class="fb"><div class="fl"><span class="lens">${a.lens}</span><span class="vpill">${a.v.t}</span></div><h4>${a.i.name}</h4><p>${a.h}</p><ul>${evList(a).map(x=>`<li>${x}</li>`).join('')}</ul></div></div>`).join('')}</div>
   <div class="g g2 bx"><div class="card"><h4>${ic('route')}ข้อเสนอเชิงนโยบาย</h4><div class="sub">เรียงตามสิ่งที่ข้อมูลชี้ · หน่วยงานหลัก: ${P.ag}</div><ol class="rec">${recs.map(t=>`<li><span>${t}</span></li>`).join('')}</ol>
    <div class="frame" style="margin-top:12px"><div><span>ยุทธศาสตร์ชาติ</span><b>${P.ns}</b></div><div><span>SDGs</span><b>${P.sdg}</b></div></div></div>
    <div class="card"><h4>${ic('scale')}ข้อควรระวังในการตีความ</h4><div class="sub">ข้อจำกัดของข้อมูลที่ผู้ใช้ควรรู้ก่อนนำไปตัดสินใจ</div><ul class="cav">${cav.map(t=>`<li>${t}</li>`).join('')}</ul></div></div>
@@ -1579,7 +1601,7 @@ function fyTrack(kind){const M=recs(kind==='tour'?'tourM':'otopM'),G=recs(kind==
  return{kind,fy,tfy,n,cum,seas,mon:ks.map(k=>({k,l:lab[k],v:mon[k]})),prev:Object.entries(prev).map(([k,v])=>({k:+k,v})).sort((a,b)=>a.k-b.k),pcum,pfull,lv,proj,std,yoy:pcum?(cum-pcum)/pcum*100:null,
   reach:lv.filter(x=>proj>=x.v).pop()}}
 function fyCard(F,c){if(!F)return'';const nm=F.kind==='tour'?'รายได้จากการท่องเที่ยว':'รายได้จากผลิตภัณฑ์ OTOP';const top=F.lv.length?F.lv[F.lv.length-1].v:F.proj;
- return`<div class="card fy" style="--c:${c}"><h4>${ic(F.kind==='tour'?'plane':'shopping-bag')}${nm} · ปีงบประมาณ ${F.fy}</h4><div class="sub">เทียบค่าเป้าหมายทางการปีงบ ${F.tfy} จากระบบบัญชีข้อมูลจังหวัด · ข้อมูล ${F.n} เดือน (ถึง ${F.mon.length?F.mon[F.mon.length-1].l:''})</div>
+ return`<div class="card fy" style="--c:${c}"><div class="fyart" data-bg="cards/fy-${F.kind}"></div><h4>${ic(F.kind==='tour'?'plane':'shopping-bag')}${nm} · ปีงบประมาณ ${F.fy}</h4><div class="sub">เทียบค่าเป้าหมายทางการปีงบ ${F.tfy} จากระบบบัญชีข้อมูลจังหวัด · ข้อมูล ${F.n} เดือน (ถึง ${F.mon.length?F.mon[F.mon.length-1].l:''})</div>
  <div class="fyrow"><div class="fyb"><small>สะสมแล้ว</small><b>${fmt(F.cum,1)}</b><span>ล้านบาท</span></div><div class="fyb"><small>คาดการณ์ทั้งปี ${F.seas?'(ตามฤดูกาลปีก่อน)':'(ตามอัตราเฉลี่ย)'}</small><b style="color:${c}">${fmt(F.proj,1)}</b><span>ล้านบาท</span></div><div class="fyb"><small>เทียบช่วงเดียวกันปีก่อน</small>${F.yoy!=null?`<b class="${F.yoy>=0?'up':'dn'}">${(F.yoy>0?'+':'')+fmt(F.yoy,1)}%</b><span>ปีก่อน ${fmt(F.pcum,1)} ล้านบาท</span>`:'<b style="font-size:15px;color:var(--tx3)">ไม่มีข้อมูลปีก่อน</b>'}</div></div>
  <div class="fybar"><i class="pace" style="left:${Math.min(100,(F.std?F.std.v:top)*F.n/12/top/1.08*100)}%" title="ควรถึง ณ เดือนนี้ (ตามเป้ามาตรฐาน)"></i>${F.lv.map(l=>`<i class="tk" style="left:${Math.min(100,l.v/top/1.08*100)}%"></i>`).join('')}<span style="width:${Math.min(100,F.cum/top/1.08*100)}%"></span><span class="pj" style="width:${Math.min(100,F.proj/top/1.08*100)}%"></span></div>
  <div class="fylv">${F.lv.map((l,k)=>`<span style="--k:${['#f59e0b','#22c55e','#0891b2'][k%3]}"><i></i>${l.t.replace('เป้าหมาย','เป้า')} <b>${fmt(l.v,1)}</b></span>`).join('')}<span><i style="background:none;border-left:2px dashed #e11d48;border-radius:0"></i>ควรถึง ณ เดือนนี้ (ตามเป้ามาตรฐาน)</span></div><div class="fyst ${F.reach?'ok':'no'}">${ic(F.reach?'trophy':'triangle-alert')}<span>${F.reach?`คาดว่าจะ<b> บรรลุ${F.reach.t} </b>(${fmt(F.reach.v,1)} ล้านบาท)`:`ตามอัตราปัจจุบัน ยังต่ำกว่าเป้าขั้นต้น ${F.lv[0]?fmt(F.lv[0].v,1):''} ล้านบาท ต้องเร่งอีก ${F.lv[0]?fmt((F.lv[0].v-F.cum)/Math.max(1,12-F.n),1):''} ล้านบาท/เดือน`} · ทำได้แล้ว ${F.std?fmt(F.cum/F.std.v*100,1):'–'}% ของ${F.std?F.std.t:'เป้าหมาย'} ขณะที่เวลาผ่านไป ${fmt(F.n/12*100,0)}% ของปี</span></div>
@@ -1637,13 +1659,13 @@ function renderTargets(){const el=document.getElementById('p-targets');const c=i
  loadBench().then(B=>drawBench(B))}
 function rebuildKeep(){const y=scrollY;rebuild();setTimeout(()=>scrollTo(0,y),80)}
 function drawBench(B){const box=document.getElementById('benchBox');if(!box)return;if(!B.length){box.innerHTML='<div class="card empty">โหลดข้อมูลรายจังหวัดไม่สำเร็จ</div>';return}
- box.innerHTML=`<div class="g g2">${B.map(b=>{const d=DIMS.find(x=>x.id===b.dim),c=dc(d);const pct=b.n>1?(b.n-b.rank)/(b.n-1):.5;return`<div class="card bm" style="--c:${c}"><h4>${ic(b.icon)}${b.name}</h4><div class="sub">ปี ${b.y} · มิติ${d.name} · ${b.better==='down'?'ค่าน้อย = ดี':'ค่ามาก = ดี'}</div>
+ box.innerHTML=`<div class="g g2">${B.map(b=>{const d=DIMS.find(x=>x.id===b.dim),c=dc(d);const pct=b.n>1?(b.n-b.rank)/(b.n-1):.5;return`<div class="card bm" style="--c:${c}"><img class="cart" data-src="cards/corner-${b.dim}" data-fb="none" alt=""><h4>${ic(b.icon)}${b.name}</h4><div class="sub">ปี ${b.y} · มิติ${d.name} · ${b.better==='down'?'ค่าน้อย = ดี':'ค่ามาก = ดี'}</div>
   <div class="bmrow"><div><small>หนองบัวลำภู</small><b style="color:${c}">${fmt(b.v,b.dec)}</b><span>${b.unit}</span></div><div><small>อันดับในอีสาน</small><b>${b.irank}<i>/${b.in}</i></b><span>เฉลี่ยอีสาน ${fmt(b.iavg,b.dec)}</span></div><div><small>อันดับประเทศ</small><b>${b.rank}<i>/${b.n}</i></b><span>ทั้งประเทศ ${fmt(b.avg,b.dec)}</span></div></div>
   <div class="rkbar"><span style="left:${pct*100}%"></span><em>แย่สุด</em><em>ดีสุด</em></div>
   <div class="chart" id="bm-${b.id}" style="height:360px"></div><div class="sub" style="margin:4px 0 0">ที่มา: <a href="${DSURL+b.src}" target="_blank" rel="noopener" style="color:var(--brand)">${b.src}</a></div></div>`}).join('')}</div>`;
  lucide.createIcons();
  B.forEach(b=>{const c=dc(DIMS.find(x=>x.id===b.dim));const e=[...b.isan].reverse();mk(document.getElementById('bm-'+b.id),{tooltip:{...TT,formatter:p=>`${p[0].name}<br><b>${fmt(p[0].value,b.dec)}</b> ${b.unit}`},grid:{left:8,right:46,top:6,bottom:4,containLabel:true},xAxis:{type:'value',...AX},yAxis:{type:'category',data:e.map(x=>x[0]),...AX,axisLabel:{...AX.axisLabel,fontSize:11.5,color:p=>p===PROV?c:AX.axisLabel.color,fontWeight:p=>p===PROV?700:400}},
-  series:[{type:'bar',barWidth:11,data:e.map(x=>({value:+x[1].toFixed(b.dec+1),itemStyle:{color:x[0]===PROV?c:(isDark()?'#334155':'#e7d9e2'),borderRadius:[0,6,6,0]}})),label:{show:true,position:'right',fontSize:11,color:AX.axisLabel.color,formatter:p=>fmt(p.value,b.dec)},markLine:{symbol:'none',lineStyle:{color:'#94a3b8',type:'dashed'},label:{formatter:'เฉลี่ยอีสาน',color:AX.axisLabel.color,fontSize:11,position:'insideEndTop'},data:[{xAxis:+b.iavg.toFixed(2)}]}}]})})}
+  series:[{type:'bar',barWidth:11,data:e.map(x=>({value:+x[1].toFixed(b.dec+1),itemStyle:{color:x[0]===PROV?c:(isDark()?'#334155':'#e7d9e2'),borderRadius:[0,6,6,0]}})),label:{show:true,position:'right',fontSize:11,color:AX.axisLabel.color,formatter:p=>fmt(p.value,b.dec)},markLine:{symbol:'none',lineStyle:{color:'#94a3b8',type:'dashed'},label:{formatter:'เฉลี่ยอีสาน',color:AX.axisLabel.color,fontSize:11,position:'insideEndTop'},data:[{xAxis:+b.iavg.toFixed(2)}]}}]})});hydrate(box)}
 
 /* ---------------- DATA STORIES ---------------- */
 function storyList(){const S=[];const gs=k=>IND.find(i=>i.id===k);const R=k=>recs(k);
