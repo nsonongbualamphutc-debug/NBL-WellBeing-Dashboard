@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>อยู่ดีมีสุข · ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู</title>
-<meta name="description" content="อยู่ดีมีสุข (NBL Well-Being Index) · แดชบอร์ดดัชนีความอยู่ดีมีสุขจังหวัดหนองบัวลำภู ข้อมูลสดจากระบบบัญชีข้อมูลจังหวัด">
+<title>ลุ่มภูอยู่ดีมีสุข · ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู</title>
+<meta name="description" content="ลุ่มภูอยู่ดีมีสุข (NBL Well-Being Index) · แดชบอร์ดดัชนีความอยู่ดีมีสุขจังหวัดหนองบัวลำภู ข้อมูลสดจากระบบบัญชีข้อมูลจังหวัด">
 <meta name="theme-color" content="#db2777">
-<meta property="og:title" content="อยู่ดีมีสุข · ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู">
+<meta property="og:title" content="ลุ่มภูอยู่ดีมีสุข · ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู">
 <meta property="og:image" content="https://nsonongbualamphutc-debug.github.io/NBL-WellBeing-Dashboard/assets/brand/og-image.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="og:url" content="https://nsonongbualamphutc-debug.github.io/NBL-WellBeing-Dashboard/"><meta property="og:type" content="website">
@@ -18,8 +18,8 @@
 <link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="apple-mobile-web-app-title" content="อยู่ดีมีสุข">
-<meta name="application-name" content="อยู่ดีมีสุข">
+<meta name="apple-mobile-web-app-title" content="ลุ่มภูอยู่ดีมีสุข">
+<meta name="application-name" content="ลุ่มภูอยู่ดีมีสุข">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Sarabun:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
@@ -293,8 +293,9 @@ code.api{display:block;font-size:12px;padding:10px 12px;border-radius:12px;backg
 .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 
 /* ---- loader ---- */
-#loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--bg);transition:opacity .6s}
-#loader.out{opacity:0;pointer-events:none}
+#loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--bg);clip-path:inset(0 0 0 0);transition:clip-path 1.1s cubic-bezier(.75,0,.2,1) .15s,opacity .5s 1s}
+#loader.out{clip-path:inset(50% 0 50% 0);opacity:0;pointer-events:none}
+#loader .ld{transition:transform .9s cubic-bezier(.75,0,.2,1),filter .9s,opacity .6s}#loader.out .ld{transform:scale(1.25);filter:blur(10px);opacity:0}
 .ld{text-align:center;width:min(420px,86vw)}
 .ld .lt{width:120px;height:120px;margin:0 auto;animation:bloom 2.4s ease-in-out infinite}
 .ld .lt img,.ld .lt svg{width:100%;height:100%;object-fit:contain}
@@ -942,6 +943,37 @@ pre.code{background:#160b18;color:#fbe7f3;border-radius:14px;padding:16px 18px;f
 .side.simg .credit{color:var(--ink)}
 .bk3{flex:none}
 @media(max-width:600px){.shelf{justify-content:flex-start;scroll-snap-type:x mandatory;padding-left:12px;padding-right:12px;-webkit-overflow-scrolling:touch}.bk3{--w:108px;scroll-snap-align:center}.bkf{padding:8px 8px 10px}.bkf small{display:none}.bkf em{font-size:9px;padding:2px 6px}.bkf b{font-size:13px;overflow-wrap:anywhere}}
+.bname small{line-height:1.35!important;display:block}
+.bname b{white-space:nowrap}
+
+/* r7.3 modern: view transitions + spotlight */
+.side{view-transition-name:nblside}.topbar{view-transition-name:nbltop}
+::view-transition-old(root){animation:vtOut .28s cubic-bezier(.4,0,.2,1) both}
+::view-transition-new(root){animation:vtIn .7s cubic-bezier(.65,0,.15,1) both}
+::view-transition-group(nblside),::view-transition-group(nbltop){animation-duration:.3s}
+@keyframes vtOut{to{opacity:0;transform:translateY(-10px) scale(.992);filter:blur(5px)}}
+@keyframes vtIn{from{opacity:.2;clip-path:inset(46% 0 46% 0);transform:scale(1.02);filter:blur(10px) saturate(1.4)}55%{opacity:1;filter:blur(0) saturate(1.15)}to{clip-path:inset(0 0 0 0);transform:none;filter:none}}
+.glow{position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:3;opacity:0;transition:opacity .35s;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--c,#ec4899) 11%,transparent),transparent 62%)}
+.glow::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.2px;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--c,#ec4899) 75%,#fff),transparent 70%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.glow.on{opacity:1}
+.rkbar{margin-bottom:24px}
+@media(max-width:600px){#ccLog .lg{white-space:normal;flex-wrap:wrap;row-gap:0}#ccLog .lx{white-space:normal}}
+
+/* r7.3 cinematic layer */
+.hero .media,.dhero .media{scale:1.06;animation:kenb 28s ease-in-out infinite alternate;transition:translate .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes kenb{from{scale:1.06}to{scale:1.14}}
+.hero::after,.dhero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;
+ background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(0,0,0,.38)),linear-gradient(105deg,transparent 40%,rgba(255,255,255,.16) 50%,transparent 60%);background-size:100% 100%,250% 100%;background-position:0 0,140% 0;animation:sweep 9s ease-in-out infinite 2s}
+@keyframes sweep{0%,70%{background-position:0 0,140% 0}100%{background-position:0 0,-60% 0}}
+.hero>*:not(.media),.dhero>*:not(.media){position:relative;z-index:2;transition:translate .6s cubic-bezier(.2,.8,.2,1)}
+.grain{position:fixed;inset:-50%;z-index:9998;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+#clight{position:fixed;left:0;top:0;width:640px;height:640px;margin:-320px 0 0 -320px;border-radius:50%;pointer-events:none;z-index:-1;opacity:0;transition:opacity .6s;background:radial-gradient(closest-side,color-mix(in srgb,var(--accent,#ec4899) 16%,transparent),transparent);will-change:transform}
+#clight.on{opacity:1}
+[data-theme=dark] #clight{background:radial-gradient(closest-side,rgba(244,114,182,.13),rgba(45,212,191,.05) 60%,transparent)}
+@media (prefers-reduced-motion:reduce){.hero .media,.dhero .media,.grain{animation:none}.hero::after,.dhero::after{animation:none}}
+@media print{.grain,#clight{display:none!important}}
+.ldbrand{font-family:'Prompt',sans-serif;font-weight:800;font-size:clamp(30px,4vw,44px);line-height:1.15;text-align:center;margin:10px 0 4px;background:linear-gradient(90deg,#db2777,#a855f7 50%,#0d9488);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:bshine 4s ease-in-out infinite}
 </style>
 </head>
 <body>
@@ -955,7 +987,7 @@ pre.code{background:#160b18;color:#fbe7f3;border-radius:14px;padding:16px 18px;f
 
 <div id="loader"><video class="ldv" data-video="brand/intro" autoplay muted playsinline></video><div class="ld">
  <div class="lt"><img data-src="brand/logo-wellbeing" data-fb="lotus" alt=""></div>
- <h2>กำลังเชื่อมต่อระบบบัญชีข้อมูลจังหวัด</h2>
+ <div class="ldbrand">ลุ่มภูอยู่ดีมีสุข</div><h2>กำลังเชื่อมต่อระบบบัญชีข้อมูลจังหวัด</h2>
  <p id="ldTxt">nongbualamphu.gdcatalog.go.th</p>
  <div class="prog"><i id="ldBar"></i></div>
 </div></div>
@@ -965,7 +997,7 @@ pre.code{background:#160b18;color:#fbe7f3;border-radius:14px;padding:16px 18px;f
 <aside class="side" id="side">
  <div class="brand">
   <div class="logo"><img data-src="brand/logo-wellbeing" data-fb="lotus" alt="โลโก้"></div>
-  <div class="bname" title="อยู่ดีมีสุข · ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู"><b>อยู่ดีมีสุข</b><small>ดัชนีความอยู่ดีมีสุข<br>จังหวัดหนองบัวลำภู</small></div>
+  <div class="bname" title="ลุ่มภูอยู่ดีมีสุข · ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู"><b>ลุ่มภูอยู่ดีมีสุข</b><small>ดัชนีความอยู่ดีมีสุข<br>จังหวัดหนองบัวลำภู</small></div>
  </div>
  <nav class="menu" id="menu"></nav>
  <div class="sfoot">
@@ -1128,7 +1160,7 @@ const IND=[
  {id:'crime',dim:'safety',key:'crime',name:'คดีอาญาที่ได้รับแจ้ง',unit:'คดี',dec:0,better:'down',icon:'siren'},
  {id:'drug',dim:'safety',key:'drug',name:'คดียาเสพติด',unit:'คดี',dec:0,better:'down',icon:'pill',dist:{field:'อำเภอ'}},
  /* ---- environment ---- */
- {id:'pm',dim:'env',key:'pm',name:'จำนวนวันที่ PM2.5 เกินมาตรฐาน',unit:'วัน/ปี',dec:0,better:'down',icon:'wind',agg:rows=>rows.length>=6?sum(rows.map(vOf).filter(isFinite)):NaN,note:'นับเฉพาะปีที่มีข้อมูล ≥ 6 เดือน'},
+ {id:'pm',dim:'env',key:'pm',name:'จำนวนวันที่ PM2.5 เกินมาตรฐาน',unit:'วัน/ปี',dec:0,better:'down',icon:'wind',agg:rows=>rows.length>=6?sum(rows.map(vOf).filter(isFinite)):NaN,note:'นับเฉพาะปีที่มีข้อมูล ≥ 6 เดือน · ปีล่าสุดที่ยังไม่ครบ 12 เดือนเทียบกับช่วงเดียวกันของปีก่อน',ytd:true},
  {id:'forest',dim:'env',key:'forest',name:'พื้นที่ป่าไม้ต่อพื้นที่จังหวัด',unit:'%',dec:2,better:'up',icon:'trees'},
  {id:'waste',dim:'env',key:'waste',name:'ปริมาณขยะมูลฝอยที่เกิดขึ้น',unit:'ตัน/วัน',dec:1,better:'down',icon:'trash-2'},
  /* ---- living ---- */
@@ -1188,8 +1220,14 @@ function districts(ind){if(!ind.dist)return null;const rows=(RAW[ind.key]||[]).f
   if(Object.keys(v).length>=3)return{y,v}}return null}
 function score(ind,s){if(!ind.better||s.length<2)return null;const vs=s.map(p=>p.v),mn=Math.min(...vs),mx=Math.max(...vs),L=vs[vs.length-1];
  if(mx===mn)return 50;let sc=(L-mn)/(mx-mn)*100;if(ind.better==='down')sc=100-sc;return Math.round(sc)}
+function ytdAdj(ind){if(!ind.ytdOn){if(ind.ytd===true)ind.ytdOn=1;else{ind.ytd=null;return}}ind.ytd=null;if(!ind.last||!ind.prev)return;
+ const nm=x=>String(x||'').replace(/[.\s]/g,''),rs=(RAW[ind.key]||[]),by=y=>rs.filter(r=>+String(r['ปี']).trim()===y);
+ const Lm=by(ind.last.y);if(!Lm.length||Lm.length>=12)return;const ms=new Set(Lm.map(r=>nm(r['เดือน'])));
+ const pv=by(ind.prev.y).filter(r=>ms.has(nm(r['เดือน'])));if(pv.length!==ms.size)return;
+ const dm=m=>String(m||'').trim().replace(/\.?$/,'.');
+ ind.prev={y:ind.prev.y,v:sum(pv.map(vOf).filter(isFinite)),part:1};ind.ytd={n:ms.size,lab:`${dm(Lm[0]['เดือน'])}–${dm(Lm[Lm.length-1]['เดือน'])}`}}
 function compute(){
- IND.forEach(ind=>{ind.s=series(ind);ind.last=ind.s[ind.s.length-1]||null;ind.prev=ind.s[ind.s.length-2]||null;ind.sc=score(ind,ind.s);ind.d=districts(ind);ind.dimO=DIMS.find(d=>d.id===ind.dim)});
+ IND.forEach(ind=>{ind.s=series(ind);ind.last=ind.s[ind.s.length-1]||null;ind.prev=ind.s[ind.s.length-2]||null;ytdAdj(ind);ind.sc=score(ind,ind.s);ind.d=districts(ind);ind.dimO=DIMS.find(d=>d.id===ind.dim)});
  DIMS.forEach(d=>{const sc=IND.filter(i=>i.dim===d.id&&i.sc!=null).map(i=>i.sc);d.score=sc.length?Math.round(sum(sc)/sc.length):null;d.n=IND.filter(i=>i.dim===d.id&&i.s.length).length});
  const ds=DIMS.filter(d=>d.score!=null).map(d=>d.score);return ds.length?Math.round(sum(ds)/ds.length):null;
 }
@@ -1294,7 +1332,9 @@ let OVERALL=null,CUR='overview',RENDERED={};
 function renderMenu(){let g='',h='';PAGES.forEach(p=>{if(p.grp!==g){g=p.grp;h+=`<div class="mgrp">${g}</div>`}
  h+=`<button class="mi ${p.id===CUR?'on':''}" style="--c:${pc(p)}" data-go="${p.id}"><span class="ico"><img data-src="${p.img}" data-fb="${p.icon}" alt=""></span><span><span class="t">${p.name}</span><br><span class="s">${p.en}</span></span>${p.dim&&p.dim.score!=null?`<span class="sc">${p.dim.score}</span>`:p.id==='overview'&&OVERALL!=null?`<span class="sc">${OVERALL}</span>`:''}</button>`});
  const m=document.getElementById('menu');m.innerHTML=h;m.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{go(b.dataset.go);document.body.classList.remove('nav')});hydrate(m);lucide.createIcons();}
-function go(id){if(!PAGES.find(p=>p.id===id))id='overview';CUR=id;const p=PAGES.find(x=>x.id===id);
+function go(id){const f=()=>goNow(id);let rm=false;try{rm=matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){}
+ const on=document.querySelector('.page.on');if(document.startViewTransition&&!rm&&on&&on.id!=='p-'+id&&!document.hidden){try{document.documentElement.classList.add('vt');const t=document.startViewTransition(f);t.finished.finally(()=>document.documentElement.classList.remove('vt'));return}catch(e){}}f()}
+function goNow(id){if(!PAGES.find(p=>p.id===id))id='overview';CUR=id;const p=PAGES.find(x=>x.id===id);
  document.querySelectorAll('.mi').forEach(b=>b.classList.toggle('on',b.dataset.go===id));
  document.querySelectorAll('.page').forEach(x=>x.classList.toggle('on',x.id==='p-'+id));
  document.getElementById('crTitle').textContent=p.name;document.getElementById('crSub').textContent=p.dim?'มิติที่ '+(DIMS.indexOf(p.dim)+1)+' จาก 7 · '+p.en:p.en;
@@ -1374,7 +1414,7 @@ function AN(i){if(ANC[i.id])return ANC[i.id];const s=i.s,L=i.last,P=i.prev,F=s[0
  if(a.anom)h=`ค่าปี ${L.y} ต่างจากปี ${P.y} ถึง ${a.yoy.txt} ซึ่งผิดปกติ ควรตรวจสอบความครอบคลุมของข้อมูลกับหน่วยงานก่อนนำไปสรุป`;
  else if(!i.better)h=a.lt?`${mv(a.lt)} ในรอบ ${span} ปี (พ.ศ. ${F.y}–${L.y})${recT?' · '+recT:''}`:(a.yoy?`${mv(a.yoy)} จากปี ${P.y}`:`ค่าล่าสุดปี ${L.y}`);
  else if(st>=3&&sd)h=`${gd(sd)?'ดีขึ้น':'แย่ลง'}ต่อเนื่อง ${st} ปี${a.lt?` รวม${mv(a.lt)} ตั้งแต่ปี ${F.y}`:''}${recT?' · '+recT:''}`;
- else if(a.yoy){h=`${mv(a.yoy)} จากปี ${P.y}${recT?' · '+recT:''}`;if(a.lt&&i.better&&Math.sign(a.lt.d)!==Math.sign(a.yoy.d)&&a.lt.d){a.mixed=1;h+=` แต่ภาพระยะยาว${a.lt.good?'ยังดีขึ้น':'ยังแย่ลง'} (${a.lt.txt} เทียบปี ${F.y})`}}
+ else if(a.yoy){h=i.ytd?`${mv(a.yoy)} เทียบช่วงเดียวกันปี ${P.y} (${i.ytd.lab} ${L.y} ยังไม่ครบปี)`:`${mv(a.yoy)} จากปี ${P.y}${recT?' · '+recT:''}`;if(a.lt&&i.better&&Math.sign(a.lt.d)!==Math.sign(a.yoy.d)&&a.lt.d){a.mixed=1;h+=` แต่ภาพระยะยาว${a.lt.good?'ยังดีขึ้น':'ยังแย่ลง'} (${a.lt.txt} เทียบปี ${F.y})`}}
  else h=`ค่าล่าสุดปี ${L.y} · ยังไม่มีข้อมูลปีก่อนให้เทียบ`;
  if(a.dis&&a.dis.ratio&&a.dis.ratio>=1.4&&i.better&&!a.anom)h+=` · ${a.pc?'เมื่อคิดต่อประชากร ':''}${a.dis.worst[0]}${i.better==='up'?'ต่ำ':'สูง'}กว่า${a.dis.best[0]} ${fmt(a.dis.ratio,1)} เท่า`;
  if(a.tg&&!a.anom)h+=` · ${a.tg.met?'บรรลุ':'ยังไม่บรรลุ'}เป้า ${a.tg.t.op==='<='?'≤':'≥'} ${fmt(a.tg.v,i.dec)}`;
@@ -1567,7 +1607,7 @@ function ebBuild(raw){const P=[];const Y=ebYear();const lv=level(OVERALL);const 
  /* 1 ปก */
  P.push(ebPage(`<div class="cv-bg" data-bg="hero/hero-home"></div><div class="cv-sh"></div>
   <div class="cv-top"><img data-src="brand/seal-nblp" data-fb="none" alt=""><img data-src="brand/logo-nso" data-fb="none" alt=""><img data-src="brand/logo-gdcatalog" data-fb="none" alt=""></div>
-  <div class="cv-mid"><div class="cv-k">รายงานการศึกษา · Research Report ${Y}</div><h1>อยู่ดีมีสุข</h1><h2>การวัดความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภู<br>ด้วยข้อมูลเปิดภาครัฐแบบอัตโนมัติ</h2><p>Measuring Well-being in Nong Bua Lam Phu Province<br>with Automated Open Government Data</p></div>
+  <div class="cv-mid"><div class="cv-k">รายงานการศึกษา · Research Report ${Y}</div><h1>ลุ่มภูอยู่ดีมีสุข</h1><h2>การวัดความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภู<br>ด้วยข้อมูลเปิดภาครัฐแบบอัตโนมัติ</h2><p>Measuring Well-being in Nong Bua Lam Phu Province<br>with Automated Open Government Data</p></div>
   <div class="cv-score"><b>${OVERALL??'–'}</b><span>/100<br>${lv.t}</span><small>ดัชนีภาพรวม 7 มิติ · ${nInd} ตัวชี้วัด · ${nDS} ชุดข้อมูล</small></div>
   <div class="cv-bot"><b>สำนักงานสถิติจังหวัดหนองบัวลำภู</b><span>ข้อมูล ณ ${today}</span></div>`,{bare:1,cls:'cover',t:'ปก'}));
  /* 2 หน้าลิขสิทธิ์/การอ้างอิง */
@@ -1578,7 +1618,7 @@ function ebBuild(raw){const P=[];const Y=ebYear();const lv=level(OVERALL);const 
   <p><b>แหล่งข้อมูล</b> ระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู (Government Data Catalog) ผ่าน CKAN API จำนวน ${nDS} ชุดข้อมูล</p>
   <h3>การอ้างอิง</h3><div class="cite">สำนักงานสถิติจังหวัดหนองบัวลำภู. (${Y}). <i>ดัชนีอยู่ดีมีสุข: การวัดความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูด้วยข้อมูลเปิดภาครัฐแบบอัตโนมัติ</i>. สืบค้นจาก ${ebEsc(location.href.split('#')[0])}</div>
   <h3>เงื่อนไขการใช้งาน</h3><p>อนุญาตให้นำเนื้อหา ตาราง และแผนภาพไปใช้ ทำซ้ำ และต่อยอดเพื่อประโยชน์สาธารณะ โดยอ้างอิงแหล่งที่มาตามรูปแบบข้างต้น ตัวเลขในรายงานคำนวณสดจากข้อมูลที่หน่วยงานเจ้าของข้อมูลเผยแพร่ หากหน่วยงานปรับปรุงข้อมูล ตัวเลขในฉบับถัดไปอาจเปลี่ยนแปลง</p>
-  <h3>ความหมายของชื่อ “อยู่ดีมีสุข”</h3><p><b>อยู่ดี</b> คือความพร้อมด้านปัจจัยพื้นฐานของชีวิต ทั้งรายได้ สุขภาพ การศึกษา ที่อยู่อาศัย และความปลอดภัย <b>มีสุข</b> คือผลลัพธ์ที่ประชาชนได้รับ ดัชนีจึงตอบคำถามว่า คนหนองบัวลำภูอยู่ดีมีสุขเพียงใด และควรเสริมที่จุดใด</p></div>`,{t:'ข้อมูลทางบรรณานุกรม',run:'ข้อมูลทางบรรณานุกรม'}));
+  <h3>ความหมายของชื่อ “ลุ่มภูอยู่ดีมีสุข”</h3><p><b>ลุ่มภู</b> คือแผ่นดินลุ่มน้ำใต้เทือกเขาภูพาน หมายถึงจังหวัดหนองบัวลำภู <b>อยู่ดี</b> คือความพร้อมด้านปัจจัยพื้นฐานของชีวิต ทั้งรายได้ สุขภาพ การศึกษา ที่อยู่อาศัย และความปลอดภัย <b>มีสุข</b> คือผลลัพธ์ที่ประชาชนได้รับ ดัชนีจึงตอบคำถามว่า คนหนองบัวลำภูอยู่ดีมีสุขเพียงใด และควรเสริมที่จุดใด</p></div>`,{t:'ข้อมูลทางบรรณานุกรม',run:'ข้อมูลทางบรรณานุกรม'}));
  /* 3 บทคัดย่อ */
  P.push(ebPage(`<h2 class="ebh2">บทคัดย่อ</h2>
   <p class="ind">การศึกษานี้มีวัตถุประสงค์เพื่อ (1) พัฒนาดัชนีวัดความอยู่ดีมีสุขระดับจังหวัดจากข้อมูลเปิดภาครัฐ (2) ประเมินสถานการณ์ความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูใน 7 มิติ และ (3) จัดทำข้อเสนอเชิงนโยบายที่อิงหลักฐาน โดยใช้ข้อมูลทุติยภูมิ ${nDS} ชุดข้อมูลจากระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู ดึงผ่าน CKAN API แบบอัตโนมัติ ครอบคลุม ${nInd} ตัวชี้วัด ช่วงปี พ.ศ. ${y0}–${y1} ปรับมาตรฐานด้วยวิธี Min–Max เทียบกับอนุกรมของจังหวัดเอง และรวมเป็นดัชนีด้วยค่าเฉลี่ยเลขคณิตแบบน้ำหนักเท่ากันตามแนวทางของ OECD/JRC</p>
@@ -1711,7 +1751,7 @@ df = fetch("${RES[IND[0].key][0]}")   # ${ebEsc(IND[0].name)}
 print(df.head())</pre>
   <p class="ind">รหัสชุดข้อมูลทั้งหมดดูได้จากหน้า “แหล่งข้อมูลและ API” ในแดชบอร์ด ซึ่งส่งออกเป็นไฟล์ CSV ได้</p>`,{t:'ภาคผนวก ค ตัวอย่างการดึงข้อมูล',run:'ภาคผนวก ค'}));
  /* ปกหลัง */
- P.push(ebPage(`<div class="cv-bg" data-bg="dims/catalog"></div><div class="cv-sh back"></div><div class="bk-in"><img data-src="brand/logo-wellbeing" data-fb="none" alt=""><h2>อยู่ดีมีสุข</h2><p>ให้ข้อมูลเปิดของจังหวัด กลายเป็นหลักฐานสำหรับการพัฒนาคุณภาพชีวิตของคนหนองบัวลำภู</p><div class="qrb" id="ebQr"></div><small>สแกนเพื่อเปิดแดชบอร์ดฉบับสด</small><div class="addr"><b>สำนักงานสถิติจังหวัดหนองบัวลำภู</b><br>ศาลากลางจังหวัดหนองบัวลำภู ชั้น 2 ถ.หนองบัวลำภู–เลย ต.ลำภู อ.เมือง จ.หนองบัวลำภู 39000<br>โทร 0 4231 6736 · saraban_nblamphu@nso.mail.go.th</div></div>`,{bare:1,cls:'cover backc',t:'ปกหลัง'}));
+ P.push(ebPage(`<div class="cv-bg" data-bg="dims/catalog"></div><div class="cv-sh back"></div><div class="bk-in"><img data-src="brand/logo-wellbeing" data-fb="none" alt=""><h2>ลุ่มภูอยู่ดีมีสุข</h2><p>ให้ข้อมูลเปิดของจังหวัด กลายเป็นหลักฐานสำหรับการพัฒนาคุณภาพชีวิตของคนหนองบัวลำภู</p><div class="qrb" id="ebQr"></div><small>สแกนเพื่อเปิดแดชบอร์ดฉบับสด</small><div class="addr"><b>สำนักงานสถิติจังหวัดหนองบัวลำภู</b><br>ศาลากลางจังหวัดหนองบัวลำภู ชั้น 2 ถ.หนองบัวลำภู–เลย ต.ลำภู อ.เมือง จ.หนองบัวลำภู 39000<br>โทร 0 4231 6736 · saraban_nblamphu@nso.mail.go.th</div></div>`,{bare:1,cls:'cover backc',t:'ปกหลัง'}));
  return raw?P:ebFinish(P)}
 function ebFinish(P){P=P.slice();const ti=P.findIndex(p=>p.toc);
  if(ti>=0){const toc=P.map((p,n)=>({n:n+1,t:p.t,lv:p.lv})).filter(x=>x.t&&x.n>ti+1&&!/^ปก/.test(x.t)&&(x.lv||0)<3);
@@ -1785,7 +1825,7 @@ function ebStoryPages(){let S=[];try{S=storyList()}catch(e){}return S.map((s,k)=
  return ebPage(`<div class="sp1" style="--ec:${c}"><div class="sk">เรื่องที่ ${String(k+1).padStart(2,'0')} · ${s.kick} · มิติ${d.name}</div><div class="sbig">${s.big}</div>${s.unit?`<div class="sunit">${s.unit}</div>`:''}<h2>${s.title}</h2><p class="lead">${s.text}</p>
   <div class="spl"><b>นัยเชิงนโยบาย</b><p>${s.pol}</p></div><div class="ssr">แหล่งข้อมูล: ${(s.src||[]).map(x=>`<code>${x}</code>`).join(' ')} · ระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู</div></div>`,{t:s.kick,lv:1,run:'เรื่องเล่าจากข้อมูล',c})})}
 const BOOKS=[
- {id:'report',kick:'รายงานการศึกษา · Research Report',title:'อยู่ดีมีสุข',sub:'การวัดความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูด้วยข้อมูลเปิดภาครัฐแบบอัตโนมัติ',en:'Measuring Well-being with Automated Open Government Data',c:'#db2777',img:'hero/hero-home',tag:'ฉบับสมบูรณ์',desc:'รายงานวิจัยเต็มรูปแบบ 5 บท ตั้งแต่ความเป็นมา แนวคิดทฤษฎี ระเบียบวิธี ผลการศึกษา จนถึงข้อเสนอแนะ พร้อมบรรณานุกรมและภาคผนวก',build:()=>ebBuild()},
+ {id:'report',kick:'รายงานการศึกษา · Research Report',title:'ลุ่มภูอยู่ดีมีสุข',sub:'การวัดความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูด้วยข้อมูลเปิดภาครัฐแบบอัตโนมัติ',en:'Measuring Well-being with Automated Open Government Data',c:'#db2777',img:'hero/hero-home',tag:'ฉบับสมบูรณ์',desc:'รายงานวิจัยเต็มรูปแบบ 5 บท ตั้งแต่ความเป็นมา แนวคิดทฤษฎี ระเบียบวิธี ผลการศึกษา จนถึงข้อเสนอแนะ พร้อมบรรณานุกรมและภาคผนวก',build:()=>ebBuild()},
  {id:'brief',kick:'บทสรุปผู้บริหาร · Executive Brief',title:'สรุป 10 นาที',fs:72,sub:'ภาพรวมดัชนีอยู่ดีมีสุข ข้อค้นพบสำคัญ และสิ่งที่จังหวัดควรทำ',en:'Executive Brief for Provincial Leaders',c:'#7c3aed',img:'dims/stories',tag:'อ่านเร็ว',desc:'ฉบับย่อสำหรับผู้บริหาร อ่านจบใน 10 นาที มีเฉพาะตัวเลขสำคัญ ข้อค้นพบ 5 ประการ และข้อเสนอเชิงนโยบาย',
   build:()=>{const R=ebBuild(1);const B=BOOKS[1];return ebFinish([ebCover(B),...ebPick(R,/^บทสรุปสำหรับผู้บริหาร|^4\.1 |^4\.9 |^5\.1/),ebBack(B)])}},
  {id:'stories',kick:'หนังสือเล่าเรื่อง · Data Stories',title:'ตัวเลขเล่าเรื่อง',fs:70,sub:'เรื่องจริงของหนองบัวลำภูที่ข้อมูลบอกเรา',en:'Stories the Data Tells about Nong Bua Lam Phu',c:'#d97706',img:'dims/econ',tag:'อ่านสนุก',desc:'ข้อค้นพบเชิงประเด็นทีละเรื่อง เช่น คนตายมากกว่าคนเกิด สังคมสูงวัย เด็กหลุดจากระบบ เล่าด้วยตัวเลขใหญ่และนัยเชิงนโยบาย',
@@ -1799,7 +1839,7 @@ const BOOKS=[
 ];
 EB.book='report';
 function shelfHTML(){return`<div class="lib"><div class="libbg"><canvas class="libfx" aria-hidden="true"></canvas></div>
- <div class="libhead"><div><div class="lk">DIGITAL LIBRARY · ห้องสมุดดิจิทัล</div><h2>ชั้นหนังสือ<span>อยู่ดีมีสุข</span></h2><p>หนังสือ 6 เล่มที่เขียนตัวเองจากข้อมูลจริง ทุกครั้งที่หน่วยงานปรับปรุงข้อมูล ตัวเลข ตาราง และข้อค้นพบในทุกเล่มจะอัปเดตตามทันที เลือกเล่มเพื่อพลิกอ่าน หรือบันทึกเป็น PDF ขนาด A4</p></div><div class="lstat"><div><b>${BOOKS.length}</b><span>เล่ม</span></div><div><b id="libPg">–</b><span>หน้ารวม</span></div><div><b>${Object.keys(RES).length}</b><span>ชุดข้อมูลสด</span></div></div></div>
+ <div class="libhead"><div><div class="lk">DIGITAL LIBRARY · ห้องสมุดดิจิทัล</div><h2>ชั้นหนังสือ<span>ลุ่มภูอยู่ดีมีสุข</span></h2><p>หนังสือ 6 เล่มที่เขียนตัวเองจากข้อมูลจริง ทุกครั้งที่หน่วยงานปรับปรุงข้อมูล ตัวเลข ตาราง และข้อค้นพบในทุกเล่มจะอัปเดตตามทันที เลือกเล่มเพื่อพลิกอ่าน หรือบันทึกเป็น PDF ขนาด A4</p></div><div class="lstat"><div><b>${BOOKS.length}</b><span>เล่ม</span></div><div><b id="libPg">–</b><span>หน้ารวม</span></div><div><b>${Object.keys(RES).length}</b><span>ชุดข้อมูลสด</span></div></div></div>
  <div class="shelf">${BOOKS.map((B,k)=>`<button class="bk3 ${EB.book===B.id?'on':''}" data-b="${B.id}" style="--bc:${B.c};--d:${k*90}ms" title="${ebEsc(B.title)}"><div class="bkb"><div class="bkf"><i data-bg="${B.img}"></i><em>${B.tag}</em><b>${B.title}</b><small>${B.kick.split(' · ')[0]}</small><span class="bkl"><img data-src="brand/logo-wellbeing" data-fb="none" alt=""></span></div><div class="bks"><span>${B.title}</span></div><div class="bkt"></div></div><div class="bkg"></div></button>`).join('')}</div>
  <div class="plank"><i></i></div>
  <div class="bkinfo" id="bkInfo"></div></div>`}
@@ -1824,7 +1864,7 @@ function renderOverview(){const el=document.getElementById('p-overview');const l
   <div class="media"><div class="ph" data-bg="hero/hero-home"></div><video data-video="hero/hero-home" autoplay muted loop playsinline></video></div>
   <div class="in">
    <div class="hlogos"><img data-src="brand/seal-nblp" data-fb="none" alt=""><img data-src="brand/logo-nso" data-fb="none" alt=""><img data-src="brand/logo-gdcatalog" data-fb="none" alt=""></div><br>
-   <span class="tag">${ic('sparkles')}อยู่ดีมีสุข · Nong Bua Lam Phu Well-Being Index</span>
+   <span class="tag">${ic('sparkles')}ลุ่มภูอยู่ดีมีสุข · Nong Bua Lam Phu Well-Being Index</span>
    <h2>ดัชนีความอยู่ดีมีสุข<br><span class="gt">จังหวัดหนองบัวลำภู</span></h2>
    <p>ติดตามคุณภาพชีวิตของคนหนองบัวลำภูครบ 7 มิติ จาก ${IND.length} ตัวชี้วัด ดึงข้อมูลสดจากระบบบัญชีข้อมูลจังหวัด ${Object.keys(RES).length} ชุดข้อมูลของหน่วยงานในพื้นที่</p>
    <div class="meta"><span>${ic('database')}${Object.keys(RAW).length} ชุดข้อมูลสด</span><span>${ic('calendar-range')}ข้อมูล พ.ศ. ${Math.min(...yrs)}–${Math.max(...yrs)}</span><span>${ic('map-pin')}6 อำเภอ</span></div>
@@ -2110,7 +2150,7 @@ function countUp(root){if(RM)return;root.querySelectorAll('.kpi .v,.dc .scr b,.d
  const t0=performance.now(),D=1300;const step=t=>{const k=Math.min(1,(t-t0)/D),e=1-Math.pow(1-k,4);tn.textContent=pre+(v*e).toLocaleString('th-TH',{minimumFractionDigits:dec,maximumFractionDigits:dec})+post;if(k<1)requestAnimationFrame(step);else tn.textContent=raw};requestAnimationFrame(step)})}
 const IO=('IntersectionObserver' in window)?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');IO.unobserve(e.target);countUp(e.target)}}),{threshold:.08}):null;
 function reveal(root){if(RM||!IO){countUp(root);return}root.querySelectorAll('.sec,.dc,.kpi,.g>.card,.gi>.card,.cc,.dhero,.hero').forEach((el,i)=>{if(el._rv)return;el._rv=1;el.classList.add('rv');el.style.setProperty('--d',(i%6)*60+'ms');IO.observe(el)})}
-function fx(root){if(!root)return;reveal(root);if(RM)return;root.querySelectorAll('.dc,.kpi').forEach(el=>{if(el._t)return;el._t=1;el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*7}deg) rotateX(${-y*7}deg) translateY(-6px)`;el.style.setProperty('--gx',(x+.5)*100+'%');el.style.setProperty('--gy',(y+.5)*100+'%')});el.addEventListener('pointerleave',()=>{el.style.transform=''})})}
+function fx(root){if(!root)return;reveal(root);if(RM)return;root.querySelectorAll('.dc,.kpi,.ins2,.fcard,.bm,.ccst').forEach(el=>{if(el._t||el.closest('.ebp,.lib'))return;el._t=1;const A=el.matches('.dc,.kpi,.ccst')?7:3.2;el.style.transition='transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .3s';el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(1100px) rotateY(${x*A}deg) rotateX(${-y*A}deg) translateY(-6px)`;el.style.setProperty('--gx',(x+.5)*100+'%');el.style.setProperty('--gy',(y+.5)*100+'%')});el.addEventListener('pointerleave',()=>{el.style.transform=''})})}
 document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.card');if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}},{passive:true});
 function buildTicker(){const t=document.getElementById('ticker');if(!t)return;const items=IND.filter(i=>i.last&&i.prev&&i.better).map(i=>{const d=delta(i);return`<span class="tk ${d.cls}" data-ind="${i.id}">${ic(i.icon)}<b>${i.name.replace(/\s*\(.*\)/,'')}</b>${fmt(i.last.v,i.dec)} ${i.unit}<em>${ic(d.icon)}${d.t}</em><small>พ.ศ. ${i.last.y}</small></span>`}).join('');
  t.innerHTML=`<div class="tkl"><i></i>LIVE</div><div class="tkw"><div class="tkr">${items}${items}</div></div>`;lucide.createIcons();t.querySelectorAll('[data-ind]').forEach(x=>x.onclick=()=>openInd(x.dataset.ind))}
@@ -2500,6 +2540,28 @@ window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(h&&h
 let rz;window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>CHARTS.forEach(c=>{try{c.resize()}catch(e){}}),120)});
 CUR=(location.hash||'#overview').slice(1);
 lucide.createIcons();themeIcon();setBodyBg();hydrate();boot();
+
+/* spotlight glow (desktop pointers only) */
+(function(){let fine=false;try{fine=matchMedia('(hover:hover) and (pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){}if(!fine)return;
+ const SEL='.card,.ins2,.kpi,.fcard,.sig2,.ccst,.bm';let cur=null,raf=0,ev=null;
+ const leave=()=>{if(cur){const g=cur.querySelector(':scope>.glow');g&&g.classList.remove('on');cur=null}};
+ document.addEventListener('pointermove',e=>{ev=e;if(raf)return;raf=requestAnimationFrame(()=>{raf=0;const t=ev.target.closest&&ev.target.closest(SEL);
+  if(t!==cur){leave();if(t&&!t.closest('.ebp,.lib,#print')&&getComputedStyle(t).position!=='static'){cur=t;let g=t.querySelector(':scope>.glow');if(!g){g=document.createElement('i');g.className='glow';t.appendChild(g)}g.classList.add('on')}}
+  if(cur){const r=cur.getBoundingClientRect();cur.style.setProperty('--mx',(ev.clientX-r.left)+'px');cur.style.setProperty('--my',(ev.clientY-r.top)+'px')}})},{passive:true});
+ document.addEventListener('pointerleave',leave);
+})();
+
+/* cinematic: hero parallax + cursor light + grain */
+(function(){let fine=false,rm=false;try{rm=matchMedia('(prefers-reduced-motion: reduce)').matches;fine=matchMedia('(hover:hover) and (pointer:fine)').matches}catch(e){}
+ if(!rm){const g=document.createElement('div');g.className='grain';document.body.appendChild(g)}
+ if(rm||!fine)return;
+ const L=document.createElement('div');L.id='clight';document.body.appendChild(L);let raf=0,ev=null,hh=null;
+ document.addEventListener('pointermove',e=>{ev=e;if(raf)return;raf=requestAnimationFrame(()=>{raf=0;L.style.transform=`translate(${ev.clientX}px,${ev.clientY}px)`;L.classList.add('on');
+  const h=ev.target.closest&&ev.target.closest('.hero,.dhero');if(hh&&hh!==h){hh.querySelectorAll(':scope>*').forEach(c=>c.style.translate='');hh=null}
+  if(h){hh=h;const r=h.getBoundingClientRect(),x=(ev.clientX-r.left)/r.width-.5,y=(ev.clientY-r.top)/r.height-.5;
+   h.querySelectorAll(':scope>*').forEach(c=>{const m=c.classList.contains('media');c.style.translate=m?`${-x*26}px ${-y*18}px`:`${x*10}px ${y*7}px`})}})},{passive:true});
+ document.addEventListener('pointerleave',()=>L.classList.remove('on'));
+})();
 }
 </script>
 </body>
