@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ดัชนีบัวบาน · ความอยู่ดีมีสุข จังหวัดหนองบัวลำภู</title>
-<meta name="description" content="ดัชนีบัวบาน (NBL Well-Being Index) · แดชบอร์ดดัชนีความอยู่ดีมีสุขจังหวัดหนองบัวลำภู ข้อมูลสดจากระบบบัญชีข้อมูลจังหวัด">
+<title>อยู่ดีมีสุข · ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู</title>
+<meta name="description" content="อยู่ดีมีสุข (NBL Well-Being Index) · แดชบอร์ดดัชนีความอยู่ดีมีสุขจังหวัดหนองบัวลำภู ข้อมูลสดจากระบบบัญชีข้อมูลจังหวัด">
 <meta name="theme-color" content="#db2777">
-<meta property="og:title" content="ดัชนีบัวบาน · ความอยู่ดีมีสุข จังหวัดหนองบัวลำภู">
+<meta property="og:title" content="อยู่ดีมีสุข · ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู">
 <meta property="og:image" content="https://nsonongbualamphutc-debug.github.io/NBL-WellBeing-Dashboard/assets/brand/og-image.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="og:url" content="https://nsonongbualamphutc-debug.github.io/NBL-WellBeing-Dashboard/"><meta property="og:type" content="website">
@@ -18,8 +18,8 @@
 <link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="apple-mobile-web-app-title" content="ดัชนีบัวบาน">
-<meta name="application-name" content="ดัชนีบัวบาน">
+<meta name="apple-mobile-web-app-title" content="อยู่ดีมีสุข">
+<meta name="application-name" content="อยู่ดีมีสุข">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Sarabun:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
@@ -748,10 +748,10 @@ canvas.sidefx,canvas.ccfx{position:absolute!important;inset:0;width:100%;height:
 .ai-dots{display:flex;flex-direction:column;gap:6px}.ai-dots i{width:8px;height:8px;border-radius:50%;background:color-mix(in srgb,var(--tx3) 40%,transparent);cursor:pointer;transition:.3s}.ai-dots i.on{background:var(--c,#db2777);height:20px;border-radius:5px}
 @media(max-width:800px){.autoins{grid-template-columns:1fr}.ai-dots{flex-direction:row}.ai-dots i.on{height:8px;width:20px}}
 
-.ccbg{position:absolute;inset:0;background:var(--ph,none) right center/cover no-repeat;opacity:.55;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.5) 35%,#000 70%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.5) 35%,#000 70%);pointer-events:none}
+.ccbg{position:absolute;inset:0;background:var(--ph,none) right center/cover no-repeat;opacity:.9;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.6) 30%,#000 55%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.6) 30%,#000 55%);pointer-events:none}
 .cc>.ccbg{position:absolute!important;z-index:0}
-.side.simg::before{content:"";position:absolute;inset:0;background:var(--sideimg) center/cover no-repeat;opacity:.55;z-index:0;pointer-events:none}
-[data-theme=dark] .side.simg::before{opacity:.6}
+.side.simg::before{content:"";position:absolute;inset:0;background:var(--sideimg) center bottom/cover no-repeat;opacity:.92;z-index:0;pointer-events:none}
+[data-theme=dark] .side.simg::before{opacity:.95}
 /* ===== round 7 · E-book ===== */
 .ebw{position:relative;isolation:isolate;margin-top:20px;border-radius:30px;overflow:hidden;padding:30px 20px 18px;display:flex;flex-direction:column;gap:16px;align-items:center;background:radial-gradient(70% 60% at 50% 35%,#5b1739,#12060f 78%);box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
 .ebw.fs,.ebw:fullscreen{position:fixed;inset:0;z-index:95;border-radius:0;justify-content:center}
@@ -935,6 +935,13 @@ pre.code{background:#160b18;color:#fbe7f3;border-radius:14px;padding:16px 18px;f
 .lct small{font-size:11.5px;letter-spacing:2px;color:#5eead4;font-weight:600}.lct b{display:block;font-family:var(--head);font-size:clamp(17px,1.5vw,21px);margin:4px 0;color:#fff}.lct span{font-size:13.5px;opacity:.78}
 .lcgo{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:14px;background:linear-gradient(135deg,#db2777,#be185d);color:#fff;font-weight:600;white-space:nowrap}.lcgo svg{width:18px;height:18px;transition:.3s}.libcta:hover .lcgo svg{transform:translateX(4px)}
 @media(max-width:800px){.libcta{grid-template-columns:1fr}.lcb{display:none}}
+
+/* r7.1 image tuning */
+.ccbg{bottom:auto!important;height:min(640px,100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 30%,#000 55%),linear-gradient(180deg,#000 62%,transparent 100%)!important;-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 30%,#000 55%),linear-gradient(180deg,#000 62%,transparent 100%)!important;mask-composite:intersect}
+.side.simg .sfoot{position:relative;z-index:1;background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--panel) 78%,transparent) 30%);border-top-color:transparent}
+.side.simg .credit{color:var(--ink)}
+.bk3{flex:none}
+@media(max-width:600px){.shelf{justify-content:flex-start;scroll-snap-type:x mandatory;padding-left:12px;padding-right:12px;-webkit-overflow-scrolling:touch}.bk3{--w:108px;scroll-snap-align:center}.bkf{padding:8px 8px 10px}.bkf small{display:none}.bkf em{font-size:9px;padding:2px 6px}.bkf b{font-size:13px;overflow-wrap:anywhere}}
 </style>
 </head>
 <body>
@@ -958,7 +965,7 @@ pre.code{background:#160b18;color:#fbe7f3;border-radius:14px;padding:16px 18px;f
 <aside class="side" id="side">
  <div class="brand">
   <div class="logo"><img data-src="brand/logo-wellbeing" data-fb="lotus" alt="โลโก้"></div>
-  <div class="bname" title="บัว = อัตลักษณ์หนองบัวลำภู · บาน = ชีวิตที่เบ่งบาน ดัชนีจึงบอกว่าคุณภาพชีวิตคนหนองบัวลำภู ‘บาน’ แค่ไหน"><b>ดัชนีบัวบาน</b><small>ความอยู่ดีมีสุข · จังหวัดหนองบัวลำภู</small></div>
+  <div class="bname" title="อยู่ดีมีสุข · ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู"><b>อยู่ดีมีสุข</b><small>ดัชนีความอยู่ดีมีสุข<br>จังหวัดหนองบัวลำภู</small></div>
  </div>
  <nav class="menu" id="menu"></nav>
  <div class="sfoot">
@@ -1547,8 +1554,8 @@ function svgRadar(items,size=360){const cx=size/2,cy=size/2+6,R=size*.33,n=items
  return`<svg viewBox="0 0 ${size} ${size+10}" width="${size}" height="${size+10}">${grid}${axes}${poly}${items.map((it,k)=>{const p=pt(k,it.v??0);return`<circle cx="${p[0]}" cy="${p[1]}" r="4" fill="#fff" stroke="#db2777" stroke-width="2"/>`}).join('')}${lab}</svg>`}
 
 /* ---- โครงหน้า ---- */
-function ebPage(body,o={}){return{h:`<div class="ebp ${o.cls||''}" style="${o.c?'--ec:'+o.c+';':''}">${o.bare?body:`<div class="ebh"><span>ดัชนีบัวบาน · รายงานการศึกษา พ.ศ. ${ebYear()}</span><span>${ebEsc(o.run||'')}</span></div><div class="ebx">${body}</div><div class="ebf"><span>สำนักงานสถิติจังหวัดหนองบัวลำภู</span><span class="pn">{{PN}}</span></div>`}</div>`,t:o.t||'',lv:o.lv||0}}
-function ebChapter(n,title,sub,c,img){return ebPage(`<div class="ebch-bg" ${img?`data-bg="${img}"`:''}></div><div class="ebch"><div class="no">บทที่ ${n}</div><h1>${title}</h1><p>${sub}</p><div class="ebln"></div></div><div class="ebf light"><span>ดัชนีบัวบาน · ${ebYear()}</span><span class="pn">{{PN}}</span></div>`,{bare:1,cls:'chap',c,t:`บทที่ ${n} ${title}`,lv:1})}
+function ebPage(body,o={}){return{h:`<div class="ebp ${o.cls||''}" style="${o.c?'--ec:'+o.c+';':''}">${o.bare?body:`<div class="ebh"><span>ดัชนีอยู่ดีมีสุข · รายงานการศึกษา พ.ศ. ${ebYear()}</span><span>${ebEsc(o.run||'')}</span></div><div class="ebx">${body}</div><div class="ebf"><span>สำนักงานสถิติจังหวัดหนองบัวลำภู</span><span class="pn">{{PN}}</span></div>`}</div>`,t:o.t||'',lv:o.lv||0}}
+function ebChapter(n,title,sub,c,img){return ebPage(`<div class="ebch-bg" ${img?`data-bg="${img}"`:''}></div><div class="ebch"><div class="no">บทที่ ${n}</div><h1>${title}</h1><p>${sub}</p><div class="ebln"></div></div><div class="ebf light"><span>ดัชนีอยู่ดีมีสุข · ${ebYear()}</span><span class="pn">{{PN}}</span></div>`,{bare:1,cls:'chap',c,t:`บทที่ ${n} ${title}`,lv:1})}
 const ebTbl=(head,rows,cls='')=>`<table class="ebt ${cls}"><thead><tr>${head.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
 
 /* ---- สร้างเนื้อหาทั้งเล่มจากข้อมูลจริง ---- */
@@ -1560,22 +1567,22 @@ function ebBuild(raw){const P=[];const Y=ebYear();const lv=level(OVERALL);const 
  /* 1 ปก */
  P.push(ebPage(`<div class="cv-bg" data-bg="hero/hero-home"></div><div class="cv-sh"></div>
   <div class="cv-top"><img data-src="brand/seal-nblp" data-fb="none" alt=""><img data-src="brand/logo-nso" data-fb="none" alt=""><img data-src="brand/logo-gdcatalog" data-fb="none" alt=""></div>
-  <div class="cv-mid"><div class="cv-k">รายงานการศึกษา · Research Report ${Y}</div><h1>ดัชนีบัวบาน</h1><h2>การวัดความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภู<br>ด้วยข้อมูลเปิดภาครัฐแบบอัตโนมัติ</h2><p>Measuring Well-being in Nong Bua Lam Phu Province<br>with Automated Open Government Data</p></div>
+  <div class="cv-mid"><div class="cv-k">รายงานการศึกษา · Research Report ${Y}</div><h1>อยู่ดีมีสุข</h1><h2>การวัดความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภู<br>ด้วยข้อมูลเปิดภาครัฐแบบอัตโนมัติ</h2><p>Measuring Well-being in Nong Bua Lam Phu Province<br>with Automated Open Government Data</p></div>
   <div class="cv-score"><b>${OVERALL??'–'}</b><span>/100<br>${lv.t}</span><small>ดัชนีภาพรวม 7 มิติ · ${nInd} ตัวชี้วัด · ${nDS} ชุดข้อมูล</small></div>
   <div class="cv-bot"><b>สำนักงานสถิติจังหวัดหนองบัวลำภู</b><span>ข้อมูล ณ ${today}</span></div>`,{bare:1,cls:'cover',t:'ปก'}));
  /* 2 หน้าลิขสิทธิ์/การอ้างอิง */
  P.push(ebPage(`<div class="cp"><h3>ข้อมูลทางบรรณานุกรม</h3>
-  <p><b>ชื่อเรื่อง</b> ดัชนีบัวบาน: การวัดความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูด้วยข้อมูลเปิดภาครัฐแบบอัตโนมัติ</p>
+  <p><b>ชื่อเรื่อง</b> ดัชนีอยู่ดีมีสุข: การวัดความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูด้วยข้อมูลเปิดภาครัฐแบบอัตโนมัติ</p>
   <p><b>ผู้จัดทำ</b> สำนักงานสถิติจังหวัดหนองบัวลำภู ศาลากลางจังหวัดหนองบัวลำภู ชั้น 2 ถ.หนองบัวลำภู–เลย ต.ลำภู อ.เมือง จ.หนองบัวลำภู 39000 โทร 0 4231 6736</p>
   <p><b>ปีที่จัดทำ</b> พ.ศ. ${Y} (ฉบับสร้างอัตโนมัติจากข้อมูล ณ ${today})</p>
   <p><b>แหล่งข้อมูล</b> ระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู (Government Data Catalog) ผ่าน CKAN API จำนวน ${nDS} ชุดข้อมูล</p>
-  <h3>การอ้างอิง</h3><div class="cite">สำนักงานสถิติจังหวัดหนองบัวลำภู. (${Y}). <i>ดัชนีบัวบาน: การวัดความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูด้วยข้อมูลเปิดภาครัฐแบบอัตโนมัติ</i>. สืบค้นจาก ${ebEsc(location.href.split('#')[0])}</div>
+  <h3>การอ้างอิง</h3><div class="cite">สำนักงานสถิติจังหวัดหนองบัวลำภู. (${Y}). <i>ดัชนีอยู่ดีมีสุข: การวัดความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูด้วยข้อมูลเปิดภาครัฐแบบอัตโนมัติ</i>. สืบค้นจาก ${ebEsc(location.href.split('#')[0])}</div>
   <h3>เงื่อนไขการใช้งาน</h3><p>อนุญาตให้นำเนื้อหา ตาราง และแผนภาพไปใช้ ทำซ้ำ และต่อยอดเพื่อประโยชน์สาธารณะ โดยอ้างอิงแหล่งที่มาตามรูปแบบข้างต้น ตัวเลขในรายงานคำนวณสดจากข้อมูลที่หน่วยงานเจ้าของข้อมูลเผยแพร่ หากหน่วยงานปรับปรุงข้อมูล ตัวเลขในฉบับถัดไปอาจเปลี่ยนแปลง</p>
-  <h3>ความหมายของชื่อ “บัวบาน”</h3><p><b>บัว</b> คืออัตลักษณ์ของจังหวัดหนองบัวลำภู <b>บาน</b> คือชีวิตที่เบ่งบาน ดัชนีจึงตอบคำถามเดียวว่า คุณภาพชีวิตของคนหนองบัวลำภู “บาน” แค่ไหน และควรรดน้ำตรงจุดใด</p></div>`,{t:'ข้อมูลทางบรรณานุกรม',run:'ข้อมูลทางบรรณานุกรม'}));
+  <h3>ความหมายของชื่อ “อยู่ดีมีสุข”</h3><p><b>อยู่ดี</b> คือความพร้อมด้านปัจจัยพื้นฐานของชีวิต ทั้งรายได้ สุขภาพ การศึกษา ที่อยู่อาศัย และความปลอดภัย <b>มีสุข</b> คือผลลัพธ์ที่ประชาชนได้รับ ดัชนีจึงตอบคำถามว่า คนหนองบัวลำภูอยู่ดีมีสุขเพียงใด และควรเสริมที่จุดใด</p></div>`,{t:'ข้อมูลทางบรรณานุกรม',run:'ข้อมูลทางบรรณานุกรม'}));
  /* 3 บทคัดย่อ */
  P.push(ebPage(`<h2 class="ebh2">บทคัดย่อ</h2>
   <p class="ind">การศึกษานี้มีวัตถุประสงค์เพื่อ (1) พัฒนาดัชนีวัดความอยู่ดีมีสุขระดับจังหวัดจากข้อมูลเปิดภาครัฐ (2) ประเมินสถานการณ์ความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูใน 7 มิติ และ (3) จัดทำข้อเสนอเชิงนโยบายที่อิงหลักฐาน โดยใช้ข้อมูลทุติยภูมิ ${nDS} ชุดข้อมูลจากระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู ดึงผ่าน CKAN API แบบอัตโนมัติ ครอบคลุม ${nInd} ตัวชี้วัด ช่วงปี พ.ศ. ${y0}–${y1} ปรับมาตรฐานด้วยวิธี Min–Max เทียบกับอนุกรมของจังหวัดเอง และรวมเป็นดัชนีด้วยค่าเฉลี่ยเลขคณิตแบบน้ำหนักเท่ากันตามแนวทางของ OECD/JRC</p>
-  <p class="ind">ผลการศึกษาพบว่า ดัชนีบัวบานภาพรวมอยู่ที่ <b>${OVERALL}</b> คะแนน (ระดับ${lv.t}) มิติที่มีคะแนนสูงสุดคือ<b>${best.name}</b> (${best.score}) และต่ำสุดคือ<b>${worst.name}</b> (${worst.score}) จากการวิเคราะห์ทิศทาง พบตัวชี้วัดที่มีสัญญาณบวก ${pos.length} ตัว และสัญญาณเตือน ${neg.length} ตัว ประเด็นที่ควรจับตาเป็นลำดับแรกได้แก่ ${neg.slice(0,3).map(a=>`“${a.i.name}”`).join(' ')} ขณะที่จุดแข็งที่ควรรักษาได้แก่ ${pos.slice(0,3).map(a=>`“${a.i.name}”`).join(' ')}</p>
+  <p class="ind">ผลการศึกษาพบว่า ดัชนีอยู่ดีมีสุขในภาพรวมอยู่ที่ <b>${OVERALL}</b> คะแนน (ระดับ${lv.t}) มิติที่มีคะแนนสูงสุดคือ<b>${best.name}</b> (${best.score}) และต่ำสุดคือ<b>${worst.name}</b> (${worst.score}) จากการวิเคราะห์ทิศทาง พบตัวชี้วัดที่มีสัญญาณบวก ${pos.length} ตัว และสัญญาณเตือน ${neg.length} ตัว ประเด็นที่ควรจับตาเป็นลำดับแรกได้แก่ ${neg.slice(0,3).map(a=>`“${a.i.name}”`).join(' ')} ขณะที่จุดแข็งที่ควรรักษาได้แก่ ${pos.slice(0,3).map(a=>`“${a.i.name}”`).join(' ')}</p>
   <p class="ind">ข้อเสนอแนะสำคัญคือ การใช้ดัชนีนี้เป็นเครื่องมือติดตามแบบต่อเนื่องในวงจรนโยบายของจังหวัด การกำหนดค่าเป้าหมายทางการของแต่ละตัวชี้วัด และการยกระดับความทันสมัยของข้อมูลของหน่วยงานเจ้าของข้อมูล เพื่อให้การตัดสินใจเชิงนโยบายอยู่บนฐานข้อมูลที่เป็นปัจจุบัน</p>
   <p class="kw"><b>คำสำคัญ:</b> ความอยู่ดีมีสุข, ดัชนีชี้วัดรวม, ข้อมูลเปิดภาครัฐ, นโยบายที่อิงหลักฐาน, หนองบัวลำภู</p>
   <div class="ebkpis"><div><b>${OVERALL}</b><span>ดัชนีภาพรวม</span></div><div><b>${nInd}</b><span>ตัวชี้วัด</span></div><div><b>${nDS}</b><span>ชุดข้อมูล API</span></div><div><b style="color:#16a34a">${pos.length}</b><span>สัญญาณบวก</span></div><div><b style="color:#e11d48">${neg.length}</b><span>สัญญาณเตือน</span></div></div>`,{t:'บทคัดย่อ',run:'บทคัดย่อ'}));
@@ -1589,13 +1596,13 @@ function ebBuild(raw){const P=[];const Y=ebYear();const lv=level(OVERALL);const 
  P.push(ebChapter(1,'บทนำ','ความเป็นมา วัตถุประสงค์ ขอบเขต และประโยชน์ที่คาดว่าจะได้รับ','#db2777','dims/catalog'));
  P.push(ebPage(`<h2 class="ebh2">1.1 ความเป็นมาและความสำคัญของปัญหา</h2>
   <p class="ind">การพัฒนาในอดีตมักวัดความสำเร็จด้วยตัวชี้วัดทางเศรษฐกิจ เช่น ผลิตภัณฑ์มวลรวม ซึ่งไม่สะท้อนคุณภาพชีวิตของประชาชนได้ครบถ้วน รายงานของคณะกรรมาธิการ Stiglitz–Sen–Fitoussi (2009) และกรอบ How’s Life? ของ OECD จึงเสนอให้วัดความอยู่ดีมีสุขแบบหลายมิติ ครอบคลุมสุขภาพ การศึกษา รายได้ ความสัมพันธ์ทางสังคม ความปลอดภัย สิ่งแวดล้อม และที่อยู่อาศัย สอดคล้องกับเป้าหมายการพัฒนาที่ยั่งยืน (SDGs) และยุทธศาสตร์ชาติ 20 ปี ที่มุ่งให้คนไทยมีคุณภาพชีวิตที่ดี</p>
-  <p class="ind">ในระดับจังหวัด หน่วยงานต่าง ๆ ได้เผยแพร่ข้อมูลผ่านระบบบัญชีข้อมูลจังหวัด (Government Data Catalog) แล้วกว่า ${CAT_STAT&&CAT_STAT.total?fmt(CAT_STAT.total):'400'} ชุดข้อมูล แต่ข้อมูลยังกระจัดกระจาย อยู่ในรูปแบบที่ต่างกัน และยังไม่ถูกเชื่อมโยงเป็นภาพรวมที่ผู้บริหารใช้ตัดสินใจได้ทันที การศึกษานี้จึงพัฒนา “ดัชนีบัวบาน” ซึ่งดึงข้อมูลจาก API ของระบบบัญชีข้อมูลจังหวัดโดยอัตโนมัติ คำนวณดัชนีใหม่ทุกครั้งที่หน่วยงานปรับปรุงข้อมูล และแปลผลเป็นข้อค้นพบและข้อเสนอเชิงนโยบาย</p>
+  <p class="ind">ในระดับจังหวัด หน่วยงานต่าง ๆ ได้เผยแพร่ข้อมูลผ่านระบบบัญชีข้อมูลจังหวัด (Government Data Catalog) แล้วกว่า ${CAT_STAT&&CAT_STAT.total?fmt(CAT_STAT.total):'400'} ชุดข้อมูล แต่ข้อมูลยังกระจัดกระจาย อยู่ในรูปแบบที่ต่างกัน และยังไม่ถูกเชื่อมโยงเป็นภาพรวมที่ผู้บริหารใช้ตัดสินใจได้ทันที การศึกษานี้จึงพัฒนา “ดัชนีอยู่ดีมีสุข” ซึ่งดึงข้อมูลจาก API ของระบบบัญชีข้อมูลจังหวัดโดยอัตโนมัติ คำนวณดัชนีใหม่ทุกครั้งที่หน่วยงานปรับปรุงข้อมูล และแปลผลเป็นข้อค้นพบและข้อเสนอเชิงนโยบาย</p>
   <h2 class="ebh2">1.2 วัตถุประสงค์ของการศึกษา</h2><ol class="ebol"><li>เพื่อพัฒนาดัชนีวัดความอยู่ดีมีสุขระดับจังหวัดที่คำนวณจากข้อมูลเปิดภาครัฐได้โดยอัตโนมัติและตรวจสอบย้อนกลับได้</li><li>เพื่อประเมินสถานการณ์ความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูใน 7 มิติ ทั้งในเชิงแนวโน้มและเชิงพื้นที่</li><li>เพื่อจัดทำข้อเสนอเชิงนโยบายที่อิงหลักฐาน สำหรับใช้ในการวางแผนพัฒนาจังหวัด</li></ol>
   <h2 class="ebh2">1.3 ขอบเขตของการศึกษา</h2><ul class="ebul"><li><b>ด้านพื้นที่</b> จังหวัดหนองบัวลำภู 6 อำเภอ ได้แก่ ${DISTRICTS.join(' ')}</li><li><b>ด้านเนื้อหา</b> 7 มิติ ${nInd} ตัวชี้วัด</li><li><b>ด้านเวลา</b> ข้อมูล พ.ศ. ${y0}–${y1} ตามที่หน่วยงานเผยแพร่</li><li><b>ด้านข้อมูล</b> ข้อมูลทุติยภูมิ ${nDS} ชุดข้อมูล จาก ${orgs.length||'หลาย'} หน่วยงาน</li></ul>`,{t:'1.1–1.3 ความเป็นมา วัตถุประสงค์ ขอบเขต',lv:2,run:'บทที่ 1 บทนำ'}));
  P.push(ebPage(`<h2 class="ebh2">1.4 ประโยชน์ที่คาดว่าจะได้รับ</h2><ol class="ebol"><li>ผู้บริหารจังหวัดมีเครื่องมือติดตามคุณภาพชีวิตของประชาชนที่เป็นปัจจุบัน ใช้ประกอบการจัดลำดับความสำคัญของแผนงานและงบประมาณ</li><li>หน่วยงานเจ้าของข้อมูลเห็นคุณค่าและการใช้ประโยชน์ของข้อมูลที่เผยแพร่ นำไปสู่การปรับปรุงความทันสมัยและคุณภาพข้อมูล</li><li>นักวิชาการและผู้สนใจนำดัชนี ข้อมูล และวิธีการไปทำซ้ำ ตรวจสอบ และต่อยอดได้ เพราะทุกขั้นตอนเปิดเผยและเชื่อมกับ API ต้นทาง</li></ol>
   <h2 class="ebh2">1.5 นิยามศัพท์เฉพาะ</h2>${ebTbl(['คำศัพท์','ความหมายในการศึกษานี้'],[
    ['ความอยู่ดีมีสุข','สภาวะที่ประชาชนมีคุณภาพชีวิตที่ดีในหลายมิติ ทั้งสุขภาพ การศึกษา รายได้ สังคม ความปลอดภัย สิ่งแวดล้อม และที่อยู่อาศัย'],
-   ['ดัชนีบัวบาน','ดัชนีชี้วัดรวม (composite index) ค่า 0–100 ที่สรุปความอยู่ดีมีสุขของจังหวัดหนองบัวลำภูจาก 7 มิติ'],
+   ['ดัชนีอยู่ดีมีสุข','ดัชนีชี้วัดรวม (composite index) ค่า 0–100 ที่สรุปความอยู่ดีมีสุขของจังหวัดหนองบัวลำภูจาก 7 มิติ'],
    ['ตัวชี้วัด','ข้อมูลเชิงปริมาณที่สะท้อนองค์ประกอบหนึ่งของความอยู่ดีมีสุข มีหน่วย ปี และทิศทางที่ชัดเจน'],
    ['คะแนนพัฒนาการ','คะแนน 0–100 ที่เทียบค่าปีล่าสุดกับช่วงค่าต่ำสุด–สูงสุดของจังหวัดเองในอดีต'],
    ['สัญญาณ','ทิศทางของตัวชี้วัด ได้แก่ ดีขึ้น ทรงตัว แย่ลง หรือต้องตรวจสอบข้อมูล'],
@@ -1612,7 +1619,7 @@ function ebBuild(raw){const P=[];const Y=ebYear();const lv=level(OVERALL);const 
   <h2 class="ebh2">2.3 มาตรฐานคุณภาพข้อมูลและข้อมูลเปิด</h2>
   <p class="ind">การประเมินความเชื่อมั่นของข้อมูลอ้างอิงหลักการพื้นฐานของสถิติทางการแห่งสหประชาชาติ (2014) มิติคุณภาพตามประมวลหลักปฏิบัติด้านสถิติของยุโรป (ความตรงประเด็น ความถูกต้อง ความทันเวลา ความเข้าถึงได้ และความสอดคล้อง) และหลัก FAIR (Wilkinson et al., 2016) ที่กำหนดให้ข้อมูลค้นหาได้ เข้าถึงได้ ทำงานร่วมกันได้ และนำกลับมาใช้ซ้ำได้</p>`,{t:'2.1–2.3 แนวคิดและทฤษฎี',lv:2,run:'บทที่ 2 แนวคิดและทฤษฎี'}));
  P.push(ebPage(`<h2 class="ebh2">2.4 กรอบแนวคิดของการศึกษา</h2>
-  <div class="flow"><div class="fb1"><b>ปัจจัยนำเข้า</b><span>ข้อมูลเปิด ${nDS} ชุด<br>จาก ${orgs.length||'หลาย'} หน่วยงาน<br>ผ่าน CKAN API</span></div><i>→</i><div class="fb2"><b>กระบวนการ</b><span>ทำความสะอาดข้อมูล<br>ปรับมาตรฐาน Min–Max<br>รวมเป็น 7 มิติ → ดัชนี</span></div><i>→</i><div class="fb3"><b>ผลผลิต</b><span>ดัชนีบัวบาน 0–100<br>สัญญาณรายตัวชี้วัด<br>รายงาน/แดชบอร์ด</span></div><i>→</i><div class="fb4"><b>ผลลัพธ์</b><span>นโยบายที่อิงหลักฐาน<br>การจัดสรรทรัพยากร<br>ตรงพื้นที่</span></div></div>
+  <div class="flow"><div class="fb1"><b>ปัจจัยนำเข้า</b><span>ข้อมูลเปิด ${nDS} ชุด<br>จาก ${orgs.length||'หลาย'} หน่วยงาน<br>ผ่าน CKAN API</span></div><i>→</i><div class="fb2"><b>กระบวนการ</b><span>ทำความสะอาดข้อมูล<br>ปรับมาตรฐาน Min–Max<br>รวมเป็น 7 มิติ → ดัชนี</span></div><i>→</i><div class="fb3"><b>ผลผลิต</b><span>ดัชนีอยู่ดีมีสุข 0–100<br>สัญญาณรายตัวชี้วัด<br>รายงาน/แดชบอร์ด</span></div><i>→</i><div class="fb4"><b>ผลลัพธ์</b><span>นโยบายที่อิงหลักฐาน<br>การจัดสรรทรัพยากร<br>ตรงพื้นที่</span></div></div>
   <h3>องค์ประกอบ 7 มิติ</h3>${ebTbl(['มิติ','จำนวนตัวชี้วัด','ตัวอย่างตัวชี้วัด','เชื่อมโยง SDGs'],DIMS.map(d=>{const L=IND.filter(i=>i.dim===d.id);return[`<b style="color:${ebc(d)}">${d.name}</b>`,L.length,L.slice(0,2).map(i=>i.name).join(', '),POL[d.id].sdg]}))}
   <p class="note">ที่มา: ผู้ศึกษาพัฒนาจากกรอบ OECD How’s Life? และ SDGs โดยปรับให้สอดคล้องกับข้อมูลที่มีในระบบบัญชีข้อมูลจังหวัด</p>`,{t:'2.4 กรอบแนวคิดของการศึกษา',lv:2,run:'บทที่ 2 แนวคิดและทฤษฎี'}));
  /* บทที่ 3 */
@@ -1621,7 +1628,7 @@ function ebBuild(raw){const P=[];const Y=ebYear();const lv=level(OVERALL);const 
   <p class="ind">ข้อมูลทั้งหมดเป็นข้อมูลทุติยภูมิจากระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู (nongbualamphu.gdcatalog.go.th) ซึ่งพัฒนาบนแพลตฟอร์ม CKAN ระบบดึงข้อมูลผ่านคำสั่ง <code>datastore_search</code> และอ่านข้อมูลกำกับ (metadata) ผ่าน <code>package_show</code> ทุกครั้งที่เปิดแดชบอร์ด เมื่อเบราว์เซอร์ไม่อนุญาตการเรียกข้ามโดเมน ระบบสลับไปใช้ JSONP โดยอัตโนมัติ และเก็บสำเนาไว้ในหน่วยความจำของเครื่องผู้ใช้เพื่อใช้กรณีเครือข่ายขัดข้อง</p>
   <h2 class="ebh2">3.2 การคัดเลือกตัวชี้วัด</h2><p class="ind">ตัวชี้วัดถูกคัดเลือกตามเกณฑ์ 5 ประการ คือ (1) ตรงกับองค์ประกอบของความอยู่ดีมีสุขตามกรอบแนวคิด (2) มีข้อมูลเป็นอนุกรมเวลาอย่างน้อย 2 ปี (3) มีทิศทางการตีความชัดเจน (ค่ามากดีหรือค่าน้อยดี) หรือระบุเป็นข้อมูลบริบท (4) เผยแพร่โดยหน่วยงานราชการเจ้าของข้อมูล และ (5) เข้าถึงได้ผ่าน API ตัวชี้วัดที่ไม่มีทิศทางชัดเจนใช้เป็นข้อมูลบริบทและไม่นำมาคำนวณคะแนน</p>
   <h2 class="ebh2">3.3 การปรับมาตรฐานและการรวมค่า</h2>
-  <div class="eq"><div>ตัวชี้วัดที่ค่ามากดี: <b>S<sub>i</sub> = (x<sub>i,t</sub> − min<sub>i</sub>) ÷ (max<sub>i</sub> − min<sub>i</sub>) × 100</b></div><div>ตัวชี้วัดที่ค่าน้อยดี: <b>S<sub>i</sub> = (max<sub>i</sub> − x<sub>i,t</sub>) ÷ (max<sub>i</sub> − min<sub>i</sub>) × 100</b></div><div>คะแนนมิติ: <b>D<sub>j</sub> = (1/n<sub>j</sub>) Σ S<sub>i</sub></b> &nbsp;·&nbsp; ดัชนีบัวบาน: <b>I = (1/7) Σ D<sub>j</sub></b></div></div>
+  <div class="eq"><div>ตัวชี้วัดที่ค่ามากดี: <b>S<sub>i</sub> = (x<sub>i,t</sub> − min<sub>i</sub>) ÷ (max<sub>i</sub> − min<sub>i</sub>) × 100</b></div><div>ตัวชี้วัดที่ค่าน้อยดี: <b>S<sub>i</sub> = (max<sub>i</sub> − x<sub>i,t</sub>) ÷ (max<sub>i</sub> − min<sub>i</sub>) × 100</b></div><div>คะแนนมิติ: <b>D<sub>j</sub> = (1/n<sub>j</sub>) Σ S<sub>i</sub></b> &nbsp;·&nbsp; ดัชนีอยู่ดีมีสุข: <b>I = (1/7) Σ D<sub>j</sub></b></div></div>
   <p class="ind">โดย x<sub>i,t</sub> คือค่าปีล่าสุดของตัวชี้วัด i และ min<sub>i</sub>, max<sub>i</sub> คือค่าต่ำสุดและสูงสุดในอนุกรมของจังหวัดเอง วิธีนี้ตอบคำถามว่า “ปีล่าสุดดีกว่าหรือแย่กว่าที่จังหวัดเคยเป็น” การศึกษานี้ใช้น้ำหนักเท่ากันทุกมิติเพราะยังไม่มีหลักฐานเชิงประจักษ์ว่ามิติใดสำคัญกว่า ซึ่งเป็นแนวปฏิบัติที่คู่มือ OECD/JRC แนะนำ และเปิดให้ผู้ใช้ทดลองปรับน้ำหนักได้ในห้องจำลองนโยบาย</p>
   ${ebTbl(['ช่วงคะแนน','ระดับ','การตีความ'],[['75–100','ดีมาก','ใกล้จุดดีที่สุดที่จังหวัดเคยทำได้'],['60–74','ดี','ดีกว่าค่ากลางของอนุกรม'],['40–59','ปานกลาง','อยู่กลางช่วงที่เคยเป็น'],['25–39','ควรเฝ้าระวัง','ใกล้จุดต่ำของอนุกรม'],['0–24','ต้องเร่งพัฒนา','ใกล้หรือเป็นจุดที่แย่ที่สุดที่เคยบันทึก']])}`,{t:'3.1–3.3 แหล่งข้อมูล การคัดเลือก และการคำนวณ',lv:2,run:'บทที่ 3 ระเบียบวิธี'}));
  P.push(ebPage(`<h2 class="ebh2">3.4 การวิเคราะห์สัญญาณและความเหลื่อมล้ำ</h2>
@@ -1629,11 +1636,11 @@ function ebBuild(raw){const P=[];const Y=ebYear();const lv=level(OVERALL);const 
   <h2 class="ebh2">3.5 การประเมินความเชื่อมั่นของข้อสรุป</h2><p class="ind">ความเชื่อมั่นของแต่ละข้อสรุปประเมินจาก 3 องค์ประกอบ ได้แก่ ความยาวของอนุกรม (5 ปีขึ้นไปได้ 2 คะแนน 3–4 ปีได้ 1 คะแนน) ความเป็นปัจจุบัน (ห่างปัจจุบันไม่เกิน 1 ปีได้ 2 คะแนน ไม่เกิน 2 ปีได้ 1 คะแนน) และความครอบคลุมเชิงพื้นที่ (แยกรายอำเภอได้ 1 คะแนน) หักคะแนนเมื่อพบค่าผิดปกติ รวม 4 คะแนนขึ้นไปจัดเป็นความเชื่อมั่นสูง 2–3 คะแนนปานกลาง และต่ำกว่านั้นจัดเป็นต่ำ</p>
   <h2 class="ebh2">3.6 ข้อจำกัดของการศึกษา</h2><ol class="ebol"><li>ข้อมูลแต่ละตัวชี้วัดมีปีล่าสุดไม่ตรงกัน ดัชนีจึงเป็นภาพรวมจากข้อมูลล่าสุดที่มี ไม่ใช่ภาพ ณ ปีเดียวกันทั้งหมด</li><li>การปรับมาตรฐานเทียบกับอนุกรมของจังหวัดเอง จึงใช้เปรียบเทียบกับจังหวัดอื่นโดยตรงไม่ได้ การเทียบเคียงข้ามจังหวัดจึงแยกวิเคราะห์ในหัวข้อ 4.10</li><li>ความเชื่อมโยงระหว่างตัวชี้วัดที่นำเสนอเป็นสมมติฐานเพื่อการวิเคราะห์ต่อ ไม่ใช่การพิสูจน์ความสัมพันธ์เชิงสาเหตุ</li><li>ตัวชี้วัดเชิงอัตวิสัย เช่น ความพึงพอใจในชีวิต ยังไม่มีในระบบบัญชีข้อมูลจังหวัด</li></ol>`,{t:'3.4–3.6 การวิเคราะห์ ความเชื่อมั่น และข้อจำกัด',lv:2,run:'บทที่ 3 ระเบียบวิธี'}));
  /* บทที่ 4 */
- P.push(ebChapter(4,'ผลการศึกษา','ภาพรวมดัชนีบัวบาน ผลรายมิติ ความเหลื่อมล้ำระหว่างอำเภอ และการเทียบเคียง','#d97706','hero/hero-home'));
- P.push(ebPage(`<h2 class="ebh2">4.1 ภาพรวมดัชนีบัวบาน</h2><div class="ovw"><div class="big"><b>${OVERALL}</b><span>คะแนน · ระดับ${lv.t}</span></div><p class="ind">ดัชนีบัวบานของจังหวัดหนองบัวลำภูอยู่ที่ <b>${OVERALL}</b> จาก 100 คะแนน หมายความว่าโดยเฉลี่ยตัวชี้วัดในปีล่าสุดอยู่ที่ราวร้อยละ ${OVERALL} ของช่วงระหว่างจุดแย่ที่สุดและดีที่สุดที่จังหวัดเคยบันทึกไว้ มิติที่โดดเด่นคือ${sc.slice(0,2).map(d=>d.name+' ('+d.score+')').join(' และ')} ขณะที่มิติที่ควรเร่งพัฒนาคือ${sc.slice(-2).reverse().map(d=>d.name+' ('+d.score+')').join(' และ')}</p></div>
+ P.push(ebChapter(4,'ผลการศึกษา','ภาพรวมดัชนีอยู่ดีมีสุข ผลรายมิติ ความเหลื่อมล้ำระหว่างอำเภอ และการเทียบเคียง','#d97706','hero/hero-home'));
+ P.push(ebPage(`<h2 class="ebh2">4.1 ภาพรวมดัชนีอยู่ดีมีสุข</h2><div class="ovw"><div class="big"><b>${OVERALL}</b><span>คะแนน · ระดับ${lv.t}</span></div><p class="ind">ดัชนีอยู่ดีมีสุขของจังหวัดหนองบัวลำภูอยู่ที่ <b>${OVERALL}</b> จาก 100 คะแนน หมายความว่าโดยเฉลี่ยตัวชี้วัดในปีล่าสุดอยู่ที่ราวร้อยละ ${OVERALL} ของช่วงระหว่างจุดแย่ที่สุดและดีที่สุดที่จังหวัดเคยบันทึกไว้ มิติที่โดดเด่นคือ${sc.slice(0,2).map(d=>d.name+' ('+d.score+')').join(' และ')} ขณะที่มิติที่ควรเร่งพัฒนาคือ${sc.slice(-2).reverse().map(d=>d.name+' ('+d.score+')').join(' และ')}</p></div>
   ${ebTbl(['มิติ','คะแนน','ระดับ','ดีขึ้น','แย่ลง/ตรวจสอบ','ตัวชี้วัดเด่น'],sc.map(d=>{const L=A.filter(a=>a.i.dim===d.id&&a.i.better);return[`<b style="color:${ebc(d)}">${d.name}</b>`,`<b>${d.score}</b>`,level(d.score).t,L.filter(a=>a.v.tone==='good').length,L.filter(a=>a.v.tone==='bad'||a.v.tone==='warn').length,(L.sort((x,y)=>y.sev-x.sev)[0]||{i:{name:'–'}}).i.name]}))}
   <p class="note">ตารางที่ 4.1 คะแนนรายมิติเรียงจากมากไปน้อย · ที่มา: คำนวณจากระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู ณ ${today}</p>
-  <h3>ทิศทางของตัวชี้วัดทั้งหมด</h3><div class="sigrow"><div style="--w:${pos.length};--c:#22c55e">ดีขึ้น ${pos.length}</div><div style="--w:${A.filter(a=>a.v.tone==='neu').length||.001};--c:#94a3b8">ทรงตัว ${A.filter(a=>a.v.tone==='neu').length}</div><div style="--w:${neg.length};--c:#f43f5e">แย่ลง/ตรวจสอบ ${neg.length}</div><div style="--w:${A.filter(a=>a.v.tone==='ctx').length};--c:#a78bfa">บริบท ${A.filter(a=>a.v.tone==='ctx').length}</div></div>`,{t:'4.1 ภาพรวมดัชนีบัวบาน',lv:2,run:'บทที่ 4 ผลการศึกษา'}));
+  <h3>ทิศทางของตัวชี้วัดทั้งหมด</h3><div class="sigrow"><div style="--w:${pos.length};--c:#22c55e">ดีขึ้น ${pos.length}</div><div style="--w:${A.filter(a=>a.v.tone==='neu').length||.001};--c:#94a3b8">ทรงตัว ${A.filter(a=>a.v.tone==='neu').length}</div><div style="--w:${neg.length};--c:#f43f5e">แย่ลง/ตรวจสอบ ${neg.length}</div><div style="--w:${A.filter(a=>a.v.tone==='ctx').length};--c:#a78bfa">บริบท ${A.filter(a=>a.v.tone==='ctx').length}</div></div>`,{t:'4.1 ภาพรวมดัชนีอยู่ดีมีสุข',lv:2,run:'บทที่ 4 ผลการศึกษา'}));
  DIMS.forEach((d,k)=>{const c=ebc(d);const L=A.filter(a=>a.i.dim===d.id);const top=[...L].sort((x,y)=>y.sev-x.sev).slice(0,3);
   P.push(ebPage(`<div class="dmh" style="--ec:${c}"><div><span>4.${k+2}</span><h2>มิติ${d.name}</h2><small>${POL[d.id].sdg} · ${POL[d.id].ns}</small></div><div class="ds"><b>${d.score??'–'}</b><span>${level(d.score).t}</span></div></div>
    ${ebTbl(['ตัวชี้วัด','ค่าล่าสุด','ปี','เปลี่ยนแปลง','สถานะ','ความเชื่อมั่น'],L.map(a=>{const i=a.i;return[i.name,`<b>${fmt(i.last.v,i.dec)}</b> <span class="mut">${i.unit}</span>`,i.last.y,a.yoy?`<span class="${a.yoy.good===true?'g':a.yoy.good===false?'r':''}">${a.yoy.txt}</span>`:'–',`<span class="st t-${a.v.tone}">${a.v.t}</span>`,a.conf.t]}),'sm')}
@@ -1654,7 +1661,7 @@ function ebBuild(raw){const P=[];const Y=ebYear();const lv=level(OVERALL);const 
  if(BENCH&&BENCH.length)P.push(ebPage(`<h2 class="ebh2">4.11 การเทียบเคียงกับภาคตะวันออกเฉียงเหนือและประเทศ</h2><p class="ind">เพื่อชดเชยข้อจำกัดของการเทียบกับตนเอง การศึกษานี้เทียบตัวชี้วัดที่มีข้อมูลรายจังหวัดในระบบบัญชีข้อมูลกับค่าเฉลี่ยภาคและประเทศ</p>${ebTbl(['ตัวชี้วัด','ปี','หนองบัวลำภู','อันดับในอีสาน','เฉลี่ยอีสาน','อันดับประเทศ','เฉลี่ยประเทศ'],BENCH.map(b=>[b.name,b.y,`<b>${fmt(b.v,b.dec)}</b>`,`${b.irank}/${b.in}`,fmt(b.iavg,b.dec),`${b.rank}/${b.n}`,fmt(b.avg,b.dec)]),'sm')}<p class="note">อันดับ 1 = ดีที่สุดตามทิศทางของตัวชี้วัด · ปีข้อมูลแตกต่างกันตามที่หน่วยงานเผยแพร่</p>`,{t:'4.11 การเทียบเคียง',lv:2,run:'บทที่ 4 ผลการศึกษา'}));
  /* บทที่ 5 */
  P.push(ebChapter(5,'สรุป อภิปรายผล และข้อเสนอแนะ','ข้อสรุปจากหลักฐาน ข้อเสนอเชิงนโยบาย และแนวทางการต่อยอดการศึกษา','#be185d','dims/stories'));
- P.push(ebPage(`<h2 class="ebh2">5.1 สรุปผลการศึกษา</h2><p class="ind">ดัชนีบัวบานซึ่งคำนวณจากข้อมูลเปิดภาครัฐ ${nDS} ชุดข้อมูล ${nInd} ตัวชี้วัด ชี้ว่าความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูอยู่ในระดับ<b>${lv.t}</b> (${OVERALL} คะแนน) โดยมีความแตกต่างระหว่างมิติค่อนข้างมาก ตั้งแต่ ${worst.score} คะแนนใน${worst.name} ถึง ${best.score} คะแนนใน${best.name}</p>
+ P.push(ebPage(`<h2 class="ebh2">5.1 สรุปผลการศึกษา</h2><p class="ind">ดัชนีอยู่ดีมีสุขซึ่งคำนวณจากข้อมูลเปิดภาครัฐ ${nDS} ชุดข้อมูล ${nInd} ตัวชี้วัด ชี้ว่าความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูอยู่ในระดับ<b>${lv.t}</b> (${OVERALL} คะแนน) โดยมีความแตกต่างระหว่างมิติค่อนข้างมาก ตั้งแต่ ${worst.score} คะแนนใน${worst.name} ถึง ${best.score} คะแนนใน${best.name}</p>
   <h2 class="ebh2">5.2 อภิปรายผล</h2><p class="ind">ผลการศึกษาสอดคล้องกับข้อเสนอของ Stiglitz, Sen และ Fitoussi (2009) ว่าตัวชี้วัดทางเศรษฐกิจเพียงอย่างเดียวไม่เพียงพอต่อการอธิบายคุณภาพชีวิต เห็นได้จากมิติ${sc[0].name}ที่อยู่ในระดับ${level(sc[0].score).t} ขณะที่มิติ${worst.name}ยังอยู่ในระดับ${level(worst.score).t} นอกจากนี้ การวิเคราะห์รายอำเภอยืนยันข้อเสนอของกรอบ How’s Life? ว่าค่าเฉลี่ยระดับจังหวัดอาจซ่อนความเหลื่อมล้ำเชิงพื้นที่ไว้ ดังเห็นได้จากตัวชี้วัดที่อำเภอแตกต่างกันมากกว่า 2 เท่า</p>
   <p class="ind">ในมิติประชากร การเกิดที่ลดลงพร้อมกับดัชนีการสูงวัยที่เพิ่มขึ้นเป็นแรงผลักเชิงโครงสร้างที่ส่งผลต่อหลายมิติพร้อมกัน ทั้งจำนวนนักเรียน ภาระโรคเรื้อรัง และความต้องการระบบดูแลระยะยาว ซึ่งชี้ว่านโยบายของจังหวัดควรมองข้ามมิติ (cross-dimensional) มากกว่าแยกตามภารกิจของหน่วยงาน</p>
   <h2 class="ebh2">5.3 ข้อเสนอแนะเชิงนโยบาย</h2><ol class="ebol">${sc.slice(-4).reverse().map(d=>`<li><b>มิติ${d.name}</b> — ${POL[d.id].weak.slice(0,2).join(' และ')} <span class="mut">(${POL[d.id].ag})</span></li>`).join('')}<li><b>ด้านระบบข้อมูล</b> — กำหนดค่าเป้าหมายทางการของตัวชี้วัดในแผนพัฒนาจังหวัด และให้หน่วยงานปรับปรุงข้อมูลอย่างน้อยปีละครั้ง</li></ol>`,{t:'5.1–5.3 สรุป อภิปรายผล ข้อเสนอแนะ',lv:2,run:'บทที่ 5 สรุปและข้อเสนอแนะ'}));
@@ -1704,7 +1711,7 @@ df = fetch("${RES[IND[0].key][0]}")   # ${ebEsc(IND[0].name)}
 print(df.head())</pre>
   <p class="ind">รหัสชุดข้อมูลทั้งหมดดูได้จากหน้า “แหล่งข้อมูลและ API” ในแดชบอร์ด ซึ่งส่งออกเป็นไฟล์ CSV ได้</p>`,{t:'ภาคผนวก ค ตัวอย่างการดึงข้อมูล',run:'ภาคผนวก ค'}));
  /* ปกหลัง */
- P.push(ebPage(`<div class="cv-bg" data-bg="dims/catalog"></div><div class="cv-sh back"></div><div class="bk-in"><img data-src="brand/logo-wellbeing" data-fb="none" alt=""><h2>ดัชนีบัวบาน</h2><p>ให้ข้อมูลเปิดของจังหวัด กลายเป็นหลักฐานสำหรับการพัฒนาคุณภาพชีวิตของคนหนองบัวลำภู</p><div class="qrb" id="ebQr"></div><small>สแกนเพื่อเปิดแดชบอร์ดฉบับสด</small><div class="addr"><b>สำนักงานสถิติจังหวัดหนองบัวลำภู</b><br>ศาลากลางจังหวัดหนองบัวลำภู ชั้น 2 ถ.หนองบัวลำภู–เลย ต.ลำภู อ.เมือง จ.หนองบัวลำภู 39000<br>โทร 0 4231 6736 · saraban_nblamphu@nso.mail.go.th</div></div>`,{bare:1,cls:'cover backc',t:'ปกหลัง'}));
+ P.push(ebPage(`<div class="cv-bg" data-bg="dims/catalog"></div><div class="cv-sh back"></div><div class="bk-in"><img data-src="brand/logo-wellbeing" data-fb="none" alt=""><h2>อยู่ดีมีสุข</h2><p>ให้ข้อมูลเปิดของจังหวัด กลายเป็นหลักฐานสำหรับการพัฒนาคุณภาพชีวิตของคนหนองบัวลำภู</p><div class="qrb" id="ebQr"></div><small>สแกนเพื่อเปิดแดชบอร์ดฉบับสด</small><div class="addr"><b>สำนักงานสถิติจังหวัดหนองบัวลำภู</b><br>ศาลากลางจังหวัดหนองบัวลำภู ชั้น 2 ถ.หนองบัวลำภู–เลย ต.ลำภู อ.เมือง จ.หนองบัวลำภู 39000<br>โทร 0 4231 6736 · saraban_nblamphu@nso.mail.go.th</div></div>`,{bare:1,cls:'cover backc',t:'ปกหลัง'}));
  return raw?P:ebFinish(P)}
 function ebFinish(P){P=P.slice();const ti=P.findIndex(p=>p.toc);
  if(ti>=0){const toc=P.map((p,n)=>({n:n+1,t:p.t,lv:p.lv})).filter(x=>x.t&&x.n>ti+1&&!/^ปก/.test(x.t)&&(x.lv||0)<3);
@@ -1763,7 +1770,7 @@ function ebCover(B,extra=''){const today=new Date().toLocaleDateString('th-TH',{
   <div class="cv-top"><img data-src="brand/seal-nblp" data-fb="none" alt=""><img data-src="brand/logo-nso" data-fb="none" alt=""><img data-src="brand/logo-gdcatalog" data-fb="none" alt=""></div>
   <div class="cv-mid"><div class="cv-k">${B.kick} · ${ebYear()}</div><h1 style="font-size:${B.fs||78}px">${B.title}</h1><h2>${B.sub}</h2><p>${B.en}</p></div>${extra}
   <div class="cv-bot"><b>สำนักงานสถิติจังหวัดหนองบัวลำภู</b><span>ข้อมูล ณ ${today}</span></div>`,{bare:1,cls:'cover',t:'ปก'})}
-function ebBack(B){return ebPage(`<div class="cv-bg" data-bg="${B.img}"></div><div class="cv-sh back"></div><div class="bk-in"><img data-src="brand/logo-wellbeing" data-fb="none" alt=""><h2>${B.title}</h2><p>${B.back||'ส่วนหนึ่งของห้องสมุดดิจิทัล “ดัชนีบัวบาน” สร้างอัตโนมัติจากข้อมูลเปิดของจังหวัดหนองบัวลำภู'}</p><div class="qrb" id="ebQr"></div><small>สแกนเพื่อเปิดแดชบอร์ดฉบับสด</small><div class="addr"><b>สำนักงานสถิติจังหวัดหนองบัวลำภู</b><br>ศาลากลางจังหวัดหนองบัวลำภู ชั้น 2 ถ.หนองบัวลำภู–เลย ต.ลำภู อ.เมือง จ.หนองบัวลำภู 39000<br>โทร 0 4231 6736 · saraban_nblamphu@nso.mail.go.th</div></div>`,{bare:1,cls:'cover backc',t:'ปกหลัง'})}
+function ebBack(B){return ebPage(`<div class="cv-bg" data-bg="${B.img}"></div><div class="cv-sh back"></div><div class="bk-in"><img data-src="brand/logo-wellbeing" data-fb="none" alt=""><h2>${B.title}</h2><p>${B.back||'ส่วนหนึ่งของห้องสมุดดิจิทัล “ดัชนีอยู่ดีมีสุข” สร้างอัตโนมัติจากข้อมูลเปิดของจังหวัดหนองบัวลำภู'}</p><div class="qrb" id="ebQr"></div><small>สแกนเพื่อเปิดแดชบอร์ดฉบับสด</small><div class="addr"><b>สำนักงานสถิติจังหวัดหนองบัวลำภู</b><br>ศาลากลางจังหวัดหนองบัวลำภู ชั้น 2 ถ.หนองบัวลำภู–เลย ต.ลำภู อ.เมือง จ.หนองบัวลำภู 39000<br>โทร 0 4231 6736 · saraban_nblamphu@nso.mail.go.th</div></div>`,{bare:1,cls:'cover backc',t:'ปกหลัง'})}
 const ebPick=(R,re)=>R.filter(p=>p.t&&re.test(p.t));
 /* เล่ม 4: โปรไฟล์ 6 อำเภอ */
 function ebDistrictPages(){const P=[];const L=IND.filter(i=>i.d&&i.last).map(AN).filter(a=>a.dis);
@@ -1778,8 +1785,8 @@ function ebStoryPages(){let S=[];try{S=storyList()}catch(e){}return S.map((s,k)=
  return ebPage(`<div class="sp1" style="--ec:${c}"><div class="sk">เรื่องที่ ${String(k+1).padStart(2,'0')} · ${s.kick} · มิติ${d.name}</div><div class="sbig">${s.big}</div>${s.unit?`<div class="sunit">${s.unit}</div>`:''}<h2>${s.title}</h2><p class="lead">${s.text}</p>
   <div class="spl"><b>นัยเชิงนโยบาย</b><p>${s.pol}</p></div><div class="ssr">แหล่งข้อมูล: ${(s.src||[]).map(x=>`<code>${x}</code>`).join(' ')} · ระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู</div></div>`,{t:s.kick,lv:1,run:'เรื่องเล่าจากข้อมูล',c})})}
 const BOOKS=[
- {id:'report',kick:'รายงานการศึกษา · Research Report',title:'ดัชนีบัวบาน',sub:'การวัดความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูด้วยข้อมูลเปิดภาครัฐแบบอัตโนมัติ',en:'Measuring Well-being with Automated Open Government Data',c:'#db2777',img:'hero/hero-home',tag:'ฉบับสมบูรณ์',desc:'รายงานวิจัยเต็มรูปแบบ 5 บท ตั้งแต่ความเป็นมา แนวคิดทฤษฎี ระเบียบวิธี ผลการศึกษา จนถึงข้อเสนอแนะ พร้อมบรรณานุกรมและภาคผนวก',build:()=>ebBuild()},
- {id:'brief',kick:'บทสรุปผู้บริหาร · Executive Brief',title:'สรุป 10 นาที',fs:72,sub:'ภาพรวมดัชนีบัวบาน ข้อค้นพบสำคัญ และสิ่งที่จังหวัดควรทำ',en:'Executive Brief for Provincial Leaders',c:'#7c3aed',img:'dims/stories',tag:'อ่านเร็ว',desc:'ฉบับย่อสำหรับผู้บริหาร อ่านจบใน 10 นาที มีเฉพาะตัวเลขสำคัญ ข้อค้นพบ 5 ประการ และข้อเสนอเชิงนโยบาย',
+ {id:'report',kick:'รายงานการศึกษา · Research Report',title:'อยู่ดีมีสุข',sub:'การวัดความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูด้วยข้อมูลเปิดภาครัฐแบบอัตโนมัติ',en:'Measuring Well-being with Automated Open Government Data',c:'#db2777',img:'hero/hero-home',tag:'ฉบับสมบูรณ์',desc:'รายงานวิจัยเต็มรูปแบบ 5 บท ตั้งแต่ความเป็นมา แนวคิดทฤษฎี ระเบียบวิธี ผลการศึกษา จนถึงข้อเสนอแนะ พร้อมบรรณานุกรมและภาคผนวก',build:()=>ebBuild()},
+ {id:'brief',kick:'บทสรุปผู้บริหาร · Executive Brief',title:'สรุป 10 นาที',fs:72,sub:'ภาพรวมดัชนีอยู่ดีมีสุข ข้อค้นพบสำคัญ และสิ่งที่จังหวัดควรทำ',en:'Executive Brief for Provincial Leaders',c:'#7c3aed',img:'dims/stories',tag:'อ่านเร็ว',desc:'ฉบับย่อสำหรับผู้บริหาร อ่านจบใน 10 นาที มีเฉพาะตัวเลขสำคัญ ข้อค้นพบ 5 ประการ และข้อเสนอเชิงนโยบาย',
   build:()=>{const R=ebBuild(1);const B=BOOKS[1];return ebFinish([ebCover(B),...ebPick(R,/^บทสรุปสำหรับผู้บริหาร|^4\.1 |^4\.9 |^5\.1/),ebBack(B)])}},
  {id:'stories',kick:'หนังสือเล่าเรื่อง · Data Stories',title:'ตัวเลขเล่าเรื่อง',fs:70,sub:'เรื่องจริงของหนองบัวลำภูที่ข้อมูลบอกเรา',en:'Stories the Data Tells about Nong Bua Lam Phu',c:'#d97706',img:'dims/econ',tag:'อ่านสนุก',desc:'ข้อค้นพบเชิงประเด็นทีละเรื่อง เช่น คนตายมากกว่าคนเกิด สังคมสูงวัย เด็กหลุดจากระบบ เล่าด้วยตัวเลขใหญ่และนัยเชิงนโยบาย',
   build:()=>{const B=BOOKS[2];return ebFinish([ebCover(B),{toc:1,t:'สารบัญ'},...ebStoryPages(),ebBack(B)])}},
@@ -1792,7 +1799,7 @@ const BOOKS=[
 ];
 EB.book='report';
 function shelfHTML(){return`<div class="lib"><div class="libbg"><canvas class="libfx" aria-hidden="true"></canvas></div>
- <div class="libhead"><div><div class="lk">DIGITAL LIBRARY · ห้องสมุดดิจิทัล</div><h2>ชั้นหนังสือ<span>ดัชนีบัวบาน</span></h2><p>หนังสือ 6 เล่มที่เขียนตัวเองจากข้อมูลจริง ทุกครั้งที่หน่วยงานปรับปรุงข้อมูล ตัวเลข ตาราง และข้อค้นพบในทุกเล่มจะอัปเดตตามทันที เลือกเล่มเพื่อพลิกอ่าน หรือบันทึกเป็น PDF ขนาด A4</p></div><div class="lstat"><div><b>${BOOKS.length}</b><span>เล่ม</span></div><div><b id="libPg">–</b><span>หน้ารวม</span></div><div><b>${Object.keys(RES).length}</b><span>ชุดข้อมูลสด</span></div></div></div>
+ <div class="libhead"><div><div class="lk">DIGITAL LIBRARY · ห้องสมุดดิจิทัล</div><h2>ชั้นหนังสือ<span>อยู่ดีมีสุข</span></h2><p>หนังสือ 6 เล่มที่เขียนตัวเองจากข้อมูลจริง ทุกครั้งที่หน่วยงานปรับปรุงข้อมูล ตัวเลข ตาราง และข้อค้นพบในทุกเล่มจะอัปเดตตามทันที เลือกเล่มเพื่อพลิกอ่าน หรือบันทึกเป็น PDF ขนาด A4</p></div><div class="lstat"><div><b>${BOOKS.length}</b><span>เล่ม</span></div><div><b id="libPg">–</b><span>หน้ารวม</span></div><div><b>${Object.keys(RES).length}</b><span>ชุดข้อมูลสด</span></div></div></div>
  <div class="shelf">${BOOKS.map((B,k)=>`<button class="bk3 ${EB.book===B.id?'on':''}" data-b="${B.id}" style="--bc:${B.c};--d:${k*90}ms" title="${ebEsc(B.title)}"><div class="bkb"><div class="bkf"><i data-bg="${B.img}"></i><em>${B.tag}</em><b>${B.title}</b><small>${B.kick.split(' · ')[0]}</small><span class="bkl"><img data-src="brand/logo-wellbeing" data-fb="none" alt=""></span></div><div class="bks"><span>${B.title}</span></div><div class="bkt"></div></div><div class="bkg"></div></button>`).join('')}</div>
  <div class="plank"><i></i></div>
  <div class="bkinfo" id="bkInfo"></div></div>`}
@@ -1817,7 +1824,7 @@ function renderOverview(){const el=document.getElementById('p-overview');const l
   <div class="media"><div class="ph" data-bg="hero/hero-home"></div><video data-video="hero/hero-home" autoplay muted loop playsinline></video></div>
   <div class="in">
    <div class="hlogos"><img data-src="brand/seal-nblp" data-fb="none" alt=""><img data-src="brand/logo-nso" data-fb="none" alt=""><img data-src="brand/logo-gdcatalog" data-fb="none" alt=""></div><br>
-   <span class="tag">${ic('sparkles')}ดัชนีบัวบาน · Nong Bua Lam Phu Well-Being Index</span>
+   <span class="tag">${ic('sparkles')}อยู่ดีมีสุข · Nong Bua Lam Phu Well-Being Index</span>
    <h2>ดัชนีความอยู่ดีมีสุข<br><span class="gt">จังหวัดหนองบัวลำภู</span></h2>
    <p>ติดตามคุณภาพชีวิตของคนหนองบัวลำภูครบ 7 มิติ จาก ${IND.length} ตัวชี้วัด ดึงข้อมูลสดจากระบบบัญชีข้อมูลจังหวัด ${Object.keys(RES).length} ชุดข้อมูลของหน่วยงานในพื้นที่</p>
    <div class="meta"><span>${ic('database')}${Object.keys(RAW).length} ชุดข้อมูลสด</span><span>${ic('calendar-range')}ข้อมูล พ.ศ. ${Math.min(...yrs)}–${Math.max(...yrs)}</span><span>${ic('map-pin')}6 อำเภอ</span></div>
