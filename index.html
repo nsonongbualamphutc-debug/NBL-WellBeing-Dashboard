@@ -113,7 +113,7 @@ img{display:block;max-width:100%}
 .hero .tag svg{width:15px;height:15px}
 .hero h2{font-family:var(--head);font-size:clamp(34px,4.2vw,62px);font-weight:800;line-height:1.05;letter-spacing:-.5px;margin:16px 0 12px;text-wrap:balance;text-shadow:0 4px 30px rgba(0,0,0,.35)}
 .hero .gt{background:linear-gradient(90deg,#fbcfe8,#ffffff 45%,#99f6e4);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{font-size:17px;line-height:1.65;max-width:620px;color:rgba(255,255,255,.88)}
+.hero p{font-size:17px;line-height:1.65;max-width:min(620px,max(36vw,320px));color:rgba(255,255,255,.88)}
 .hero .hlogos{display:inline-flex;gap:14px;align-items:center;margin-bottom:14px;padding:8px 16px;border-radius:18px;background:rgba(255,255,255,.92);box-shadow:0 10px 30px -12px rgba(0,0,0,.4)}
 .hero .hlogos img{height:50px;width:auto}
 .hero .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
@@ -629,7 +629,60 @@ ul.cav{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:9px}ul.cav li{
 .ln{padding:16px 18px;border-radius:18px;background:var(--panel2);border:1px solid var(--line)}.ln h5{display:flex;align-items:center;gap:8px;margin:0 0 8px;font-family:var(--head);font-size:14.5px;font-weight:600;color:var(--c)}.ln h5 svg{width:17px;height:17px}.ln p{margin:0;font-size:13.6px;line-height:1.65;color:var(--tx)}.ln em{display:block;margin-top:6px;font-size:12px;color:var(--tx3)}
 .defs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px 22px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px dashed var(--line)}.defs span{font-size:12px;color:var(--tx3)}.defs p{margin:3px 0 0;font-size:13.6px;line-height:1.6}
 .ins.sig2{grid-template-columns:44px minmax(0,1fr);align-items:start}.ins.sig2 .fl{margin-bottom:6px}.ins.sig2 .t{font-size:15px}.ins.sig2 .d{font-size:13px;line-height:1.55;margin-top:4px}
-@media(min-width:1100px){.sigg{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr) minmax(0,1.2fr)!important}}
+@media(min-width:1100px){.sigg{grid-template-columns:minmax(300px,.9fr) minmax(0,1.2fr) minmax(0,1.2fr)!important}}
+
+/* round 5.1 · fit & contrast fixes */
+.kpi .v{white-space:normal;display:flex;flex-wrap:wrap;align-items:baseline;column-gap:6px;row-gap:0;line-height:1.15}
+.kpi .v small{margin-left:0;white-space:nowrap}
+.kpi.t-good .v,.kpi.t-bad .v,.kpi.t-neu .v,.kpi.t-warn .v,.kpi.t-ctx .v{font-size:clamp(17px,1.5vw,21px)!important;white-space:normal}
+.kpi .lb{overflow-wrap:anywhere}
+.dc .scr{white-space:nowrap;flex:none}.dc .scr b{font-size:clamp(28px,2.4vw,38px)}
+.codebox pre{overflow-x:auto;white-space:pre-wrap;word-break:break-word;max-width:100%}
+.orb .lvl,.hscore .lvl,.dscore span,.dhero .big span{background:rgba(8,12,28,.6)!important;color:#fff!important;border:1px solid rgba(255,255,255,.22);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 8px 24px -10px rgba(0,0,0,.5)}
+.orb .lvl svg,.hscore .lvl svg{color:var(--lc)}
+.dscore span::before,.dhero .big span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--lc);margin-right:7px;box-shadow:0 0 0 3px color-mix(in srgb,var(--lc) 30%,transparent);vertical-align:1px}
+.dc .ft .lv{color:color-mix(in srgb,var(--lc) 70%,#000)}
+[data-theme=dark] .dc .ft .lv{color:color-mix(in srgb,var(--lc) 75%,#fff)}
+[data-theme=dark] .logos{background:rgba(255,255,255,.94);border-color:transparent;box-shadow:0 6px 20px -8px rgba(0,0,0,.6)}
+.i2n b,.fcard h4,.ln p,.i2s,.ibl h3,.brief .bl h3,.fcard p,.fcard li{overflow-wrap:anywhere}
+.i2m{grid-template-columns:minmax(0,auto) minmax(0,1fr)}
+.i2v .nv{flex-wrap:wrap}
+
+.crumb{flex:1 1 300px;min-width:min(100%,300px)}
+.crumb h1{overflow-wrap:normal;word-break:keep-all}
+.topbar>*{flex-shrink:0}.topbar>.crumb{flex-shrink:1}
+@media(max-width:1100px){.topbar .logos{display:none}}
+
+.dhero p{max-width:min(640px,max(34vw,320px))}
+
+.sp2 .spw{position:relative;height:clamp(64px,6vw,84px)}
+.sp2 .spw svg{position:absolute;inset:0;width:100%;height:100%}
+.sp2 .spw i{position:absolute;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:var(--c);opacity:.55}
+.sp2 .spw i.last{width:11px;height:11px;margin:-5.5px 0 0 -5.5px;background:var(--panel);border:2.5px solid var(--c);opacity:1;box-shadow:0 0 0 6px color-mix(in srgb,var(--c) 18%,transparent)}
+@media(max-width:1100px){
+ .dhero{min-height:clamp(440px,64vw,580px)}
+ .dhero .media .ph{background-position:65% 22%}.dhero .media video{object-position:65% 22%}
+ .dhero::after{background:linear-gradient(0deg,rgba(15,4,15,.94) 0%,rgba(15,4,15,.72) 38%,rgba(15,4,15,.15) 68%,rgba(15,4,15,0) 100%)}
+ .dhero p{max-width:100%}
+}
+
+.slh span{flex:1;min-width:0}.slh b{white-space:normal;text-align:right;max-width:50%;flex:none}
+
+.dbars{display:grid;gap:9px;margin-top:6px;padding-top:12px;border-top:1px dashed var(--line)}
+.dbr{display:grid;grid-template-columns:minmax(0,92px) minmax(0,1fr) 30px auto;gap:10px;align-items:center;font-size:13px;color:var(--tx);text-decoration:none}
+.dbr .dn{white-space:nowrap;overflow:hidden;text-overflow:clip;font-weight:500}
+.dbr .dtr{height:8px;border-radius:8px;background:color-mix(in srgb,var(--c) 14%,transparent);overflow:hidden}.dbr .dtr i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,color-mix(in srgb,var(--c) 60%,transparent),var(--c))}
+.dbr b{font-family:var(--head);font-weight:700;color:var(--c);text-align:right}
+.dbr small{display:flex;gap:6px;font-size:11.5px;white-space:nowrap}.dbr em{font-style:normal}.dbr em.u{color:#16a34a}.dbr em.d{color:#e11d48}
+.dbr:hover .dn{color:var(--c)}
+.dhero{min-height:clamp(420px,36vw,540px)}
+.dhero .media .ph{background-position:65% 28%}.dhero .media video{object-position:65% 28%}
+
+.rm b small.ft2{display:block;font-size:12px;font-weight:500;white-space:nowrap}
+.rr{grid-template-columns:14px minmax(0,2.4fr) minmax(108px,1.1fr) repeat(3,minmax(0,1fr)) auto}
+@media(max-width:1100px){.rr{grid-template-columns:14px 1fr}}
+
+.feed{-webkit-mask-image:linear-gradient(#000 82%,transparent);mask-image:linear-gradient(#000 82%,transparent);padding-bottom:28px}
 </style>
 </head>
 <body>
@@ -777,11 +830,11 @@ const ic=n=>`<i data-lucide="${n}"></i>`;
 const DIMS=[
  {id:'health',name:'สุขภาพ',en:'Health',icon:'heart-pulse',c:'#fb7185',cl:'#e11d48',desc:'ภาวะสุขภาพ โรคไม่ติดต่อเรื้อรัง สุขภาพแม่และเด็ก สุขภาพจิต และการเข้าถึงบุคลากรทางการแพทย์'},
  {id:'edu',name:'การศึกษา',en:'Education',icon:'graduation-cap',c:'#a78bfa',cl:'#7c3aed',desc:'คุณภาพผลสัมฤทธิ์ทางการเรียน การคงอยู่ในระบบการศึกษา และโครงสร้างชั้นเรียน'},
- {id:'econ',name:'เศรษฐกิจและรายได้',en:'Economy & Income',icon:'wallet',c:'#fbbf24',cl:'#d97706',desc:'ผลิตภัณฑ์จังหวัด รายได้-หนี้สินครัวเรือน ความเหลื่อมล้ำ การจ้างงาน และรายได้ท่องเที่ยว'},
- {id:'society',name:'ประชากรและสังคม',en:'Population & Society',icon:'users',c:'#22d3ee',cl:'#0891b2',desc:'โครงสร้างประชากร สังคมสูงวัย ความยากจน กลุ่มเปราะบาง และธรรมาภิบาลภาครัฐ'},
+ {id:'econ',short:'เศรษฐกิจ',name:'เศรษฐกิจและรายได้',en:'Economy & Income',icon:'wallet',c:'#fbbf24',cl:'#d97706',desc:'ผลิตภัณฑ์จังหวัด รายได้-หนี้สินครัวเรือน ความเหลื่อมล้ำ การจ้างงาน และรายได้ท่องเที่ยว'},
+ {id:'society',short:'สังคม',name:'ประชากรและสังคม',en:'Population & Society',icon:'users',c:'#22d3ee',cl:'#0891b2',desc:'โครงสร้างประชากร สังคมสูงวัย ความยากจน กลุ่มเปราะบาง และธรรมาภิบาลภาครัฐ'},
  {id:'safety',name:'ความปลอดภัย',en:'Safety',icon:'shield-check',c:'#60a5fa',cl:'#2563eb',desc:'อุบัติเหตุทางถนน คดีอาญา และปัญหายาเสพติดในพื้นที่'},
  {id:'env',name:'สิ่งแวดล้อม',en:'Environment',icon:'leaf',c:'#4ade80',cl:'#16a34a',desc:'คุณภาพอากาศ (PM2.5) พื้นที่ป่าไม้ และการจัดการขยะมูลฝอย'},
- {id:'living',name:'ที่อยู่อาศัยและดิจิทัล',en:'Housing & Digital',icon:'house',c:'#f472b6',cl:'#db2777',desc:'ความมั่นคงที่อยู่อาศัย และการเข้าถึงเทคโนโลยีสารสนเทศของครัวเรือน'},
+ {id:'living',short:'ที่อยู่อาศัย',name:'ที่อยู่อาศัยและดิจิทัล',en:'Housing & Digital',icon:'house',c:'#f472b6',cl:'#db2777',desc:'ความมั่นคงที่อยู่อาศัย และการเข้าถึงเทคโนโลยีสารสนเทศของครัวเรือน'},
 ];
 const IND=[
  /* ---- health ---- */
@@ -913,7 +966,7 @@ const FEAT={
  health:[
   {t:'สาเหตุการตายที่สำคัญ',ic:'activity',sub:'ปีล่าสุดที่มีข้อมูลครบปี รวมชาย-หญิง (คน)',h:340,f:el=>{const R=recs('death');const ys_=years(R),tot_=y=>sum(R.filter(r=>yr(r)===y).map(r=>vOf(r)||0));let y=ys_[ys_.length-1];if(ys_.length>1&&tot_(y)<tot_(ys_[ys_.length-2])*.75)y=ys_[ys_.length-2];const g={};R.filter(r=>yr(r)===y).forEach(r=>{const k=T(r['สาเหตุ']);g[k]=(g[k]||0)+(vOf(r)||0)});
    const a=Object.entries(g).filter(e=>!/^อื่น/.test(e[0])).sort((x,y)=>y[1]-x[1]).slice(0,8).reverse();
-   mk(el,{title:{text:'พ.ศ. '+y,right:0,top:0,textStyle:{color:'#6b7a93',fontSize:12,fontWeight:400}},tooltip:TT,grid:{left:8,right:40,top:24,bottom:4,containLabel:true},xAxis:{type:'value',...AX},yAxis:{type:'category',data:a.map(e=>e[0].length>30?e[0].slice(0,30)+'…':e[0]),...AX,axisLabel:{...AX.axisLabel,width:200,overflow:'truncate'}},series:[{type:'bar',data:a.map(e=>e[1]),barWidth:14,itemStyle:{borderRadius:[0,7,7,0],color:hgrad('#fb7185')},label:{show:true,position:'right',color:TXT,formatter:p=>fmt(p.value)}}]})}},
+   mk(el,{title:{text:'พ.ศ. '+y,right:0,top:0,textStyle:{color:'#6b7a93',fontSize:12,fontWeight:400}},tooltip:TT,grid:{left:8,right:40,top:24,bottom:4,containLabel:true},xAxis:{type:'value',...AX},yAxis:{type:'category',data:a.map(e=>wrapL(e[0].replace(/\s*ไม่ระบุ(รายละเอียด)?\s*$/,'').replace(/\s*มิได้จำแนกไว้ที่ใด\s*$/,''),el.clientWidth<520?14:20)),...AX,axisLabel:{...AX.axisLabel,lineHeight:15,fontSize:12}},series:[{type:'bar',data:a.map(e=>e[1]),barWidth:14,itemStyle:{borderRadius:[0,7,7,0],color:hgrad('#fb7185')},label:{show:true,position:'right',color:TXT,formatter:p=>fmt(p.value)}}]})}},
   {t:'อัตราป่วยความดันโลหิตสูงตามกลุ่มอายุ',ic:'heart-pulse',sub:'ร้อยละ ภาพรวมจังหวัด เปรียบเทียบรายปี',h:340,f:el=>{const R=recs('ht').filter(r=>T(r['อำเภอ'])==='รวม'&&T(r['รายการกลุ่มอายุ'])==='รายกลุ่มอายุ');const ys=years(R);const ages=[...new Set(R.map(r=>T(r['กลุ่มอายุ'])))];const cols=['#fda4af','#fb7185','#e11d48'];
    mk(el,{tooltip:TT,legend:LEG,grid:{left:8,right:10,top:34,bottom:4,containLabel:true},xAxis:{type:'category',data:ages,...AX},yAxis:{type:'value',...AX},series:ys.map((y,i)=>({name:'พ.ศ. '+y,type:'bar',barGap:'15%',itemStyle:{borderRadius:[6,6,0,0],color:vgrad(cols[(i+cols.length-ys.length)%cols.length]||'#fb7185')},data:ages.map(a=>{const r=R.find(x=>yr(x)===y&&T(x['กลุ่มอายุ'])===a);return r?vOf(r):null})}))})}},
  ],
@@ -925,8 +978,8 @@ const FEAT={
    mk(el,{tooltip:{...TT,trigger:'item'},title:{text:fmt(sum(a.map(e=>e[1]))),subtext:'คน · ปี '+y,left:'34%',top:'40%',textAlign:'center',textStyle:{color:'#fff',fontSize:24,fontFamily:'Prompt'},subtextStyle:{color:'#8b9ab3'}},legend:{...LEG,orient:'vertical',right:0,top:'middle',type:'scroll'},series:[{type:'pie',radius:['48%','72%'],center:['35%','52%'],itemStyle:{borderColor:'#0a1428',borderWidth:3,borderRadius:6},label:{show:false},data:a.map((e,i)=>({name:e[0],value:e[1],itemStyle:{color:pal[i%pal.length]}}))}]})}},
  ],
  econ:[
-  {t:'โครงสร้างรายได้ครัวเรือนตามแหล่งที่มา',ic:'layers',sub:'บาท/เดือน (สำรวจภาวะเศรษฐกิจและสังคมของครัวเรือน)',h:330,f:el=>{const R=recs('inc');const ys=years(R);const src=[...new Set(R.map(r=>T(r['แหล่งรายได้'])))];const pal=['#fbbf24','#f59e0b','#fb923c','#fde68a','#d97706','#a16207'];
-   mk(el,{tooltip:TT,legend:{...LEG,type:'scroll'},grid:{left:8,right:10,top:40,bottom:4,containLabel:true},xAxis:{type:'category',data:ys.map(y=>'พ.ศ. '+y),...AX},yAxis:{type:'value',...AX},series:src.map((s,i)=>({name:s,type:'bar',stack:'a',barWidth:46,itemStyle:{color:pal[i%pal.length],borderRadius:i===src.length-1?[6,6,0,0]:0},data:ys.map(y=>{const r=R.find(x=>yr(x)===y&&T(x['แหล่งรายได้'])===s);return r?vOf(r):0})}))})}},
+  {t:'โครงสร้างรายได้ครัวเรือนตามแหล่งที่มา',ic:'layers',sub:'บาท/เดือน (สำรวจภาวะเศรษฐกิจและสังคมของครัวเรือน)',h:330,f:el=>{const R=recs('inc');const ys=years(R);const src=[...new Set(R.map(r=>T(r['แหล่งรายได้'])))];const SN=x=>x.replace('เงินได้รับเป็นการช่วยเหลือ','เงินช่วยเหลือ').replace(/\s*\(ที่เป็นตัวเงิน\)/,'').replace('รายได้จากการทำงาน','จากการทำงาน');const pal=['#fbbf24','#f59e0b','#fb923c','#fde68a','#d97706','#a16207'];
+   mk(el,{tooltip:TT,legend:{...LEG,type:'plain'},grid:{left:8,right:10,top:el.clientWidth<600?78:52,bottom:4,containLabel:true},xAxis:{type:'category',data:ys.map(y=>'พ.ศ. '+y),...AX},yAxis:{type:'value',...AX},series:src.map((s,i)=>({name:SN(s),type:'bar',stack:'a',barWidth:46,itemStyle:{color:pal[i%pal.length],borderRadius:i===src.length-1?[6,6,0,0]:0},data:ys.map(y=>{const r=R.find(x=>yr(x)===y&&T(x['แหล่งรายได้'])===s);return r?vOf(r):0})}))})}},
   {t:'GPP ต่อหัว และรายได้ท่องเที่ยว',ic:'trending-up',sub:'บาท/คน/ปี (เส้น) · ล้านบาท (แท่ง)',h:330,f:el=>{const g=IND.find(i=>i.id==='gpp').s,t=IND.find(i=>i.id==='tour').s;const ys=[...new Set([...g,...t].map(p=>p.y))].sort();
    mk(el,{tooltip:TT,legend:LEG,grid:{left:8,right:8,top:36,bottom:4,containLabel:true},xAxis:{type:'category',data:ys,...AX},yAxis:[{type:'value',...AX,name:'บาท/คน',nameTextStyle:{color:'#6b7a93'}},{type:'value',...AX,splitLine:{show:false},name:'ล้านบาท',nameTextStyle:{color:'#6b7a93'}}],
     series:[{name:'รายได้ท่องเที่ยว',type:'bar',yAxisIndex:1,barWidth:18,itemStyle:{borderRadius:[6,6,0,0],color:vgrad('#2dd4bf')},data:ys.map(y=>(t.find(p=>p.y===y)||{}).v??null)},{name:'GPP ต่อหัว',type:'line',smooth:.3,symbolSize:8,lineStyle:{width:3,color:'#fbbf24'},itemStyle:{color:'#fbbf24'},areaStyle:{color:grad('#fbbf24',.25)},connectNulls:true,data:ys.map(y=>(g.find(p=>p.y===y)||{}).v??null)}]})}},
@@ -1073,8 +1126,8 @@ function anReset(){Object.keys(ANC).forEach(k=>delete ANC[k])}
 /* ---- กราฟเส้นขนาดเล็ก (ไม่บิดสัดส่วน) ---- */
 function spark2(i,c){const s=i.s;if(s.length<2)return'<div class="sp2 none">ข้อมูลปีเดียว</div>';const W=240,H=74,vs=s.map(p=>p.v),mn=Math.min(...vs),mx=Math.max(...vs),rg=mx-mn||1;
  const pts=s.map((p,k)=>[6+k/(s.length-1)*(W-12),H-8-(p.v-mn)/rg*(H-20)]);const d=pts.map((p,k)=>(k?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');const id='g'+i.id+Math.random().toString(36).slice(2,6);const L=pts[pts.length-1];
- return`<div class="sp2"><svg viewBox="0 0 ${W} ${H}"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c}" stop-opacity=".32"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></linearGradient></defs>
- <path d="${d} L${L[0]} ${H} L${pts[0][0]} ${H}Z" fill="url(#${id})"/><path d="${d}" fill="none" stroke="${c}" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>${pts.slice(0,-1).map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="2.4" fill="${c}" opacity=".55"/>`).join('')}<circle cx="${L[0]}" cy="${L[1]}" r="7" fill="${c}" opacity=".18"/><circle cx="${L[0]}" cy="${L[1]}" r="4" fill="#fff" stroke="${c}" stroke-width="2.5"/></svg>
+ return`<div class="sp2"><div class="spw"><svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c}" stop-opacity=".32"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></linearGradient></defs>
+ <path d="${d} L${L[0]} ${H} L${pts[0][0]} ${H}Z" fill="url(#${id})"/><path d="${d}" fill="none" stroke="${c}" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>${pts.map((p,k)=>`<i class="${k===pts.length-1?'last':''}" style="left:${p[0]/W*100}%;top:${p[1]/H*100}%;--c:${c}"></i>`).join('')}</div>
  <div class="sp2x"><span>${s[0].y}</span><span>${s[s.length-1].y}</span></div></div>`}
 
 /* ---- แถบกระจายค่า 6 อำเภอ ---- */
@@ -1169,7 +1222,7 @@ function renderOverview(){const el=document.getElementById('p-overview');const l
 
  <div class="sec">${secHead('สัญญาณจากข้อมูล','อ่านทิศทางของทุกตัวชี้วัดเทียบปีก่อนและแนวโน้มหลายปี · ไม่ใช่แค่คะแนน แต่บอกว่าดีขึ้นหรือแย่ลง')}
   <div class="g g3 sigg">
-   <div class="card"><h4>${ic('radar')}โปรไฟล์ 7 มิติ</h4><div class="sub">คะแนนพัฒนาการรายมิติ (0–100)</div><div id="gRadar" class="chart" style="height:360px"></div></div>
+   <div class="card"><h4>${ic('radar')}โปรไฟล์ 7 มิติ</h4><div class="sub">คะแนนพัฒนาการรายมิติ (0–100)</div><div id="gRadar" class="chart" style="height:320px"></div><div class="dbars">${[...DIMS].sort((a,b)=>(b.score??-1)-(a.score??-1)).map(d=>{const v=d.score;const st=IND.filter(i=>i.dim===d.id&&i.last&&i.better).map(AN);const up=st.filter(a=>a.v.tone==='good').length,dn=st.filter(a=>a.v.tone==='bad'||a.v.tone==='warn').length;return`<a class="dbr" href="#${d.id}" style="--c:${dc(d)}"><span class="dn">${d.short||d.name}</span><span class="dtr"><i style="width:${v??0}%"></i></span><b>${v??'–'}</b><small><em class="u">▲${up}</em><em class="d">▼${dn}</em></small></a>`}).join('')}<div class="sub" style="margin-top:8px">▲ ตัวชี้วัดที่ดีขึ้น · ▼ แย่ลง/ต้องตรวจสอบ</div></div></div>
    <div class="card" style="--c:#16a34a"><h4>${ic('trending-up')}สัญญาณบวก · ${pos.length} ตัวชี้วัด</h4><div class="sub">ดีขึ้นจากปีก่อนหรือดีขึ้นต่อเนื่อง เรียงตามความชัดเจนของสัญญาณ</div>${pos.slice(0,5).map(insRow).join('')||'<p class="sub">ยังไม่มีสัญญาณบวกที่ชัดเจน</p>'}</div>
    <div class="card" style="--c:#ea580c"><h4>${ic('triangle-alert')}สัญญาณเตือน · ${neg.length} ตัวชี้วัด</h4><div class="sub">แย่ลง แย่ลงต่อเนื่อง ยังไม่ถึงเป้า หรือข้อมูลผิดปกติที่ต้องตรวจสอบ</div>${neg.slice(0,5).map(insRow).join('')||'<p class="sub">ไม่พบสัญญาณเตือน</p>'}</div>
   </div></div>
@@ -1178,7 +1231,7 @@ function renderOverview(){const el=document.getElementById('p-overview');const l
  <div class="sec">${secHead('อ้างอิงมาตรฐานสากล','หลักการที่ใช้ออกแบบดัชนี คุณภาพข้อมูล และบทวิเคราะห์เชิงนโยบาย')}${stdStrip()}</div>`;
  lucide.createIcons();hydrate(el);bind(el);
  mk(document.getElementById('gMain'),{series:[{type:'gauge',startAngle:220,endAngle:-40,min:0,max:100,radius:'98%',center:['50%','56%'],progress:{show:true,width:12,roundCap:true,itemStyle:{color:new echarts.graphic.LinearGradient(0,0,1,0,[{offset:0,color:'#fbcfe8'},{offset:1,color:'#ffffff'}])}},axisLine:{roundCap:true,lineStyle:{width:12,color:[[1,'rgba(255,255,255,.18)']]}},axisTick:{show:false},splitLine:{show:false},axisLabel:{show:false},pointer:{show:false},anchor:{show:false},title:{show:false},detail:{offsetCenter:[0,'4%'],fontSize:44,fontFamily:'Prompt',fontWeight:700,color:'#fff',formatter:'{value}'},data:[{value:OVERALL??0}]}]});
- mk(document.getElementById('gRadar'),{tooltip:{...TT,trigger:'item'},radar:{radius:'58%',center:['50%','54%'],indicator:DIMS.map(d=>({name:d.name.replace('เศรษฐกิจและรายได้','เศรษฐกิจ').replace('ประชากรและสังคม','สังคม').replace('ที่อยู่อาศัยและดิจิทัล','ที่อยู่อาศัย/ดิจิทัล'),max:100,color:dc(d)})),splitNumber:4,axisName:{fontFamily:'Prompt',fontSize:12.5},splitLine:{lineStyle:{color:AX.splitLine.lineStyle.color}},splitArea:{areaStyle:{color:['transparent']}},axisLine:{lineStyle:{color:AX.axisLine.lineStyle.color}}},
+ mk(document.getElementById('gRadar'),{tooltip:{...TT,trigger:'item'},radar:{radius:(e=>Math.max(42,Math.min(e.clientWidth/2-78,e.clientHeight/2-34)))(document.getElementById('gRadar')),center:['50%','53%'],indicator:DIMS.map(d=>({name:d.short||d.name.split('และ')[0],max:100,color:dc(d)})),splitNumber:4,axisName:{fontFamily:'Prompt',fontSize:12.5},splitLine:{lineStyle:{color:AX.splitLine.lineStyle.color}},splitArea:{areaStyle:{color:['transparent']}},axisLine:{lineStyle:{color:AX.axisLine.lineStyle.color}}},
   series:[{type:'radar',symbolSize:8,data:[{value:DIMS.map(d=>d.score??0),name:'คะแนนรายมิติ',areaStyle:{color:'rgba(219,39,119,.22)'},lineStyle:{width:2.5,color:'#db2777'},itemStyle:{color:'#fff',borderColor:'#db2777',borderWidth:2},label:{show:true,color:TXT,fontFamily:'Prompt',fontWeight:600}}]}]});
  drawHistory(document.getElementById('gHist'));
  requestAnimationFrame(()=>setTimeout(()=>el.querySelectorAll('[data-w]').forEach(i=>i.style.width=i.dataset.w+'%'),100));}
@@ -1366,10 +1419,11 @@ function toast(t){let e=document.getElementById('toast');if(!e){e=document.creat
 function indexHistory(){const sc=IND.filter(i=>i.better&&i.s.length>=2);const ys=[...new Set(sc.flatMap(i=>i.s.map(p=>p.y)))].sort((a,b)=>a-b);const out=[];
  ys.forEach(Y=>{const dimS={};sc.forEach(i=>{const pts=i.s.filter(p=>p.y<=Y);if(!pts.length)return;const vs=i.s.map(p=>p.v),mn=Math.min(...vs),mx=Math.max(...vs);const v=pts[pts.length-1].v;let x=mx===mn?50:(v-mn)/(mx-mn)*100;if(i.better==='down')x=100-x;(dimS[i.dim]=dimS[i.dim]||[]).push(x)});
   const d={};DIMS.forEach(D=>{if(dimS[D.id])d[D.id]=sum(dimS[D.id])/dimS[D.id].length});const k=Object.keys(d);if(k.length>=5)out.push({y:Y,o:Math.round(sum(Object.values(d))/k.length),d})});return out}
+const wrapL=(t,n=18)=>{const w=String(t).trim().split(/\s+/);const L=[];let c='';w.forEach(x=>{if(!c)c=x;else if((c+' '+x).length<=n)c+=' '+x;else{L.push(c);c=x}});if(c)L.push(c);return L.join('\n')};
 function drawHistory(el){const H=indexHistory();if(H.length<2){el.innerHTML='<div class="empty">ข้อมูลยังไม่พอสร้างอนุกรม</div>';return}
- mk(el,{tooltip:TT,legend:{...LEG,type:'scroll',selected:Object.fromEntries(DIMS.map(d=>[d.name,false]))},grid:{left:8,right:18,top:44,bottom:4,containLabel:true},xAxis:{type:'category',data:H.map(h=>h.y),...AX},yAxis:{type:'value',min:0,max:100,...AX},
+ mk(el,{tooltip:TT,legend:{...LEG,type:'plain',selected:Object.fromEntries(DIMS.map(d=>[d.short||d.name,false]))},grid:{left:8,right:18,top:el.clientWidth<700?70:44,bottom:4,containLabel:true},xAxis:{type:'category',data:H.map(h=>h.y),...AX},yAxis:{type:'value',min:0,max:100,...AX},
   series:[{name:'ดัชนีรวม',type:'line',smooth:.3,symbolSize:10,lineStyle:{width:4,color:'#db2777'},itemStyle:{color:'#fff',borderColor:'#db2777',borderWidth:3},areaStyle:{color:grad('#db2777',.22)},label:{show:true,position:'top',color:TXT,fontFamily:'Prompt',fontWeight:600},data:H.map(h=>h.o)},
-   ...DIMS.map(d=>({name:d.name,type:'line',smooth:.3,symbolSize:6,lineStyle:{width:2,color:dc(d)},itemStyle:{color:dc(d)},data:H.map(h=>h.d[d.id]!=null?Math.round(h.d[d.id]):null)}))]})}
+   ...DIMS.map(d=>({name:d.short||d.name,type:'line',smooth:.3,symbolSize:6,lineStyle:{width:2,color:dc(d)},itemStyle:{color:dc(d)},data:H.map(h=>h.d[d.id]!=null?Math.round(h.d[d.id]):null)}))]})}
 
 /* ---- โปรไฟล์อำเภอ ---- */
 let DSEL=DISTRICTS[0];
@@ -1384,10 +1438,10 @@ function drawDistrict(){const B=document.getElementById('dbody');const hp=docume
  B.innerHTML=`<div class="g g3" style="margin-top:18px"><div class="card"><h4>${ic('map')}ตำแหน่งในจังหวัด</h4><div class="sub">คลิกแผนที่เพื่อเปลี่ยนอำเภอ</div><div id="dpick" style="height:340px"></div></div>
   <div class="card" style="--c:#16a34a"><h4>${ic('thumbs-up')}จุดแข็งของอำเภอ</h4><div class="sub">อันดับดีที่สุดเมื่อเทียบ 6 อำเภอ</div>${top.map(r=>`<div class="obs"><span class="od good">${ic(r.i.icon)}</span><p><b>${r.i.name}</b><br><small style="color:var(--tx3)">อันดับ ${r.rank}/${r.n} · ${fmt(r.v,r.i.dec)} ${r.i.unit}</small></p></div>`).join('')}</div>
   <div class="card" style="--c:#ea580c"><h4>${ic('triangle-alert')}พื้นที่ที่ควรพัฒนา</h4><div class="sub">อันดับท้ายเมื่อเทียบ 6 อำเภอ</div>${low.map(r=>`<div class="obs"><span class="od bad">${ic(r.i.icon)}</span><p><b>${r.i.name}</b><br><small style="color:var(--tx3)">อันดับ ${r.rank}/${r.n} · ${fmt(r.v,r.i.dec)} ${r.i.unit}</small></p></div>`).join('')}
-   ${scoreD!=null?`<div class="frame"><div><span>ดัชนีสัมพัทธ์ของอำเภอ (เทียบ 6 อำเภอ)</span><b style="font-family:Prompt;font-size:22px;color:${level(scoreD).c}">${scoreD}/100 · ${level(scoreD).t}</b></div></div>`:''}</div></div>
+   ${scoreD!=null?`<div class="frame"><div><span>ดัชนีสัมพัทธ์ของอำเภอ (เทียบ 6 อำเภอ)</span><b style="font-family:Prompt;font-size:22px;color:color-mix(in srgb,${level(scoreD).c} 70%,var(--tx))">${scoreD}/100 · ${level(scoreD).t}</b></div></div>`:''}</div></div>
  <div class="card" style="margin-top:18px"><h4>${ic('table')}ตัวชี้วัดทั้งหมดของอำเภอ${DSEL}</h4><div class="sub">อันดับ 1 = ดีที่สุดใน 6 อำเภอ (ตัวชี้วัดเชิงบริบทเรียงจากค่ามากไปน้อย)</div>
   <div class="tbl" style="max-height:none"><table class="t"><thead><tr><th>มิติ</th><th>ตัวชี้วัด</th><th>ปี</th><th style="text-align:right">อำเภอ${DSEL}</th><th style="text-align:right">เฉลี่ย 6 อำเภอ</th><th style="text-align:right">อันดับ</th><th>สถานะ</th></tr></thead><tbody>
-  ${R.map(r=>{const t=r.n>1?(r.n-r.rank)/(r.n-1):.5;const col=r.i.better?goodColor(t):'var(--tx3)';return`<tr data-ind="${r.i.id}" style="cursor:pointer"><td style="color:${dc(r.i.dimO)}">${r.i.dimO.name}</td><td style="white-space:normal">${r.i.name}</td><td>${r.y}</td><td class="n">${fmt(r.v,r.i.dec)}</td><td class="n" style="color:var(--tx3)">${fmt(r.avg,r.i.dec)}</td><td class="n"><b style="color:${col}">${r.rank}</b>/${r.n}</td><td>${r.i.better?`<span class="pillbar"><i style="width:${Math.round(t*100)}%;background:${col}"></i></span>`:'<span class="tag2">บริบท</span>'}</td></tr>`}).join('')}</tbody></table></div></div>`;
+  ${R.map(r=>{const t=r.n>1?(r.n-r.rank)/(r.n-1):.5;const col=r.i.better?goodColor(t):'var(--tx3)';return`<tr data-ind="${r.i.id}" style="cursor:pointer"><td style="color:${dc(r.i.dimO)}">${r.i.dimO.name}</td><td style="white-space:normal">${r.i.name}</td><td>${r.y}</td><td class="n">${fmt(r.v,r.i.dec)}</td><td class="n" style="color:var(--tx3)">${fmt(r.avg,r.i.dec)}</td><td class="n"><b style="color:color-mix(in srgb,${col} 70%,var(--tx))">${r.rank}</b>/${r.n}</td><td>${r.i.better?`<span class="pillbar"><i style="width:${Math.round(t*100)}%;background:${col}"></i></span>`:'<span class="tag2">บริบท</span>'}</td></tr>`}).join('')}</tbody></table></div></div>`;
  lucide.createIcons();bind(B);
  if(!mapReady){echarts.registerMap('nbl',GEO);mapReady=true}
  const ch=mk(document.getElementById('dpick'),{tooltip:{...TT,trigger:'item',formatter:p=>'อำเภอ'+p.name},series:[{type:'map',map:'nbl',aspectScale:.95,layoutCenter:['50%','50%'],layoutSize:'95%',selectedMode:false,label:{show:true,fontFamily:'Prompt',fontSize:12,color:'#1f0f1f',textBorderColor:'rgba(255,255,255,.9)',textBorderWidth:3,formatter:p=>DSHORT[p.name]||p.name},itemStyle:{borderColor:isDark()?'#0b0f1d':'#fff',borderWidth:2},emphasis:{itemStyle:{areaColor:'#f9a8d4'}},
@@ -1469,7 +1523,7 @@ function renderSim(){const el=document.getElementById('p-sim');const c=isDark()?
  document.getElementById('wReset').onclick=()=>{WGT={};try{localStorage.removeItem('nblwb-weights')}catch(e){}el.querySelectorAll('input[data-w]').forEach(r=>{r.value=1;document.getElementById('wv-'+r.dataset.w).textContent='×1'});simUpd()};
  el.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{Object.keys(SIM).forEach(k=>delete SIM[k]);Object.assign(SIM,SIMP[b.dataset.p].set);el.querySelectorAll('input[type=range][data-i]').forEach(r=>r.value=SIM[r.dataset.i]||0);simUpd();toast('โหลดสถานการณ์: '+SIMP[b.dataset.p].t)});
  document.getElementById('simReset').onclick=()=>{Object.keys(SIM).forEach(k=>delete SIM[k]);el.querySelectorAll('input[type=range][data-i]').forEach(r=>r.value=0);simUpd()};
- el._radar=mk(document.getElementById('simRadar'),{tooltip:{...TT,trigger:'item'},legend:{...LEG,bottom:0,top:'auto'},radar:{radius:'62%',center:['50%','48%'],indicator:DIMS.map(d=>({name:d.name.split('และ')[0],max:100,color:dc(d)})),splitNumber:4,axisName:{fontFamily:'Prompt',fontSize:12},splitLine:{lineStyle:{color:AX.splitLine.lineStyle.color}},splitArea:{areaStyle:{color:['transparent']}},axisLine:{lineStyle:{color:AX.axisLine.lineStyle.color}}},series:[{type:'radar',data:[{name:'ปัจจุบัน',value:DIMS.map(d=>d.score??0),lineStyle:{color:'#94a3b8',type:'dashed'},itemStyle:{color:'#94a3b8'},areaStyle:{color:'rgba(148,163,184,.12)'}},{name:'หลังจำลอง',value:DIMS.map(d=>d.score??0),lineStyle:{color:c,width:2.5},itemStyle:{color:c},areaStyle:{color:c+'33'}}]}]});
+ el._radar=mk(document.getElementById('simRadar'),{tooltip:{...TT,trigger:'item'},legend:{...LEG,bottom:0,top:'auto'},radar:{radius:(e=>Math.max(42,Math.min(e.clientWidth/2-78,e.clientHeight/2-40)))(document.getElementById('simRadar')),center:['50%','48%'],indicator:DIMS.map(d=>({name:d.short||d.name.split('และ')[0],max:100,color:dc(d)})),splitNumber:4,axisName:{fontFamily:'Prompt',fontSize:12},splitLine:{lineStyle:{color:AX.splitLine.lineStyle.color}},splitArea:{areaStyle:{color:['transparent']}},axisLine:{lineStyle:{color:AX.axisLine.lineStyle.color}}},series:[{type:'radar',data:[{name:'ปัจจุบัน',value:DIMS.map(d=>d.score??0),lineStyle:{color:'#94a3b8',type:'dashed'},itemStyle:{color:'#94a3b8'},areaStyle:{color:'rgba(148,163,184,.12)'}},{name:'หลังจำลอง',value:DIMS.map(d=>d.score??0),lineStyle:{color:c,width:2.5},itemStyle:{color:c},areaStyle:{color:c+'33'}}]}]});
  simUpd()}
 function simUpd(){const r=simCalc();const base=Math.round(wIndex(Object.fromEntries(DIMS.map(d=>[d.id,d.score]))));const n=Math.round(r.o);const d=n-base;const bb=document.getElementById('simBase');if(bb)bb.textContent=base;document.getElementById('simNew').textContent=n;const e=document.getElementById('simD');e.textContent=(d>0?'+':'')+d+' คะแนน';e.className=d>0?'up':d<0?'dn':'';
  DIMS.forEach(D=>{const x=document.getElementById('sd-'+D.id);if(x&&r.dims[D.id]!=null){const dd=Math.round(r.dims[D.id])-(D.score??0);x.textContent=Math.round(r.dims[D.id])+(dd?` (${dd>0?'+':''}${dd})`:'');x.className='simds '+(dd>0?'up':dd<0?'dn':'')}});
@@ -1589,7 +1643,7 @@ function drawBench(B){const box=document.getElementById('benchBox');if(!box)retu
   <div class="chart" id="bm-${b.id}" style="height:360px"></div><div class="sub" style="margin:4px 0 0">ที่มา: <a href="${DSURL+b.src}" target="_blank" rel="noopener" style="color:var(--brand)">${b.src}</a></div></div>`}).join('')}</div>`;
  lucide.createIcons();
  B.forEach(b=>{const c=dc(DIMS.find(x=>x.id===b.dim));const e=[...b.isan].reverse();mk(document.getElementById('bm-'+b.id),{tooltip:{...TT,formatter:p=>`${p[0].name}<br><b>${fmt(p[0].value,b.dec)}</b> ${b.unit}`},grid:{left:8,right:46,top:6,bottom:4,containLabel:true},xAxis:{type:'value',...AX},yAxis:{type:'category',data:e.map(x=>x[0]),...AX,axisLabel:{...AX.axisLabel,fontSize:11.5,color:p=>p===PROV?c:AX.axisLabel.color,fontWeight:p=>p===PROV?700:400}},
-  series:[{type:'bar',barWidth:11,data:e.map(x=>({value:+x[1].toFixed(b.dec+1),itemStyle:{color:x[0]===PROV?c:(isDark()?'#334155':'#e7d9e2'),borderRadius:[0,6,6,0]}})),label:{show:true,position:'right',fontSize:11,color:AX.axisLabel.color,formatter:p=>fmt(p.value,b.dec)},markLine:{symbol:'none',lineStyle:{color:'#94a3b8',type:'dashed'},label:{formatter:'เฉลี่ยอีสาน',color:AX.axisLabel.color,fontSize:11},data:[{xAxis:+b.iavg.toFixed(2)}]}}]})})}
+  series:[{type:'bar',barWidth:11,data:e.map(x=>({value:+x[1].toFixed(b.dec+1),itemStyle:{color:x[0]===PROV?c:(isDark()?'#334155':'#e7d9e2'),borderRadius:[0,6,6,0]}})),label:{show:true,position:'right',fontSize:11,color:AX.axisLabel.color,formatter:p=>fmt(p.value,b.dec)},markLine:{symbol:'none',lineStyle:{color:'#94a3b8',type:'dashed'},label:{formatter:'เฉลี่ยอีสาน',color:AX.axisLabel.color,fontSize:11,position:'insideEndTop'},data:[{xAxis:+b.iavg.toFixed(2)}]}}]})})}
 
 /* ---------------- DATA STORIES ---------------- */
 function storyList(){const S=[];const gs=k=>IND.find(i=>i.id===k);const R=k=>recs(k);
@@ -1606,7 +1660,7 @@ function storyList(){const S=[];const gs=k=>IND.find(i=>i.id===k);const R=k=>rec
   S.push({id:'pm',dim:'env',kick:'คุณภาพอากาศ',big:fmt(dry/tot*100,0)+'%',title:`ฝุ่นเกินมาตรฐาน ${fmt(dry/tot*100,0)}% เกิดช่วง ธ.ค.–เม.ย.`,text:`วันที่ PM2.5 เกินมาตรฐานรวม ${fmt(tot)} วัน (พ.ศ. ${years(R('pm')).join(', ')}) กระจุกในฤดูแล้ง เดือนที่หนักที่สุดคือ ${M[pk[0]]} (${fmt(pk[1])} วันรวมทุกปี) ช่วงฤดูฝนแทบไม่มีวันเกินมาตรฐาน`,pol:'มาตรการลดเผาในที่โล่งต้องเริ่มก่อนเดือนธันวาคม เน้นพื้นที่เกษตรและป่า พร้อมแจ้งเตือนกลุ่มเสี่ยง',src:['pm2-5'],ch:el=>mk(el,{tooltip:TT,grid:{left:8,right:12,top:20,bottom:4,containLabel:true},xAxis:{type:'category',data:M,...AX},yAxis:{type:'value',...AX},series:[{type:'bar',barWidth:'60%',data:M.map((m,k)=>({value:g[k]||0,itemStyle:{borderRadius:[6,6,0,0],color:(g[k]||0)>0?new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#dc2626'},{offset:1,color:'#f59e0b'}]):(isDark()?'#334155':'#e5e7eb')}})),label:{show:true,position:'top',color:TXT,formatter:p=>p.value||''}}]})})}}
  /* 5 ออกกลางคันเพราะย้ายตามครอบครัว */
  {const rows=R('drop');const ys=years(rows);if(ys.length){const L=ys[ys.length-1];const c={},d={};rows.filter(r=>yr(r)===L).forEach(r=>{const v=vOf(r)||0;c[T(r['สาเหตุที่ออก'])]=(c[T(r['สาเหตุที่ออก'])]||0)+v;const dn_=dn(r['อำเภอ']);d[dn_]=(d[dn_]||0)+v});const tot=sum(Object.values(c));if(tot>20){const tc=Object.entries(c).sort((a,b)=>b[1]-a[1]);const td=Object.entries(d).sort((a,b)=>b[1]-a[1]);
-  S.push({id:'drop',dim:'edu',kick:'เด็กหลุดจากระบบ',big:fmt(tot),title:`ปีการศึกษา ${L} เด็กออกกลางคัน ${fmt(tot)} คน — ${fmt(tc[0][1]/tot*100,0)}% เพราะ “${tc[0][0]}”`,text:`สาเหตุหลักคือ${tc[0][0]} ${fmt(tc[0][1])} คน และกระจุกที่อำเภอ${td[0][0]} ${fmt(td[0][1])} คน (${fmt(td[0][1]/tot*100,0)}%) สะท้อนการย้ายถิ่นของครัวเรือนมากกว่าปัญหาภายในโรงเรียน`,pol:'ระบบส่งต่อข้อมูลนักเรียนข้ามพื้นที่ ติดตามเด็กย้ายตามครอบครัวให้ได้เรียนต่อ และเจาะลึกสาเหตุในอำเภอ'+td[0][0],src:['t-3_12'],ch:el=>mk(el,{tooltip:{...TT,trigger:'item'},series:[{type:'pie',radius:['45%','72%'],center:['50%','52%'],itemStyle:{borderColor:isDark()?'#11162a':'#fff',borderWidth:3,borderRadius:6},label:{color:TXT,formatter:'{b}\n{c} คน'},data:tc.filter(x=>x[1]>0).map((x,k)=>({name:x[0],value:x[1],itemStyle:{color:['#7c3aed','#db2777','#0891b2','#d97706','#16a34a','#64748b'][k%6]}}))}]})})}}}
+  S.push({id:'drop',dim:'edu',kick:'เด็กหลุดจากระบบ',big:fmt(tot),title:`ปีการศึกษา ${L} เด็กออกกลางคัน ${fmt(tot)} คน — ${fmt(tc[0][1]/tot*100,0)}% เพราะ “${tc[0][0]}”`,text:`สาเหตุหลักคือ${tc[0][0]} ${fmt(tc[0][1])} คน และกระจุกที่อำเภอ${td[0][0]} ${fmt(td[0][1])} คน (${fmt(td[0][1]/tot*100,0)}%) สะท้อนการย้ายถิ่นของครัวเรือนมากกว่าปัญหาภายในโรงเรียน`,pol:'ระบบส่งต่อข้อมูลนักเรียนข้ามพื้นที่ ติดตามเด็กย้ายตามครอบครัวให้ได้เรียนต่อ และเจาะลึกสาเหตุในอำเภอ'+td[0][0],src:['t-3_12'],ch:el=>{const e=tc.filter(x=>x[1]>0).reverse();mk(el,{tooltip:{...TT,formatter:q=>`${q[0].name}<br><b>${fmt(q[0].value)}</b> คน (${fmt(q[0].value/tot*100,1)}%)`},grid:{left:8,right:64,top:10,bottom:4,containLabel:true},xAxis:{type:'value',...AX},yAxis:{type:'category',data:e.map(x=>wrapL(x[0],el.clientWidth<520?14:22)),...AX,axisLabel:{...AX.axisLabel,lineHeight:15,fontSize:12.5}},series:[{type:'bar',barWidth:18,data:e.map((x,k)=>({value:x[1],itemStyle:{borderRadius:[0,8,8,0],color:k===e.length-1?'#7c3aed':(isDark()?'#475569':'#c4b5fd')}})),label:{show:true,position:'right',color:TXT,fontWeight:600,formatter:q=>fmt(q.value)+' คน'}}]})}})}}}
  /* 6 รายได้จากเงินช่วยเหลือ */
  {const rows=R('inc');const ys=years(rows);if(ys.length){const L=ys[ys.length-1];const g={};rows.filter(r=>yr(r)===L).forEach(r=>{g[T(r['แหล่งรายได้'])]=vOf(r)});const tot=sum(Object.values(g).filter(isFinite));const tr=Object.entries(g).find(e=>/ช่วยเหลือ/.test(e[0]));const wk=Object.entries(g).find(e=>/ทำงาน/.test(e[0]));if(tr&&tot){
   S.push({id:'inc',dim:'econ',kick:'รายได้ครัวเรือน',big:fmt(tr[1]/tot*100,0)+'%',title:`รายได้ครัวเรือน ${fmt(tr[1]/tot*100,0)}% มาจากเงินช่วยเหลือ`,text:`ปี ${L} ครัวเรือนมีรายได้เฉลี่ย ${fmt(tot)} บาท/เดือน มาจากการทำงาน ${fmt(wk[1]/tot*100,0)}% (${fmt(wk[1])} บาท) และเงินที่ได้รับเป็นการช่วยเหลือ (จากรัฐและบุคคลนอกครัวเรือน) ${fmt(tr[1])} บาท สะท้อนการพึ่งพารายได้จากภายนอก`,pol:'สร้างงานและรายได้ในพื้นที่ เพิ่มมูลค่าสินค้าเกษตรและ OTOP เพื่อลดการพึ่งพาเงินโอน',src:['dataset_05_040'],ch:el=>{const e=Object.entries(g).sort((a,b)=>a[1]-b[1]);mk(el,{tooltip:{...TT,formatter:q=>`${q[0].name}<br><b>${fmt(q[0].value)}</b> บาท/เดือน (${fmt(q[0].value/tot*100,1)}%)`},grid:{left:8,right:70,top:10,bottom:4,containLabel:true},xAxis:{type:'value',...AX},yAxis:{type:'category',data:e.map(x=>x[0].replace('เงินได้รับเป็นการช่วยเหลือ','เงินช่วยเหลือ (รัฐ/ภายนอก)').replace('รายได้ไม่ประจำ (ที่เป็นตัวเงิน)','รายได้ไม่ประจำ')),...AX,axisLabel:{...AX.axisLabel,fontSize:12.5}},series:[{type:'bar',barWidth:20,data:e.map(x=>({value:x[1],itemStyle:{borderRadius:[0,8,8,0],color:/ช่วยเหลือ/.test(x[0])?'#d97706':(isDark()?'#475569':'#e7cfa6')}})),label:{show:true,position:'right',color:TXT,fontWeight:600,formatter:q=>fmt(q.value/tot*100,0)+'%'}}]})}})}}}
@@ -1777,7 +1831,7 @@ function drawRegistry(only){const R=regRows();const box=document.getElementById(
  box.innerHTML=L.length?`<div class="regl">${L.map(r=>{const st=r.p.st||(r.n?'ok':'err');const res=(r.m.resources||[]).find(x=>x.id===RES[r.keys[0]][0]);return`<div class="rr ${r.upd?'new':''}">
   <span class="sd ${st}" title="${esc(res?res.name:r.pkg)}"></span>
   <div class="rt"><b>${esc(r.title)}</b><small>${ic('building-2')}${esc(r.org||'…')}</small><div class="rd">${r.dims.map(d=>`<span style="--c:${dc(d)}">${d.name}</span>`).join('')}${r.upd?'<span class="nw">อัปเดตใหม่</span>':''}</div></div>
-  <div class="rm"><span>ข้อมูลล่าสุด</span><b class="${r.f.cls}">${r.f.y||'–'} · ${r.f.t}</b></div>
+  <div class="rm"><span>ข้อมูลล่าสุด</span><b class="${r.f.cls}">${r.f.y||'–'}<small class="ft2">${r.f.t}</small></b></div>
   <div class="rm"><span>หน่วยงานปรับปรุง</span><b>${rel(r.m.metadata_modified)}</b></div>
   <div class="rm"><span>ระเบียน</span><b>${fmt(r.p.n??r.n)}</b></div>
   <div class="rm"><span>ตอบสนอง</span><b class="lat ${r.p.ms==null?'':r.p.ms<600?'fresh':r.p.ms<1500?'aging':'stale'}">${st==='run'?'<i class="scan"></i>':r.p.ms!=null?r.p.ms+' ms':'–'}</b></div>
