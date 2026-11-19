@@ -3,18 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู</title>
-<meta name="description" content="NBL Well-Being Index · แดชบอร์ดดัชนีความอยู่ดีมีสุขจังหวัดหนองบัวลำภู ข้อมูลสดจากระบบบัญชีข้อมูลจังหวัด">
+<title>ดัชนีบัวบาน · ความอยู่ดีมีสุข จังหวัดหนองบัวลำภู</title>
+<meta name="description" content="ดัชนีบัวบาน (NBL Well-Being Index) · แดชบอร์ดดัชนีความอยู่ดีมีสุขจังหวัดหนองบัวลำภู ข้อมูลสดจากระบบบัญชีข้อมูลจังหวัด">
 <meta name="theme-color" content="#db2777">
-<meta property="og:title" content="ดัชนีความอยู่ดีมีสุข จังหวัดหนองบัวลำภู">
+<meta property="og:title" content="ดัชนีบัวบาน · ความอยู่ดีมีสุข จังหวัดหนองบัวลำภู">
 <meta property="og:image" content="https://nsonongbualamphutc-debug.github.io/NBL-WellBeing-Dashboard/assets/brand/og-image.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="og:url" content="https://nsonongbualamphutc-debug.github.io/NBL-WellBeing-Dashboard/"><meta property="og:type" content="website">
 <meta property="og:description" content="ติดตามคุณภาพชีวิตคนหนองบัวลำภู 7 มิติ ข้อมูลสดจากระบบบัญชีข้อมูลจังหวัด">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="assets/brand/logo-wellbeing.png">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="ดัชนีบัวบาน">
+<meta name="application-name" content="ดัชนีบัวบาน">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Sarabun:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
 <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
@@ -367,15 +374,15 @@ body.present .main{margin-left:0;padding:16px 24px 90px}
  @page{size:A4;margin:14mm}
  body{background:#fff!important}body::before,body::after{display:none}
  body>*:not(#print){display:none!important}
- #print{display:block;color:#111;font-family:'IBM Plex Sans Thai',sans-serif;font-size:11.5pt}
- #print .ph1{display:flex;gap:14px;align-items:center;border-bottom:3px solid #db2777;padding-bottom:10px;margin-bottom:12px}
- #print .ph1 img{height:52px}
- #print h1{font-family:'Prompt';font-size:18pt;color:#9d174d}#print h2{font-family:'Prompt';font-size:13pt;font-weight:500}#print p{font-size:10pt;color:#555}
- #print h3{font-family:'Prompt';font-size:12.5pt;color:#9d174d;margin:14px 0 6px}
- #print .pg{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:start}
- #print .pbig{border:2px solid #db2777;border-radius:12px;padding:12px;text-align:center}#print .pbig b{font-family:'Prompt';font-size:40pt;color:#db2777;line-height:1;display:block}#print .pbig small{display:block;color:#666;font-size:9pt;margin-top:6px}
- #print table.pt{width:100%;border-collapse:collapse;font-size:10pt}#print .pt th,#print .pt td{border-bottom:1px solid #e5d5de;padding:5px 6px;text-align:left}#print .pt th{background:#fce7f3;font-family:'Prompt';font-weight:500}#print .pt .n{text-align:right}
- #print ol{padding-left:20px;font-size:10.5pt;line-height:1.6}#print .pn{margin-top:14px;font-size:8.5pt;border-top:1px solid #ddd;padding-top:6px}
+ #print{display:block}#print:not(.ebprint){color:#111;font-family:'IBM Plex Sans Thai',sans-serif;font-size:11.5pt}
+ #print:not(.ebprint) .ph1{display:flex;gap:14px;align-items:center;border-bottom:3px solid #db2777;padding-bottom:10px;margin-bottom:12px}
+ #print:not(.ebprint) .ph1 img{height:52px}
+ #print:not(.ebprint) h1{font-family:'Prompt';font-size:18pt;color:#9d174d}#print:not(.ebprint) h2{font-family:'Prompt';font-size:13pt;font-weight:500}#print:not(.ebprint) p{font-size:10pt;color:#555}
+ #print:not(.ebprint) h3{font-family:'Prompt';font-size:12.5pt;color:#9d174d;margin:14px 0 6px}
+ #print:not(.ebprint) .pg{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:start}
+ #print:not(.ebprint) .pbig{border:2px solid #db2777;border-radius:12px;padding:12px;text-align:center}#print:not(.ebprint) .pbig b{font-family:'Prompt';font-size:40pt;color:#db2777;line-height:1;display:block}#print:not(.ebprint) .pbig small{display:block;color:#666;font-size:9pt;margin-top:6px}
+ #print:not(.ebprint) table.pt{width:100%;border-collapse:collapse;font-size:10pt}#print:not(.ebprint) .pt th,#print:not(.ebprint) .pt td{border-bottom:1px solid #e5d5de;padding:5px 6px;text-align:left}#print:not(.ebprint) .pt th{background:#fce7f3;font-family:'Prompt';font-weight:500}#print:not(.ebprint) .pt .n{text-align:right}
+ #print:not(.ebprint) ol{padding-left:20px;font-size:10.5pt;line-height:1.6}#print:not(.ebprint) .pn{margin-top:14px;font-size:8.5pt;border-top:1px solid #ddd;padding-top:6px}
 }
 @media(max-width:1300px){.tbtn kbd{display:none}}
 
@@ -705,6 +712,229 @@ body.ctex .card,body.ctex .fcard,body.ctex .kpi{background-image:linear-gradient
 .ins2 .vpill,.fcard .vpill{position:relative;isolation:isolate}
 .ins2 .vpill::after,.fcard .vpill::after{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--panel);opacity:.9;z-index:-1}
 .ins2 .sp2{position:relative;z-index:1}
+/* ===== round 7 · motion & automation ===== */
+canvas.sidefx,canvas.ccfx{position:absolute!important;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.side>*:not(canvas){position:relative;z-index:1}
+.side{background:linear-gradient(180deg,var(--glass),color-mix(in srgb,var(--glass) 80%,var(--brandSoft)))}
+.side .brand{background:linear-gradient(120deg,color-mix(in srgb,var(--brand) 10%,transparent),transparent 70%)}
+.bname b{font-size:21px!important;letter-spacing:0!important;background-size:200% 100%!important;animation:bshine 6s ease-in-out infinite}
+@keyframes bshine{0%,100%{background-position:0 0}50%{background-position:100% 0}}
+.brand .logo{position:relative}
+.brand .logo::after{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent 0 70%,rgba(255,255,255,.55) 80%,transparent 90%);animation:lspin 5s linear infinite;mix-blend-mode:overlay;pointer-events:none}
+@keyframes lspin{to{transform:rotate(360deg)}}
+.cc>*:not(canvas):not(.ccgrid):not(.ccglow){position:relative;z-index:1}
+.cclog{margin-top:16px;border-radius:16px;background:rgba(3,8,18,.72);border:1px solid rgba(45,212,191,.22);font-family:ui-monospace,Consolas,'IBM Plex Mono',monospace;font-size:12.5px;overflow:hidden;backdrop-filter:blur(6px)}
+.clh{display:flex;align-items:center;gap:10px;padding:8px 14px;color:#7dd3c8;border-bottom:1px solid rgba(255,255,255,.06);font-size:12px}
+.clh span{display:flex;gap:5px}.clh span i{width:9px;height:9px;border-radius:50%;background:#f43f5e}.clh span i:nth-child(2){background:#f59e0b}.clh span i:nth-child(3){background:#22c55e}
+.clh em{margin-left:auto;font-style:normal;color:#22c55e;animation:blink 1.4s steps(2) infinite}
+@keyframes blink{50%{opacity:.35}}
+#ccLog{padding:8px 14px 10px;min-height:150px;display:flex;flex-direction:column;justify-content:flex-end;gap:3px}
+#ccLog .lg{display:flex;gap:12px;color:#cfe9e4;white-space:nowrap;overflow:hidden;animation:lgin .4s ease-out}
+#ccLog .lg:last-child .lx::after{content:"▋";color:#2dd4bf;margin-left:2px;animation:blink 1s steps(2) infinite}
+#ccLog .lt{color:#5f8f88;flex:none}#ccLog .lx{overflow:hidden;text-overflow:ellipsis;min-width:0}
+#ccLog b{font-weight:600}#ccLog b.ok{color:#4ade80}#ccLog b.in{color:#38bdf8}#ccLog b.sc{color:#f472b6}#ccLog b.er{color:#fb7185}#ccLog i{font-style:normal;color:#7b9e98}
+@keyframes lgin{from{opacity:0;transform:translateY(6px)}}
+.autoins{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center;margin:22px 0 4px;padding:16px 20px;border-radius:22px;background:linear-gradient(110deg,color-mix(in srgb,var(--c,#db2777) 12%,var(--panel)),var(--panel) 60%);border:1px solid color-mix(in srgb,var(--c,#db2777) 30%,transparent);box-shadow:var(--shadow);overflow:hidden;transition:background .6s,border-color .6s}
+.autoins::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,color-mix(in srgb,var(--c,#db2777) 14%,transparent) 50%,transparent 70%);background-size:250% 100%;animation:scanx 3.2s linear infinite;pointer-events:none}
+@keyframes scanx{from{background-position:150% 0}to{background-position:-100% 0}}
+.ai-l{display:flex;gap:12px;align-items:center}.ai-l b{display:block;font-family:var(--head);font-size:15px}.ai-l small{font-size:12px;color:var(--tx3)}
+.ai-ring{position:relative;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;color:var(--c,#db2777);background:color-mix(in srgb,var(--c,#db2777) 12%,transparent)}
+.ai-ring i{position:absolute;inset:-3px;border-radius:16px;border:2px solid transparent;border-top-color:var(--c,#db2777);animation:lspin 1.6s linear infinite}
+.ai-ring svg{width:22px;height:22px}
+.ai-m{min-width:0}.ai-k{display:flex;gap:10px;align-items:center;font-size:12.5px;color:var(--tx3);margin-bottom:5px}
+.ai-t{font-family:var(--head);font-size:clamp(15px,1.25vw,18px);font-weight:500;line-height:1.5;min-height:3em;cursor:pointer}
+.ai-t:hover{color:var(--c)}
+.ai-bar{height:3px;border-radius:3px;background:color-mix(in srgb,var(--c,#db2777) 15%,transparent);margin-top:8px;overflow:hidden}.ai-bar i{display:block;height:100%;width:0;background:var(--c,#db2777)}
+.ai-dots{display:flex;flex-direction:column;gap:6px}.ai-dots i{width:8px;height:8px;border-radius:50%;background:color-mix(in srgb,var(--tx3) 40%,transparent);cursor:pointer;transition:.3s}.ai-dots i.on{background:var(--c,#db2777);height:20px;border-radius:5px}
+@media(max-width:800px){.autoins{grid-template-columns:1fr}.ai-dots{flex-direction:row}.ai-dots i.on{height:8px;width:20px}}
+
+.ccbg{position:absolute;inset:0;background:var(--ph,none) right center/cover no-repeat;opacity:.55;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.5) 35%,#000 70%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.5) 35%,#000 70%);pointer-events:none}
+.cc>.ccbg{position:absolute!important;z-index:0}
+.side.simg::before{content:"";position:absolute;inset:0;background:var(--sideimg) center/cover no-repeat;opacity:.55;z-index:0;pointer-events:none}
+[data-theme=dark] .side.simg::before{opacity:.6}
+/* ===== round 7 · E-book ===== */
+.ebw{position:relative;isolation:isolate;margin-top:20px;border-radius:30px;overflow:hidden;padding:30px 20px 18px;display:flex;flex-direction:column;gap:16px;align-items:center;background:radial-gradient(70% 60% at 50% 35%,#5b1739,#12060f 78%);box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
+.ebw.fs,.ebw:fullscreen{position:fixed;inset:0;z-index:95;border-radius:0;justify-content:center}
+.ebdust{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.ebstage{width:100%;display:flex;justify-content:center;perspective:2800px;user-select:none;cursor:pointer}
+.ebbook{--pw:420px;--s:.53;position:relative;height:calc(var(--pw)*1.4142)}
+.ebbook.spread{width:calc(var(--pw)*2);transform-style:preserve-3d;transition:transform .9s cubic-bezier(.45,.05,.25,1)}
+.ebbook.spread[data-s=front]{transform:translateX(calc(var(--pw)*-.5))}
+.ebbook.spread[data-s=back]{transform:translateX(calc(var(--pw)*.5))}
+.ebbook.single{width:var(--pw)}
+.ebsh{position:absolute;inset:0;border-radius:10px;box-shadow:0 40px 70px -24px rgba(0,0,0,.85);pointer-events:none;transition:left .9s,right .9s}
+.ebbook[data-s=front] .ebsh{left:50%}.ebbook[data-s=back] .ebsh{right:50%}
+.leaf{position:absolute;left:50%;top:0;width:50%;height:100%;transform-origin:0 50%;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.45,.05,.25,1)}
+.leaf.fl{transform:rotateY(-180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;background:#fbf8f3}
+.face.front{border-radius:3px 10px 10px 3px}.face.back{transform:rotateY(180deg);border-radius:10px 3px 3px 10px}
+.face::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:20}
+.face.front::after{background:linear-gradient(90deg,rgba(0,0,0,.25),rgba(0,0,0,.04) 4%,transparent 10%)}
+.face.back::after{background:linear-gradient(270deg,rgba(0,0,0,.25),rgba(0,0,0,.04) 4%,transparent 10%)}
+.leaf.mv .face::before{content:"";position:absolute;inset:0;z-index:21;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.3),rgba(255,255,255,.18) 60%,transparent);animation:ebsh 1s ease-in-out}
+@keyframes ebsh{0%,100%{opacity:0}50%{opacity:1}}
+.sgl{position:absolute;inset:0;overflow:hidden;border-radius:8px;background:#fbf8f3;opacity:0;transform:translateX(40px) rotateY(-12deg);transition:.6s cubic-bezier(.2,.8,.2,1);pointer-events:none;box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+.sgl.prev{transform:translateX(-40px) rotateY(12deg)}.sgl.on{opacity:1;transform:none;pointer-events:auto}
+.face>.ebp,.sgl>.ebp{transform:scale(var(--s));transform-origin:0 0}
+.ebbar{display:flex;align-items:center;gap:10px;width:min(100%,1100px);padding:10px 12px;border-radius:18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);color:#fde7f3}
+.ebb{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:42px;height:42px;padding:0 12px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#fde7f3;cursor:pointer;font:inherit;font-size:14px;transition:.2s}
+.ebb:hover{background:rgba(255,255,255,.16)}.ebb svg{width:18px;height:18px}.ebb.sm{min-width:38px;height:38px;padding:0 9px}
+.ebb.pri{background:linear-gradient(135deg,#db2777,#be185d);border-color:transparent;color:#fff;font-weight:600}
+.ebinfo{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}.ebinfo b{font-family:var(--head);font-weight:600;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ebinfo span{font-size:12px;opacity:.7}
+.ebprog{height:3px;border-radius:3px;background:rgba(255,255,255,.12);overflow:hidden}.ebprog i{display:block;height:100%;width:0;background:linear-gradient(90deg,#f472b6,#2dd4bf);transition:width .6s}
+.ebbar .sp{width:4px}
+.ebth{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:1100px}
+.ebth button{display:inline-flex;gap:6px;align-items:center;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fbcfe8;font:inherit;font-size:12px;cursor:pointer}
+.ebth button span{opacity:.8}.ebth button:hover{background:rgba(255,255,255,.15)}
+@media(max-width:700px){.ebb.pri span{display:none}.ebth{display:none}}
+/* ---- หน้าเอกสาร A4 (794×1123) ---- */
+.ebp{--ec:#db2777;position:relative;width:794px;height:1123px;overflow:hidden;background:#fbf8f3;color:#2a1a2e;font-family:'Sarabun','IBM Plex Sans Thai',sans-serif;font-size:15px;line-height:1.62;cursor:default;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.ebp.blank{background:#f6f1ea}
+.ebh{position:absolute;left:64px;right:64px;top:30px;display:flex;justify-content:space-between;font-size:11.5px;color:#9d8a98;letter-spacing:.3px;border-bottom:1px solid #eadfd8;padding-bottom:8px}
+.ebf{position:absolute;left:64px;right:64px;bottom:26px;display:flex;justify-content:space-between;font-size:11.5px;color:#9d8a98}
+.ebf .pn{font-family:'Prompt',sans-serif;font-weight:600;color:var(--ec)}
+.ebf.light{color:rgba(255,255,255,.75)}.ebf.light .pn{color:#fff}
+.ebp>.ebx{position:absolute;inset:76px 64px 64px;display:block;overflow:hidden}
+.ebp h1,.ebp h2,.ebp h3{font-family:'Prompt',sans-serif;color:#2a1a2e;margin:0}
+.ebh2{font-size:22px;font-weight:700;margin:4px 0 12px!important;color:var(--ec)!important;padding-left:14px;border-left:5px solid var(--ec);line-height:1.35}
+.ebp h3{font-size:16.5px;font-weight:600;margin:16px 0 8px}
+.ebp p{margin:0 0 10px;text-align:left}
+.ebp p.ind{text-indent:2.2em}
+.ebp .mut{color:#8b7886;font-size:13.5px}
+.ebp .note{font-size:12px;color:#8b7886;text-align:left;margin-top:6px}
+.ebp .kw{margin-top:14px}
+.ebp code{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;background:#f1e7ee;padding:1px 6px;border-radius:5px;color:#9d174d}
+.ebol,.ebul{margin:0 0 10px;padding-left:1.4em}.ebol li,.ebul li{margin-bottom:6px}
+.ebt{width:100%;border-collapse:collapse;font-size:13.5px;margin:8px 0 4px}
+.ebt th{background:var(--ec);color:#fff;font-family:'Prompt',sans-serif;font-weight:500;text-align:left;padding:7px 9px;font-size:13px}
+.ebt th:first-child{border-radius:8px 0 0 0}.ebt th:last-child{border-radius:0 8px 0 0}
+.ebt td{padding:6px 9px;border-bottom:1px solid #eadfd8;vertical-align:top}
+.ebt tr:nth-child(even) td{background:rgba(219,39,119,.035)}
+.ebt.sm{font-size:12.5px}.ebt.sm td{padding:5px 8px}
+.ebt .g{color:#15803d;font-weight:600}.ebt .r{color:#e11d48;font-weight:600}
+.st{display:inline-block;font-family:'Prompt',sans-serif;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:999px;white-space:nowrap}
+.st.t-good{background:#dcfce7;color:#15803d}.st.t-bad{background:#ffe4e6;color:#e11d48}.st.t-warn{background:#fef3c7;color:#b45309}.st.t-neu{background:#f1f5f9;color:#475569}.st.t-ctx{background:#ede9fe;color:#6d28d9}
+.ebna{font-size:12px;color:#9d8a98}
+/* ปก */
+.ebp.cover{color:#fff;background:#1a0614}
+.cv-bg{position:absolute;inset:0;background:var(--ph,linear-gradient(160deg,#db2777,#4c1d95)) center/cover}
+.cv-sh{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,4,16,.55) 0%,rgba(20,4,16,.1) 30%,rgba(20,4,16,.55) 60%,rgba(20,4,16,.95) 100%)}
+.cv-sh.back{background:linear-gradient(180deg,rgba(20,4,16,.75),rgba(20,4,16,.92))}
+.cv-top{position:absolute;top:44px;left:56px;display:flex;gap:14px;padding:10px 16px;border-radius:16px;background:rgba(255,255,255,.92)}.cv-top img{height:56px;width:auto}
+.cv-mid{position:absolute;left:56px;right:56px;top:470px}
+.cv-k{font-family:'Prompt',sans-serif;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:#fbcfe8}
+.cv-mid h1{font-family:'Prompt',sans-serif;font-size:96px;font-weight:800;line-height:1;margin:10px 0 14px;color:#fff;background:linear-gradient(90deg,#fff,#fbcfe8 60%,#5eead4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cv-mid h2{font-family:'Prompt',sans-serif;font-size:27px;font-weight:600;line-height:1.4;color:#fff}
+.cv-mid p{font-size:15px;color:rgba(255,255,255,.75);margin-top:12px;font-style:italic;text-align:left}
+.cv-score{position:absolute;left:56px;bottom:120px;display:flex;align-items:center;gap:14px;padding:14px 22px;border-radius:20px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(8px)}
+.cv-score b{font-family:'Prompt',sans-serif;font-size:58px;line-height:1}.cv-score span{font-size:14px;line-height:1.3}.cv-score small{font-size:13px;opacity:.85;border-left:1px solid rgba(255,255,255,.3);padding-left:14px;max-width:220px}
+.cv-bot{position:absolute;left:56px;right:56px;bottom:44px;display:flex;justify-content:space-between;font-size:14px;color:rgba(255,255,255,.85)}
+.bk-in{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px;gap:10px}
+.bk-in img{width:120px}.bk-in h2{font-size:44px;color:#fff;font-weight:800}.bk-in p{color:rgba(255,255,255,.85);max-width:520px;text-align:center;font-size:17px}
+.qrb{background:#fff;padding:14px;border-radius:16px;margin-top:20px}.qrb svg{display:block;width:150px;height:150px}
+.bk-in small{color:rgba(255,255,255,.7)}.addr{margin-top:40px;font-size:13.5px;color:rgba(255,255,255,.8);line-height:1.7}
+/* บทเปิด */
+.ebp.chap{background:linear-gradient(160deg,var(--ec),color-mix(in srgb,var(--ec) 40%,#14040f));color:#fff}
+.ebch-bg{position:absolute;inset:0;background:var(--ph,none) center/cover;opacity:.28;mix-blend-mode:luminosity}
+.ebch{position:absolute;left:70px;right:70px;bottom:200px}
+.ebch .no{font-family:'Prompt',sans-serif;font-size:20px;letter-spacing:4px;opacity:.85}
+.ebch h1{font-size:54px;font-weight:800;line-height:1.2;color:#fff;margin:12px 0 18px}
+.ebch p{font-size:18px;color:rgba(255,255,255,.88);text-align:left}
+.ebch .ebln{width:120px;height:5px;border-radius:5px;background:#fff;margin-top:26px}
+.cp h3{color:var(--ec)}.cite{padding:12px 16px;border-radius:12px;background:#f3e8ef;font-size:14px}
+.ebkpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:22px}.ebkpis div{padding:14px 10px;border-radius:14px;background:#fff;border:1px solid #eadfd8;text-align:center}.ebkpis b{display:block;font-family:'Prompt',sans-serif;font-size:30px;color:var(--ec)}.ebkpis span{font-size:12.5px;color:#7c6a78}
+.toc{display:flex;flex-direction:column;gap:2px;margin-top:6px}
+.toc a{display:flex;align-items:baseline;gap:8px;padding:2px 2px;color:#2a1a2e;text-decoration:none;cursor:pointer;font-size:14.5px}
+.toc a i{flex:1;border-bottom:1.5px dotted #cbb8c4;transform:translateY(-4px)}.toc a b{font-family:'Prompt',sans-serif;color:var(--ec)}
+.toc a.lv1{font-family:'Prompt',sans-serif;font-weight:600;font-size:15px;margin-top:6px}.toc a.lv2{padding-left:22px;font-size:13.5px}.toc a.lv3{display:none}
+.toc a:hover span{color:var(--ec)}
+.exg{display:grid;grid-template-columns:330px 1fr;gap:10px;align-items:center}
+.flow{display:flex;align-items:stretch;gap:6px;margin:10px 0 14px}.flow>div{flex:1;padding:14px 12px;border-radius:14px;color:#fff;font-size:13px;line-height:1.5}.flow b{display:block;font-family:'Prompt',sans-serif;font-size:15px;margin-bottom:4px}.flow i{align-self:center;font-style:normal;color:#be185d;font-size:20px}
+.fb1{background:#0d9488}.fb2{background:#7c3aed}.fb3{background:#db2777}.fb4{background:#d97706}
+.eq{padding:14px 18px;border-radius:14px;background:#fff;border:1px solid #eadfd8;margin:6px 0 12px;font-size:14.5px;display:grid;gap:6px}
+.ovw{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center}.ovw .big{text-align:center;padding:18px 0;border-radius:18px;background:linear-gradient(160deg,#db2777,#7c3aed);color:#fff}.ovw .big b{font-family:'Prompt',sans-serif;font-size:60px;line-height:1;display:block}.ovw .big span{font-size:13px}
+.sigrow{display:flex;gap:4px;height:34px;border-radius:10px;overflow:hidden}.sigrow div{flex:var(--w) 1 0;min-width:max-content;padding:0 8px;background:var(--c);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;font-family:'Prompt',sans-serif}
+.dmh{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;border-radius:18px;background:linear-gradient(120deg,var(--ec),color-mix(in srgb,var(--ec) 45%,#14040f));color:#fff;margin-bottom:12px}
+.dmh span{font-family:'Prompt',sans-serif;font-size:13px;opacity:.85}.dmh h2{color:#fff;font-size:26px}.dmh small{font-size:12px;opacity:.85;display:block;max-width:470px}
+.dmh .ds{text-align:center}.dmh .ds b{font-family:'Prompt',sans-serif;font-size:48px;line-height:1;display:block}.dmh .ds span{font-size:13px;opacity:1}
+.trg{display:grid;gap:10px}.tr{display:grid;grid-template-columns:1fr 200px 110px;gap:4px 14px;align-items:center;padding:10px 14px;border-radius:14px;background:#fff;border:1px solid #eadfd8}
+.tn b{display:block;font-family:'Prompt',sans-serif;font-size:14px;font-weight:600;line-height:1.35}.tn span{font-size:12px;color:#8b7886}
+.tv{text-align:right}.tv b{display:block;font-family:'Prompt',sans-serif;font-size:22px;color:var(--ec)}
+.td{grid-column:1/-1;font-size:12.5px;color:#6b5a68;border-top:1px dashed #eadfd8;padding-top:5px}
+.sty{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid #eadfd8}.sty .sn{font-family:'Prompt',sans-serif;font-size:30px;font-weight:800;color:var(--ec);line-height:1}.sty b{font-family:'Prompt',sans-serif;font-size:14.5px;line-height:1.4;display:block;margin-bottom:4px}.sty p{font-size:13.5px;margin:0}
+.refs p{padding-left:2.4em;text-indent:-2.4em;text-align:left;font-size:14px;margin-bottom:9px}
+pre.code{background:#160b18;color:#fbe7f3;border-radius:14px;padding:16px 18px;font-size:12.5px;line-height:1.6;white-space:pre-wrap;font-family:ui-monospace,Consolas,monospace}
+/* พิมพ์ */
+@page eb{size:A4;margin:0}
+@media print{#print.ebprint{display:block;padding:0}#print .cv-mid h1{background:none!important;-webkit-text-fill-color:#fff;color:#fff!important}#print.ebprint .ebp{page:eb;break-after:page;page-break-after:always;transform:none!important;border-radius:0}}
+/* ===== ห้องสมุดดิจิทัล ===== */
+.lib{position:relative;isolation:isolate;margin-top:20px;border-radius:32px;overflow:hidden;padding:34px 34px 26px;color:#fdeaf4;background:radial-gradient(900px 420px at 15% -10%,rgba(219,39,119,.35),transparent 60%),radial-gradient(800px 420px at 100% 110%,rgba(13,148,136,.32),transparent 60%),linear-gradient(160deg,#1c0718,#0a0f1f 70%);border:1px solid rgba(244,114,182,.25);box-shadow:0 40px 90px -40px rgba(157,23,77,.7),inset 0 1px 0 rgba(255,255,255,.06)}
+.libbg{position:absolute;inset:0;z-index:-1}.libbg::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(70% 60% at 50% 40%,#000,transparent)}
+.libfx{position:absolute;inset:0;width:100%;height:100%}
+.libhead{display:flex;justify-content:space-between;gap:24px;align-items:flex-end;flex-wrap:wrap;margin-bottom:26px}
+.lk{font-family:var(--head);font-size:12.5px;letter-spacing:3px;color:#5eead4;font-weight:600}
+.libhead h2{font-family:var(--head);font-size:clamp(34px,3.6vw,50px);font-weight:800;line-height:1.1;margin:8px 0 10px;color:#fff}
+.libhead h2 span{display:block;background:linear-gradient(90deg,#f9a8d4,#f472b6 40%,#5eead4);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:bshine 6s ease-in-out infinite}
+.libhead p{max-width:640px;line-height:1.7;opacity:.82;margin:0}
+.lstat{display:flex;gap:12px}.lstat div{min-width:98px;padding:12px 16px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(8px);text-align:center}.lstat b{display:block;font-family:var(--head);font-size:30px;color:#fff;line-height:1.1}.lstat span{font-size:12px;opacity:.7}
+.shelf{display:flex;justify-content:center;align-items:flex-end;gap:clamp(12px,2vw,34px);flex-wrap:nowrap;overflow-x:auto;overflow-y:visible;perspective:1500px;padding:48px 20px 6px;min-height:0}
+.bk3{--w:clamp(96px,8.4vw,158px);position:relative;width:var(--w);height:calc(var(--w)*1.42);background:none;border:0;padding:0;cursor:pointer;transform-style:preserve-3d;animation:bkin .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d)}
+@keyframes bkin{from{opacity:0;transform:translateY(40px) rotateX(20deg)}}
+.bkb{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateY(-24deg);transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.bk3:hover .bkb{transform:rotateY(-6deg) translateZ(40px) translateY(-14px)}
+.bk3.on .bkb{transform:rotateY(-10deg) translateZ(30px) translateY(-18px);animation:bkfl 4s ease-in-out infinite}
+@keyframes bkfl{0%,100%{transform:rotateY(-10deg) translateZ(30px) translateY(-18px)}50%{transform:rotateY(-14deg) translateZ(30px) translateY(-26px)}}
+.bkf{position:absolute;inset:0;border-radius:4px 12px 12px 4px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:12px 12px 14px;text-align:left;color:#fff;background:var(--bc);box-shadow:inset 4px 0 0 rgba(0,0,0,.25),inset 10px 0 18px -8px rgba(0,0,0,.45),0 22px 40px -18px rgba(0,0,0,.85);backface-visibility:hidden;transform:translateZ(13px)}
+.bkf i{position:absolute;inset:0;background:var(--ph,none) center/cover;opacity:.8}
+.bkf::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 20%,color-mix(in srgb,var(--bc) 70%,rgba(0,0,0,.5)) 62%,rgba(10,2,8,.92));z-index:1}
+.bkf::after{content:"";position:absolute;inset:0;z-index:3;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.38) 45%,transparent 58%);background-size:260% 100%;background-position:120% 0;transition:background-position 1s;pointer-events:none}
+.bk3:hover .bkf::after,.bk3.on .bkf::after{background-position:-60% 0}
+.bkf>*:not(i){position:relative;z-index:2}
+.bkf em{align-self:flex-start;font-style:normal;font-size:10.5px;font-weight:600;padding:3px 8px;border-radius:999px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);margin-bottom:auto;backdrop-filter:blur(4px)}
+.bkf b{font-family:var(--head);font-size:calc(var(--w)*.125);font-weight:800;line-height:1.15;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.bkf small{font-size:10.5px;opacity:.85;margin-top:4px;line-height:1.3}
+.bkl{position:absolute!important;right:8px;top:8px;width:30px;height:30px;border-radius:9px;background:rgba(255,255,255,.88);display:grid;place-items:center}.bkl img{width:24px;height:24px;object-fit:contain}
+.bks{position:absolute;left:0;top:0;width:26px;height:100%;transform-origin:left center;transform:rotateY(-90deg) translateX(-13px);background:linear-gradient(90deg,color-mix(in srgb,var(--bc) 55%,#000),var(--bc) 45%,color-mix(in srgb,var(--bc) 70%,#000));border-radius:3px 0 0 3px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.bks span{writing-mode:vertical-rl;font-family:var(--head);font-size:11px;font-weight:600;color:#fff;white-space:nowrap;letter-spacing:.5px}
+.bkt{position:absolute;right:0;top:4px;width:24px;height:calc(100% - 8px);transform-origin:right center;transform:rotateY(90deg) translateX(12px);background:repeating-linear-gradient(90deg,#f5efe6 0 1px,#e2d8cc 1px 2px)}
+.bkg{position:absolute;left:-10%;right:-10%;bottom:-16px;height:22px;border-radius:50%;background:radial-gradient(50% 50% at 50% 50%,color-mix(in srgb,var(--bc) 70%,transparent),transparent);filter:blur(8px);opacity:.25;transition:.5s}
+.bk3:hover .bkg,.bk3.on .bkg{opacity:.9}
+.plank{position:relative;height:22px;margin:18px -10px 0;border-radius:6px;background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.12);box-shadow:0 26px 40px -14px rgba(0,0,0,.8)}
+.plank i{position:absolute;left:4%;right:4%;top:-1px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,#f472b6,#5eead4,#f472b6,transparent);background-size:200% 100%;animation:bshine 5s linear infinite;box-shadow:0 0 18px #f472b6}
+.bkinfo{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:22px;align-items:center;margin-top:26px;padding:18px 22px;border-radius:22px;background:linear-gradient(110deg,color-mix(in srgb,var(--bc,#db2777) 24%,rgba(255,255,255,.04)),rgba(255,255,255,.03));border:1px solid color-mix(in srgb,var(--bc,#db2777) 40%,transparent);transition:background .6s,border-color .6s}
+.bi-tag{display:inline-block;font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--bc);color:#fff}
+.bi-t h3{font-family:var(--head);font-size:24px;font-weight:700;margin:6px 0 4px;color:#fff}.bi-t p{margin:0;font-size:14px;line-height:1.65;opacity:.85}
+.bi-m{display:flex;gap:16px}.bi-m div{text-align:center}.bi-m b{display:block;font-family:var(--head);font-size:24px;color:#fff}.bi-m span{font-size:11.5px;opacity:.7}
+.bi-a{display:flex;gap:8px}
+@media(max-width:900px){.bkinfo{grid-template-columns:1fr}.lib{padding:24px 18px}}
+.ebw{--bc:#db2777;background:radial-gradient(70% 60% at 50% 35%,color-mix(in srgb,var(--bc) 45%,#1a0614),#0b0610 78%);transition:background 1s}
+/* หน้าในเล่มพิเศษ */
+.dhb{position:relative;display:flex;align-items:center;gap:18px;padding:22px 24px;min-height:170px;border-radius:20px;overflow:hidden;color:#fff;background:linear-gradient(120deg,rgba(13,79,72,.92),rgba(13,148,136,.55)),var(--ph,linear-gradient(120deg,#0d9488,#134e4a)) center/cover;margin-bottom:14px}
+.dhb>div:first-child{flex:1}.dhb span{font-size:13px;opacity:.85}.dhb h2{color:#fff!important;font-size:34px;margin:4px 0!important}.dhb small{font-size:12.5px;opacity:.9}
+.ebp .dmh .ds,.ebp .dhb .ds{background:rgba(255,255,255,.14)!important;color:#fff!important;border:0!important;box-shadow:none!important;padding:10px 14px;border-radius:14px;gap:4px}
+.dhb .ds{text-align:center;padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.14)}.dhb .ds b{display:block;font-family:'Prompt',sans-serif;font-size:36px;line-height:1}.dhb .ds span{font-size:12px}
+.dcols{display:grid;grid-template-columns:1fr 1fr;gap:18px}.dcols h3{color:#0f766e}
+.sp1{display:flex;flex-direction:column;height:100%;padding-top:20px}
+.sp1 .sk{font-family:'Prompt',sans-serif;font-size:14px;letter-spacing:1px;color:var(--ec);font-weight:600}
+.sp1 .sbig{font-family:'Prompt',sans-serif;font-size:130px;font-weight:800;line-height:1;margin:26px 0 4px;background:linear-gradient(120deg,var(--ec),#2a1a2e);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sp1 .sunit{font-size:16px;color:#7c6a78;margin-bottom:10px}
+.sp1 h2{font-size:30px;line-height:1.4;margin:18px 0 16px!important}
+.sp1 .lead{font-size:18px;line-height:1.8;color:#3b2a40}
+.spl{margin-top:auto;padding:20px 22px;border-radius:18px;background:color-mix(in srgb,var(--ec) 10%,#fff);border-left:6px solid var(--ec)}.spl b{font-family:'Prompt',sans-serif;color:var(--ec);font-size:16px}.spl p{margin:6px 0 0;font-size:15.5px}
+.ssr{margin-top:14px;font-size:12px;color:#8b7886}
+@media print{#print .sp1 .sbig{background:none!important;-webkit-text-fill-color:#9d174d;color:#9d174d!important}}
+
+.libcta{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:24px;align-items:center;margin:16px 0 4px;padding:18px 26px 18px 30px;border-radius:24px;text-decoration:none;color:#fdeaf4;overflow:hidden;background:radial-gradient(500px 200px at 0% 0%,rgba(219,39,119,.45),transparent 60%),linear-gradient(120deg,#1c0718,#0a0f1f);border:1px solid rgba(244,114,182,.3);box-shadow:0 30px 60px -36px rgba(157,23,77,.8)}
+.libcta::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.08) 50%,transparent 65%);background-size:250% 100%;animation:scanx 4s linear infinite;pointer-events:none}
+.lcb{display:flex;perspective:600px;height:96px;align-items:flex-end}
+.lcb .mb{position:relative;width:62px;height:88px;margin-left:-14px;border-radius:3px 8px 8px 3px;overflow:hidden;background:var(--bc);transform:rotateY(-22deg) translateY(calc(var(--k)*-2px));box-shadow:-6px 10px 18px -6px rgba(0,0,0,.7),inset 3px 0 0 rgba(0,0,0,.3);transition:.5s;display:flex;align-items:flex-end;padding:6px}
+.lcb .mb:first-child{margin-left:0}
+.lcb .mb i{position:absolute;inset:0;background:var(--ph,none) center/cover;opacity:.75}
+.lcb .mb b{position:relative;font-family:var(--head);font-size:9.5px;line-height:1.2;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.8)}
+.libcta:hover .mb{transform:rotateY(-6deg) translateY(calc(var(--k)*-6px - 6px))}
+.lct small{font-size:11.5px;letter-spacing:2px;color:#5eead4;font-weight:600}.lct b{display:block;font-family:var(--head);font-size:clamp(17px,1.5vw,21px);margin:4px 0;color:#fff}.lct span{font-size:13.5px;opacity:.78}
+.lcgo{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:14px;background:linear-gradient(135deg,#db2777,#be185d);color:#fff;font-weight:600;white-space:nowrap}.lcgo svg{width:18px;height:18px;transition:.3s}.libcta:hover .lcgo svg{transform:translateX(4px)}
+@media(max-width:800px){.libcta{grid-template-columns:1fr}.lcb{display:none}}
 </style>
 </head>
 <body>
@@ -728,7 +958,7 @@ body.ctex .card,body.ctex .fcard,body.ctex .kpi{background-image:linear-gradient
 <aside class="side" id="side">
  <div class="brand">
   <div class="logo"><img data-src="brand/logo-wellbeing" data-fb="lotus" alt="โลโก้"></div>
-  <div><b>NBL Well-Being Index</b><small>ดัชนีความอยู่ดีมีสุข · หนองบัวลำภู</small></div>
+  <div class="bname" title="บัว = อัตลักษณ์หนองบัวลำภู · บาน = ชีวิตที่เบ่งบาน ดัชนีจึงบอกว่าคุณภาพชีวิตคนหนองบัวลำภู ‘บาน’ แค่ไหน"><b>ดัชนีบัวบาน</b><small>ความอยู่ดีมีสุข · จังหวัดหนองบัวลำภู</small></div>
  </div>
  <nav class="menu" id="menu"></nav>
  <div class="sfoot">
@@ -773,7 +1003,7 @@ function hydrate(root=document){
  root.querySelectorAll('[data-bg]:not([data-h])').forEach(el=>{el.dataset.h=1;resolveImg(el.dataset.bg).then(u=>{if(u)el.style.setProperty('--ph',`url("${u}")`)})});
  root.querySelectorAll('video[data-video]:not([data-h])').forEach(v=>{v.dataset.h=1;v.muted=true;v.addEventListener('error',()=>v.remove(),true);v.addEventListener('loadeddata',()=>{v.style.opacity=1;v.play().catch(()=>{})});v.style.opacity=0;v.style.transition='opacity 1s';v.src=ASSET+v.dataset.video+'.mp4'});
 }
-function setBodyBg(){const th=document.documentElement.dataset.theme;resolveImg('bg/bg-'+th).then(u=>document.body.style.setProperty('--bgimg',u?`url("${u}")`:'none'));resolveImg('cards/card-'+th).then(u=>{document.body.style.setProperty('--cardtex',u?`url("${u}")`:'none');document.body.classList.toggle('ctex',!!u)})}
+function setBodyBg(){const th=document.documentElement.dataset.theme;resolveImg('bg/bg-'+th).then(u=>document.body.style.setProperty('--bgimg',u?`url("${u}")`:'none'));resolveImg('bg/side-'+th).then(u=>{const sd=document.getElementById('side');if(sd){sd.style.setProperty('--sideimg',u?`url("${u}")`:'none');sd.classList.toggle('simg',!!u)}});resolveImg('cards/card-'+th).then(u=>{document.body.style.setProperty('--cardtex',u?`url("${u}")`:'none');document.body.classList.toggle('ctex',!!u)})}
 
 /* =========================================================
    DATA SOURCES & INDICATORS
@@ -1045,6 +1275,7 @@ const PAGES=[
  {id:'stories',name:'เรื่องเล่าจากข้อมูล',en:'Data Stories',icon:'book-open-text',img:'icons/menu-stories',grp:'หน้าหลัก'},
  {id:'targets',name:'เป้าหมายและเทียบเคียง',en:'Targets & Benchmarks',icon:'target',img:'icons/menu-targets',grp:'หน้าหลัก'},
  {id:'sim',name:'ห้องจำลองนโยบาย',en:'Policy Simulator',icon:'sliders-horizontal',img:'icons/menu-simulator',grp:'หน้าหลัก'},
+ {id:'ebook',name:'ห้องสมุด E-book',en:'Digital Library',icon:'book-open',img:'icons/menu-ebook',grp:'หน้าหลัก'},
  ...DIMS.map(d=>({id:d.id,name:d.name,en:d.en,icon:d.icon,img:'icons/dim-'+d.id,grp:'7 มิติความอยู่ดีมีสุข',dim:d})),
  {id:'catalog',name:'คลังข้อมูลจังหวัด',en:'Data Catalog',icon:'database',img:'icons/menu-catalog',grp:'ข้อมูลและระเบียบวิธี'},
  {id:'sources',name:'แหล่งข้อมูลและ API',en:'Sources & API',icon:'plug-zap',img:'icons/menu-sources',grp:'ข้อมูลและระเบียบวิธี'},
@@ -1061,7 +1292,8 @@ function go(id){if(!PAGES.find(p=>p.id===id))id='overview';CUR=id;const p=PAGES.
  document.querySelectorAll('.page').forEach(x=>x.classList.toggle('on',x.id==='p-'+id));
  document.getElementById('crTitle').textContent=p.name;document.getElementById('crSub').textContent=p.dim?'มิติที่ '+(DIMS.indexOf(p.dim)+1)+' จาก 7 · '+p.en:p.en;
  try{history.replaceState(null,'','#'+id)}catch(e){}
- if(!RENDERED[id]){RENDERED[id]=1;({overview:renderOverview,district:renderDistrict,sim:renderSim,stories:renderStories,targets:renderTargets,catalog:renderCatalog,sources:renderSources,method:renderMethod}[id]||(()=>renderDim(id)))()}
+ if(!RENDERED[id]){RENDERED[id]=1;({overview:renderOverview,district:renderDistrict,sim:renderSim,stories:renderStories,targets:renderTargets,catalog:renderCatalog,sources:renderSources,method:renderMethod,ebook:renderEbook}[id]||(()=>renderDim(id)))()}
+ if(id==='sources'){ccFx();ccIdle()}if(id==='overview')autoInsightStart();
  setTimeout(()=>CHARTS.forEach(c=>{try{c.resize()}catch(e){}}),40);setTimeout(()=>fx(document.getElementById('p-'+id)),60);window.scrollTo({top:0,behavior:'smooth'});}
 
 function _oldIndCard(ind){const c=dc(ind.dimO),L=ind.last,dl=delta(ind);
@@ -1214,6 +1446,367 @@ function askBlock(i){const a=AN(i),c=dc(i.dimO),W=WHY[i.id]||['',''],P=POL[i.dim
  <div class="sec">${secHead('ที่มา นิยาม และการตรวจสอบ','ทุกตัวเลขตรวจสอบย้อนกลับได้ถึงชุดข้อมูลต้นทาง',c)}<div class="card ev" id="ev-${i.id}">${defRows(i,META[RES[i.key][1]])}${evidence(i,META[RES[i.key][1]])}</div></div>`}
 async function fillAsk(i){const pkg=RES[i.key][1];if(META[pkg])return;const m=await loadMetaOne(pkg);const b=document.getElementById('ev-'+i.id);if(b){b.innerHTML=defRows(i,m)+evidence(i,m);lucide.createIcons()}}
 
+/* =========================================================
+   MOTION ENGINE (round 7) · ภาพเคลื่อนไหวแบบระบบอัตโนมัติ
+   ========================================================= */
+const RMO=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function fxCanvas(host,cls){let c=host.querySelector(':scope>canvas.'+cls);if(!c){c=document.createElement('canvas');c.className=cls;c.setAttribute('aria-hidden','true');host.prepend(c)}return c}
+function fxLoop(c,draw){const ctx=c.getContext('2d');let W=0,H=0,vis=true,raf=0,t0=performance.now();
+ const size=()=>{const r=c.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1);W=r.width;H=r.height;c.width=Math.max(1,W*d);c.height=Math.max(1,H*d);ctx.setTransform(d,0,0,d,0,0)};
+ size();new ResizeObserver(size).observe(c);
+ const io=new IntersectionObserver(e=>{vis=e[0].isIntersecting;if(vis&&!raf)tick()});io.observe(c);
+ const tick=now=>{raf=0;if(!c.isConnected)return;if(!vis||document.hidden){return}draw(ctx,W,H,((now||performance.now())-t0)/1000);if(!RMO)raf=requestAnimationFrame(tick)};
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&vis&&!raf)tick()});tick();return{redraw:()=>{if(!raf)tick()}}}
+const ACC=()=>isDark()?{a:'45,212,191',b:'244,114,182',c:'167,139,250'}:{a:'13,148,136',b:'219,39,119',c:'124,58,237'};
+
+/* ---- 1) แถบข้าง: ริบบิ้นแสงไหล + ฟองอากาศลอยขึ้น + กลีบบัวโปรย ---- */
+function sideFx(){const side=document.getElementById('side');if(!side||side._fx)return;side._fx=1;const c=fxCanvas(side,'sidefx');
+ const P=Array.from({length:34},()=>({x:Math.random(),y:Math.random(),r:.6+Math.random()*2.2,s:.012+Math.random()*.03,p:Math.random()*6}));
+ const L=Array.from({length:5},(_,k)=>({x:Math.random(),y:1.1+Math.random(),rot:Math.random()*6,s:.018+Math.random()*.02,sz:7+Math.random()*7,k}));
+ fxLoop(c,(x,W,H,t)=>{x.clearRect(0,0,W,H);const A=ACC();const dk=isDark();
+  for(let k=0;k<3;k++){const g=x.createLinearGradient(0,0,W,H);const col=[A.b,A.a,A.c][k];g.addColorStop(0,`rgba(${col},0)`);g.addColorStop(.5,`rgba(${col},${dk?.22:.16})`);g.addColorStop(1,`rgba(${col},0)`);
+   x.beginPath();const base=H*(.22+k*.27),amp=26+k*10,f=.006+k*.002,sp=.35+k*.12;x.moveTo(0,base);
+   for(let i=0;i<=W;i+=6)x.lineTo(i,base+Math.sin(i*f+t*sp+k*2)*amp+Math.sin(i*f*2.3-t*sp*.7)*amp*.35);
+   x.lineTo(W,base+90);for(let i=W;i>=0;i-=6)x.lineTo(i,base+90+Math.sin(i*f*1.2+t*sp*.8+k)*amp*.6);x.closePath();x.fillStyle=g;x.fill()}
+  P.forEach(p=>{p.y-=p.s*.016;if(p.y<-.02){p.y=1.02;p.x=Math.random()}const px=(p.x+Math.sin(t*.6+p.p)*.015)*W,py=p.y*H;const a=(.25+.35*Math.sin(t*1.3+p.p)**2)*(dk?1:.8);
+   x.beginPath();x.arc(px,py,p.r,0,7);x.fillStyle=`rgba(${p.p>3?A.a:A.b},${a})`;x.fill()});
+  L.forEach(l=>{l.y-=l.s*.016*.6;l.rot+=.004;if(l.y<-.1){l.y=1.1;l.x=Math.random()}const px=(l.x+Math.sin(t*.4+l.k)*.05)*W,py=l.y*H;
+   x.save();x.translate(px,py);x.rotate(l.rot+Math.sin(t+l.k)*.4);x.beginPath();x.moveTo(0,-l.sz);x.quadraticCurveTo(l.sz*.7,0,0,l.sz);x.quadraticCurveTo(-l.sz*.7,0,0,-l.sz);
+   x.fillStyle=`rgba(${A.b},${dk?.28:.22})`;x.fill();x.restore()})})}
+
+/* ---- 2) ศูนย์ควบคุมแหล่งข้อมูล: เครือข่ายหน่วยงาน → แกนกลาง (ข้อมูลไหลเข้า) ---- */
+const CCFX={packets:[],rings:[],burst(n=1,col){for(let i=0;i<n;i++)this.spawn(col)},spawn(){}};
+function ccFx(){const cc=document.querySelector('#p-sources .cc');if(!cc||cc._fx)return;cc._fx=1;const c=fxCanvas(cc,'ccfx');
+ const N=Math.max(24,Math.min(60,(CAT_STAT&&CAT_STAT.orgs)||48));let nodes=[];
+ const core=(W,H)=>{const g=document.getElementById('ccGauge');if(g){const a=g.getBoundingClientRect(),b=cc.getBoundingClientRect();if(a.width)return[a.left-b.left+a.width/2,a.top-b.top+a.height/2]}return[W*.84,H*.36]};
+ const mk=(W,H)=>{nodes=Array.from({length:N},(_,i)=>{const ang=i/N*Math.PI*2+Math.random()*.2,rad=.36+Math.random()*.6;return{ang,rad,ph:Math.random()*6,sp:(.02+Math.random()*.05)*(Math.random()<.5?-1:1)}})};
+ CCFX.spawn=(col)=>{if(!nodes.length)return;const n=nodes[Math.random()*nodes.length|0];CCFX.packets.push({n,t:0,sp:.35+Math.random()*.4,col:col||(Math.random()<.7?'a':'b'),bend:(Math.random()-.5)*.8})};
+ let last=0,lw=0;
+ fxLoop(c,(x,W,H,t)=>{if(W!==lw){mk(W,H);lw=W}x.clearRect(0,0,W,H);const A=ACC(),[cx,cy]=core(W,H),R=Math.max(W,H)*.62;
+  // sweep
+  const sw=t*.6;const g=x.createConicGradient?x.createConicGradient(sw,cx,cy):null;if(g){g.addColorStop(0,`rgba(${A.a},.16)`);g.addColorStop(.08,`rgba(${A.a},0)`);g.addColorStop(1,`rgba(${A.a},0)`);x.fillStyle=g;x.beginPath();x.arc(cx,cy,R,0,7);x.fill()}
+  // orbits
+  for(let k=1;k<=4;k++){x.beginPath();x.ellipse(cx,cy,R*k*.22,R*k*.22*.62,-.18,0,7);x.strokeStyle=`rgba(${A.a},${.10-k*.015})`;x.lineWidth=1;x.setLineDash([2,6]);x.lineDashOffset=-t*8*k;x.stroke()}x.setLineDash([]);
+  // nodes
+  const pos=nodes.map(n=>{const a=n.ang+t*n.sp*.2;return[cx+Math.cos(a)*R*n.rad,cy+Math.sin(a)*R*n.rad*.62]});
+  pos.forEach((p,i)=>{const n=nodes[i],tw=.35+.4*Math.sin(t*1.5+n.ph)**2;x.beginPath();x.arc(p[0],p[1],2.2,0,7);x.fillStyle=`rgba(${A.a},${tw})`;x.fill();
+   if(i%3===0){x.beginPath();x.moveTo(p[0],p[1]);x.lineTo(cx,cy);x.strokeStyle=`rgba(${A.a},.035)`;x.stroke()}});
+  // auto packets
+  if(t-last>.16){last=t;CCFX.spawn()}
+  CCFX.packets=CCFX.packets.filter(k=>{k.t+=k.sp*.016;const i=nodes.indexOf(k.n);const p=pos[i]||[0,0];const dx=p[0]-cx,dy=p[1]-cy,dl=Math.hypot(dx,dy)||1,ex=cx+dx/dl*112,ey=cy+dy/dl*112;const mx=(p[0]+ex)/2+(ey-p[1])*k.bend,my=(p[1]+ey)/2+(p[0]-ex)*k.bend*.6;
+   const q=u=>[(1-u)*(1-u)*p[0]+2*(1-u)*u*mx+u*u*ex,(1-u)*(1-u)*p[1]+2*(1-u)*u*my+u*u*ey];const col=A[k.col];
+   for(let j=0;j<8;j++){const u=Math.max(0,k.t-j*.025);const [qx,qy]=q(u);x.beginPath();x.arc(qx,qy,2.4-j*.25,0,7);x.fillStyle=`rgba(${col},${.9-j*.11})`;x.fill()}
+   if(k.t>=1){CCFX.rings.push({r:10,a:.6,col});return false}return true});
+  // core
+  CCFX.rings=CCFX.rings.filter(r=>{r.r+=1.3;r.a-=.012;x.beginPath();x.arc(cx,cy,r.r+108,0,7);x.strokeStyle=`rgba(${r.col},${Math.max(0,r.a*.5)})`;x.lineWidth=1.5;x.stroke();return r.a>0});
+  const cg=x.createRadialGradient(cx,cy,0,cx,cy,120);cg.addColorStop(0,`rgba(${A.a},.22)`);cg.addColorStop(1,`rgba(${A.a},0)`);x.fillStyle=cg;x.beginPath();x.arc(cx,cy,120,0,7);x.fill()})}
+
+/* ---- 3) บันทึกการทำงานอัตโนมัติ (terminal) ---- */
+const CCLOG=[];
+function ccLog(txt,cls=''){const t=new Date().toLocaleTimeString('th-TH',{hour12:false});CCLOG.push({t,txt,cls});if(CCLOG.length>60)CCLOG.shift();const el=document.getElementById('ccLog');if(!el)return;
+ const row=document.createElement('div');row.className='lg '+cls;row.innerHTML=`<span class="lt">${t}</span><span class="lx"></span>`;el.appendChild(row);while(el.children.length>7)el.firstChild.remove();
+ const lx=row.querySelector('.lx');if(RMO){lx.innerHTML=txt;return}let i=0;const plain=txt.replace(/<[^>]+>/g,'');const step=()=>{i+=3;if(i>=plain.length){lx.innerHTML=txt;return}lx.textContent=plain.slice(0,i);requestAnimationFrame(step)};step()}
+let CCIDLE=0;
+function ccIdle(){if(CCIDLE)return;CCIDLE=setInterval(()=>{if(CUR!=='sources'||PINGING||document.hidden)return;const ks=Object.keys(PING).filter(k=>PING[k].st==='ok');const k=ks.length?ks[Math.random()*ks.length|0]:Object.keys(RES)[Math.random()*Object.keys(RES).length|0];
+ const pkg=RES[k][1],m=META[pkg]||{},p=PING[k]||{};const nm=esc((m.title||pkg).slice(0,46));
+ const msgs=[`<b class="ok">✓ HEARTBEAT</b> ${nm} <i>· ${p.ms!=null?p.ms+' ms':'cache'}</i>`,`<b class="in">⇣ SYNC</b> datastore_search <i>${pkg}</i> · ${fmt(p.n??(RAW[k]||[]).length)} ระเบียน`,`<b class="sc">◎ SCAN</b> metadata_modified · ${nm} <i>· ${m.metadata_modified?rel(m.metadata_modified):'–'}</i>`];
+ ccLog(msgs[Math.random()*msgs.length|0]);CCFX.burst(2)},2600)}
+
+/* ---- 4) ระบบวิเคราะห์อัตโนมัติ (หน้าภาพรวม) ---- */
+let AUTOI=null;
+function autoInsightHTML(){return`<div class="autoins" id="autoIns"><div class="ai-l"><span class="ai-ring"><i></i>${ic('scan-search')}</span><div><b>ระบบวิเคราะห์อัตโนมัติ</b><small>อ่านสัญญาณจาก ${IND.filter(i=>i.last).length} ตัวชี้วัด ทุก 7 วินาที</small></div></div><div class="ai-m"><div class="ai-k" id="aiK"></div><div class="ai-t" id="aiT"></div><div class="ai-bar"><i id="aiBar"></i></div></div><div class="ai-dots" id="aiDots"></div></div>`}
+function autoInsightStart(){const box=document.getElementById('autoIns');if(!box)return;clearInterval(AUTOI);
+ const L=IND.filter(i=>i.last&&i.better).map(AN).filter(a=>a.v.tone!=='neu').sort((a,b)=>b.sev-a.sev).slice(0,8);if(!L.length){box.remove();return}
+ let k=0;const dots=document.getElementById('aiDots');dots.innerHTML=L.map((_,j)=>`<i data-j="${j}"></i>`).join('');
+ const show=()=>{const a=L[k%L.length],i=a.i;const K=document.getElementById('aiK'),T=document.getElementById('aiT'),B=document.getElementById('aiBar');if(!K)return clearInterval(AUTOI);
+  box.style.setProperty('--c',dc(i.dimO));box.className='autoins t-'+a.v.tone;K.innerHTML=`<span class="vpill">${a.v.t}</span><span>${i.dimO.name}</span>`;
+  const txt=`${i.name} · ${fmt(i.last.v,i.dec)} ${i.unit} — ${a.h}`;T.dataset.ind=i.id;
+  if(RMO)T.textContent=txt;else{let n=0;T.textContent='';const st=()=>{n+=2;T.textContent=txt.slice(0,n);if(n<txt.length)setTimeout(st,14)};st()}
+  B.style.transition='none';B.style.width='0';requestAnimationFrame(()=>{B.style.transition='width 7s linear';B.style.width='100%'});
+  dots.querySelectorAll('i').forEach((d,j)=>d.classList.toggle('on',j===k%L.length));k++};
+ show();AUTOI=setInterval(()=>{if(CUR==='overview'&&!document.hidden)show()},7000);
+ document.getElementById('aiT').onclick=e=>{const id=e.currentTarget.dataset.ind;if(id)openInd(id)};
+ dots.onclick=e=>{const j=e.target.dataset.j;if(j!=null){k=+j;show()}}}
+
+/* =========================================================
+   E-BOOK · รายงานการศึกษาฉบับพลิกหน้า (สร้างอัตโนมัติจากข้อมูลจริง)
+   ========================================================= */
+const EB={pages:[],cur:0,mode:'spread',auto:0,snd:false};
+const ebYear=()=>NOW_BE;const ebc=d=>d?(d.cl||d.c):'#be185d';
+const ebEsc=s=>esc(String(s??''));
+/* ---- กราฟ SVG สำหรับหน้าเอกสาร (พิมพ์ได้คมชัด) ---- */
+function svgSpark(s,c,w=150,h=46){if(!s||s.length<2)return'<span class="ebna">ข้อมูลปีเดียว</span>';const vs=s.map(p=>p.v),mn=Math.min(...vs),mx=Math.max(...vs),rg=mx-mn||1;const P=s.map((p,k)=>[4+k/(s.length-1)*(w-8),h-6-(p.v-mn)/rg*(h-14)]);const d=P.map((p,k)=>(k?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');const L=P[P.length-1];
+ return`<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}"><path d="${d} L${L[0]} ${h} L${P[0][0]} ${h}Z" fill="${c}" opacity=".12"/><path d="${d}" fill="none" stroke="${c}" stroke-width="2" stroke-linejoin="round"/><circle cx="${L[0]}" cy="${L[1]}" r="3.2" fill="#fff" stroke="${c}" stroke-width="2"/></svg>`}
+function svgHBars(rows,o={}){const w=o.w||600,bh=o.bh||22,gap=o.gap||8,lw=o.lw||170,mx=o.max||Math.max(...rows.map(r=>r.v),1);const h=rows.length*(bh+gap);
+ return`<svg viewBox="0 0 ${w} ${h}" width="100%" style="max-width:${w}px">${rows.map((r,k)=>{const y=k*(bh+gap),bw=Math.max(2,(w-lw-60)*r.v/mx);return`<text x="${lw-10}" y="${y+bh*.7}" text-anchor="end" font-size="13" fill="#3b2a40">${ebEsc(r.l)}</text><rect x="${lw}" y="${y}" width="${w-lw-60}" height="${bh}" rx="${bh/2}" fill="${r.c}" opacity=".12"/><rect x="${lw}" y="${y}" width="${bw}" height="${bh}" rx="${bh/2}" fill="${r.c}"/><text x="${lw+bw+8}" y="${y+bh*.72}" font-size="13" font-weight="700" fill="${r.c}">${r.t??fmt(r.v)}</text>`}).join('')}</svg>`}
+function svgRadar(items,size=360){const cx=size/2,cy=size/2+6,R=size*.33,n=items.length;const pt=(k,v)=>{const a=-Math.PI/2+k/n*Math.PI*2;return[cx+Math.cos(a)*R*v/100,cy+Math.sin(a)*R*v/100]};
+ const grid=[25,50,75,100].map(g=>`<polygon points="${items.map((_,k)=>pt(k,g).join(',')).join(' ')}" fill="none" stroke="#e9d5df" stroke-width="1"/>`).join('');
+ const axes=items.map((_,k)=>{const p=pt(k,100);return`<line x1="${cx}" y1="${cy}" x2="${p[0]}" y2="${p[1]}" stroke="#eedbe5"/>`}).join('');
+ const poly=`<polygon points="${items.map((it,k)=>pt(k,it.v??0).join(',')).join(' ')}" fill="rgba(219,39,119,.18)" stroke="#db2777" stroke-width="2.5"/>`;
+ const lab=items.map((it,k)=>{const p=pt(k,128);return`<text x="${p[0]}" y="${p[1]}" text-anchor="middle" font-size="13" fill="${it.c}" font-weight="600">${ebEsc(it.l)}</text><text x="${p[0]}" y="${p[1]+16}" text-anchor="middle" font-size="12.5" fill="#3b2a40" font-weight="700">${it.v??'–'}</text>`}).join('');
+ return`<svg viewBox="0 0 ${size} ${size+10}" width="${size}" height="${size+10}">${grid}${axes}${poly}${items.map((it,k)=>{const p=pt(k,it.v??0);return`<circle cx="${p[0]}" cy="${p[1]}" r="4" fill="#fff" stroke="#db2777" stroke-width="2"/>`}).join('')}${lab}</svg>`}
+
+/* ---- โครงหน้า ---- */
+function ebPage(body,o={}){return{h:`<div class="ebp ${o.cls||''}" style="${o.c?'--ec:'+o.c+';':''}">${o.bare?body:`<div class="ebh"><span>ดัชนีบัวบาน · รายงานการศึกษา พ.ศ. ${ebYear()}</span><span>${ebEsc(o.run||'')}</span></div><div class="ebx">${body}</div><div class="ebf"><span>สำนักงานสถิติจังหวัดหนองบัวลำภู</span><span class="pn">{{PN}}</span></div>`}</div>`,t:o.t||'',lv:o.lv||0}}
+function ebChapter(n,title,sub,c,img){return ebPage(`<div class="ebch-bg" ${img?`data-bg="${img}"`:''}></div><div class="ebch"><div class="no">บทที่ ${n}</div><h1>${title}</h1><p>${sub}</p><div class="ebln"></div></div><div class="ebf light"><span>ดัชนีบัวบาน · ${ebYear()}</span><span class="pn">{{PN}}</span></div>`,{bare:1,cls:'chap',c,t:`บทที่ ${n} ${title}`,lv:1})}
+const ebTbl=(head,rows,cls='')=>`<table class="ebt ${cls}"><thead><tr>${head.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+
+/* ---- สร้างเนื้อหาทั้งเล่มจากข้อมูลจริง ---- */
+function ebBuild(raw){const P=[];const Y=ebYear();const lv=level(OVERALL);const sc=DIMS.filter(d=>d.score!=null).sort((a,b)=>b.score-a.score);const best=sc[0],worst=sc[sc.length-1];
+ const A=IND.filter(i=>i.last).map(AN);const pos=A.filter(a=>a.v.tone==='good').sort((x,y)=>y.sev-x.sev),neg=A.filter(a=>a.v.tone==='bad'||a.v.tone==='warn').sort((x,y)=>y.sev-x.sev);
+ const nDS=Object.keys(RES).length,nInd=IND.filter(i=>i.last).length,yrs=IND.filter(i=>i.last).map(i=>i.last.y),y0=Math.min(...IND.filter(i=>i.s.length).map(i=>i.s[0].y)),y1=Math.max(...yrs);
+ const orgs=[...new Set(Object.values(META).map(m=>m&&m.organization&&m.organization.title).filter(Boolean))];
+ const today=new Date().toLocaleDateString('th-TH',{day:'numeric',month:'long',year:'numeric'});
+ /* 1 ปก */
+ P.push(ebPage(`<div class="cv-bg" data-bg="hero/hero-home"></div><div class="cv-sh"></div>
+  <div class="cv-top"><img data-src="brand/seal-nblp" data-fb="none" alt=""><img data-src="brand/logo-nso" data-fb="none" alt=""><img data-src="brand/logo-gdcatalog" data-fb="none" alt=""></div>
+  <div class="cv-mid"><div class="cv-k">รายงานการศึกษา · Research Report ${Y}</div><h1>ดัชนีบัวบาน</h1><h2>การวัดความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภู<br>ด้วยข้อมูลเปิดภาครัฐแบบอัตโนมัติ</h2><p>Measuring Well-being in Nong Bua Lam Phu Province<br>with Automated Open Government Data</p></div>
+  <div class="cv-score"><b>${OVERALL??'–'}</b><span>/100<br>${lv.t}</span><small>ดัชนีภาพรวม 7 มิติ · ${nInd} ตัวชี้วัด · ${nDS} ชุดข้อมูล</small></div>
+  <div class="cv-bot"><b>สำนักงานสถิติจังหวัดหนองบัวลำภู</b><span>ข้อมูล ณ ${today}</span></div>`,{bare:1,cls:'cover',t:'ปก'}));
+ /* 2 หน้าลิขสิทธิ์/การอ้างอิง */
+ P.push(ebPage(`<div class="cp"><h3>ข้อมูลทางบรรณานุกรม</h3>
+  <p><b>ชื่อเรื่อง</b> ดัชนีบัวบาน: การวัดความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูด้วยข้อมูลเปิดภาครัฐแบบอัตโนมัติ</p>
+  <p><b>ผู้จัดทำ</b> สำนักงานสถิติจังหวัดหนองบัวลำภู ศาลากลางจังหวัดหนองบัวลำภู ชั้น 2 ถ.หนองบัวลำภู–เลย ต.ลำภู อ.เมือง จ.หนองบัวลำภู 39000 โทร 0 4231 6736</p>
+  <p><b>ปีที่จัดทำ</b> พ.ศ. ${Y} (ฉบับสร้างอัตโนมัติจากข้อมูล ณ ${today})</p>
+  <p><b>แหล่งข้อมูล</b> ระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู (Government Data Catalog) ผ่าน CKAN API จำนวน ${nDS} ชุดข้อมูล</p>
+  <h3>การอ้างอิง</h3><div class="cite">สำนักงานสถิติจังหวัดหนองบัวลำภู. (${Y}). <i>ดัชนีบัวบาน: การวัดความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูด้วยข้อมูลเปิดภาครัฐแบบอัตโนมัติ</i>. สืบค้นจาก ${ebEsc(location.href.split('#')[0])}</div>
+  <h3>เงื่อนไขการใช้งาน</h3><p>อนุญาตให้นำเนื้อหา ตาราง และแผนภาพไปใช้ ทำซ้ำ และต่อยอดเพื่อประโยชน์สาธารณะ โดยอ้างอิงแหล่งที่มาตามรูปแบบข้างต้น ตัวเลขในรายงานคำนวณสดจากข้อมูลที่หน่วยงานเจ้าของข้อมูลเผยแพร่ หากหน่วยงานปรับปรุงข้อมูล ตัวเลขในฉบับถัดไปอาจเปลี่ยนแปลง</p>
+  <h3>ความหมายของชื่อ “บัวบาน”</h3><p><b>บัว</b> คืออัตลักษณ์ของจังหวัดหนองบัวลำภู <b>บาน</b> คือชีวิตที่เบ่งบาน ดัชนีจึงตอบคำถามเดียวว่า คุณภาพชีวิตของคนหนองบัวลำภู “บาน” แค่ไหน และควรรดน้ำตรงจุดใด</p></div>`,{t:'ข้อมูลทางบรรณานุกรม',run:'ข้อมูลทางบรรณานุกรม'}));
+ /* 3 บทคัดย่อ */
+ P.push(ebPage(`<h2 class="ebh2">บทคัดย่อ</h2>
+  <p class="ind">การศึกษานี้มีวัตถุประสงค์เพื่อ (1) พัฒนาดัชนีวัดความอยู่ดีมีสุขระดับจังหวัดจากข้อมูลเปิดภาครัฐ (2) ประเมินสถานการณ์ความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูใน 7 มิติ และ (3) จัดทำข้อเสนอเชิงนโยบายที่อิงหลักฐาน โดยใช้ข้อมูลทุติยภูมิ ${nDS} ชุดข้อมูลจากระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู ดึงผ่าน CKAN API แบบอัตโนมัติ ครอบคลุม ${nInd} ตัวชี้วัด ช่วงปี พ.ศ. ${y0}–${y1} ปรับมาตรฐานด้วยวิธี Min–Max เทียบกับอนุกรมของจังหวัดเอง และรวมเป็นดัชนีด้วยค่าเฉลี่ยเลขคณิตแบบน้ำหนักเท่ากันตามแนวทางของ OECD/JRC</p>
+  <p class="ind">ผลการศึกษาพบว่า ดัชนีบัวบานภาพรวมอยู่ที่ <b>${OVERALL}</b> คะแนน (ระดับ${lv.t}) มิติที่มีคะแนนสูงสุดคือ<b>${best.name}</b> (${best.score}) และต่ำสุดคือ<b>${worst.name}</b> (${worst.score}) จากการวิเคราะห์ทิศทาง พบตัวชี้วัดที่มีสัญญาณบวก ${pos.length} ตัว และสัญญาณเตือน ${neg.length} ตัว ประเด็นที่ควรจับตาเป็นลำดับแรกได้แก่ ${neg.slice(0,3).map(a=>`“${a.i.name}”`).join(' ')} ขณะที่จุดแข็งที่ควรรักษาได้แก่ ${pos.slice(0,3).map(a=>`“${a.i.name}”`).join(' ')}</p>
+  <p class="ind">ข้อเสนอแนะสำคัญคือ การใช้ดัชนีนี้เป็นเครื่องมือติดตามแบบต่อเนื่องในวงจรนโยบายของจังหวัด การกำหนดค่าเป้าหมายทางการของแต่ละตัวชี้วัด และการยกระดับความทันสมัยของข้อมูลของหน่วยงานเจ้าของข้อมูล เพื่อให้การตัดสินใจเชิงนโยบายอยู่บนฐานข้อมูลที่เป็นปัจจุบัน</p>
+  <p class="kw"><b>คำสำคัญ:</b> ความอยู่ดีมีสุข, ดัชนีชี้วัดรวม, ข้อมูลเปิดภาครัฐ, นโยบายที่อิงหลักฐาน, หนองบัวลำภู</p>
+  <div class="ebkpis"><div><b>${OVERALL}</b><span>ดัชนีภาพรวม</span></div><div><b>${nInd}</b><span>ตัวชี้วัด</span></div><div><b>${nDS}</b><span>ชุดข้อมูล API</span></div><div><b style="color:#16a34a">${pos.length}</b><span>สัญญาณบวก</span></div><div><b style="color:#e11d48">${neg.length}</b><span>สัญญาณเตือน</span></div></div>`,{t:'บทคัดย่อ',run:'บทคัดย่อ'}));
+ /* 4 สารบัญ (เติมเลขหน้าภายหลัง) */
+ P.push({toc:1,t:'สารบัญ'});
+ /* 5 บทสรุปผู้บริหาร */
+ P.push(ebPage(`<h2 class="ebh2">บทสรุปสำหรับผู้บริหาร</h2><div class="exg"><div>${svgRadar(DIMS.map(d=>({l:d.short||d.name,v:d.score,c:ebc(d)})),330)}</div><div>${svgHBars(sc.map(d=>({l:d.short||d.name,v:d.score,c:ebc(d),t:d.score+' · '+level(d.score).t})),{w:380,lw:110,max:100,bh:20,gap:10})}</div></div>
+  <h3>ข้อค้นพบสำคัญ 5 ประการ</h3><ol class="ebol">${[...neg.slice(0,3),...pos.slice(0,2)].map(a=>`<li><b>${a.i.name}</b> (${a.i.dimO.name}) — ${a.h}</li>`).join('')}</ol>
+  <h3>สิ่งที่ควรดำเนินการ</h3><ol class="ebol">${sc.slice(-3).reverse().map(d=>`<li><b>มิติ${d.name}</b>: ${POL[d.id].weak[0]} <span class="mut">(หน่วยงานหลัก: ${POL[d.id].ag.split(' · ')[0]})</span></li>`).join('')}</ol>`,{t:'บทสรุปสำหรับผู้บริหาร',run:'บทสรุปสำหรับผู้บริหาร'}));
+ /* บทที่ 1 */
+ P.push(ebChapter(1,'บทนำ','ความเป็นมา วัตถุประสงค์ ขอบเขต และประโยชน์ที่คาดว่าจะได้รับ','#db2777','dims/catalog'));
+ P.push(ebPage(`<h2 class="ebh2">1.1 ความเป็นมาและความสำคัญของปัญหา</h2>
+  <p class="ind">การพัฒนาในอดีตมักวัดความสำเร็จด้วยตัวชี้วัดทางเศรษฐกิจ เช่น ผลิตภัณฑ์มวลรวม ซึ่งไม่สะท้อนคุณภาพชีวิตของประชาชนได้ครบถ้วน รายงานของคณะกรรมาธิการ Stiglitz–Sen–Fitoussi (2009) และกรอบ How’s Life? ของ OECD จึงเสนอให้วัดความอยู่ดีมีสุขแบบหลายมิติ ครอบคลุมสุขภาพ การศึกษา รายได้ ความสัมพันธ์ทางสังคม ความปลอดภัย สิ่งแวดล้อม และที่อยู่อาศัย สอดคล้องกับเป้าหมายการพัฒนาที่ยั่งยืน (SDGs) และยุทธศาสตร์ชาติ 20 ปี ที่มุ่งให้คนไทยมีคุณภาพชีวิตที่ดี</p>
+  <p class="ind">ในระดับจังหวัด หน่วยงานต่าง ๆ ได้เผยแพร่ข้อมูลผ่านระบบบัญชีข้อมูลจังหวัด (Government Data Catalog) แล้วกว่า ${CAT_STAT&&CAT_STAT.total?fmt(CAT_STAT.total):'400'} ชุดข้อมูล แต่ข้อมูลยังกระจัดกระจาย อยู่ในรูปแบบที่ต่างกัน และยังไม่ถูกเชื่อมโยงเป็นภาพรวมที่ผู้บริหารใช้ตัดสินใจได้ทันที การศึกษานี้จึงพัฒนา “ดัชนีบัวบาน” ซึ่งดึงข้อมูลจาก API ของระบบบัญชีข้อมูลจังหวัดโดยอัตโนมัติ คำนวณดัชนีใหม่ทุกครั้งที่หน่วยงานปรับปรุงข้อมูล และแปลผลเป็นข้อค้นพบและข้อเสนอเชิงนโยบาย</p>
+  <h2 class="ebh2">1.2 วัตถุประสงค์ของการศึกษา</h2><ol class="ebol"><li>เพื่อพัฒนาดัชนีวัดความอยู่ดีมีสุขระดับจังหวัดที่คำนวณจากข้อมูลเปิดภาครัฐได้โดยอัตโนมัติและตรวจสอบย้อนกลับได้</li><li>เพื่อประเมินสถานการณ์ความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูใน 7 มิติ ทั้งในเชิงแนวโน้มและเชิงพื้นที่</li><li>เพื่อจัดทำข้อเสนอเชิงนโยบายที่อิงหลักฐาน สำหรับใช้ในการวางแผนพัฒนาจังหวัด</li></ol>
+  <h2 class="ebh2">1.3 ขอบเขตของการศึกษา</h2><ul class="ebul"><li><b>ด้านพื้นที่</b> จังหวัดหนองบัวลำภู 6 อำเภอ ได้แก่ ${DISTRICTS.join(' ')}</li><li><b>ด้านเนื้อหา</b> 7 มิติ ${nInd} ตัวชี้วัด</li><li><b>ด้านเวลา</b> ข้อมูล พ.ศ. ${y0}–${y1} ตามที่หน่วยงานเผยแพร่</li><li><b>ด้านข้อมูล</b> ข้อมูลทุติยภูมิ ${nDS} ชุดข้อมูล จาก ${orgs.length||'หลาย'} หน่วยงาน</li></ul>`,{t:'1.1–1.3 ความเป็นมา วัตถุประสงค์ ขอบเขต',lv:2,run:'บทที่ 1 บทนำ'}));
+ P.push(ebPage(`<h2 class="ebh2">1.4 ประโยชน์ที่คาดว่าจะได้รับ</h2><ol class="ebol"><li>ผู้บริหารจังหวัดมีเครื่องมือติดตามคุณภาพชีวิตของประชาชนที่เป็นปัจจุบัน ใช้ประกอบการจัดลำดับความสำคัญของแผนงานและงบประมาณ</li><li>หน่วยงานเจ้าของข้อมูลเห็นคุณค่าและการใช้ประโยชน์ของข้อมูลที่เผยแพร่ นำไปสู่การปรับปรุงความทันสมัยและคุณภาพข้อมูล</li><li>นักวิชาการและผู้สนใจนำดัชนี ข้อมูล และวิธีการไปทำซ้ำ ตรวจสอบ และต่อยอดได้ เพราะทุกขั้นตอนเปิดเผยและเชื่อมกับ API ต้นทาง</li></ol>
+  <h2 class="ebh2">1.5 นิยามศัพท์เฉพาะ</h2>${ebTbl(['คำศัพท์','ความหมายในการศึกษานี้'],[
+   ['ความอยู่ดีมีสุข','สภาวะที่ประชาชนมีคุณภาพชีวิตที่ดีในหลายมิติ ทั้งสุขภาพ การศึกษา รายได้ สังคม ความปลอดภัย สิ่งแวดล้อม และที่อยู่อาศัย'],
+   ['ดัชนีบัวบาน','ดัชนีชี้วัดรวม (composite index) ค่า 0–100 ที่สรุปความอยู่ดีมีสุขของจังหวัดหนองบัวลำภูจาก 7 มิติ'],
+   ['ตัวชี้วัด','ข้อมูลเชิงปริมาณที่สะท้อนองค์ประกอบหนึ่งของความอยู่ดีมีสุข มีหน่วย ปี และทิศทางที่ชัดเจน'],
+   ['คะแนนพัฒนาการ','คะแนน 0–100 ที่เทียบค่าปีล่าสุดกับช่วงค่าต่ำสุด–สูงสุดของจังหวัดเองในอดีต'],
+   ['สัญญาณ','ทิศทางของตัวชี้วัด ได้แก่ ดีขึ้น ทรงตัว แย่ลง หรือต้องตรวจสอบข้อมูล'],
+   ['ข้อมูลเปิดภาครัฐ','ข้อมูลที่หน่วยงานรัฐเผยแพร่ให้นำไปใช้ได้อย่างเสรี ผ่านระบบบัญชีข้อมูลจังหวัด'],
+   ['API','ช่องทางให้โปรแกรมดึงข้อมูลจากระบบบัญชีข้อมูลได้โดยตรงและอัตโนมัติ']])}`,{t:'1.4–1.5 ประโยชน์ และนิยามศัพท์',lv:2,run:'บทที่ 1 บทนำ'}));
+ /* บทที่ 2 */
+ P.push(ebChapter(2,'แนวคิด ทฤษฎี และงานที่เกี่ยวข้อง','กรอบการวัดความอยู่ดีมีสุขระดับสากล ดัชนีชี้วัดรวม และกรอบแนวคิดการศึกษา','#7c3aed','dims/edu'));
+ P.push(ebPage(`<h2 class="ebh2">2.1 แนวคิดการวัดความอยู่ดีมีสุข</h2>
+  <p class="ind"><b>รายงาน Stiglitz–Sen–Fitoussi (2009)</b> เสนอให้เปลี่ยนจุดเน้นจากการวัดการผลิตไปสู่การวัดความอยู่ดีมีสุขของประชาชน โดยพิจารณาทั้งมาตรฐานการครองชีพ สุขภาพ การศึกษา กิจกรรมส่วนบุคคล การมีส่วนร่วมทางการเมือง ความสัมพันธ์ทางสังคม สิ่งแวดล้อม และความไม่มั่นคง</p>
+  <p class="ind"><b>กรอบ How’s Life? ของ OECD</b> แบ่งความอยู่ดีมีสุขปัจจุบันออกเป็นมิติด้านเงื่อนไขทางวัตถุและคุณภาพชีวิต และให้ความสำคัญกับการกระจาย (ความเหลื่อมล้ำ) ไม่ใช่เพียงค่าเฉลี่ย ซึ่งเป็นเหตุผลที่การศึกษานี้วิเคราะห์ความแตกต่างระหว่างอำเภอควบคู่กับค่าระดับจังหวัด</p>
+  <p class="ind"><b>เป้าหมายการพัฒนาที่ยั่งยืน (SDGs)</b> และ<b>ยุทธศาสตร์ชาติ 20 ปี (พ.ศ. 2561–2580)</b> เป็นกรอบนโยบายที่การศึกษานี้ใช้เชื่อมโยงตัวชี้วัดแต่ละมิติกับเป้าหมายระดับชาติและระดับโลก เพื่อให้ข้อเสนอเชิงนโยบายสอดคล้องกับทิศทางการพัฒนาของประเทศ</p>
+  <h2 class="ebh2">2.2 การสร้างดัชนีชี้วัดรวม</h2>
+  <p class="ind">คู่มือการสร้างดัชนีชี้วัดรวมของ OECD และ JRC (2008) กำหนดขั้นตอนสำคัญ 10 ขั้น ได้แก่ กรอบทฤษฎี การคัดเลือกข้อมูล การจัดการข้อมูลสูญหาย การวิเคราะห์หลายตัวแปร การปรับมาตรฐาน การถ่วงน้ำหนัก การรวมค่า การวิเคราะห์ความไวและความไม่แน่นอน การเชื่อมโยงกับตัวชี้วัดอื่น และการนำเสนอผล การศึกษานี้ดำเนินการตามขั้นตอนดังกล่าว และเปิดเผยทุกขั้นตอนเพื่อให้ตรวจสอบได้</p>
+  <h2 class="ebh2">2.3 มาตรฐานคุณภาพข้อมูลและข้อมูลเปิด</h2>
+  <p class="ind">การประเมินความเชื่อมั่นของข้อมูลอ้างอิงหลักการพื้นฐานของสถิติทางการแห่งสหประชาชาติ (2014) มิติคุณภาพตามประมวลหลักปฏิบัติด้านสถิติของยุโรป (ความตรงประเด็น ความถูกต้อง ความทันเวลา ความเข้าถึงได้ และความสอดคล้อง) และหลัก FAIR (Wilkinson et al., 2016) ที่กำหนดให้ข้อมูลค้นหาได้ เข้าถึงได้ ทำงานร่วมกันได้ และนำกลับมาใช้ซ้ำได้</p>`,{t:'2.1–2.3 แนวคิดและทฤษฎี',lv:2,run:'บทที่ 2 แนวคิดและทฤษฎี'}));
+ P.push(ebPage(`<h2 class="ebh2">2.4 กรอบแนวคิดของการศึกษา</h2>
+  <div class="flow"><div class="fb1"><b>ปัจจัยนำเข้า</b><span>ข้อมูลเปิด ${nDS} ชุด<br>จาก ${orgs.length||'หลาย'} หน่วยงาน<br>ผ่าน CKAN API</span></div><i>→</i><div class="fb2"><b>กระบวนการ</b><span>ทำความสะอาดข้อมูล<br>ปรับมาตรฐาน Min–Max<br>รวมเป็น 7 มิติ → ดัชนี</span></div><i>→</i><div class="fb3"><b>ผลผลิต</b><span>ดัชนีบัวบาน 0–100<br>สัญญาณรายตัวชี้วัด<br>รายงาน/แดชบอร์ด</span></div><i>→</i><div class="fb4"><b>ผลลัพธ์</b><span>นโยบายที่อิงหลักฐาน<br>การจัดสรรทรัพยากร<br>ตรงพื้นที่</span></div></div>
+  <h3>องค์ประกอบ 7 มิติ</h3>${ebTbl(['มิติ','จำนวนตัวชี้วัด','ตัวอย่างตัวชี้วัด','เชื่อมโยง SDGs'],DIMS.map(d=>{const L=IND.filter(i=>i.dim===d.id);return[`<b style="color:${ebc(d)}">${d.name}</b>`,L.length,L.slice(0,2).map(i=>i.name).join(', '),POL[d.id].sdg]}))}
+  <p class="note">ที่มา: ผู้ศึกษาพัฒนาจากกรอบ OECD How’s Life? และ SDGs โดยปรับให้สอดคล้องกับข้อมูลที่มีในระบบบัญชีข้อมูลจังหวัด</p>`,{t:'2.4 กรอบแนวคิดของการศึกษา',lv:2,run:'บทที่ 2 แนวคิดและทฤษฎี'}));
+ /* บทที่ 3 */
+ P.push(ebChapter(3,'ระเบียบวิธีการศึกษา','แหล่งข้อมูล การคัดเลือกตัวชี้วัด การปรับมาตรฐาน การรวมค่า และการวิเคราะห์สัญญาณ','#0d9488','dims/sim'));
+ P.push(ebPage(`<h2 class="ebh2">3.1 แหล่งข้อมูลและการเก็บรวบรวม</h2>
+  <p class="ind">ข้อมูลทั้งหมดเป็นข้อมูลทุติยภูมิจากระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู (nongbualamphu.gdcatalog.go.th) ซึ่งพัฒนาบนแพลตฟอร์ม CKAN ระบบดึงข้อมูลผ่านคำสั่ง <code>datastore_search</code> และอ่านข้อมูลกำกับ (metadata) ผ่าน <code>package_show</code> ทุกครั้งที่เปิดแดชบอร์ด เมื่อเบราว์เซอร์ไม่อนุญาตการเรียกข้ามโดเมน ระบบสลับไปใช้ JSONP โดยอัตโนมัติ และเก็บสำเนาไว้ในหน่วยความจำของเครื่องผู้ใช้เพื่อใช้กรณีเครือข่ายขัดข้อง</p>
+  <h2 class="ebh2">3.2 การคัดเลือกตัวชี้วัด</h2><p class="ind">ตัวชี้วัดถูกคัดเลือกตามเกณฑ์ 5 ประการ คือ (1) ตรงกับองค์ประกอบของความอยู่ดีมีสุขตามกรอบแนวคิด (2) มีข้อมูลเป็นอนุกรมเวลาอย่างน้อย 2 ปี (3) มีทิศทางการตีความชัดเจน (ค่ามากดีหรือค่าน้อยดี) หรือระบุเป็นข้อมูลบริบท (4) เผยแพร่โดยหน่วยงานราชการเจ้าของข้อมูล และ (5) เข้าถึงได้ผ่าน API ตัวชี้วัดที่ไม่มีทิศทางชัดเจนใช้เป็นข้อมูลบริบทและไม่นำมาคำนวณคะแนน</p>
+  <h2 class="ebh2">3.3 การปรับมาตรฐานและการรวมค่า</h2>
+  <div class="eq"><div>ตัวชี้วัดที่ค่ามากดี: <b>S<sub>i</sub> = (x<sub>i,t</sub> − min<sub>i</sub>) ÷ (max<sub>i</sub> − min<sub>i</sub>) × 100</b></div><div>ตัวชี้วัดที่ค่าน้อยดี: <b>S<sub>i</sub> = (max<sub>i</sub> − x<sub>i,t</sub>) ÷ (max<sub>i</sub> − min<sub>i</sub>) × 100</b></div><div>คะแนนมิติ: <b>D<sub>j</sub> = (1/n<sub>j</sub>) Σ S<sub>i</sub></b> &nbsp;·&nbsp; ดัชนีบัวบาน: <b>I = (1/7) Σ D<sub>j</sub></b></div></div>
+  <p class="ind">โดย x<sub>i,t</sub> คือค่าปีล่าสุดของตัวชี้วัด i และ min<sub>i</sub>, max<sub>i</sub> คือค่าต่ำสุดและสูงสุดในอนุกรมของจังหวัดเอง วิธีนี้ตอบคำถามว่า “ปีล่าสุดดีกว่าหรือแย่กว่าที่จังหวัดเคยเป็น” การศึกษานี้ใช้น้ำหนักเท่ากันทุกมิติเพราะยังไม่มีหลักฐานเชิงประจักษ์ว่ามิติใดสำคัญกว่า ซึ่งเป็นแนวปฏิบัติที่คู่มือ OECD/JRC แนะนำ และเปิดให้ผู้ใช้ทดลองปรับน้ำหนักได้ในห้องจำลองนโยบาย</p>
+  ${ebTbl(['ช่วงคะแนน','ระดับ','การตีความ'],[['75–100','ดีมาก','ใกล้จุดดีที่สุดที่จังหวัดเคยทำได้'],['60–74','ดี','ดีกว่าค่ากลางของอนุกรม'],['40–59','ปานกลาง','อยู่กลางช่วงที่เคยเป็น'],['25–39','ควรเฝ้าระวัง','ใกล้จุดต่ำของอนุกรม'],['0–24','ต้องเร่งพัฒนา','ใกล้หรือเป็นจุดที่แย่ที่สุดที่เคยบันทึก']])}`,{t:'3.1–3.3 แหล่งข้อมูล การคัดเลือก และการคำนวณ',lv:2,run:'บทที่ 3 ระเบียบวิธี'}));
+ P.push(ebPage(`<h2 class="ebh2">3.4 การวิเคราะห์สัญญาณและความเหลื่อมล้ำ</h2>
+  <ul class="ebul"><li><b>การเปลี่ยนแปลง</b> ตัวชี้วัดที่เป็นร้อยละคำนวณเป็น “จุด” (percentage point) ตัวชี้วัดอื่นคำนวณเป็นร้อยละการเปลี่ยนแปลง และอัตราเติบโตเฉลี่ยต่อปีแบบทบต้น (CAGR) เมื่อมีข้อมูลอย่างน้อย 3 ปี</li><li><b>ความต่อเนื่อง</b> นับจำนวนปีล่าสุดที่เคลื่อนไหวทิศทางเดียวกัน หากตั้งแต่ 3 ปีขึ้นไปจัดเป็น “ดีขึ้น/แย่ลงต่อเนื่อง”</li><li><b>จุดสูงสุด/ต่ำสุดในรอบ</b> ตรวจว่าค่าปีล่าสุดเป็นค่าสูงสุดหรือต่ำสุดของอนุกรมหรือไม่</li><li><b>ความเหลื่อมล้ำเชิงพื้นที่</b> เปรียบเทียบอำเภอด้วยอัตราส่วนค่าสูงสุดต่อต่ำสุด และค่าสัมประสิทธิ์ความแปรปรวน (CV) ตัวชี้วัดที่เป็นจำนวนนับ เช่น จำนวนคดี ปรับเป็นอัตราต่อประชากร 1,000 คนก่อนเปรียบเทียบ</li><li><b>ค่าผิดปกติ</b> การเปลี่ยนแปลงเกิน 200% ในหนึ่งปีถูกจัดเป็น “ต้องตรวจสอบข้อมูล” แทนการสรุปว่าดีขึ้นหรือแย่ลง</li></ul>
+  <h2 class="ebh2">3.5 การประเมินความเชื่อมั่นของข้อสรุป</h2><p class="ind">ความเชื่อมั่นของแต่ละข้อสรุปประเมินจาก 3 องค์ประกอบ ได้แก่ ความยาวของอนุกรม (5 ปีขึ้นไปได้ 2 คะแนน 3–4 ปีได้ 1 คะแนน) ความเป็นปัจจุบัน (ห่างปัจจุบันไม่เกิน 1 ปีได้ 2 คะแนน ไม่เกิน 2 ปีได้ 1 คะแนน) และความครอบคลุมเชิงพื้นที่ (แยกรายอำเภอได้ 1 คะแนน) หักคะแนนเมื่อพบค่าผิดปกติ รวม 4 คะแนนขึ้นไปจัดเป็นความเชื่อมั่นสูง 2–3 คะแนนปานกลาง และต่ำกว่านั้นจัดเป็นต่ำ</p>
+  <h2 class="ebh2">3.6 ข้อจำกัดของการศึกษา</h2><ol class="ebol"><li>ข้อมูลแต่ละตัวชี้วัดมีปีล่าสุดไม่ตรงกัน ดัชนีจึงเป็นภาพรวมจากข้อมูลล่าสุดที่มี ไม่ใช่ภาพ ณ ปีเดียวกันทั้งหมด</li><li>การปรับมาตรฐานเทียบกับอนุกรมของจังหวัดเอง จึงใช้เปรียบเทียบกับจังหวัดอื่นโดยตรงไม่ได้ การเทียบเคียงข้ามจังหวัดจึงแยกวิเคราะห์ในหัวข้อ 4.10</li><li>ความเชื่อมโยงระหว่างตัวชี้วัดที่นำเสนอเป็นสมมติฐานเพื่อการวิเคราะห์ต่อ ไม่ใช่การพิสูจน์ความสัมพันธ์เชิงสาเหตุ</li><li>ตัวชี้วัดเชิงอัตวิสัย เช่น ความพึงพอใจในชีวิต ยังไม่มีในระบบบัญชีข้อมูลจังหวัด</li></ol>`,{t:'3.4–3.6 การวิเคราะห์ ความเชื่อมั่น และข้อจำกัด',lv:2,run:'บทที่ 3 ระเบียบวิธี'}));
+ /* บทที่ 4 */
+ P.push(ebChapter(4,'ผลการศึกษา','ภาพรวมดัชนีบัวบาน ผลรายมิติ ความเหลื่อมล้ำระหว่างอำเภอ และการเทียบเคียง','#d97706','hero/hero-home'));
+ P.push(ebPage(`<h2 class="ebh2">4.1 ภาพรวมดัชนีบัวบาน</h2><div class="ovw"><div class="big"><b>${OVERALL}</b><span>คะแนน · ระดับ${lv.t}</span></div><p class="ind">ดัชนีบัวบานของจังหวัดหนองบัวลำภูอยู่ที่ <b>${OVERALL}</b> จาก 100 คะแนน หมายความว่าโดยเฉลี่ยตัวชี้วัดในปีล่าสุดอยู่ที่ราวร้อยละ ${OVERALL} ของช่วงระหว่างจุดแย่ที่สุดและดีที่สุดที่จังหวัดเคยบันทึกไว้ มิติที่โดดเด่นคือ${sc.slice(0,2).map(d=>d.name+' ('+d.score+')').join(' และ')} ขณะที่มิติที่ควรเร่งพัฒนาคือ${sc.slice(-2).reverse().map(d=>d.name+' ('+d.score+')').join(' และ')}</p></div>
+  ${ebTbl(['มิติ','คะแนน','ระดับ','ดีขึ้น','แย่ลง/ตรวจสอบ','ตัวชี้วัดเด่น'],sc.map(d=>{const L=A.filter(a=>a.i.dim===d.id&&a.i.better);return[`<b style="color:${ebc(d)}">${d.name}</b>`,`<b>${d.score}</b>`,level(d.score).t,L.filter(a=>a.v.tone==='good').length,L.filter(a=>a.v.tone==='bad'||a.v.tone==='warn').length,(L.sort((x,y)=>y.sev-x.sev)[0]||{i:{name:'–'}}).i.name]}))}
+  <p class="note">ตารางที่ 4.1 คะแนนรายมิติเรียงจากมากไปน้อย · ที่มา: คำนวณจากระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู ณ ${today}</p>
+  <h3>ทิศทางของตัวชี้วัดทั้งหมด</h3><div class="sigrow"><div style="--w:${pos.length};--c:#22c55e">ดีขึ้น ${pos.length}</div><div style="--w:${A.filter(a=>a.v.tone==='neu').length||.001};--c:#94a3b8">ทรงตัว ${A.filter(a=>a.v.tone==='neu').length}</div><div style="--w:${neg.length};--c:#f43f5e">แย่ลง/ตรวจสอบ ${neg.length}</div><div style="--w:${A.filter(a=>a.v.tone==='ctx').length};--c:#a78bfa">บริบท ${A.filter(a=>a.v.tone==='ctx').length}</div></div>`,{t:'4.1 ภาพรวมดัชนีบัวบาน',lv:2,run:'บทที่ 4 ผลการศึกษา'}));
+ DIMS.forEach((d,k)=>{const c=ebc(d);const L=A.filter(a=>a.i.dim===d.id);const top=[...L].sort((x,y)=>y.sev-x.sev).slice(0,3);
+  P.push(ebPage(`<div class="dmh" style="--ec:${c}"><div><span>4.${k+2}</span><h2>มิติ${d.name}</h2><small>${POL[d.id].sdg} · ${POL[d.id].ns}</small></div><div class="ds"><b>${d.score??'–'}</b><span>${level(d.score).t}</span></div></div>
+   ${ebTbl(['ตัวชี้วัด','ค่าล่าสุด','ปี','เปลี่ยนแปลง','สถานะ','ความเชื่อมั่น'],L.map(a=>{const i=a.i;return[i.name,`<b>${fmt(i.last.v,i.dec)}</b> <span class="mut">${i.unit}</span>`,i.last.y,a.yoy?`<span class="${a.yoy.good===true?'g':a.yoy.good===false?'r':''}">${a.yoy.txt}</span>`:'–',`<span class="st t-${a.v.tone}">${a.v.t}</span>`,a.conf.t]}),'sm')}
+   <p class="note">ตารางที่ 4.${k+2} ตัวชี้วัดมิติ${d.name} · การเปลี่ยนแปลงเทียบปีก่อนหน้าที่มีข้อมูล</p>
+   <h3>ข้อค้นพบ</h3><ol class="ebol">${top.map(a=>`<li><b>${a.i.name}</b> ${a.h}${a.links[0]?` <span class="mut">ปัจจัยที่อาจเกี่ยวข้อง: ${a.links[0].txt} (สมมติฐาน)</span>`:''}</li>`).join('')}</ol>
+   <h3>นัยเชิงนโยบาย</h3><p class="ind">${(L.some(a=>a.v.tone==='bad'||a.v.tone==='warn')?POL[d.id].weak:POL[d.id].keep).slice(0,2).join(' · ')} โดยมีหน่วยงานหลักคือ ${POL[d.id].ag}</p>`,{t:`4.${k+2} มิติ${d.name}`,lv:2,run:'บทที่ 4 ผลการศึกษา',c}));
+  P.push(ebPage(`<h2 class="ebh2" style="color:${c}">แนวโน้มและความแตกต่างระหว่างอำเภอ · มิติ${d.name}</h2><div class="trg">${L.map(a=>{const i=a.i;return`<div class="tr"><div class="tn"><b>${i.name}</b><span>${i.s.length?i.s[0].y+'–'+i.last.y:''} · ${i.unit}</span></div>${svgSpark(i.s,c,200,54)}<div class="tv"><b>${fmt(i.last.v,i.dec)}</b><span class="st t-${a.v.tone}">${a.v.t}</span></div>${a.dis?`<div class="td">อำเภอ${a.pc?' (ต่อประชากร 1,000 คน)':''}: สูงสุด <b>${dshort(a.dis.hi[0])}</b> ${fmt(a.dis.hi[1],a.ddec)} · ต่ำสุด <b>${dshort(a.dis.lo[0])}</b> ${fmt(a.dis.lo[1],a.ddec)}${a.dis.ratio?` · ต่างกัน ${fmt(a.dis.ratio,1)} เท่า`:''}</div>`:''}</div>`}).join('')}</div>
+   <p class="note">ภาพที่ 4.${k+2} แนวโน้มรายตัวชี้วัด (จุดขาว = ค่าปีล่าสุด) · ที่มา: ระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู</p>`,{t:`แนวโน้มมิติ${d.name}`,lv:3,run:'บทที่ 4 ผลการศึกษา',c}))});
+ /* ความเหลื่อมล้ำระหว่างอำเภอ */
+ const DI=A.filter(a=>a.dis&&a.i.better);const dsc={};DISTRICTS.forEach(n=>dsc[n]={g:0,b:0});DI.forEach(a=>{dsc[a.dis.best[0]]&&dsc[a.dis.best[0]].g++;dsc[a.dis.worst[0]]&&dsc[a.dis.worst[0]].b++});
+ P.push(ebPage(`<h2 class="ebh2">4.9 ความเหลื่อมล้ำระหว่างอำเภอ</h2><p class="ind">จากตัวชี้วัดที่แยกรายอำเภอได้ ${DI.length} ตัว นับจำนวนครั้งที่แต่ละอำเภอเป็นพื้นที่ที่ดีที่สุดและแย่ที่สุดของจังหวัด เพื่อชี้พื้นที่ที่ควรได้รับความสนใจเป็นพิเศษ</p>
+  ${ebTbl(['อำเภอ','ดีที่สุด (ครั้ง)','แย่ที่สุด (ครั้ง)','สุทธิ'],DISTRICTS.map(n=>[n,dsc[n].g,dsc[n].b,`<b class="${dsc[n].g-dsc[n].b>=0?'g':'r'}">${dsc[n].g-dsc[n].b>0?'+':''}${dsc[n].g-dsc[n].b}</b>`]).sort((a,b)=>parseInt(b[3].replace(/<[^>]+>/g,'').replace('+',''))-parseInt(a[3].replace(/<[^>]+>/g,'').replace('+',''))))}
+  <h3>ตัวชี้วัดที่ความแตกต่างระหว่างอำเภอสูงที่สุด</h3>${svgHBars(DI.filter(a=>a.dis.ratio).sort((x,y)=>y.dis.ratio-x.dis.ratio).slice(0,8).map(a=>({l:a.i.name.length>26?a.i.name.slice(0,25)+'…':a.i.name,v:a.dis.ratio,c:ebc(a.i.dimO),t:fmt(a.dis.ratio,1)+' เท่า'})),{w:640,lw:250,bh:18,gap:9})}
+  <p class="note">ภาพที่ 4.9 อัตราส่วนค่าสูงสุดต่อค่าต่ำสุดระหว่าง 6 อำเภอ · ตัวชี้วัดจำนวนนับปรับเป็นอัตราต่อประชากรแล้ว</p>`,{t:'4.9 ความเหลื่อมล้ำระหว่างอำเภอ',lv:2,run:'บทที่ 4 ผลการศึกษา'}));
+ /* เรื่องเล่า */
+ let S=[];try{S=storyList()}catch(e){}
+ if(S.length)P.push(ebPage(`<h2 class="ebh2">4.10 ข้อค้นพบเชิงประเด็นจากข้อมูล</h2>${S.slice(0,6).map((s,k)=>`<div class="sty" style="--ec:${ebc(DIMS.find(x=>x.id===s.dim))}"><div class="sn">${String(k+1).padStart(2,'0')}</div><div><b>${s.title}</b><p>${s.text}</p></div></div>`).join('')}`,{t:'4.10 ข้อค้นพบเชิงประเด็น',lv:2,run:'บทที่ 4 ผลการศึกษา'}));
+ if(BENCH&&BENCH.length)P.push(ebPage(`<h2 class="ebh2">4.11 การเทียบเคียงกับภาคตะวันออกเฉียงเหนือและประเทศ</h2><p class="ind">เพื่อชดเชยข้อจำกัดของการเทียบกับตนเอง การศึกษานี้เทียบตัวชี้วัดที่มีข้อมูลรายจังหวัดในระบบบัญชีข้อมูลกับค่าเฉลี่ยภาคและประเทศ</p>${ebTbl(['ตัวชี้วัด','ปี','หนองบัวลำภู','อันดับในอีสาน','เฉลี่ยอีสาน','อันดับประเทศ','เฉลี่ยประเทศ'],BENCH.map(b=>[b.name,b.y,`<b>${fmt(b.v,b.dec)}</b>`,`${b.irank}/${b.in}`,fmt(b.iavg,b.dec),`${b.rank}/${b.n}`,fmt(b.avg,b.dec)]),'sm')}<p class="note">อันดับ 1 = ดีที่สุดตามทิศทางของตัวชี้วัด · ปีข้อมูลแตกต่างกันตามที่หน่วยงานเผยแพร่</p>`,{t:'4.11 การเทียบเคียง',lv:2,run:'บทที่ 4 ผลการศึกษา'}));
+ /* บทที่ 5 */
+ P.push(ebChapter(5,'สรุป อภิปรายผล และข้อเสนอแนะ','ข้อสรุปจากหลักฐาน ข้อเสนอเชิงนโยบาย และแนวทางการต่อยอดการศึกษา','#be185d','dims/stories'));
+ P.push(ebPage(`<h2 class="ebh2">5.1 สรุปผลการศึกษา</h2><p class="ind">ดัชนีบัวบานซึ่งคำนวณจากข้อมูลเปิดภาครัฐ ${nDS} ชุดข้อมูล ${nInd} ตัวชี้วัด ชี้ว่าความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูอยู่ในระดับ<b>${lv.t}</b> (${OVERALL} คะแนน) โดยมีความแตกต่างระหว่างมิติค่อนข้างมาก ตั้งแต่ ${worst.score} คะแนนใน${worst.name} ถึง ${best.score} คะแนนใน${best.name}</p>
+  <h2 class="ebh2">5.2 อภิปรายผล</h2><p class="ind">ผลการศึกษาสอดคล้องกับข้อเสนอของ Stiglitz, Sen และ Fitoussi (2009) ว่าตัวชี้วัดทางเศรษฐกิจเพียงอย่างเดียวไม่เพียงพอต่อการอธิบายคุณภาพชีวิต เห็นได้จากมิติ${sc[0].name}ที่อยู่ในระดับ${level(sc[0].score).t} ขณะที่มิติ${worst.name}ยังอยู่ในระดับ${level(worst.score).t} นอกจากนี้ การวิเคราะห์รายอำเภอยืนยันข้อเสนอของกรอบ How’s Life? ว่าค่าเฉลี่ยระดับจังหวัดอาจซ่อนความเหลื่อมล้ำเชิงพื้นที่ไว้ ดังเห็นได้จากตัวชี้วัดที่อำเภอแตกต่างกันมากกว่า 2 เท่า</p>
+  <p class="ind">ในมิติประชากร การเกิดที่ลดลงพร้อมกับดัชนีการสูงวัยที่เพิ่มขึ้นเป็นแรงผลักเชิงโครงสร้างที่ส่งผลต่อหลายมิติพร้อมกัน ทั้งจำนวนนักเรียน ภาระโรคเรื้อรัง และความต้องการระบบดูแลระยะยาว ซึ่งชี้ว่านโยบายของจังหวัดควรมองข้ามมิติ (cross-dimensional) มากกว่าแยกตามภารกิจของหน่วยงาน</p>
+  <h2 class="ebh2">5.3 ข้อเสนอแนะเชิงนโยบาย</h2><ol class="ebol">${sc.slice(-4).reverse().map(d=>`<li><b>มิติ${d.name}</b> — ${POL[d.id].weak.slice(0,2).join(' และ')} <span class="mut">(${POL[d.id].ag})</span></li>`).join('')}<li><b>ด้านระบบข้อมูล</b> — กำหนดค่าเป้าหมายทางการของตัวชี้วัดในแผนพัฒนาจังหวัด และให้หน่วยงานปรับปรุงข้อมูลอย่างน้อยปีละครั้ง</li></ol>`,{t:'5.1–5.3 สรุป อภิปรายผล ข้อเสนอแนะ',lv:2,run:'บทที่ 5 สรุปและข้อเสนอแนะ'}));
+ P.push(ebPage(`<h2 class="ebh2">5.4 ข้อเสนอแนะสำหรับการศึกษาครั้งต่อไป</h2><ol class="ebol">
+  <li><b>การถ่วงน้ำหนัก</b> ทดลองใช้การวิเคราะห์องค์ประกอบหลัก (PCA) หรือกระบวนการลำดับชั้นเชิงวิเคราะห์ (AHP) ร่วมกับผู้มีส่วนได้ส่วนเสีย และเปรียบเทียบกับน้ำหนักเท่ากัน</li>
+  <li><b>การวิเคราะห์ความไวและความไม่แน่นอน</b> ทดสอบความทนทานของอันดับมิติเมื่อเปลี่ยนวิธีปรับมาตรฐาน (z-score, distance to target) และวิธีรวมค่า (ค่าเฉลี่ยเรขาคณิต)</li>
+  <li><b>ข้อมูลระดับตำบลและหมู่บ้าน</b> เชื่อมข้อมูล จปฐ. และ กชช. 2ค เพื่อชี้เป้าพื้นที่ได้ละเอียดขึ้น</li>
+  <li><b>ตัวชี้วัดเชิงอัตวิสัย</b> เพิ่มการสำรวจความพึงพอใจในชีวิตและความไว้วางใจทางสังคม เพื่อให้ครบตามกรอบ OECD</li>
+  <li><b>การพยากรณ์ระยะสั้น (nowcasting)</b> ใช้ข้อมูลรายเดือน เช่น ฝุ่น PM2.5 รายได้ท่องเที่ยว และ OTOP คาดการณ์ค่าตัวชี้วัดก่อนข้อมูลทางการเผยแพร่</li>
+  <li><b>การเทียบเคียงข้ามจังหวัด</b> ขยายวิธีการไปยังจังหวัดอื่นที่ใช้ระบบบัญชีข้อมูลจังหวัด เพื่อสร้างดัชนีระดับภาคที่เปรียบเทียบกันได้</li></ol>
+  <h2 class="ebh2">5.5 การนำไปใช้และต่อยอด</h2><p class="ind">ผู้สนใจสามารถทำซ้ำผลการศึกษาได้ทั้งหมด เพราะข้อมูลทุกชุดเชื่อมกับ API ต้นทาง (ดูภาคผนวก ข) และวิธีคำนวณเปิดเผยในบทที่ 3 รายงานฉบับนี้สร้างขึ้นอัตโนมัติ เมื่อหน่วยงานปรับปรุงข้อมูล เพียงเปิดรายงานใหม่ ตัวเลข ตาราง และข้อค้นพบจะปรับตามข้อมูลล่าสุดทันที</p>`,{t:'5.4–5.5 การศึกษาครั้งต่อไปและการต่อยอด',lv:2,run:'บทที่ 5 สรุปและข้อเสนอแนะ'}));
+ /* บรรณานุกรม */
+ P.push(ebPage(`<h2 class="ebh2">บรรณานุกรม</h2><div class="refs">
+  <p>คณะกรรมการยุทธศาสตร์ชาติ. (2561). <i>ยุทธศาสตร์ชาติ (พ.ศ. 2561–2580)</i>. สำนักงานสภาพัฒนาการเศรษฐกิจและสังคมแห่งชาติ.</p>
+  <p>ระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู. (${Y}). <i>ชุดข้อมูลจังหวัดหนองบัวลำภู</i>. สืบค้นเมื่อ ${today}, จาก https://nongbualamphu.gdcatalog.go.th</p>
+  <p>Dunn, W. N. (2018). <i>Public policy analysis: An integrated approach</i> (6th ed.). Routledge.</p>
+  <p>European Statistical System Committee. (2017). <i>European statistics code of practice</i>. Eurostat.</p>
+  <p>OECD. (2020). <i>How’s life? 2020: Measuring well-being</i>. OECD Publishing.</p>
+  <p>OECD & Joint Research Centre. (2008). <i>Handbook on constructing composite indicators: Methodology and user guide</i>. OECD Publishing.</p>
+  <p>Open Knowledge Foundation. (n.d.). <i>CKAN API guide</i>. https://docs.ckan.org</p>
+  <p>Stiglitz, J. E., Sen, A., & Fitoussi, J.-P. (2009). <i>Report by the Commission on the Measurement of Economic Performance and Social Progress</i>.</p>
+  <p>United Nations. (2014). <i>Fundamental principles of official statistics</i> (A/RES/68/261).</p>
+  <p>United Nations. (2015). <i>Transforming our world: The 2030 agenda for sustainable development</i> (A/RES/70/1).</p>
+  <p>Wilkinson, M. D., Dumontier, M., Aalbersberg, I. J., et al. (2016). The FAIR guiding principles for scientific data management and stewardship. <i>Scientific Data, 3</i>, 160018.</p></div>`,{t:'บรรณานุกรม',run:'บรรณานุกรม'}));
+ /* ภาคผนวก ก พจนานุกรมตัวชี้วัด */
+ const dict=IND.map(i=>[i.dimO?i.dimO.short||i.dimO.name:'',i.name,i.unit,i.better==='up'?'↑ มาก = ดี':i.better==='down'?'↓ น้อย = ดี':'บริบท',i.s.length?i.s[0].y+'–'+i.last.y:'–']);
+ const chunk=(n,m)=>{const c=Math.ceil(n/m);return Math.ceil(n/c)};const dsz=chunk(dict.length,19);for(let k=0;k<dict.length;k+=dsz)P.push(ebPage(`<h2 class="ebh2">ภาคผนวก ก พจนานุกรมตัวชี้วัด${k?' (ต่อ)':''}</h2>${ebTbl(['มิติ','ตัวชี้วัด','หน่วย','ทิศทาง','ช่วงปี'],dict.slice(k,k+dsz),'sm')}`,{t:k?'':'ภาคผนวก ก พจนานุกรมตัวชี้วัด',run:'ภาคผนวก ก'}));
+ /* ภาคผนวก ข รายการชุดข้อมูล */
+ const ds=Object.entries(pkgKeys()).map(([pkg,keys])=>{const m=META[pkg]||{};return[ebEsc((m.title||pkg).slice(0,60)),ebEsc(((m.organization||{}).title||'–').replace('จังหวัดหนองบัวลำภู','')),`<code>${pkg}</code>`,thd(m.metadata_modified)]});
+ const ssz=chunk(ds.length,16);for(let k=0;k<ds.length;k+=ssz)P.push(ebPage(`<h2 class="ebh2">ภาคผนวก ข รายการชุดข้อมูลและ API${k?' (ต่อ)':''}</h2>${k?'':'<p class="ind">ทุกชุดเข้าถึงได้ที่ <code>https://nongbualamphu.gdcatalog.go.th/dataset/&lt;ชื่อชุด&gt;</code> และดึงผ่าน API ด้วย <code>/api/3/action/datastore_search?resource_id=&lt;รหัส&gt;</code></p>'}${ebTbl(['ชุดข้อมูล','หน่วยงาน','ชื่อชุด (slug)','ปรับปรุงล่าสุด'],ds.slice(k,k+ssz),'sm')}`,{t:k?'':'ภาคผนวก ข รายการชุดข้อมูลและ API',run:'ภาคผนวก ข'}));
+ /* ภาคผนวก ค ตัวอย่างโค้ด */
+ P.push(ebPage(`<h2 class="ebh2">ภาคผนวก ค ตัวอย่างการดึงข้อมูลเพื่อทำซ้ำ</h2><p class="ind">ตัวอย่างโค้ดภาษา Python สำหรับดึงข้อมูลจากระบบบัญชีข้อมูลจังหวัดและคำนวณคะแนนพัฒนาการแบบ Min–Max ตามบทที่ 3</p>
+  <pre class="code">import requests, pandas as pd
+API = "https://nongbualamphu.gdcatalog.go.th/api/3/action/"
+def fetch(resource_id):
+    r = requests.get(API + "datastore_search",
+                     params={"resource_id": resource_id, "limit": 5000}).json()
+    return pd.DataFrame(r["result"]["records"])
+
+def minmax_score(series, better="up"):
+    lo, hi, x = series.min(), series.max(), series.iloc[-1]
+    if hi == lo: return 50.0
+    s = (x - lo) / (hi - lo) if better == "up" else (hi - x) / (hi - lo)
+    return round(s * 100, 1)
+
+df = fetch("${RES[IND[0].key][0]}")   # ${ebEsc(IND[0].name)}
+print(df.head())</pre>
+  <p class="ind">รหัสชุดข้อมูลทั้งหมดดูได้จากหน้า “แหล่งข้อมูลและ API” ในแดชบอร์ด ซึ่งส่งออกเป็นไฟล์ CSV ได้</p>`,{t:'ภาคผนวก ค ตัวอย่างการดึงข้อมูล',run:'ภาคผนวก ค'}));
+ /* ปกหลัง */
+ P.push(ebPage(`<div class="cv-bg" data-bg="dims/catalog"></div><div class="cv-sh back"></div><div class="bk-in"><img data-src="brand/logo-wellbeing" data-fb="none" alt=""><h2>ดัชนีบัวบาน</h2><p>ให้ข้อมูลเปิดของจังหวัด กลายเป็นหลักฐานสำหรับการพัฒนาคุณภาพชีวิตของคนหนองบัวลำภู</p><div class="qrb" id="ebQr"></div><small>สแกนเพื่อเปิดแดชบอร์ดฉบับสด</small><div class="addr"><b>สำนักงานสถิติจังหวัดหนองบัวลำภู</b><br>ศาลากลางจังหวัดหนองบัวลำภู ชั้น 2 ถ.หนองบัวลำภู–เลย ต.ลำภู อ.เมือง จ.หนองบัวลำภู 39000<br>โทร 0 4231 6736 · saraban_nblamphu@nso.mail.go.th</div></div>`,{bare:1,cls:'cover backc',t:'ปกหลัง'}));
+ return raw?P:ebFinish(P)}
+function ebFinish(P){P=P.slice();const ti=P.findIndex(p=>p.toc);
+ if(ti>=0){const toc=P.map((p,n)=>({n:n+1,t:p.t,lv:p.lv})).filter(x=>x.t&&x.n>ti+1&&!/^ปก/.test(x.t)&&(x.lv||0)<3);
+  P[ti]=ebPage(`<h2 class="ebh2">สารบัญ</h2><div class="toc">${toc.map(x=>`<a data-go="${x.n-1}" class="lv${x.lv||0}"><span>${x.t}</span><i></i><b>${x.n}</b></a>`).join('')}</div>`,{t:'สารบัญ',run:'สารบัญ'})}
+ return P.map((p,n)=>({...p,h:p.h.replace('{{PN}}',n+1)}))}
+
+/* ---- ตัวพลิกหน้า ---- */
+function renderEbook(){const el=document.getElementById('p-ebook');const c=isDark()?'#f472b6':'#db2777';
+ el.innerHTML=`<section class="dhero" style="--c:${c};min-height:260px"><div class="media"><div class="ph" data-bg="dims/stories"></div></div><div class="ico"><img data-src="icons/menu-stories" data-fb="book-open" alt=""></div><div class="dtx"><div class="en">Digital Library · ${BOOKS.length} เล่ม</div><h2>ห้องสมุด E-book</h2><p>รายงานวิจัย บทสรุปผู้บริหาร สมุดสถิติ โปรไฟล์อำเภอ และคู่มือเทคนิค ทุกเล่มเขียนตัวเองจากข้อมูลจริง พลิกอ่านได้ พิมพ์เป็น PDF A4 และอ้างอิงต่อได้</p></div></section>
+ ${shelfHTML()}
+ <div class="ebw" id="ebW"><canvas class="ebdust" aria-hidden="true"></canvas><div class="ebstage" id="ebStage"><div class="ebbook" id="ebBook"></div></div>
+  <div class="ebbar"><button class="ebb" id="ebPrev" title="หน้าก่อน">${ic('chevron-left')}</button><div class="ebinfo"><b id="ebT"></b><span id="ebN"></span><div class="ebprog"><i id="ebPr"></i></div></div><button class="ebb" id="ebNext" title="หน้าถัดไป">${ic('chevron-right')}</button><span class="sp"></span>
+  <button class="ebb sm" id="ebAuto" title="เล่นอัตโนมัติ">${ic('play')}</button><button class="ebb sm" id="ebSnd" title="เสียงพลิกหน้า">${ic('volume-x')}</button><button class="ebb sm" id="ebToc" title="สารบัญ">${ic('list')}</button><button class="ebb sm" id="ebFs" title="เต็มจอ">${ic('maximize')}</button><button class="ebb pri" id="ebPdf">${ic('printer')}<span>พิมพ์ / บันทึก PDF</span></button></div>
+  <div class="ebth" id="ebTh"></div></div>`;
+ hydrate(el);openBook(EB.book);lucide.createIcons();ebQR();libFx();
+ el.querySelectorAll('.bk3').forEach(b=>b.onclick=()=>openBook(b.dataset.b,true));
+ setTimeout(()=>{try{const n=BOOKS.reduce((t,B)=>t+B.build().length,0);const e=document.getElementById('libPg');if(e)e.textContent=n}catch(e){}},400);
+ document.getElementById('ebPrev').onclick=()=>ebStep(-1);document.getElementById('ebNext').onclick=()=>ebStep(1);
+ document.getElementById('ebAuto').onclick=ebAutoT;document.getElementById('ebSnd').onclick=e=>{EB.snd=!EB.snd;e.currentTarget.innerHTML=ic(EB.snd?'volume-2':'volume-x');lucide.createIcons()};
+ document.getElementById('ebToc').onclick=()=>{const i=EB.pages.findIndex(p=>p.t==='สารบัญ');ebGo(i>=0?i:0)};document.getElementById('ebPdf').onclick=ebPrint;
+ document.getElementById('ebFs').onclick=()=>{const w=document.getElementById('ebW');if(document.fullscreenElement)document.exitFullscreen();else(w.requestFullscreen||w.webkitRequestFullscreen||(()=>w.classList.toggle('fs'))).call(w)};
+ document.addEventListener('keydown',e=>{if(CUR!=='ebook'||/INPUT|TEXTAREA/.test(document.activeElement.tagName))return;if(e.key==='ArrowRight')ebStep(1);if(e.key==='ArrowLeft')ebStep(-1)});
+ new ResizeObserver(()=>{if(CUR==='ebook')ebScale()}).observe(document.getElementById('ebW'));
+ const dust=el.querySelector('.ebdust');const pts=Array.from({length:40},()=>({x:Math.random(),y:Math.random(),r:.5+Math.random()*1.8,s:.003+Math.random()*.008,p:Math.random()*6}));
+ fxLoop(dust,(x,W,H,t)=>{x.clearRect(0,0,W,H);pts.forEach(p=>{p.y-=p.s*.1;if(p.y<0)p.y=1;x.beginPath();x.arc(p.x*W+Math.sin(t*.5+p.p)*8,p.y*H,p.r,0,7);x.fillStyle=`rgba(255,214,231,${.15+.3*Math.sin(t+p.p)**2})`;x.fill()})})}
+function ebQR(){const b=document.querySelectorAll('#ebQr');b.forEach(el=>{try{const q=qrcode(0,'M');q.addData(location.href.split('#')[0]);q.make();el.innerHTML=q.createSvgTag({cellSize:4,margin:0})}catch(e){}})}
+function ebLayout(){const B=document.getElementById('ebBook');if(!B)return;const W=document.getElementById('ebW').clientWidth;EB.mode=W<900?'single':'spread';const F=EB.pages;
+ if(EB.mode==='spread'){const L=Math.ceil(F.length/2);B.className='ebbook spread';B.innerHTML=`<i class="ebsh"></i>`+Array.from({length:L},(_,i)=>`<div class="leaf" data-l="${i}"><div class="face front">${F[2*i].h}</div><div class="face back">${F[2*i+1]?F[2*i+1].h:'<div class="ebp blank"></div>'}</div></div>`).join('');EB.leaves=L}
+ else{B.className='ebbook single';B.innerHTML=F.map((p,i)=>`<div class="sgl" data-i="${i}">${p.h}</div>`).join('')}
+ B.querySelectorAll('.toc a[data-go]').forEach(a=>a.onclick=e=>{e.stopPropagation();ebGo(+a.dataset.go)});
+ B.onclick=e=>{if(e.target.closest('a,button'))return;const r=B.getBoundingClientRect();ebStep(e.clientX>r.left+r.width/2?1:-1)};
+ document.getElementById('ebTh').innerHTML=EB.pages.map((p,i)=>p.t&&(p.lv||0)<=1?`<button data-i="${i}" title="${ebEsc(p.t)}">${i+1}<span>${ebEsc(p.t.replace(/^บทที่ (\d) .*/,'บทที่ $1'))}</span></button>`:'').join('');
+ document.querySelectorAll('#ebTh button').forEach(b=>b.onclick=()=>ebGo(+b.dataset.i));
+ hydrate(B);ebQR();ebScale();ebGo(EB.cur||0,true)}
+function ebScale(){const w=document.getElementById('ebW'),B=document.getElementById('ebBook');if(!w||!B)return;const avW=w.clientWidth-40,avH=Math.min(innerHeight-(document.fullscreenElement?120:230),1100);
+ const cols=EB.mode==='spread'?2:1;let pw=Math.min(avW/cols,avH/1.4142);pw=Math.max(240,pw);const s=pw/794;B.style.setProperty('--pw',pw+'px');B.style.setProperty('--s',s);
+ const nm=(EB.mode==='spread')!==(w.clientWidth>=900);if(nm){ebLayout()}}
+function ebGo(n,silent){const F=EB.pages;n=Math.max(0,Math.min(F.length-1,n));const B=document.getElementById('ebBook');if(!B)return;
+ if(EB.mode==='spread'){let f=n===0?0:Math.ceil(n/2);if(n%2===1)f=(n+1)/2;f=Math.max(0,Math.min(EB.leaves,f));
+  B.querySelectorAll('.leaf').forEach((lf,i)=>{const fl=i<f;if(fl!==lf.classList.contains('fl')&&!silent){lf.classList.add('mv');setTimeout(()=>lf.classList.remove('mv'),1000)}lf.classList.toggle('fl',fl);lf.style.zIndex=fl?i+1:EB.leaves-i});
+  B.dataset.s=f===0?'front':f===EB.leaves?'back':'open';EB.cur=f===0?0:Math.min(F.length-1,2*f-1);}
+ else{B.querySelectorAll('.sgl').forEach((p,i)=>{p.classList.toggle('on',i===n);p.classList.toggle('prev',i<n)});EB.cur=n}
+ const p=EB.pages[EB.cur]||{};const tt=[...EB.pages.slice(0,EB.cur+1)].reverse().find(x=>x.t);document.getElementById('ebT').textContent=tt?tt.t:'';document.getElementById('ebN').textContent=`หน้า ${EB.cur+1}${EB.mode==='spread'&&EB.cur>0&&EB.cur<F.length-1?'–'+Math.min(F.length,EB.cur+2):''} จาก ${F.length}`;
+ document.getElementById('ebPr').style.width=((EB.cur+1)/F.length*100)+'%';if(!silent)ebSound()}
+function ebStep(d){if(EB.mode==='spread'){const f=EB.cur===0?0:Math.ceil(EB.cur/2);const nf=Math.max(0,Math.min(EB.leaves,f+d));ebGo(nf===0?0:2*nf-1)}else ebGo(EB.cur+d)}
+function ebAutoT(e){const b=document.getElementById('ebAuto');if(EB.auto){clearInterval(EB.auto);EB.auto=0;b.innerHTML=ic('play')}else{EB.auto=setInterval(()=>{if(CUR!=='ebook'){clearInterval(EB.auto);EB.auto=0;return}if(EB.cur>=EB.pages.length-1)ebGo(0);else ebStep(1)},5200);b.innerHTML=ic('pause');ebStep(1)}lucide.createIcons()}
+let EBAC=null;function ebSound(){if(!EB.snd)return;try{EBAC=EBAC||new (window.AudioContext||window.webkitAudioContext)();const n=EBAC.createBufferSource(),b=EBAC.createBuffer(1,EBAC.sampleRate*.35,EBAC.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++){const t=i/d.length;d[i]=(Math.random()*2-1)*Math.pow(1-t,2)*Math.sin(Math.PI*t)*.5}n.buffer=b;const f=EBAC.createBiquadFilter();f.type='bandpass';f.frequency.value=2200;f.Q.value=.7;n.connect(f).connect(EBAC.destination);n.start()}catch(e){}}
+function ebPrint(){const P=document.getElementById('print');P.className='ebprint';P.innerHTML=(EB.pages.length?EB.pages:ebBuild()).map(p=>p.h).join('');hydrate(P);ebQR();lucide.createIcons();toast('กำลังเตรียมเอกสาร A4 '+EB.pages.length+' หน้า…');
+ const imgs=[...P.querySelectorAll('img')];setTimeout(()=>{window.print();setTimeout(()=>{P.className=''},500)},imgs.length?1400:300)}
+
+/* =========================================================
+   ห้องสมุดดิจิทัล · ชั้นหนังสือ 6 เล่ม (สร้างอัตโนมัติจากข้อมูลจริง)
+   ========================================================= */
+function ebCover(B,extra=''){const today=new Date().toLocaleDateString('th-TH',{day:'numeric',month:'long',year:'numeric'});
+ return ebPage(`<div class="cv-bg" data-bg="${B.img}"></div><div class="cv-sh" style="background:linear-gradient(180deg,rgba(20,4,16,.5) 0%,rgba(20,4,16,.08) 30%,color-mix(in srgb,${B.c} 45%,rgba(20,4,16,.7)) 62%,rgba(20,4,16,.96) 100%)"></div>
+  <div class="cv-top"><img data-src="brand/seal-nblp" data-fb="none" alt=""><img data-src="brand/logo-nso" data-fb="none" alt=""><img data-src="brand/logo-gdcatalog" data-fb="none" alt=""></div>
+  <div class="cv-mid"><div class="cv-k">${B.kick} · ${ebYear()}</div><h1 style="font-size:${B.fs||78}px">${B.title}</h1><h2>${B.sub}</h2><p>${B.en}</p></div>${extra}
+  <div class="cv-bot"><b>สำนักงานสถิติจังหวัดหนองบัวลำภู</b><span>ข้อมูล ณ ${today}</span></div>`,{bare:1,cls:'cover',t:'ปก'})}
+function ebBack(B){return ebPage(`<div class="cv-bg" data-bg="${B.img}"></div><div class="cv-sh back"></div><div class="bk-in"><img data-src="brand/logo-wellbeing" data-fb="none" alt=""><h2>${B.title}</h2><p>${B.back||'ส่วนหนึ่งของห้องสมุดดิจิทัล “ดัชนีบัวบาน” สร้างอัตโนมัติจากข้อมูลเปิดของจังหวัดหนองบัวลำภู'}</p><div class="qrb" id="ebQr"></div><small>สแกนเพื่อเปิดแดชบอร์ดฉบับสด</small><div class="addr"><b>สำนักงานสถิติจังหวัดหนองบัวลำภู</b><br>ศาลากลางจังหวัดหนองบัวลำภู ชั้น 2 ถ.หนองบัวลำภู–เลย ต.ลำภู อ.เมือง จ.หนองบัวลำภู 39000<br>โทร 0 4231 6736 · saraban_nblamphu@nso.mail.go.th</div></div>`,{bare:1,cls:'cover backc',t:'ปกหลัง'})}
+const ebPick=(R,re)=>R.filter(p=>p.t&&re.test(p.t));
+/* เล่ม 4: โปรไฟล์ 6 อำเภอ */
+function ebDistrictPages(){const P=[];const L=IND.filter(i=>i.d&&i.last).map(AN).filter(a=>a.dis);
+ DISTRICTS.forEach((dn,k)=>{const rows=L.map(a=>{const i=a.i,v=i.d.v[dn];if(v==null||!isFinite(v))return null;const vals=Object.values(i.d.v).filter(isFinite);const srt=[...vals].sort((x,y)=>i.better==='down'?x-y:y-x);const rk=i.better?srt.indexOf(v)+1:null;const avg=sum(vals)/vals.length;return{a,i,v,rk,n:vals.length,avg}}).filter(Boolean);
+  const str=rows.filter(r=>r.rk&&r.rk<=2).sort((x,y)=>x.rk-y.rk),wk=rows.filter(r=>r.rk&&r.rk>=r.n-1).sort((x,y)=>y.rk-x.rk);
+  P.push(ebPage(`<div class="dhb" data-bg="districts/${DSLUG[dn]}"><div><span>อำเภอที่ ${k+1} จาก 6</span><h2>อำเภอ${dn}</h2><small>เทียบ 6 อำเภอ จากตัวชี้วัดที่แยกรายอำเภอได้ ${rows.length} ตัว</small></div><div class="ds"><b>${str.length}</b><span>จุดแข็ง</span></div><div class="ds"><b>${wk.length}</b><span>เรื่องเร่งด่วน</span></div></div>
+   ${ebTbl(['ตัวชี้วัด','ค่าของอำเภอ','เฉลี่ย 6 อำเภอ','อันดับ','ปี'],rows.map(r=>[r.i.name,`<b>${fmt(r.v,r.i.dec)}</b> <span class="mut">${r.i.unit}</span>`,fmt(r.avg,r.i.dec),r.rk?`<span class="st ${r.rk<=2?'t-good':r.rk>=r.n-1?'t-bad':'t-neu'}">${r.rk}/${r.n}</span>`:'<span class="mut">บริบท</span>',r.i.d.y]),'sm')}
+   <div class="dcols"><div><h3>จุดแข็ง</h3><ul class="ebul">${str.slice(0,3).map(r=>`<li><b>${r.i.name}</b> อันดับ ${r.rk} ของจังหวัด (${fmt(r.v,r.i.dec)} ${r.i.unit})</li>`).join('')||'<li>ยังไม่มีตัวชี้วัดที่อยู่อันดับ 1–2</li>'}</ul></div><div><h3>เรื่องที่ควรเร่งดำเนินการ</h3><ul class="ebul">${wk.slice(0,3).map(r=>`<li><b>${r.i.name}</b> อันดับ ${r.rk} จาก ${r.n} (${fmt(r.v,r.i.dec)} ${r.i.unit})</li>`).join('')||'<li>ไม่พบตัวชี้วัดที่อยู่อันดับท้าย</li>'}</ul></div></div>
+   <p class="note">อันดับ 1 = ดีที่สุดตามทิศทางของตัวชี้วัด · ตัวเลขดิบไม่ได้ปรับขนาดประชากร ควรอ่านควบคู่กับอัตราต่อประชากร</p>`,{t:'อำเภอ'+dn,lv:1,run:'โปรไฟล์ 6 อำเภอ',c:'#0d9488'}))});return P}
+/* เล่ม 3: เรื่องเล่าจากข้อมูล (1 เรื่อง/หน้า) */
+function ebStoryPages(){let S=[];try{S=storyList()}catch(e){}return S.map((s,k)=>{const d=DIMS.find(x=>x.id===s.dim),c=ebc(d);
+ return ebPage(`<div class="sp1" style="--ec:${c}"><div class="sk">เรื่องที่ ${String(k+1).padStart(2,'0')} · ${s.kick} · มิติ${d.name}</div><div class="sbig">${s.big}</div>${s.unit?`<div class="sunit">${s.unit}</div>`:''}<h2>${s.title}</h2><p class="lead">${s.text}</p>
+  <div class="spl"><b>นัยเชิงนโยบาย</b><p>${s.pol}</p></div><div class="ssr">แหล่งข้อมูล: ${(s.src||[]).map(x=>`<code>${x}</code>`).join(' ')} · ระบบบัญชีข้อมูลจังหวัดหนองบัวลำภู</div></div>`,{t:s.kick,lv:1,run:'เรื่องเล่าจากข้อมูล',c})})}
+const BOOKS=[
+ {id:'report',kick:'รายงานการศึกษา · Research Report',title:'ดัชนีบัวบาน',sub:'การวัดความอยู่ดีมีสุขของประชาชนจังหวัดหนองบัวลำภูด้วยข้อมูลเปิดภาครัฐแบบอัตโนมัติ',en:'Measuring Well-being with Automated Open Government Data',c:'#db2777',img:'hero/hero-home',tag:'ฉบับสมบูรณ์',desc:'รายงานวิจัยเต็มรูปแบบ 5 บท ตั้งแต่ความเป็นมา แนวคิดทฤษฎี ระเบียบวิธี ผลการศึกษา จนถึงข้อเสนอแนะ พร้อมบรรณานุกรมและภาคผนวก',build:()=>ebBuild()},
+ {id:'brief',kick:'บทสรุปผู้บริหาร · Executive Brief',title:'สรุป 10 นาที',fs:72,sub:'ภาพรวมดัชนีบัวบาน ข้อค้นพบสำคัญ และสิ่งที่จังหวัดควรทำ',en:'Executive Brief for Provincial Leaders',c:'#7c3aed',img:'dims/stories',tag:'อ่านเร็ว',desc:'ฉบับย่อสำหรับผู้บริหาร อ่านจบใน 10 นาที มีเฉพาะตัวเลขสำคัญ ข้อค้นพบ 5 ประการ และข้อเสนอเชิงนโยบาย',
+  build:()=>{const R=ebBuild(1);const B=BOOKS[1];return ebFinish([ebCover(B),...ebPick(R,/^บทสรุปสำหรับผู้บริหาร|^4\.1 |^4\.9 |^5\.1/),ebBack(B)])}},
+ {id:'stories',kick:'หนังสือเล่าเรื่อง · Data Stories',title:'ตัวเลขเล่าเรื่อง',fs:70,sub:'เรื่องจริงของหนองบัวลำภูที่ข้อมูลบอกเรา',en:'Stories the Data Tells about Nong Bua Lam Phu',c:'#d97706',img:'dims/econ',tag:'อ่านสนุก',desc:'ข้อค้นพบเชิงประเด็นทีละเรื่อง เช่น คนตายมากกว่าคนเกิด สังคมสูงวัย เด็กหลุดจากระบบ เล่าด้วยตัวเลขใหญ่และนัยเชิงนโยบาย',
+  build:()=>{const B=BOOKS[2];return ebFinish([ebCover(B),{toc:1,t:'สารบัญ'},...ebStoryPages(),ebBack(B)])}},
+ {id:'district',kick:'โปรไฟล์พื้นที่ · District Profiles',title:'6 อำเภอ',fs:84,sub:'จุดแข็งและเรื่องเร่งด่วนรายอำเภอ จังหวัดหนองบัวลำภู',en:'District Profiles of Nong Bua Lam Phu',c:'#0d9488',img:'districts/mueang',tag:'รายพื้นที่',desc:'หนึ่งหน้าต่อหนึ่งอำเภอ จัดอันดับทุกตัวชี้วัดเทียบ 6 อำเภอ ระบุจุดแข็งและเรื่องที่ควรเร่งดำเนินการ ใช้ประกอบแผนพัฒนาอำเภอ',
+  build:()=>{const B=BOOKS[3];return ebFinish([ebCover(B),{toc:1,t:'สารบัญ'},...ebDistrictPages(),ebPick(ebBuild(1),/^4\.9 /)[0],ebBack(B)].filter(Boolean))}},
+ {id:'factbook',kick:'สมุดสถิติ · Statistical Handbook',title:'สมุดสถิติ 7 มิติ',fs:64,sub:'ตัวเลขสำคัญ แนวโน้ม และความแตกต่างระหว่างอำเภอ ครบทุกตัวชี้วัด',en:'Well-being Statistical Handbook',c:'#e11d48',img:'dims/health',tag:'ข้อมูลอ้างอิง',desc:'รวมตารางและกราฟแนวโน้มของทุกตัวชี้วัดใน 7 มิติ พร้อมพจนานุกรมตัวชี้วัด สำหรับใช้อ้างอิงในงานเอกสารและการวางแผน',
+  build:()=>{const R=ebBuild(1);const B=BOOKS[4];return ebFinish([ebCover(B),{toc:1,t:'สารบัญ'},...ebPick(R,/^4\.1 /),...R.filter(p=>p.t&&(/^4\.[2-8] มิติ|^แนวโน้มมิติ/.test(p.t))).map(p=>({...p,lv:/^แนวโน้ม/.test(p.t)?3:1})),...R.filter(p=>/ภาคผนวก ก/.test(p.h)&&/ebh2/.test(p.h)),ebBack(B)])}},
+ {id:'method',kick:'คู่มือเทคนิค · Technical Manual',title:'คู่มือระเบียบวิธีและ API',fs:56,sub:'วิธีคำนวณดัชนี การประเมินคุณภาพข้อมูล และการดึงข้อมูลไปต่อยอด',en:'Methodology & Open Data API Manual',c:'#0891b2',img:'dims/sim',tag:'สำหรับนักวิเคราะห์',desc:'สำหรับนักวิชาการและเจ้าหน้าที่วิเคราะห์ข้อมูล อธิบายสูตรคำนวณทุกขั้น เกณฑ์ความเชื่อมั่น รายการชุดข้อมูล และตัวอย่างโค้ด Python',
+  build:()=>{const R=ebBuild(1);const B=BOOKS[5];return ebFinish([ebCover(B),{toc:1,t:'สารบัญ'},...ebPick(R,/^2\.4 |^3\.[1-6]/),...R.filter(p=>/ภาคผนวก [ขค]/.test(p.h)&&/ebh2/.test(p.h)),ebBack(B)])}},
+];
+EB.book='report';
+function shelfHTML(){return`<div class="lib"><div class="libbg"><canvas class="libfx" aria-hidden="true"></canvas></div>
+ <div class="libhead"><div><div class="lk">DIGITAL LIBRARY · ห้องสมุดดิจิทัล</div><h2>ชั้นหนังสือ<span>ดัชนีบัวบาน</span></h2><p>หนังสือ 6 เล่มที่เขียนตัวเองจากข้อมูลจริง ทุกครั้งที่หน่วยงานปรับปรุงข้อมูล ตัวเลข ตาราง และข้อค้นพบในทุกเล่มจะอัปเดตตามทันที เลือกเล่มเพื่อพลิกอ่าน หรือบันทึกเป็น PDF ขนาด A4</p></div><div class="lstat"><div><b>${BOOKS.length}</b><span>เล่ม</span></div><div><b id="libPg">–</b><span>หน้ารวม</span></div><div><b>${Object.keys(RES).length}</b><span>ชุดข้อมูลสด</span></div></div></div>
+ <div class="shelf">${BOOKS.map((B,k)=>`<button class="bk3 ${EB.book===B.id?'on':''}" data-b="${B.id}" style="--bc:${B.c};--d:${k*90}ms" title="${ebEsc(B.title)}"><div class="bkb"><div class="bkf"><i data-bg="${B.img}"></i><em>${B.tag}</em><b>${B.title}</b><small>${B.kick.split(' · ')[0]}</small><span class="bkl"><img data-src="brand/logo-wellbeing" data-fb="none" alt=""></span></div><div class="bks"><span>${B.title}</span></div><div class="bkt"></div></div><div class="bkg"></div></button>`).join('')}</div>
+ <div class="plank"><i></i></div>
+ <div class="bkinfo" id="bkInfo"></div></div>`}
+function bookInfo(){const B=BOOKS.find(x=>x.id===EB.book);const el=document.getElementById('bkInfo');if(!el)return;
+ el.style.setProperty('--bc',B.c);el.innerHTML=`<div class="bi-t"><span class="bi-tag">${B.tag}</span><h3>${B.title}</h3><p>${B.desc}</p></div><div class="bi-m"><div><b>${EB.pages.length}</b><span>หน้า</span></div><div><b>A4</b><span>พิมพ์ได้</span></div><div><b>สด</b><span>อัปเดตอัตโนมัติ</span></div></div><div class="bi-a"><button class="ebb pri" id="biRead">${ic('book-open')}<span>อ่านเล่มนี้</span></button><button class="ebb" id="biPdf">${ic('printer')}<span>PDF</span></button></div>`;
+ lucide.createIcons();document.getElementById('biRead').onclick=()=>document.getElementById('ebW').scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('biPdf').onclick=ebPrint}
+function openBook(id,scroll){EB.book=id;const B=BOOKS.find(x=>x.id===id);EB.pages=B.build();EB.cur=0;
+ document.querySelectorAll('.bk3').forEach(b=>b.classList.toggle('on',b.dataset.b===id));ebLayout();bookInfo();
+ const t=document.getElementById('ebW');if(t)t.style.setProperty('--bc',B.c);if(scroll)setTimeout(()=>t.scrollIntoView({behavior:'smooth',block:'start'}),350)}
+function libFx(){const c=document.querySelector('.libfx');if(!c)return;const P=Array.from({length:60},()=>({x:Math.random(),y:Math.random(),r:.4+Math.random()*1.6,s:.002+Math.random()*.006,p:Math.random()*6,h:Math.random()<.5}));
+ fxLoop(c,(x,W,H,t)=>{x.clearRect(0,0,W,H);
+  for(let k=0;k<3;k++){const yy=H*(.3+k*.22)+Math.sin(t*.4+k)*10;const g=x.createLinearGradient(0,0,W,0);g.addColorStop(0,'rgba(244,114,182,0)');g.addColorStop(.5,`rgba(${k%2?'45,212,191':'244,114,182'},.09)`);g.addColorStop(1,'rgba(244,114,182,0)');x.fillStyle=g;x.fillRect(0,yy,W,1.2)}
+  P.forEach(p=>{p.y-=p.s*.12;if(p.y<0)p.y=1;x.beginPath();x.arc(p.x*W+Math.sin(t*.6+p.p)*10,p.y*H,p.r,0,7);x.fillStyle=`rgba(${p.h?'251,207,232':'153,246,228'},${.15+.45*Math.sin(t*1.2+p.p)**2})`;x.fill()})})}
+
 function renderOverview(){const el=document.getElementById('p-overview');const lv=level(OVERALL);
  const yrs=IND.filter(i=>i.last).map(i=>i.last.y);
  const KP=[['pop','users'],['gpp','trending-up'],['inc','wallet'],['unemp','briefcase'],['forest','trees'],['ita','badge-check']];
@@ -1224,7 +1817,7 @@ function renderOverview(){const el=document.getElementById('p-overview');const l
   <div class="media"><div class="ph" data-bg="hero/hero-home"></div><video data-video="hero/hero-home" autoplay muted loop playsinline></video></div>
   <div class="in">
    <div class="hlogos"><img data-src="brand/seal-nblp" data-fb="none" alt=""><img data-src="brand/logo-nso" data-fb="none" alt=""><img data-src="brand/logo-gdcatalog" data-fb="none" alt=""></div><br>
-   <span class="tag">${ic('sparkles')}Nong Bua Lam Phu Well-Being Index</span>
+   <span class="tag">${ic('sparkles')}ดัชนีบัวบาน · Nong Bua Lam Phu Well-Being Index</span>
    <h2>ดัชนีความอยู่ดีมีสุข<br><span class="gt">จังหวัดหนองบัวลำภู</span></h2>
    <p>ติดตามคุณภาพชีวิตของคนหนองบัวลำภูครบ 7 มิติ จาก ${IND.length} ตัวชี้วัด ดึงข้อมูลสดจากระบบบัญชีข้อมูลจังหวัด ${Object.keys(RES).length} ชุดข้อมูลของหน่วยงานในพื้นที่</p>
    <div class="meta"><span>${ic('database')}${Object.keys(RAW).length} ชุดข้อมูลสด</span><span>${ic('calendar-range')}ข้อมูล พ.ศ. ${Math.min(...yrs)}–${Math.max(...yrs)}</span><span>${ic('map-pin')}6 อำเภอ</span></div>
@@ -1239,6 +1832,8 @@ function renderOverview(){const el=document.getElementById('p-overview');const l
     <div class="bar2"><i data-w="${d.score??0}"></i></div>
     <div class="ft"><span class="lv">${L.t}</span><span class="go">${d.n} ตัวชี้วัด ${ic('arrow-right')}</span></div></div></div>`}).join('')}</div></div>
 
+ ${autoInsightHTML()}
+ <a class="libcta" href="#ebook" data-go="ebook"><div class="lcb">${BOOKS.slice(0,4).map((B,k)=>`<span class="mb" style="--bc:${B.c};--k:${k}"><i data-bg="${B.img}"></i><b>${B.title}</b></span>`).join('')}</div><div class="lct"><small>ใหม่ · DIGITAL LIBRARY</small><b>ห้องสมุด E-book ${BOOKS.length} เล่ม เขียนตัวเองจากข้อมูลจริง</b><span>รายงานวิจัย บทสรุปผู้บริหาร ตัวเลขเล่าเรื่อง โปรไฟล์ 6 อำเภอ สมุดสถิติ และคู่มือ API · พลิกอ่านได้ · พิมพ์ PDF A4</span></div><span class="lcgo">เปิดห้องสมุด ${ic('arrow-right')}</span></a>
  <div class="sec">${secHead('ตัวเลขสำคัญของจังหวัด','ค่าล่าสุดและการเปลี่ยนแปลงจากปีก่อน')}
   <div class="kpis">${KP.map(([id,icn])=>{const i=IND.find(x=>x.id===id),c=dc(i.dimO),dl=delta(i);return`<div class="kpi" style="--c:${c}" data-ind="${id}"><div class="obj"><img data-src="icons/kpi-${id}" data-fb="${icn}" alt=""></div><div class="lb">${i.name.replace(/\s*\(.*\)/,'')}</div><div class="v">${i.last?(i.last.v>=1e5?fmtC(i.last.v):fmt(i.last.v,i.dec)):'–'}<small>${i.unit}</small></div><div class="ft">${i.last?'พ.ศ. '+i.last.y:''}${dl?`<span class="delta ${dl.cls}">${ic(dl.icon)}${dl.t}</span>`:''}</div></div>`}).join('')}</div></div>
 
@@ -1779,8 +2374,8 @@ const SEEN_KEY='nblwb-seen';
 const rel=d=>{if(!d)return'–';const t=new Date(d.endsWith&&!/Z|\+/.test(d)?d+'Z':d);const m=(Date.now()-t)/6e4;if(isNaN(m))return'–';if(m<60)return Math.max(1,Math.round(m))+' นาทีที่แล้ว';if(m<1440)return Math.round(m/60)+' ชั่วโมงที่แล้ว';if(m<43200)return Math.round(m/1440)+' วันที่แล้ว';if(m<525600)return Math.round(m/43200)+' เดือนที่แล้ว';return Math.round(m/525600)+' ปีที่แล้ว'};
 const pkgKeys=()=>{const g={};Object.entries(RES).forEach(([k,[rid,pkg]])=>{(g[pkg]=g[pkg]||[]).push(k)});return g};
 function freshOf(k){const L=IND.filter(i=>i.key===k&&i.last).map(i=>i.last.y);const y=L.length?Math.max(...L):Math.max(0,...years(recs(k)));const lag=NOW_BE-y;return{y,lag,cls:lag<=1?'fresh':lag===2?'aging':'stale',t:lag<=1?'ข้อมูลทันสมัย':lag===2?'ควรปรับปรุง':'ข้อมูลเก่า'}}
-async function pingAll(btn){if(PINGING)return;PINGING=true;btn&&btn.classList.add('spin');const ks=Object.keys(RES);ks.forEach(k=>PING[k]={st:'run'});drawRegistry();
- const q=[...ks];async function w(){while(q.length){const k=q.shift();const t0=performance.now();try{const r=await api('datastore_search',{resource_id:RES[k][0],limit:1});PING[k]={st:'ok',ms:Math.round(performance.now()-t0),n:r.total}}catch(e){PING[k]={st:'err',ms:null}}drawRegistry(k)}}
+async function pingAll(btn){if(PINGING)return;PINGING=true;ccLog('<b class="sc">▶ RUN</b> ตรวจการเชื่อมต่อ API ทั้งหมด '+Object.keys(RES).length+' ชุด');btn&&btn.classList.add('spin');const ks=Object.keys(RES);ks.forEach(k=>PING[k]={st:'run'});drawRegistry();
+ const q=[...ks];async function w(){while(q.length){const k=q.shift();const t0=performance.now();try{const r=await api('datastore_search',{resource_id:RES[k][0],limit:1});PING[k]={st:'ok',ms:Math.round(performance.now()-t0),n:r.total};ccLog(`<b class="ok">200 OK</b> ${esc(((META[RES[k][1]]||{}).title||RES[k][1]).slice(0,44))} <i>· ${PING[k].ms} ms · ${fmt(r.total)} ระเบียน</i>`);CCFX.burst(3)}catch(e){PING[k]={st:'err',ms:null};ccLog(`<b class="er">ERR</b> ${esc(RES[k][1])} <i>· เชื่อมต่อไม่สำเร็จ</i>`,'err')}drawRegistry(k)}}
  await Promise.all(Array.from({length:6},w));PINGING=false;LAST_CHECK=new Date();btn&&btn.classList.remove('spin');drawCC();toast(`ตรวจครบ ${ks.length} ชุดข้อมูล เชื่อมต่อได้ ${ks.filter(k=>PING[k].st==='ok').length} ชุด`)}
 async function loadCatStat(){try{const [a,b,c,d]=await Promise.all([api('package_search',{rows:0,'facet.field':'["organization"]','facet.limit':-1}),api('package_search',{rows:0,fq:'res_format:CSV'}),api('package_search',{rows:0,fq:'metadata_modified:[NOW-7DAYS TO NOW]'}),api('package_search',{rows:14,sort:'metadata_modified desc'})]);
  CAT_STAT={total:a.count,orgs:((a.search_facets.organization||{}).items||[]).length,csv:b.count,week:c.count};FEED=d.results}catch(e){CAT_STAT=CAT_STAT||{}}}
@@ -1791,7 +2386,7 @@ function updBadge(){const n=seenUpdates().length;const m=document.querySelector(
 let RFILT='all',RQ='';
 function renderSources(){const el=document.getElementById('p-sources');
  el.innerHTML=`<section class="cc">
-  <div class="ccgrid"></div><div class="ccglow"></div>
+  <div class="ccbg" data-bg="bg/cc-bg"></div><div class="ccgrid"></div><div class="ccglow"></div>
   <div class="cch"><div class="ccl"><span class="ccb"><img data-src="brand/seal-nblp" data-fb="none" alt=""></span><span class="ccx">×</span><span class="ccb"><img data-src="brand/logo-gdcatalog" data-fb="database" alt=""></span><div><b>จังหวัดหนองบัวลำภู</b><small>ระบบบัญชีข้อมูลจังหวัด · Government Data Catalog</small></div></div><span class="cclive"><i></i>LIVE</span></div>
   <div class="ccmain"><div>
    <div class="cct">DATA SOURCE CONTROL CENTER</div>
@@ -1801,6 +2396,7 @@ function renderSources(){const el=document.getElementById('p-sources');
    <div class="cclast" id="ccLast"></div></div>
    <div class="ccring"><div id="ccGauge"></div><div class="lb">ข้อมูลบนแดชบอร์ดที่ดึงจาก API</div></div></div>
   <div class="ccstats" id="ccStats"></div>
+  <div class="cclog"><div class="clh"><span><i></i><i></i><i></i></span>automation.log · ระบบตรวจข้อมูลอัตโนมัติ<em>● running</em></div><div id="ccLog"></div></div>
  </section>
  <div class="g" style="grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);margin-top:20px" id="ccRow1">
   <div class="card"><h4>${ic('layers')}ความครอบคลุม API รายมิติ</h4><div class="sub">ตัวชี้วัดที่มีข้อมูลจาก API ในแต่ละมิติ</div><div id="ccCov"></div></div>
@@ -1883,7 +2479,7 @@ function setStatus(f){const d=document.getElementById('stDot'),t=document.getEle
  document.getElementById('ftTime').textContent=LOADED_AT?'อัปเดตข้อมูล '+LOADED_AT.toLocaleString('th-TH',{dateStyle:'long',timeStyle:'short'}):''}
 function rebuild(){anReset();CHARTS.splice(0).forEach(c=>{try{c.dispose()}catch(e){}});RENDERED={};chartTheme();renderMenu();buildTicker();
  document.getElementById('pages').innerHTML=PAGES.map(p=>`<section class="page" id="p-${p.id}"></section>`).join('');go(CUR)}
-async function boot(){const fails=await loadAll();await loadTargets();OVERALL=compute();setStatus(fails);rebuild();hydrate();botInit();loadMeta().then(()=>{const f=document.getElementById('faq');if(f){f.innerHTML=faqHTML();lucide.createIcons()}});
+async function boot(){try{sideFx()}catch(e){}const fails=await loadAll();await loadTargets();OVERALL=compute();setStatus(fails);rebuild();hydrate();botInit();loadMeta().then(()=>{const f=document.getElementById('faq');if(f){f.innerHTML=faqHTML();lucide.createIcons()}});
  document.getElementById('loader').classList.add('out');
  if(SOURCE==='error')document.getElementById('p-overview').innerHTML=`<div class="card empty">ไม่สามารถเชื่อมต่อ API ระบบบัญชีข้อมูลจังหวัดได้ กรุณากด “รีเฟรชข้อมูล”</div>`}
 const themeIcon=()=>{document.getElementById('btnTheme').innerHTML=ic(isDark()?'sun':'moon');lucide.createIcons()};

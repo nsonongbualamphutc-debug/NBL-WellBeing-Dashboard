@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ec4899"/><stop offset=".55" stop-color="#be185d"/><stop offset="1" stop-color="#4c1d95"/></linearGradient>
+<linearGradient id="pt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#fce7f3"/></linearGradient>
+<linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#0d9488"/></linearGradient>
+</defs>
+<rect width="64" height="64" rx="15" fill="url(#bg)"/>
+<circle cx="50" cy="13" r="16" fill="#fff" opacity=".10"/>
+<rect x="23" y="23" width="5" height="12" rx="2" fill="url(#bar)"/>
+<rect x="29.5" y="17" width="5" height="18" rx="2" fill="url(#bar)"/>
+<rect x="36" y="12" width="5" height="23" rx="2" fill="url(#bar)"/>
+<path d="M32 50 C22 47 15 40 12 30 C20 31 27 36 32 44 C37 36 44 31 52 30 C49 40 42 47 32 50Z" fill="url(#pt)"/>
+<path d="M32 50 C27 44 26 37 32 30 C38 37 37 44 32 50Z" fill="#fff"/>
+<path d="M16 55 Q32 51 48 55" stroke="#5eead4" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+</svg>
