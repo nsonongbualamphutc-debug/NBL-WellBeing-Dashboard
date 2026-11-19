@@ -976,6 +976,12 @@ pre.code{background:#160b18;color:#fbe7f3;border-radius:14px;padding:16px 18px;f
 .ldbrand{font-family:'Prompt',sans-serif;font-weight:800;font-size:clamp(30px,4vw,44px);line-height:1.15;text-align:center;margin:10px 0 4px;background:linear-gradient(90deg,#db2777,#a855f7 50%,#0d9488);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:bshine 4s ease-in-out infinite}
 .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;background:linear-gradient(90deg,rgba(24,6,30,.66) 0%,rgba(24,6,30,.42) 32%,rgba(24,6,30,.08) 58%,transparent 72%),linear-gradient(0deg,rgba(24,6,30,.5) 0%,transparent 42%)}
 @media(max-width:700px){.hero::before{background:linear-gradient(180deg,rgba(24,6,30,.35) 0%,rgba(24,6,30,.55) 45%,rgba(24,6,30,.72) 100%)}}
+#loader .ldv{z-index:0}#loader::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(8,6,22,.42),rgba(8,6,22,.12) 60%,rgba(8,6,22,.55)),linear-gradient(0deg,rgba(8,6,22,.55),transparent 35%)}
+#loader .ld{z-index:2}
+#ldSkip{position:absolute;z-index:3;right:28px;bottom:26px;border:1px solid rgba(255,255,255,.35);background:rgba(10,8,24,.35);backdrop-filter:blur(10px);color:#fff;font:600 14px 'Prompt',sans-serif;padding:9px 18px;border-radius:999px;cursor:pointer;letter-spacing:.5px}
+#ldSkip:hover{background:rgba(255,255,255,.18)}#ldSkip span{font-size:18px;line-height:0;vertical-align:-1px}
+#loader:has(.ldv[style*="opacity: 1"]) .ld{background:rgba(12,8,28,.42);border-color:rgba(255,255,255,.18);color:#fff}
+#loader:has(.ldv[style*="opacity: 1"]) .ld h2,#loader:has(.ldv[style*="opacity: 1"]) .ld p{color:#fff}
 </style>
 </head>
 <body>
@@ -987,7 +993,7 @@ pre.code{background:#160b18;color:#fbe7f3;border-radius:14px;padding:16px 18px;f
  <g id="lotus"><path d="M100 30C120 60 122 100 100 140 78 100 80 60 100 30Z" fill="url(#lg1)"/><path d="M100 140C70 120 52 92 50 58 78 70 96 100 100 140Z" fill="url(#lg2)" opacity=".92"/><path d="M100 140C130 120 148 92 150 58 122 70 104 100 100 140Z" fill="url(#lg2)" opacity=".92"/><path d="M100 142C64 140 34 122 18 96 50 92 82 110 100 142Z" fill="url(#lg2)" opacity=".7"/><path d="M100 142C136 140 166 122 182 96 150 92 118 110 100 142Z" fill="url(#lg2)" opacity=".7"/><path d="M28 156C70 146 130 146 172 156 130 168 70 168 28 156Z" fill="url(#lg3)" opacity=".85"/></g>
 </defs></svg>
 
-<div id="loader"><video class="ldv" data-video="brand/intro" autoplay muted playsinline></video><div class="ld">
+<div id="loader"><video class="ldv" data-video="brand/intro-v2" autoplay muted playsinline></video><button id="ldSkip" hidden>ข้าม <span>›</span></button><div class="ld">
  <div class="lt"><img data-src="brand/logo-wellbeing" data-fb="lotus" alt=""></div>
  <div class="ldbrand">ลุ่มภูอยู่ดีมีสุข</div><h2>กำลังเชื่อมต่อระบบบัญชีข้อมูลจังหวัด</h2>
  <p id="ldTxt">nongbualamphu.gdcatalog.go.th</p>
@@ -2528,8 +2534,15 @@ function setStatus(f){const d=document.getElementById('stDot'),t=document.getEle
  document.getElementById('ftTime').textContent=LOADED_AT?'อัปเดตข้อมูล '+LOADED_AT.toLocaleString('th-TH',{dateStyle:'long',timeStyle:'short'}):''}
 function rebuild(){anReset();CHARTS.splice(0).forEach(c=>{try{c.dispose()}catch(e){}});RENDERED={};chartTheme();renderMenu();buildTicker();
  document.getElementById('pages').innerHTML=PAGES.map(p=>`<section class="page" id="p-${p.id}"></section>`).join('');go(CUR)}
+function introGate(){return new Promise(res=>{const v=document.querySelector('#loader .ldv');let first=true,rm=false;
+ try{first=!sessionStorage.getItem('nbl-intro');sessionStorage.setItem('nbl-intro','1');rm=matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){}
+ if(!v||!v.isConnected||!first||rm)return res();let done=false;const fin=()=>{if(done)return;done=true;res()};
+ const bar=document.getElementById('ldBar');if(bar)bar.style.width='100%';const tx=document.getElementById('ldTxt');if(tx)tx.textContent='ยินดีต้อนรับสู่ลุ่มภูอยู่ดีมีสุข';const h2=document.querySelector('#loader .ld h2');if(h2)h2.textContent='เชื่อมต่อระบบบัญชีข้อมูลจังหวัดสำเร็จ';
+ const sk=document.getElementById('ldSkip');if(sk){sk.hidden=false;sk.onclick=fin}
+ v.addEventListener('ended',fin);v.addEventListener('error',fin,true);
+ const MIN=6200,el=performance.now();setTimeout(()=>{if(!v.isConnected||v.readyState<2)fin()},1200);setTimeout(fin,Math.max(0,MIN-el));setTimeout(fin,9000)})}
 async function boot(){try{sideFx()}catch(e){}const fails=await loadAll();await loadTargets();OVERALL=compute();setStatus(fails);rebuild();hydrate();botInit();loadMeta().then(()=>{const f=document.getElementById('faq');if(f){f.innerHTML=faqHTML();lucide.createIcons()}});
- document.getElementById('loader').classList.add('out');
+ await introGate();document.getElementById('loader').classList.add('out');
  if(SOURCE==='error')document.getElementById('p-overview').innerHTML=`<div class="card empty">ไม่สามารถเชื่อมต่อ API ระบบบัญชีข้อมูลจังหวัดได้ กรุณากด “รีเฟรชข้อมูล”</div>`}
 const themeIcon=()=>{document.getElementById('btnTheme').innerHTML=ic(isDark()?'sun':'moon');lucide.createIcons()};
 document.getElementById('btnTheme').onclick=()=>{const t=isDark()?'light':'dark';document.documentElement.dataset.theme=t;try{localStorage.setItem('nblwb-theme',t)}catch(e){}themeIcon();setBodyBg();if(OVERALL!==null)rebuild()};
